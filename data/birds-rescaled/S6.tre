@@ -1,0 +1,167 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 77;
+	TAXLABELS
+		Phedina_borbonica
+		Riparia_cincta
+		Phedina_brazzae
+		Progne_tapera
+		Progne_subis
+		Progne_dominicensis
+		Progne_cryptoleuca
+		Progne_murphyi
+		Progne_modesta
+		Progne_chalybea
+		Progne_sinaloae
+		Progne_elegans
+		Stelgidopteryx_serripennis
+		Stelgidopteryx_ruficollis
+		Neochelidon_tibialis
+		Notiochelidon_pileata
+		Atticora_fasciata
+		Alopochelidon_fucata
+		Haplochelidon_andecola
+		Notiochelidon_murina
+		Notiochelidon_flavipes
+		Atticora_melanoleuca
+		Pygochelidon_cyanoleuca
+		Tachycineta_bicolor
+		Tachycineta_thalassina
+		Tachycineta_euchrysea
+		Tachycineta_cyaneoviridis
+		Tachycineta_leucorrhoa
+		Tachycineta_meyeni
+		Tachycineta_albiventer
+		Tachycineta_albilinea
+		Tachycineta_stolzmanni
+		Riparia_riparia
+		Riparia_paludicola
+		Pseudhirundo_griseopyga
+		Cheramoeca_leucosterna
+		Psalidoprocne_albiceps
+		Psalidoprocne_pristoptera
+		Psalidoprocne_fuliginosa
+		Psalidoprocne_obscura
+		Psalidoprocne_nitens
+		Hirundo_atrocaerulea
+		Hirundo_nigrorufa
+		Hirundo_neoxena
+		Hirundo_tahitica
+		Hirundo_smithii
+		Hirundo_nigrita
+		Hirundo_angolensis
+		Hirundo_lucida
+		Hirundo_aethiopica
+		Hirundo_rustica
+		Hirundo_albigularis
+		Hirundo_leucosoma
+		Hirundo_megaensis
+		Hirundo_cucullata
+		Hirundo_rupestris
+		Hirundo_concolor
+		Hirundo_fuligula
+		Delichon_urbicum
+		Delichon_nipalense
+		Delichon_dasypus
+		Hirundo_dimidiata
+		Petrochelidon_pyrrhonota
+		Petrochelidon_fulva
+		Hirundo_rufigula
+		Hirundo_preussi
+		Hirundo_spilodera
+		Hirundo_fluvicola
+		Hirundo_nigricans
+		Hirundo_ariel
+		Hirundo_semirufa
+		Petrochelidon_rufocollaris
+		Hirundo_abyssinica
+		Hirundo_striolata
+		Hirundo_daurica
+		Pseudochelidon_eurystomina
+		Eurochelidon_sirintarae
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Phedina_borbonica,
+		2	Riparia_cincta,
+		3	Phedina_brazzae,
+		4	Progne_tapera,
+		5	Progne_subis,
+		6	Progne_dominicensis,
+		7	Progne_cryptoleuca,
+		8	Progne_murphyi,
+		9	Progne_modesta,
+		10	Progne_chalybea,
+		11	Progne_sinaloae,
+		12	Progne_elegans,
+		13	Stelgidopteryx_serripennis,
+		14	Stelgidopteryx_ruficollis,
+		15	Neochelidon_tibialis,
+		16	Notiochelidon_pileata,
+		17	Atticora_fasciata,
+		18	Alopochelidon_fucata,
+		19	Haplochelidon_andecola,
+		20	Notiochelidon_murina,
+		21	Notiochelidon_flavipes,
+		22	Atticora_melanoleuca,
+		23	Pygochelidon_cyanoleuca,
+		24	Tachycineta_bicolor,
+		25	Tachycineta_thalassina,
+		26	Tachycineta_euchrysea,
+		27	Tachycineta_cyaneoviridis,
+		28	Tachycineta_leucorrhoa,
+		29	Tachycineta_meyeni,
+		30	Tachycineta_albiventer,
+		31	Tachycineta_albilinea,
+		32	Tachycineta_stolzmanni,
+		33	Riparia_riparia,
+		34	Riparia_paludicola,
+		35	Pseudhirundo_griseopyga,
+		36	Cheramoeca_leucosterna,
+		37	Psalidoprocne_albiceps,
+		38	Psalidoprocne_pristoptera,
+		39	Psalidoprocne_fuliginosa,
+		40	Psalidoprocne_obscura,
+		41	Psalidoprocne_nitens,
+		42	Hirundo_atrocaerulea,
+		43	Hirundo_nigrorufa,
+		44	Hirundo_neoxena,
+		45	Hirundo_tahitica,
+		46	Hirundo_smithii,
+		47	Hirundo_nigrita,
+		48	Hirundo_angolensis,
+		49	Hirundo_lucida,
+		50	Hirundo_aethiopica,
+		51	Hirundo_rustica,
+		52	Hirundo_albigularis,
+		53	Hirundo_leucosoma,
+		54	Hirundo_megaensis,
+		55	Hirundo_cucullata,
+		56	Hirundo_rupestris,
+		57	Hirundo_concolor,
+		58	Hirundo_fuligula,
+		59	Delichon_urbicum,
+		60	Delichon_nipalense,
+		61	Delichon_dasypus,
+		62	Hirundo_dimidiata,
+		63	Petrochelidon_pyrrhonota,
+		64	Petrochelidon_fulva,
+		65	Hirundo_rufigula,
+		66	Hirundo_preussi,
+		67	Hirundo_spilodera,
+		68	Hirundo_fluvicola,
+		69	Hirundo_nigricans,
+		70	Hirundo_ariel,
+		71	Hirundo_semirufa,
+		72	Petrochelidon_rufocollaris,
+		73	Hirundo_abyssinica,
+		74	Hirundo_striolata,
+		75	Hirundo_daurica,
+		76	Pseudochelidon_eurystomina,
+		77	Eurochelidon_sirintarae
+	;
+	TREE * UNTITLED = [&R] ((((1:14.48781668,(2:11.29208706,3:11.29208706):3.195729619):1.756064587,((((4:6.953618299,(5:3.979365306,((6:0.3977372801,7:0.3977372801):2.94958583,(((8:0.06647058364,9:0.06647058364):1.756885957,(10:1.198588453,11:1.198588453):0.624768087):0.8232602616,12:2.646616802):0.7007063075):0.6320421967):2.974252993):4.338269867,(13:3.344940745,14:3.344940745):7.946947421):1.569813141,(((15:4.207836096,16:4.207836096):2.573972116,17:6.781808212):4.274196666,((18:8.043831246,((19:2.971915348,20:2.971915348):3.479446169,21:6.451361517):1.592469728):1.310019873,(22:5.802276621,23:5.802276621):3.551574497):1.702153759):1.805696429):1.17728022,(((24:7.58556522,((25:5.568607763,26:5.568607763):0.963820283,27:6.532428046):1.053137174):1.226922914,((28:1.840500469,29:1.840500469):3.847038312,((30:2.411856739,31:2.411856739):1.76081554,32:4.172672279):1.514866502):3.124949353):4.513585161,(33:7.594387503,34:7.594387503):5.731685792):0.712908232):2.20489974):2.233611501,(((35:6.450824587,36:6.450824587):8.528209978,((37:1.510907683,((38:0.7808796401,39:0.7808796401):0.3505935898,40:1.13147323):0.3794344526):0.8032132452,41:2.314120928):12.66491364):2.735968363,((((42:3.107642019,43:3.107642019):4.686968856,(((44:2.555679452,45:2.555679452):3.737600892,((46:4.500732164,(47:3.390731736,((48:1.434053733,(49:0.8662987291,50:0.8662987291):0.5677550038):0.3867065742,51:1.820760307):1.569971429):1.110000428):0.5824357756,52:5.08316794):1.210112404):0.8014457327,(53:5.279116318,(54:3.12746746,55:3.12746746):2.151648858):1.815609759):0.699884798):6.190104057,(56:4.985463597,(57:3.992408346,58:3.992408346):0.9930552514):8.999251334):2.050936246,((59:6.368801667,(60:3.322229216,61:3.322229216):3.046572451):7.124938656,(((62:6.336227742,(63:3.03975164,64:3.03975164):3.296476103):2.947866473,((65:5.09608703,66:5.09608703):3.521980789,(67:7.609020291,((68:4.3678742,69:4.3678742):1.075390324,70:5.443264523):2.165755767):1.009047528):0.6660263973):1.63124166,((71:7.433866618,72:7.433866618):2.043832395,(73:4.468255842,(74:1.329060667,75:1.329060667):3.139195176):5.009443171):1.437636862):2.578404447):2.541910855):1.67935175):0.7624898403):4.65820281,(76:5.809874266,77:5.809874266):17.32582131);
+END;

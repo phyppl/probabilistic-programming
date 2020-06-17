@@ -1,0 +1,363 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 175;
+	TAXLABELS
+		Pandion_haliaetus
+		Kaupifalco_monogrammicus
+		Melierax_poliopterus
+		Melierax_canorus
+		Urotriorchis_macrourus
+		Accipiter_superciliosus
+		Melierax_gabar
+		Accipiter_tachiro
+		Accipiter_novaehollandiae
+		Accipiter_imitator
+		Accipiter_erythronemius
+		Accipiter_rufiventris
+		Accipiter_striatus
+		Accipiter_nisus
+		Accipiter_gentilis
+		Accipiter_cooperii
+		Accipiter_bicolor
+		Circus_cyaneus
+		Circus_cinereus
+		Circus_buffoni
+		Circus_ranivorus
+		Circus_aeruginosus
+		Accipiter_soloensis
+		Accipiter_gularis
+		Accipiter_virgatus
+		Accipiter_cirrocephalus
+		Harpagus_bidentatus
+		Haliaeetus_leucoryphus
+		Haliaeetus_albicilla
+		Haliaeetus_leucocephalus
+		Haliaeetus_pelagicus
+		Haliaeetus_leucogaster
+		Haliaeetus_sanfordi
+		Haliaeetus_vocifer
+		Haliaeetus_vociferoides
+		Ichthyophaga_humilis
+		Ichthyophaga_ichthyaetus
+		Milvus_migrans
+		Milvus_milvus
+		Haliastur_sphenurus
+		Haliastur_indus
+		Butastur_rufipennis
+		Butastur_indicus
+		Butastur_teesa
+		Ictinia_mississippiensis
+		Ictinia_plumbea
+		Leucopternis_plumbeus
+		Buteogallus_meridionalis
+		Buteogallus_urubitinga
+		Harpyhaliaetus_coronatus
+		Harpyhaliaetus_solitarius
+		Leucopternis_lacernulatus
+		Leucopternis_schistaceus
+		Buteogallus_aequinoctialis
+		Buteogallus_anthracinus
+		Buteo_magnirostris
+		Parabuteo_unicinctus
+		Buteo_leucorrhous
+		Leucopternis_occidentalis
+		Leucopternis_albicollis
+		Leucopternis_polionotus
+		Geranoaetus_melanoleucus
+		Buteo_polyosoma
+		Buteo_albicaudatus
+		Buteo_ridgwayi
+		Buteo_lineatus
+		Buteo_platypterus
+		Buteo_jamaicensis
+		Buteo_swainsoni
+		Buteo_galapagoensis
+		Buteo_brachyurus
+		Buteo_albigula
+		Buteo_solitarius
+		Buteo_albonotatus
+		Buteo_rufofuscus
+		Buteo_augur
+		Buteo_rufinus
+		Buteo_hemilasius
+		Buteo_buteo
+		Buteo_oreophilus
+		Buteo_lagopus
+		Buteo_regalis
+		Leucopternis_melanops
+		Leucopternis_kuhli
+		Leucopternis_semiplumbeus
+		Buteo_nitidus
+		Leucopternis_princeps
+		Rostrhamus_sociabilis
+		Busarellus_nigricollis
+		Geranospiza_caerulescens
+		Accipiter_trivirgatus
+		Harpyopsis_novaeguineae
+		Morphnus_guianensis
+		Harpia_harpyja
+		Macheiramphus_alcinus
+		Lophotriorchis_kienerii
+		Polemaetus_bellicosus
+		Aquila_wahlbergi
+		Hieraaetus_ayresii
+		Hieraaetus_pennatus
+		Hieraaetus_weiskei
+		Hieraaetus_morphnoides
+		Aquila_verreauxii
+		Aquila_fasciatus
+		Hieraaetus_spilogaster
+		Aquila_audax
+		Aquila_gurneyi
+		Aquila_chrysaetos
+		Aquila_africanus
+		Aquila_nipalensis
+		Aquila_rapax
+		Aquila_adalberti
+		Aquila_heliaca
+		Aquila_pomarina
+		Aquila_clanga
+		Aquila_hastata
+		Ictinaetus_malayensis
+		Lophaetus_occipitalis
+		Spizaetus_isidori
+		Spizaetus_ornatus
+		Spizaetus_melanoleucus
+		Spizaetus_tyrannus
+		Nisaetus_nipalensis
+		Nisaetus_alboniger
+		Nisaetus_bartelsi
+		Nisaetus_nanus
+		Nisaetus_lanceolatus
+		Nisaetus_cirrhatus
+		Nisaetus_philippensis
+		Stephanoaetus_coronatus
+		Sarcogyps_calvus
+		Trigonoceps_occipitalis
+		Torgos_tracheliotos
+		Aegypius_monachus
+		Necrosyrtes_monachus
+		Gyps_africanus
+		Gyps_himalayensis
+		Gyps_tenuirostris
+		Gyps_indicus
+		Gyps_coprotheres
+		Gyps_fulvus
+		Gyps_rueppellii
+		Gyps_bengalensis
+		Spilornis_elgini
+		Spilornis_holospilus
+		Spilornis_cheela
+		Spilornis_rufipectus
+		Pithecophaga_jefferyi
+		Circaetus_cinerascens
+		Circaetus_fasciolatus
+		Dryotriorchis_spectabilis
+		Circaetus_cinereus
+		Circaetus_gallicus
+		Circaetus_pectoralis
+		Terathopius_ecaudatus
+		Leptodon_cayanensis
+		Chondrohierax_uncinatus
+		Chondrohierax_wilsonii
+		Aviceda_cuculoides
+		Eutriorchis_astur
+		Aviceda_subcristata
+		Lophoictinia_isura
+		Henicopernis_longicauda
+		Hamirostra_melanosternon
+		Pernis_celebensis
+		Pernis_apivorus
+		Pernis_ptilorhyncus
+		Elanoides_forficatus
+		Polyboroides_typus
+		Gypaetus_barbatus
+		Neophron_percnopterus
+		Gypohierax_angolensis
+		Gampsonyx_swainsonii
+		Elanus_caeruleus
+		Elanus_leucurus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Pandion_haliaetus,
+		2	Kaupifalco_monogrammicus,
+		3	Melierax_poliopterus,
+		4	Melierax_canorus,
+		5	Urotriorchis_macrourus,
+		6	Accipiter_superciliosus,
+		7	Melierax_gabar,
+		8	Accipiter_tachiro,
+		9	Accipiter_novaehollandiae,
+		10	Accipiter_imitator,
+		11	Accipiter_erythronemius,
+		12	Accipiter_rufiventris,
+		13	Accipiter_striatus,
+		14	Accipiter_nisus,
+		15	Accipiter_gentilis,
+		16	Accipiter_cooperii,
+		17	Accipiter_bicolor,
+		18	Circus_cyaneus,
+		19	Circus_cinereus,
+		20	Circus_buffoni,
+		21	Circus_ranivorus,
+		22	Circus_aeruginosus,
+		23	Accipiter_soloensis,
+		24	Accipiter_gularis,
+		25	Accipiter_virgatus,
+		26	Accipiter_cirrocephalus,
+		27	Harpagus_bidentatus,
+		28	Haliaeetus_leucoryphus,
+		29	Haliaeetus_albicilla,
+		30	Haliaeetus_leucocephalus,
+		31	Haliaeetus_pelagicus,
+		32	Haliaeetus_leucogaster,
+		33	Haliaeetus_sanfordi,
+		34	Haliaeetus_vocifer,
+		35	Haliaeetus_vociferoides,
+		36	Ichthyophaga_humilis,
+		37	Ichthyophaga_ichthyaetus,
+		38	Milvus_migrans,
+		39	Milvus_milvus,
+		40	Haliastur_sphenurus,
+		41	Haliastur_indus,
+		42	Butastur_rufipennis,
+		43	Butastur_indicus,
+		44	Butastur_teesa,
+		45	Ictinia_mississippiensis,
+		46	Ictinia_plumbea,
+		47	Leucopternis_plumbeus,
+		48	Buteogallus_meridionalis,
+		49	Buteogallus_urubitinga,
+		50	Harpyhaliaetus_coronatus,
+		51	Harpyhaliaetus_solitarius,
+		52	Leucopternis_lacernulatus,
+		53	Leucopternis_schistaceus,
+		54	Buteogallus_aequinoctialis,
+		55	Buteogallus_anthracinus,
+		56	Buteo_magnirostris,
+		57	Parabuteo_unicinctus,
+		58	Buteo_leucorrhous,
+		59	Leucopternis_occidentalis,
+		60	Leucopternis_albicollis,
+		61	Leucopternis_polionotus,
+		62	Geranoaetus_melanoleucus,
+		63	Buteo_polyosoma,
+		64	Buteo_albicaudatus,
+		65	Buteo_ridgwayi,
+		66	Buteo_lineatus,
+		67	Buteo_platypterus,
+		68	Buteo_jamaicensis,
+		69	Buteo_swainsoni,
+		70	Buteo_galapagoensis,
+		71	Buteo_brachyurus,
+		72	Buteo_albigula,
+		73	Buteo_solitarius,
+		74	Buteo_albonotatus,
+		75	Buteo_rufofuscus,
+		76	Buteo_augur,
+		77	Buteo_rufinus,
+		78	Buteo_hemilasius,
+		79	Buteo_buteo,
+		80	Buteo_oreophilus,
+		81	Buteo_lagopus,
+		82	Buteo_regalis,
+		83	Leucopternis_melanops,
+		84	Leucopternis_kuhli,
+		85	Leucopternis_semiplumbeus,
+		86	Buteo_nitidus,
+		87	Leucopternis_princeps,
+		88	Rostrhamus_sociabilis,
+		89	Busarellus_nigricollis,
+		90	Geranospiza_caerulescens,
+		91	Accipiter_trivirgatus,
+		92	Harpyopsis_novaeguineae,
+		93	Morphnus_guianensis,
+		94	Harpia_harpyja,
+		95	Macheiramphus_alcinus,
+		96	Lophotriorchis_kienerii,
+		97	Polemaetus_bellicosus,
+		98	Aquila_wahlbergi,
+		99	Hieraaetus_ayresii,
+		100	Hieraaetus_pennatus,
+		101	Hieraaetus_weiskei,
+		102	Hieraaetus_morphnoides,
+		103	Aquila_verreauxii,
+		104	Aquila_fasciatus,
+		105	Hieraaetus_spilogaster,
+		106	Aquila_audax,
+		107	Aquila_gurneyi,
+		108	Aquila_chrysaetos,
+		109	Aquila_africanus,
+		110	Aquila_nipalensis,
+		111	Aquila_rapax,
+		112	Aquila_adalberti,
+		113	Aquila_heliaca,
+		114	Aquila_pomarina,
+		115	Aquila_clanga,
+		116	Aquila_hastata,
+		117	Ictinaetus_malayensis,
+		118	Lophaetus_occipitalis,
+		119	Spizaetus_isidori,
+		120	Spizaetus_ornatus,
+		121	Spizaetus_melanoleucus,
+		122	Spizaetus_tyrannus,
+		123	Nisaetus_nipalensis,
+		124	Nisaetus_alboniger,
+		125	Nisaetus_bartelsi,
+		126	Nisaetus_nanus,
+		127	Nisaetus_lanceolatus,
+		128	Nisaetus_cirrhatus,
+		129	Nisaetus_philippensis,
+		130	Stephanoaetus_coronatus,
+		131	Sarcogyps_calvus,
+		132	Trigonoceps_occipitalis,
+		133	Torgos_tracheliotos,
+		134	Aegypius_monachus,
+		135	Necrosyrtes_monachus,
+		136	Gyps_africanus,
+		137	Gyps_himalayensis,
+		138	Gyps_tenuirostris,
+		139	Gyps_indicus,
+		140	Gyps_coprotheres,
+		141	Gyps_fulvus,
+		142	Gyps_rueppellii,
+		143	Gyps_bengalensis,
+		144	Spilornis_elgini,
+		145	Spilornis_holospilus,
+		146	Spilornis_cheela,
+		147	Spilornis_rufipectus,
+		148	Pithecophaga_jefferyi,
+		149	Circaetus_cinerascens,
+		150	Circaetus_fasciolatus,
+		151	Dryotriorchis_spectabilis,
+		152	Circaetus_cinereus,
+		153	Circaetus_gallicus,
+		154	Circaetus_pectoralis,
+		155	Terathopius_ecaudatus,
+		156	Leptodon_cayanensis,
+		157	Chondrohierax_uncinatus,
+		158	Chondrohierax_wilsonii,
+		159	Aviceda_cuculoides,
+		160	Eutriorchis_astur,
+		161	Aviceda_subcristata,
+		162	Lophoictinia_isura,
+		163	Henicopernis_longicauda,
+		164	Hamirostra_melanosternon,
+		165	Pernis_celebensis,
+		166	Pernis_apivorus,
+		167	Pernis_ptilorhyncus,
+		168	Elanoides_forficatus,
+		169	Polyboroides_typus,
+		170	Gypaetus_barbatus,
+		171	Neophron_percnopterus,
+		172	Gypohierax_angolensis,
+		173	Gampsonyx_swainsonii,
+		174	Elanus_caeruleus,
+		175	Elanus_leucurus
+	;
+	TREE * UNTITLED = [&R] (1:59.59004006,(((((((2:26.7886023,(((3:3.103448629,4:3.103448629):13.29821303,5:16.40166166):3.080231993,(6:7.118068177,7:7.118068177):12.36382547):7.306708645):1.790684693,(((((8:15.91602491,(9:2.371585679,10:2.371585679):13.54443923):3.101383384,((11:4.296372677,(12:3.841607465,13:3.841607465):0.454765212):2.139465051,14:6.435837728):12.58157057):3.316425518,((15:13.31352304,(16:4.232259224,17:4.232259224):9.081263821):7.088844803,((18:1.420733054,19:1.420733054):9.323318511,(20:7.405940459,(21:0.9176963616,22:0.9176963616):6.488244097):3.338111106):9.658316283):1.931465967):3.410707549,(23:14.95084666,((24:0.1415523643,25:0.1415523643):4.125146204,26:4.266698569):10.68414809):10.79369471):2.083090292,(27:25.89710439,((((28:8.775061835,((29:2.26160124,30:2.26160124):5.586876577,31:7.848477817):0.926584018):6.512186752,((32:0.3046133888,33:0.3046133888):13.55180311,((34:2.121669476,35:2.121669476):10.81615837,(36:7.419744665,37:7.419744665):5.518083185):0.9185886446):1.430832092):4.661469564,((38:1.709366826,39:1.709366826):9.747368363,(40:5.866234434,41:5.866234434):5.590500755):8.491982962):3.359352906,((42:7.079963187,(43:5.085446608,44:5.085446608):1.994516579):13.49091754,((45:5.120136249,46:5.120136249):12.78509006,((((47:11.58598923,((48:6.179336158,(49:4.390063218,(50:1.276380561,51:1.276380561):3.113682657):1.789272941):1.14870844,(52:6.793197995,(53:5.434604167,(54:1.07630357,55:1.07630357):4.358300597):1.358593828):0.5348466041):4.25794463):2.922869578,(((56:11.27204571,(57:8.770669021,58:8.770669021):2.501376686):1.362275854,((59:5.310081725,(60:2.710923979,61:2.710923979):2.599157747):3.976131528,(((62:2.657441445,63:2.657441445):3.073418742,64:5.730860187):3.027112818,(((65:2.813829841,66:2.813829841):3.308196348,(67:5.537561795,(68:4.199126878,(((((69:0.3675057463,70:0.3675057463):0.7512834858,71:1.118789232):0.4596773827,72:1.578466615):0.8872589786,73:2.465725593):1.410384116,(74:3.478031317,(((75:0.2839453673,76:0.2839453673):1.411823076,((77:0.3785319876,78:0.3785319876):0.5441488187,(79:0.3005411423,80:0.3005411423):0.6221396639):0.773087637):0.7682551674,(81:1.722078976,82:1.722078976):0.7419446341):1.014007707):0.3980783926):0.3230171686):1.338434917):0.5844643939):0.9020809931,(((83:1.758006836,84:1.758006836):2.825888834,85:4.583895669):1.553456966,86:6.137352635):0.8867545474):1.733865823):0.528240248):3.348108308):0.7818247419,87:13.4161463):1.092712504):1.2042568,88:15.71311561):1.312223186,(89:15.67497384,90:15.67497384):1.350364954):0.8798875157):2.665654414):2.737190334):2.589033337):1.930527261):0.7516553346):1.080306184,91:29.65959317):2.788144649,(((92:25.81142166,(93:19.48999738,94:19.48999738):6.321424286):1.664097012,95:27.47551867):3.509558511,(((96:14.87587891,(97:12.25380253,(((98:8.256722426,(99:6.013437725,((100:1.693104935,101:1.693104935):0.5575235849,102:2.25062852):3.762809205):2.243284701):1.445228785,(((((103:4.653318802,(104:2.014229554,105:2.014229554):2.639089248):0.6611259599,(106:3.168995685,107:3.168995685):2.145449076):1.82551969,108:7.139964452):0.7094495651,109:7.849414017):1.091904553,(110:3.942147959,(111:2.392237167,(112:1.671420916,113:1.671420916):0.7208162515):1.549910792):4.999170611):0.7606326409):1.23513778,((((114:2.045310649,115:2.045310649):1.617461706,116:3.662772355):1.695985171,117:5.358757526):1.636660542,118:6.995418068):3.941670923):1.316713537):2.622076382):2.732744288,(((119:6.050690282,120:6.050690282):2.709728017,121:8.760418299):4.340515531,122:13.10093383):4.507689368):2.287275006,((((123:4.278075576,(124:1.801821627,125:1.801821627):2.476253949):4.519882393,126:8.797957969):4.604041518,(127:8.21742281,(128:4.486394579,129:4.486394579):3.731028231):5.184576677):4.961900488,130:18.36389998):1.531998229):11.08917898):1.462660637):1.639719136,(((131:13.05679688,(132:7.704039821,(133:4.265297901,134:4.265297901):3.43874192):5.352757055):2.212807591,(135:12.85920217,(136:3.758506024,((137:2.207237574,((138:0.9602073554,(139:0.8074190116,140:0.8074190116):0.1527883438):0.395769496,(141:1.014767686,142:1.014767686):0.3412091657):0.8512607231):0.6377361898,143:2.844973764):0.9135322598):9.100696144):2.4104023):14.96108162,((144:12.93572085,((145:3.528082063,146:3.528082063):1.435477843,147:4.963559906):7.97216094):12.53380503,(148:24.17950171,(((149:3.827957778,150:3.827957778):13.52236438,(151:15.58327451,((152:6.467908411,153:6.467908411):3.431451625,154:9.899360036):5.683914473):1.767047646):4.018069991,155:21.36839215):2.811109563):1.290024167):4.761160209):3.856770873):7.238712436,(((((156:15.45821604,(157:1.478606527,158:1.478606527):13.97960951):9.301087729,159:24.75930377):6.620800196,160:31.38010396):2.780532848,((161:25.86523434,((162:9.011262707,163:9.011262707):3.767211704,164:12.77847441):13.08675993):4.043263269,(((165:4.532536252,166:4.532536252):2.306387537,167:6.83892379):21.233294,168:28.07221779):1.836279812):4.252139203):1.63010097,(169:32.60571234,((170:24.9229696,171:24.9229696):5.56772697,172:30.49069657):2.115015777):3.185025435):5.535431615):13.35195325,(173:32.56815735,(174:8.206528528,175:8.206528528):24.36162883):22.10996529):4.911917419);
+END;

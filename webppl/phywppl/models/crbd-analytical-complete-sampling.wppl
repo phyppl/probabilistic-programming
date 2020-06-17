@@ -1,0 +1,91 @@
+/**
+ * LnLikelihood: Compute the log likelihood of a tree (wrapper function),
+ * dealing correctly with both stalked and non-stalked trees, using the
+ * recursive function lnLike to do the brunt of the work. Correct for
+ * the condition that the observed tree is drawn from surviving trees,
+ * in the case of a non-stalked tree from surviving trees with a speciation
+ * event at the root (most recent common ancestor). Also convert the
+ * density to a density on labelled unoriented trees.
+ */
+var exactCRBDLikelihoodComplete = function( tree, lambda, mu )
+{
+    /** Propagator function G-hat according to Nicolas's notation
+     *
+     * @param t
+     * @param lambda
+     * @param mu
+     * @return the log value
+     **/ 
+    var lnGhat = function( t, lambda, mu )
+    {
+	var   r = lambda - mu
+	var eRT = Math.exp( - r * t )
+	var f   = Math.log( lambda - mu * eRT )
+	
+	return ( - r * t - 2.0 * f )
+    }
+    
+    /** Compute likelihood of oriented tree recursively for specific lambda
+     * and mu. We use the fact that various terms cancel, so the equations
+     * may not look familiar. Proper node-branch-wise computation would,
+     * for each branch, use
+     *
+     *   lnGhat( t, lambda, mu ) - lnGhat( t_anc, lambda, mu )
+     *
+     * and for each internal node
+     *
+     *   log( lambda )
+     *
+     * However, we simply subtract the leaf terms when we encounter leaves,
+     * and use the fact that all interior node terms occur twice, one of
+     * which is canceled by its ancestor. This leaves a correction for the
+     * most recent common ancestor of an unstalked tree, which is dealt
+     * with in the wrapper function below, which also makes sure that
+     * the recursive function is not called with a stalked tree, and that
+     * we convert the density on oriented trees to a density on labelled
+     * trees without orientation.
+     */
+    var lnLike = function( tree, lambda, mu )
+    {
+	if ( tree.type == 'leaf' )
+            return ( 2.0 * Math.log( lambda - mu ) )
+	
+	var lnLikeLeft  = lnLike( tree.left,  lambda, mu )
+	var lnLikeRight = lnLike( tree.right, lambda, mu )
+	
+	return ( lnLikeLeft + lnLikeRight + lnGhat( tree.age, lambda, mu ) + Math.log( lambda ) )
+    }
+    
+    
+    // Compute correction factor from oriented to labelled unoriented trees
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+
+    // Stalked tree
+    if ( !tree.right )
+    {
+        // Stalked tree, unconditional likelihood
+        var lnL = lnGhat( tree.age, lambda, mu ) + lnLike( tree.left, lambda, mu )
+
+        // Condition on survival from time of origin (tree.age)
+        var   r = lambda - mu
+        var eRT = Math.exp( - r * tree.age )
+        var lnLCondOriented = lnL - ( Math.log( lambda - mu ) - Math.log( lambda - mu*eRT ) )
+
+        return lnLCondOriented + corrFactor
+    }
+    else
+    {
+        // Non-stalked tree, unconditional likelihood
+        var lnL = lnGhat( tree.age, lambda, mu ) + lnLike( tree, lambda, mu )
+
+        // Condition on mrca speciation and survival from time of mrca speciation (tree.age)
+        var   r = lambda - mu
+        var eRT = Math.exp( - r * tree.age )
+        var lnLCondOriented = lnL - Math.log( lambda ) - 2.0 * ( Math.log( lambda - mu ) - Math.log( lambda - mu*eRT ) )
+
+        return lnLCondOriented + corrFactor
+
+    }
+}
+

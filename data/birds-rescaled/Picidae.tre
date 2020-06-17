@@ -1,0 +1,287 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 137;
+	TAXLABELS
+		Jynx_torquilla
+		Picumnus_nebulosus
+		Picumnus_temminckii
+		Picumnus_spilogaster
+		Picumnus_cirratus
+		Picumnus_rufiventris
+		Picumnus_exilis
+		Picumnus_aurifrons
+		Picumnus_innominatus
+		Sasia_abnormis
+		Sasia_ochracea
+		Sasia_africana
+		Hemicircus_canente
+		Nesoctites_micromegas
+		Melanerpes_erythrocephalus
+		Melanerpes_herminieri
+		Melanerpes_lewis
+		Melanerpes_candidus
+		Melanerpes_formicivorus
+		Melanerpes_cactorum
+		Melanerpes_flavifrons
+		Melanerpes_aurifrons
+		Melanerpes_carolinus
+		Melanerpes_uropygialis
+		Melanerpes_pygmaeus
+		Melanerpes_pucherani
+		Melanerpes_striatus
+		Sphyrapicus_thyroideus
+		Sphyrapicus_varius
+		Sphyrapicus_ruber
+		Sphyrapicus_nuchalis
+		Xiphidiopicus_percussus
+		Thripias_pyrrhogaster
+		Mesopicos_goertae
+		Mesopicos_griseocephalus
+		Mesopicos_elliotii
+		Dendropicos_fuscescens
+		Dendrocopos_mahrattensis
+		Dendrocopos_medius
+		Dendrocopos_hyperythrus
+		Dendrocopos_major
+		Dendrocopos_syriacus
+		Dendrocopos_leucotos
+		Dendrocopos_noguchii
+		Dendrocopos_macei
+		Picoides_scalaris
+		Picoides_nuttallii
+		Picoides_pubescens
+		Dendrocopos_minor
+		Picoides_borealis
+		Picoides_fumigatus
+		Picoides_villosus
+		Picoides_albolarvatus
+		Picoides_stricklandi
+		Picoides_arizonae
+		Veniliornis_chocoensis
+		Veniliornis_spilogaster
+		Veniliornis_lignarius
+		Veniliornis_mixtus
+		Veniliornis_kirkii
+		Veniliornis_cassini
+		Veniliornis_callonotus
+		Veniliornis_dignus
+		Veniliornis_nigriceps
+		Veniliornis_affinis
+		Veniliornis_frontalis
+		Veniliornis_passerinus
+		Dendrocopos_moluccensis
+		Dendrocopos_maculatus
+		Dendrocopos_canicapillus
+		Dendrocopos_kizuki
+		Picoides_arcticus
+		Picoides_dorsalis
+		Picoides_tridactylus
+		Dinopium_shorii
+		Dinopium_javanense
+		Gecinulus_grantia
+		Celeus_brachyurus
+		Meiglyptes_tukki
+		Meiglyptes_tristis
+		Geocolaptes_olivaceus
+		Campethera_caroli
+		Campethera_nivosa
+		Campethera_cailliautii
+		Picus_flavinucha
+		Picus_mentalis
+		Picus_mineaceus
+		Picus_puniceus
+		Picus_chlorolophus
+		Picus_viridis
+		Picus_vaillantii
+		Picus_canus
+		Picus_erythropygius
+		Picus_viridanus
+		Picus_vittatus
+		Picus_xanthopygaeus
+		Picus_rabieri
+		Picus_awokera
+		Colaptes_fernandinae
+		Colaptes_auratus
+		Colaptes_auricularis
+		Colaptes_rubiginosus
+		Colaptes_atricollis
+		Colaptes_punctigula
+		Colaptes_campestris
+		Colaptes_rupicola
+		Colaptes_pitius
+		Colaptes_rivolii
+		Colaptes_melanochloros
+		Piculus_flavigula
+		Piculus_leucolaemus
+		Piculus_chrysochloros
+		Dryocopus_martius
+		Dryocopus_lineatus
+		Dryocopus_pileatus
+		Mulleripicus_funebris
+		Celeus_flavus
+		Celeus_loricatus
+		Celeus_flavescens
+		Celeus_elegans
+		Celeus_lugubris
+		Celeus_spectabilis
+		Celeus_grammicus
+		Blythipicus_rubiginosus
+		Blythipicus_pyrrhotis
+		Campephilus_imperialis
+		Campephilus_principalis
+		Campephilus_magellanicus
+		Campephilus_leucopogon
+		Campephilus_rubricollis
+		Campephilus_pollens
+		Campephilus_gayaquilensis
+		Campephilus_melanoleucos
+		Campephilus_guatemalensis
+		Campephilus_haematogaster
+		Chrysocolaptes_lucidus
+		Reinwardtipicus_validus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Jynx_torquilla,
+		2	Picumnus_nebulosus,
+		3	Picumnus_temminckii,
+		4	Picumnus_spilogaster,
+		5	Picumnus_cirratus,
+		6	Picumnus_rufiventris,
+		7	Picumnus_exilis,
+		8	Picumnus_aurifrons,
+		9	Picumnus_innominatus,
+		10	Sasia_abnormis,
+		11	Sasia_ochracea,
+		12	Sasia_africana,
+		13	Hemicircus_canente,
+		14	Nesoctites_micromegas,
+		15	Melanerpes_erythrocephalus,
+		16	Melanerpes_herminieri,
+		17	Melanerpes_lewis,
+		18	Melanerpes_candidus,
+		19	Melanerpes_formicivorus,
+		20	Melanerpes_cactorum,
+		21	Melanerpes_flavifrons,
+		22	Melanerpes_aurifrons,
+		23	Melanerpes_carolinus,
+		24	Melanerpes_uropygialis,
+		25	Melanerpes_pygmaeus,
+		26	Melanerpes_pucherani,
+		27	Melanerpes_striatus,
+		28	Sphyrapicus_thyroideus,
+		29	Sphyrapicus_varius,
+		30	Sphyrapicus_ruber,
+		31	Sphyrapicus_nuchalis,
+		32	Xiphidiopicus_percussus,
+		33	Thripias_pyrrhogaster,
+		34	Mesopicos_goertae,
+		35	Mesopicos_griseocephalus,
+		36	Mesopicos_elliotii,
+		37	Dendropicos_fuscescens,
+		38	Dendrocopos_mahrattensis,
+		39	Dendrocopos_medius,
+		40	Dendrocopos_hyperythrus,
+		41	Dendrocopos_major,
+		42	Dendrocopos_syriacus,
+		43	Dendrocopos_leucotos,
+		44	Dendrocopos_noguchii,
+		45	Dendrocopos_macei,
+		46	Picoides_scalaris,
+		47	Picoides_nuttallii,
+		48	Picoides_pubescens,
+		49	Dendrocopos_minor,
+		50	Picoides_borealis,
+		51	Picoides_fumigatus,
+		52	Picoides_villosus,
+		53	Picoides_albolarvatus,
+		54	Picoides_stricklandi,
+		55	Picoides_arizonae,
+		56	Veniliornis_chocoensis,
+		57	Veniliornis_spilogaster,
+		58	Veniliornis_lignarius,
+		59	Veniliornis_mixtus,
+		60	Veniliornis_kirkii,
+		61	Veniliornis_cassini,
+		62	Veniliornis_callonotus,
+		63	Veniliornis_dignus,
+		64	Veniliornis_nigriceps,
+		65	Veniliornis_affinis,
+		66	Veniliornis_frontalis,
+		67	Veniliornis_passerinus,
+		68	Dendrocopos_moluccensis,
+		69	Dendrocopos_maculatus,
+		70	Dendrocopos_canicapillus,
+		71	Dendrocopos_kizuki,
+		72	Picoides_arcticus,
+		73	Picoides_dorsalis,
+		74	Picoides_tridactylus,
+		75	Dinopium_shorii,
+		76	Dinopium_javanense,
+		77	Gecinulus_grantia,
+		78	Celeus_brachyurus,
+		79	Meiglyptes_tukki,
+		80	Meiglyptes_tristis,
+		81	Geocolaptes_olivaceus,
+		82	Campethera_caroli,
+		83	Campethera_nivosa,
+		84	Campethera_cailliautii,
+		85	Picus_flavinucha,
+		86	Picus_mentalis,
+		87	Picus_mineaceus,
+		88	Picus_puniceus,
+		89	Picus_chlorolophus,
+		90	Picus_viridis,
+		91	Picus_vaillantii,
+		92	Picus_canus,
+		93	Picus_erythropygius,
+		94	Picus_viridanus,
+		95	Picus_vittatus,
+		96	Picus_xanthopygaeus,
+		97	Picus_rabieri,
+		98	Picus_awokera,
+		99	Colaptes_fernandinae,
+		100	Colaptes_auratus,
+		101	Colaptes_auricularis,
+		102	Colaptes_rubiginosus,
+		103	Colaptes_atricollis,
+		104	Colaptes_punctigula,
+		105	Colaptes_campestris,
+		106	Colaptes_rupicola,
+		107	Colaptes_pitius,
+		108	Colaptes_rivolii,
+		109	Colaptes_melanochloros,
+		110	Piculus_flavigula,
+		111	Piculus_leucolaemus,
+		112	Piculus_chrysochloros,
+		113	Dryocopus_martius,
+		114	Dryocopus_lineatus,
+		115	Dryocopus_pileatus,
+		116	Mulleripicus_funebris,
+		117	Celeus_flavus,
+		118	Celeus_loricatus,
+		119	Celeus_flavescens,
+		120	Celeus_elegans,
+		121	Celeus_lugubris,
+		122	Celeus_spectabilis,
+		123	Celeus_grammicus,
+		124	Blythipicus_rubiginosus,
+		125	Blythipicus_pyrrhotis,
+		126	Campephilus_imperialis,
+		127	Campephilus_principalis,
+		128	Campephilus_magellanicus,
+		129	Campephilus_leucopogon,
+		130	Campephilus_rubricollis,
+		131	Campephilus_pollens,
+		132	Campephilus_gayaquilensis,
+		133	Campephilus_melanoleucos,
+		134	Campephilus_guatemalensis,
+		135	Campephilus_haematogaster,
+		136	Chrysocolaptes_lucidus,
+		137	Reinwardtipicus_validus
+	;
+	TREE * UNTITLED = [&R] (1:27.07031792,((((2:9.066404266,((((3:0.5160738771,4:0.5160738771):0.6536146832,5:1.16968856):3.078600294,6:4.248288854):0.6575157577,(7:3.205726867,8:3.205726867):1.700077745):4.160599654):3.532260689,9:12.59866496):8.977593013,((10:6.721190633,11:6.721190633):3.909677653,12:10.63086829):10.94538968):1.986931521,((13:16.48012827,14:16.48012827):2.120259079,((((((((15:2.72088951,16:2.72088951):5.444209159,17:8.165098669):1.288370573,(18:7.097327358,(19:5.349769573,20:5.349769573):1.747557785):2.356141885):1.452854349,((21:5.700517195,(((22:2.681066164,23:2.681066164):1.247800604,24:3.928866768):1.002970406,25:4.931837175):0.76868002):0.6867293703,26:6.387246565):4.519077026):2.548675939,(27:12.49670943,(28:6.385883884,(29:1.228735603,(30:0.246909247,31:0.246909247):0.9818263556):5.157148281):6.110825549):0.9582900979):1.430930897,32:14.88593043):0.6896388386,(((((33:6.395159074,(34:3.850658363,35:3.850658363):2.544500711):1.152641157,(36:5.160589227,37:5.160589227):2.387211005):1.660093517,(38:7.180753392,39:7.180753392):2.027140357):2.019440255,((40:6.701972479,(((41:1.591532335,42:1.591532335):0.9730179968,(43:1.667524699,44:1.667524699):0.8970256324):2.203091025,45:4.767641357):1.934331122):3.826924648,(((46:1.001538831,47:1.001538831):4.924977908,(48:4.764584199,49:4.764584199):1.16193254):2.858727895,((50:6.4953189,(51:4.245256193,(52:2.990610605,(53:2.437098331,(54:0.7381987819,55:0.7381987819):1.698899549):0.5535122747):1.254645588):2.250062708):1.009268198,(56:5.570749454,(((57:2.643833242,(58:0.8747503445,59:0.8747503445):1.769082897):1.164818099,(60:3.287129458,61:3.287129458):0.5215218826):0.5513703752,(((62:1.828763068,63:1.828763068):0.6288072669,(64:1.894142717,65:1.894142717):0.5634276181):0.7849177835,(66:0.4129914091,67:0.4129914091):2.82949671):1.117533597):1.210727738):1.933837644):1.280657535):1.743652494):0.6984368764):2.047986655,((((68:0.002239953676,69:0.002239953676):3.090174166,70:3.09241412):2.498008603,71:5.590422723):5.4352228,(72:8.384114963,(73:2.065204438,74:2.065204438):6.318910525):2.64153056):2.249675136):2.300248607):1.021407636,((((((75:4.481528325,76:4.481528325):3.529276291,77:8.010804616):1.516705048,(78:7.41878605,(79:3.525063883,80:3.525063883):3.893722167):2.108723615):1.448986005,(81:7.424527399,((82:3.2010672,83:3.2010672):3.251562392,84:6.452629593):0.9718978066):3.551968271):0.7184117737,((((85:4.077700078,86:4.077700078):2.17069921,87:6.248399288):3.449507163,(((88:1.95170601,89:1.95170601):3.997158488,(((90:2.486368796,91:2.486368796):1.194267506,(92:2.680342544,93:2.680342544):1.000293759):0.9155245178,((94:1.490974336,95:1.490974336):1.711771338,(96:2.60085142,97:2.60085142):0.6018942542):1.393415146):1.352703678):1.801074094,98:7.749938592):1.947967859):1.277920635,(((99:6.0637785,(100:5.448781669,((101:2.657230808,(102:1.656740466,103:1.656740466):1.000490342):1.856536798,((104:2.079650515,105:2.079650515):2.030279911,((106:2.684818601,107:2.684818601):1.028766136,(108:3.054497255,109:3.054497255):0.6590874821):0.3963456885):0.40383718):0.9350140632):0.6149968311):2.613820492,((110:4.507685932,111:4.507685932):1.052648969,112:5.560334901):3.117264091):1.015433774,(((113:6.645261013,(114:2.98259927,115:2.98259927):3.662661743):0.9033437431,116:7.548604756):1.526835548,((117:4.647327428,118:4.647327428):0.8751803118,((119:1.026696106,(120:0.300851577,121:0.300851577):0.7258445291):3.161306725,(122:3.264019594,123:3.264019594):0.9239832372):1.334504908):3.552932565):0.6175924618):1.282794319):0.7190803581):3.375403117,((124:5.651681581,125:5.651681581):6.686104542,(((((126:1.051177354,127:1.051177354):0.5381192515,128:1.589296605):3.176510489,((129:2.863283159,130:2.863283159):0.9136823007,((131:2.778493668,(132:1.967568596,133:1.967568596):0.8109250721):0.3755076611,134:3.154001329):0.6229641306):0.9888416351):1.458863515,135:6.224670609):4.777035699,(136:6.750494501,137:6.750494501):4.251211808):1.336079814):2.732524438):1.526666342):2.003410448):4.96280214):3.507128433);
+END;

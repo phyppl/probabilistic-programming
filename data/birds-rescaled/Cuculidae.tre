@@ -1,0 +1,265 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 126;
+	TAXLABELS
+		Pachycoccyx_audeberti
+		Ceuthmochares_aereus
+		Coccycua_minuta
+		Coccycua_cinerea
+		Coccycua_pumila
+		Coccyzus_lansbergi
+		Coccyzus_pluvialis
+		Coccyzus_rufigularis
+		Coccyzus_merlini
+		Coccyzus_longirostris
+		Coccyzus_vieilloti
+		Coccyzus_vetula
+		Coccyzus_minor
+		Coccyzus_ferrugineus
+		Piaya_cayana
+		Coccyzus_erythropthalmus
+		Coccyzus_melacoryphus
+		Coccyzus_americanus
+		Coccyzus_euleri
+		Piaya_melanogaster
+		Clamator_coromandus
+		Clamator_glandarius
+		Clamator_jacobinus
+		Clamator_levaillantii
+		Phaenicophaeus_leschenaultii
+		Phaenicophaeus_javanicus
+		Phaenicophaeus_curvirostris
+		Phaenicophaeus_tristis
+		Phaenicophaeus_diardi
+		Phaenicophaeus_viridirostris
+		Phaenicophaeus_sumatranus
+		Phaenicophaeus_pyrrhocephalus
+		Phaenicophaeus_cumingi
+		Phaenicophaeus_superciliosus
+		Phaenicophaeus_calyorhynchus
+		Eudynamys_taitensis
+		Rhamphomantis_megarhynchus
+		Chrysococcyx_meyeri
+		Chrysococcyx_minutillus
+		Chrysococcyx_lucidus
+		Chrysococcyx_basalis
+		Chrysococcyx_osculans
+		Chrysococcyx_maculatus
+		Chrysococcyx_xanthorhynchus
+		Chrysococcyx_klaas
+		Chrysococcyx_caprius
+		Chrysococcyx_flavigularis
+		Chrysococcyx_cupreus
+		Cuculus_clamosus
+		Cuculus_crassirostris
+		Cuculus_poliocephalus
+		Cuculus_micropterus
+		Cuculus_canorus
+		Cuculus_saturatus
+		Cuculus_vagans
+		Cuculus_rochii
+		Cuculus_gularis
+		Cuculus_solitarius
+		Cuculus_fugax
+		Cuculus_sparverioides
+		Cuculus_varius
+		Cercococcyx_olivinus
+		Cercococcyx_montanus
+		Cercococcyx_mechowi
+		Surniculus_lugubris
+		Surniculus_velutinus
+		Cuculus_pallidus
+		Cacomantis_sonneratii
+		Cacomantis_merulinus
+		Cacomantis_variolosus
+		Cacomantis_castaneiventris
+		Cacomantis_flabelliformis
+		Eudynamys_scolopaceus
+		Microdynamis_parva
+		Scythrops_novaehollandiae
+		Phaenicophaeus_chlorophaeus
+		Carpococcyx_renauldi
+		Coua_cristata
+		Coua_verreauxi
+		Coua_caerulea
+		Coua_reynaudii
+		Coua_cursor
+		Coua_coquereli
+		Coua_serriana
+		Coua_gigas
+		Coua_ruficeps
+		Centropus_milo
+		Centropus_chalybeus
+		Centropus_menbeki
+		Centropus_ateralbus
+		Centropus_unirufus
+		Centropus_chlororhynchus
+		Centropus_monachus
+		Centropus_cupreicaudus
+		Centropus_superciliosus
+		Centropus_senegalensis
+		Centropus_anselli
+		Centropus_leucogaster
+		Centropus_toulou
+		Centropus_violaceus
+		Centropus_bernsteini
+		Centropus_phasianinus
+		Centropus_goliath
+		Centropus_bengalensis
+		Centropus_viridis
+		Centropus_grillii
+		Centropus_sinensis
+		Centropus_nigrorufus
+		Centropus_celebensis
+		Centropus_melanops
+		Centropus_steerii
+		Centropus_rectunguis
+		Guira_guira
+		Crotophaga_ani
+		Crotophaga_sulcirostris
+		Crotophaga_major
+		Dromococcyx_phasianellus
+		Dromococcyx_pavoninus
+		Tapera_naevia
+		Morococcyx_erythropygus
+		Geococcyx_californianus
+		Geococcyx_velox
+		Neomorphus_radiolosus
+		Neomorphus_geoffroyi
+		Neomorphus_pucheranii
+		Neomorphus_rufipennis
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Pachycoccyx_audeberti,
+		2	Ceuthmochares_aereus,
+		3	Coccycua_minuta,
+		4	Coccycua_cinerea,
+		5	Coccycua_pumila,
+		6	Coccyzus_lansbergi,
+		7	Coccyzus_pluvialis,
+		8	Coccyzus_rufigularis,
+		9	Coccyzus_merlini,
+		10	Coccyzus_longirostris,
+		11	Coccyzus_vieilloti,
+		12	Coccyzus_vetula,
+		13	Coccyzus_minor,
+		14	Coccyzus_ferrugineus,
+		15	Piaya_cayana,
+		16	Coccyzus_erythropthalmus,
+		17	Coccyzus_melacoryphus,
+		18	Coccyzus_americanus,
+		19	Coccyzus_euleri,
+		20	Piaya_melanogaster,
+		21	Clamator_coromandus,
+		22	Clamator_glandarius,
+		23	Clamator_jacobinus,
+		24	Clamator_levaillantii,
+		25	Phaenicophaeus_leschenaultii,
+		26	Phaenicophaeus_javanicus,
+		27	Phaenicophaeus_curvirostris,
+		28	Phaenicophaeus_tristis,
+		29	Phaenicophaeus_diardi,
+		30	Phaenicophaeus_viridirostris,
+		31	Phaenicophaeus_sumatranus,
+		32	Phaenicophaeus_pyrrhocephalus,
+		33	Phaenicophaeus_cumingi,
+		34	Phaenicophaeus_superciliosus,
+		35	Phaenicophaeus_calyorhynchus,
+		36	Eudynamys_taitensis,
+		37	Rhamphomantis_megarhynchus,
+		38	Chrysococcyx_meyeri,
+		39	Chrysococcyx_minutillus,
+		40	Chrysococcyx_lucidus,
+		41	Chrysococcyx_basalis,
+		42	Chrysococcyx_osculans,
+		43	Chrysococcyx_maculatus,
+		44	Chrysococcyx_xanthorhynchus,
+		45	Chrysococcyx_klaas,
+		46	Chrysococcyx_caprius,
+		47	Chrysococcyx_flavigularis,
+		48	Chrysococcyx_cupreus,
+		49	Cuculus_clamosus,
+		50	Cuculus_crassirostris,
+		51	Cuculus_poliocephalus,
+		52	Cuculus_micropterus,
+		53	Cuculus_canorus,
+		54	Cuculus_saturatus,
+		55	Cuculus_vagans,
+		56	Cuculus_rochii,
+		57	Cuculus_gularis,
+		58	Cuculus_solitarius,
+		59	Cuculus_fugax,
+		60	Cuculus_sparverioides,
+		61	Cuculus_varius,
+		62	Cercococcyx_olivinus,
+		63	Cercococcyx_montanus,
+		64	Cercococcyx_mechowi,
+		65	Surniculus_lugubris,
+		66	Surniculus_velutinus,
+		67	Cuculus_pallidus,
+		68	Cacomantis_sonneratii,
+		69	Cacomantis_merulinus,
+		70	Cacomantis_variolosus,
+		71	Cacomantis_castaneiventris,
+		72	Cacomantis_flabelliformis,
+		73	Eudynamys_scolopaceus,
+		74	Microdynamis_parva,
+		75	Scythrops_novaehollandiae,
+		76	Phaenicophaeus_chlorophaeus,
+		77	Carpococcyx_renauldi,
+		78	Coua_cristata,
+		79	Coua_verreauxi,
+		80	Coua_caerulea,
+		81	Coua_reynaudii,
+		82	Coua_cursor,
+		83	Coua_coquereli,
+		84	Coua_serriana,
+		85	Coua_gigas,
+		86	Coua_ruficeps,
+		87	Centropus_milo,
+		88	Centropus_chalybeus,
+		89	Centropus_menbeki,
+		90	Centropus_ateralbus,
+		91	Centropus_unirufus,
+		92	Centropus_chlororhynchus,
+		93	Centropus_monachus,
+		94	Centropus_cupreicaudus,
+		95	Centropus_superciliosus,
+		96	Centropus_senegalensis,
+		97	Centropus_anselli,
+		98	Centropus_leucogaster,
+		99	Centropus_toulou,
+		100	Centropus_violaceus,
+		101	Centropus_bernsteini,
+		102	Centropus_phasianinus,
+		103	Centropus_goliath,
+		104	Centropus_bengalensis,
+		105	Centropus_viridis,
+		106	Centropus_grillii,
+		107	Centropus_sinensis,
+		108	Centropus_nigrorufus,
+		109	Centropus_celebensis,
+		110	Centropus_melanops,
+		111	Centropus_steerii,
+		112	Centropus_rectunguis,
+		113	Guira_guira,
+		114	Crotophaga_ani,
+		115	Crotophaga_sulcirostris,
+		116	Crotophaga_major,
+		117	Dromococcyx_phasianellus,
+		118	Dromococcyx_pavoninus,
+		119	Tapera_naevia,
+		120	Morococcyx_erythropygus,
+		121	Geococcyx_californianus,
+		122	Geococcyx_velox,
+		123	Neomorphus_radiolosus,
+		124	Neomorphus_geoffroyi,
+		125	Neomorphus_pucheranii,
+		126	Neomorphus_rufipennis
+	;
+	TREE * UNTITLED = [&R] ((((((1:44.74528013,(2:41.40460407,(((3:24.96477341,(4:2.633124049,5:2.633124049):22.33164936):5.411214647,((((6:10.86206454,((7:4.312719568,8:4.312719568):4.729281988,((9:4.855725108,(10:2.748343501,11:2.748343501):2.107381607):1.50301329,12:6.358738398):2.683263158):1.820062979):1.808515474,((13:0.7236094413,14:0.7236094413):7.483503632,15:8.207113073):4.463466936):4.869290168,(16:14.51663812,(17:7.065438999,(18:2.561058093,19:2.561058093):4.504380906):7.45119912):3.023232058):9.118759748,20:26.65862993):3.717358129):3.087705041,((21:20.91215735,(22:17.33003567,(23:3.635130061,24:3.635130061):13.69490561):3.582121684):9.445634343,(((25:17.03794151,26:17.03794151):3.444811472,(27:13.45940461,(((28:5.477195026,29:5.477195026):1.218230091,30:6.695425117):3.358618819,(31:8.122248944,32:8.122248944):1.931794992):3.405360677):7.02334837):6.872544776,((33:14.56054528,34:14.56054528):8.988375854,35:23.54892113):3.806376629):3.002493935):3.105901403):7.940910975):3.340676061):2.22739895,((36:36.87430818,((37:27.18803124,((((38:4.561416693,39:4.561416693):3.46568338,(40:0.7689362083,41:0.7689362083):7.258163864):6.129544776,42:14.15664485):10.86727345,((43:9.364631908,44:9.364631908):13.45194058,((45:2.015893593,46:2.015893593):12.21255007,(47:6.530245919,48:6.530245919):7.698197741):8.588128824):2.207345811):2.164112949):6.481073168,((((49:15.27574382,(((50:5.456307487,51:5.456307487):2.816201959,(52:5.87893113,((53:1.916784928,(54:1.405720601,55:1.405720601):0.5110643273):1.727713274,(56:2.489323908,57:2.489323908):1.155174294):2.234432928):2.393578316):2.207159169,58:10.47966862):4.796075204):3.733233013,(59:10.94811903,(60:2.061401915,61:2.061401915):8.886717119):8.060857798):2.52590176,(((62:3.610438696,63:3.610438696):7.829955351,64:11.44039405):6.434840521,(65:1.272193546,66:1.272193546):16.60304102):3.659644025):4.677160515,(67:20.12321532,((68:13.71995188,(69:1.745608622,70:1.745608622):11.97434325):1.960210059,(71:7.118927893,72:7.118927893):8.561234042):4.443053381):6.088823791):7.457065303):3.205203764):2.517144597,((73:20.1104582,74:20.1104582):12.88158352,75:32.99204173):6.399411045):7.581226309):7.027477703,76:54.00015678):4.561016255,(77:40.1816907,(((78:9.548156843,79:9.548156843):3.344968512,80:12.89312536):9.642968543,(((81:10.82477238,(82:1.916999302,83:1.916999302):8.90777308):1.614446919,(84:6.246103912,85:6.246103912):6.193115389):6.440180643,86:18.87939994):3.656693954):17.6455968):18.37948234):3.011208324,((87:12.43167848,((88:3.6706713,89:3.6706713):3.739061595,90:7.409732895):5.021945583):16.46656975,(((91:17.43759615,92:17.43759615):2.718028167,(((((93:7.502778959,(94:4.798727663,95:4.798727663):2.704051296):2.766223178,96:10.26900214):1.57511853,(97:4.632091004,98:4.632091004):7.212029662):3.6601391,(((99:9.434992768,((100:7.424374179,(101:5.4365534,102:5.4365534):1.987820779):1.12394091,103:8.548315089):0.8866776791):1.396932114,((104:5.174684905,105:5.174684905):1.817505105,106:6.99219001):3.839734872):2.65395096,(107:7.392094967,108:7.392094967):6.093780876):2.018383924):1.502859372,109:17.00711914):3.148505176):1.789982845,(110:13.82047118,(111:9.988655944,112:9.988655944):3.831815236):8.125135979):6.952641072):32.67413313):5.072296662,((113:32.71514799,((114:12.23853642,115:12.23853642):8.754234778,116:20.9927712):11.72237679):23.96294299,(((117:14.12763894,118:14.12763894):23.84757615,119:37.97521509):11.43984018,(120:35.25979006,((121:12.72654532,122:12.72654532):13.81271103,((123:7.805176739,124:7.805176739):4.636076164,(125:8.176154672,126:8.176154672):4.265098231):14.09800345):8.720533701):14.15526522):7.263035709):9.96658704);
+END;

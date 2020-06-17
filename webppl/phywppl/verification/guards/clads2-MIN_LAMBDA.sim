@@ -1,0 +1,28 @@
+{
+    "label" : "clads2-MIN_LAMBDA",
+    "description" : "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+    	"MAX_DIV"  :  5,
+	"MIN_LAMBDA": [1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e-0],
+	"MAX_LAMBDA" : 5,
+	"PANDA" : false
+    },
+    "parameters" : {
+	"tree"     : [
+	    "phyjs.read_phyjson('../../data/bisse_32.phyjson')"
+	],
+
+	"lambda_0" : "exponential( { a: 1 } )",
+	"epsilon"  : "uniform( { a:0.0, b:1.0 } )",
+	"alpha"    : "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",	
+	"sigma"    : "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",	
+	"rho"      : 1  
+    },
+    "model" : "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference" : {
+    	"particles" : 1000,
+	"method" : "SMC",
+	"likelihood": true
+    }
+}
+

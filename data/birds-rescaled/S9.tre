@@ -1,0 +1,203 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 95;
+	TAXLABELS
+		Bernieria_zosterops
+		Bernieria_apperti
+		Bernieria_cinereiceps
+		Bernieria_tenebrosa
+		Bernieria_madagascariensis
+		Setornis_criniger
+		Alophoixus_pallidus
+		Alophoixus_ochraceus
+		Alophoixus_bres
+		Alophoixus_phaeocephalus
+		Ixos_amaurotis
+		Hypsipetes_crassirostris
+		Hypsipetes_parvirostris
+		Hypsipetes_leucocephalus
+		Hypsipetes_borbonicus
+		Hypsipetes_madagascariensis
+		Hypsipetes_olivaceus
+		Ixos_philippinus
+		Ixos_siquijorensis
+		Ixos_rufigularis
+		Ixos_everetti
+		Hemixos_flavala
+		Hemixos_castanonotus
+		Ixos_malaccensis
+		Hypsipetes_mcclellandii
+		Ixos_palawanensis
+		Iole_olivacea
+		Iole_propinqua
+		Tricholestes_criniger
+		Pycnonotus_atriceps
+		Pycnonotus_urostictus
+		Pycnonotus_melanoleucos
+		Pycnonotus_eutilotus
+		Pycnonotus_flavescens
+		Pycnonotus_taivanus
+		Pycnonotus_sinensis
+		Pycnonotus_xanthorrhous
+		Pycnonotus_barbatus
+		Pycnonotus_nigricans
+		Pycnonotus_leucogenys
+		Pycnonotus_capensis
+		Pycnonotus_jocosus
+		Pycnonotus_goiavier
+		Pycnonotus_zeylanicus
+		Pycnonotus_finlaysoni
+		Pycnonotus_simplex
+		Pycnonotus_plumosus
+		Pycnonotus_brunneus
+		Spizixos_semitorques
+		Pycnonotus_erythropthalmos
+		Pycnonotus_melanicterus
+		Pycnonotus_squamatus
+		Pycnonotus_cyaniventris
+		Calyptocichla_serina
+		Andropadus_gracilirostris
+		Andropadus_importunus
+		Bleda_syndactylus
+		Bleda_notatus
+		Bleda_canicapillus
+		Bleda_eximius
+		Chlorocichla_flavicollis
+		Ixonotus_guttatus
+		Thescelocichla_leucopleura
+		Baeopogon_indicator
+		Baeopogon_clamans
+		Chlorocichla_flaviventris
+		Andropadus_montanus
+		Andropadus_masukuensis
+		Andropadus_tephrolaemus
+		Andropadus_nigriceps
+		Andropadus_milanjensis
+		Criniger_barbatus
+		Criniger_chloronotus
+		Criniger_calurus
+		Criniger_ndussumensis
+		Andropadus_curvirostris
+		Andropadus_ansorgei
+		Andropadus_gracilis
+		Andropadus_latirostris
+		Andropadus_virens
+		Phyllastrephus_flavostriatus
+		Phyllastrephus_hypochloris
+		Pyrrhurus_scandens
+		Phyllastrephus_lorenzi
+		Phyllastrephus_poensis
+		Phyllastrephus_strepitans
+		Phyllastrephus_fischeri
+		Phyllastrephus_cabanisi
+		Phyllastrephus_cerviniventris
+		Phyllastrephus_terrestris
+		Phyllastrephus_icterinus
+		Phyllastrephus_xavieri
+		Phyllastrephus_albigularis
+		Phyllastrephus_debilis
+		Neolestes_torquatus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Bernieria_zosterops,
+		2	Bernieria_apperti,
+		3	Bernieria_cinereiceps,
+		4	Bernieria_tenebrosa,
+		5	Bernieria_madagascariensis,
+		6	Setornis_criniger,
+		7	Alophoixus_pallidus,
+		8	Alophoixus_ochraceus,
+		9	Alophoixus_bres,
+		10	Alophoixus_phaeocephalus,
+		11	Ixos_amaurotis,
+		12	Hypsipetes_crassirostris,
+		13	Hypsipetes_parvirostris,
+		14	Hypsipetes_leucocephalus,
+		15	Hypsipetes_borbonicus,
+		16	Hypsipetes_madagascariensis,
+		17	Hypsipetes_olivaceus,
+		18	Ixos_philippinus,
+		19	Ixos_siquijorensis,
+		20	Ixos_rufigularis,
+		21	Ixos_everetti,
+		22	Hemixos_flavala,
+		23	Hemixos_castanonotus,
+		24	Ixos_malaccensis,
+		25	Hypsipetes_mcclellandii,
+		26	Ixos_palawanensis,
+		27	Iole_olivacea,
+		28	Iole_propinqua,
+		29	Tricholestes_criniger,
+		30	Pycnonotus_atriceps,
+		31	Pycnonotus_urostictus,
+		32	Pycnonotus_melanoleucos,
+		33	Pycnonotus_eutilotus,
+		34	Pycnonotus_flavescens,
+		35	Pycnonotus_taivanus,
+		36	Pycnonotus_sinensis,
+		37	Pycnonotus_xanthorrhous,
+		38	Pycnonotus_barbatus,
+		39	Pycnonotus_nigricans,
+		40	Pycnonotus_leucogenys,
+		41	Pycnonotus_capensis,
+		42	Pycnonotus_jocosus,
+		43	Pycnonotus_goiavier,
+		44	Pycnonotus_zeylanicus,
+		45	Pycnonotus_finlaysoni,
+		46	Pycnonotus_simplex,
+		47	Pycnonotus_plumosus,
+		48	Pycnonotus_brunneus,
+		49	Spizixos_semitorques,
+		50	Pycnonotus_erythropthalmos,
+		51	Pycnonotus_melanicterus,
+		52	Pycnonotus_squamatus,
+		53	Pycnonotus_cyaniventris,
+		54	Calyptocichla_serina,
+		55	Andropadus_gracilirostris,
+		56	Andropadus_importunus,
+		57	Bleda_syndactylus,
+		58	Bleda_notatus,
+		59	Bleda_canicapillus,
+		60	Bleda_eximius,
+		61	Chlorocichla_flavicollis,
+		62	Ixonotus_guttatus,
+		63	Thescelocichla_leucopleura,
+		64	Baeopogon_indicator,
+		65	Baeopogon_clamans,
+		66	Chlorocichla_flaviventris,
+		67	Andropadus_montanus,
+		68	Andropadus_masukuensis,
+		69	Andropadus_tephrolaemus,
+		70	Andropadus_nigriceps,
+		71	Andropadus_milanjensis,
+		72	Criniger_barbatus,
+		73	Criniger_chloronotus,
+		74	Criniger_calurus,
+		75	Criniger_ndussumensis,
+		76	Andropadus_curvirostris,
+		77	Andropadus_ansorgei,
+		78	Andropadus_gracilis,
+		79	Andropadus_latirostris,
+		80	Andropadus_virens,
+		81	Phyllastrephus_flavostriatus,
+		82	Phyllastrephus_hypochloris,
+		83	Pyrrhurus_scandens,
+		84	Phyllastrephus_lorenzi,
+		85	Phyllastrephus_poensis,
+		86	Phyllastrephus_strepitans,
+		87	Phyllastrephus_fischeri,
+		88	Phyllastrephus_cabanisi,
+		89	Phyllastrephus_cerviniventris,
+		90	Phyllastrephus_terrestris,
+		91	Phyllastrephus_icterinus,
+		92	Phyllastrephus_xavieri,
+		93	Phyllastrephus_albigularis,
+		94	Phyllastrephus_debilis,
+		95	Neolestes_torquatus
+	;
+	TREE * UNTITLED = [&R] ((((1:9.017323943,(2:4.496664295,3:4.496664295):4.520659648):4.953448219,4:13.97077216):3.113362426,5:17.08413459):12.30021772,(((((6:18.88498489,(((7:5.367464409,8:5.367464409):2.51036541,9:7.877829819):7.13528127,10:15.01311109):3.871873805):1.490124475,((((11:6.20862685,((12:2.502985184,(13:1.731583434,14:1.731583434):0.7714017502):0.6275009686,(15:2.130273098,(16:1.334128891,17:1.334128891):0.7961442069):1.000213055):3.078140698):2.239697043,((18:5.885104568,19:5.885104568):1.571926577,(20:4.990595378,21:4.990595378):2.466435767):0.9912927481):5.949968981,((22:4.450112069,23:4.450112069):8.723652419,(24:10.10087345,25:10.10087345):3.07289104):1.224528386):2.869038763,(26:11.56200735,(27:9.225015696,28:9.225015696):2.336991649):5.705324291):3.107777732):1.459998831,29:21.8351082):2.086555866,(((30:8.767868961,31:8.767868961):5.609582578,(32:10.41017803,33:10.41017803):3.967273507):6.927043325,((((34:11.12298735,(((35:0.2005168109,36:0.2005168109):3.374223282,37:3.574740093):4.27193495,(((38:1.928694796,39:1.928694796):1.296068757,(40:1.489356117,41:1.489356117):1.735407436):3.620062759,(42:6.086028955,43:6.086028955):0.7587973568):1.001848731):3.276312305):1.393812019,((44:7.162164909,45:7.162164909):4.485229148,(46:8.910011994,(47:5.348432192,48:5.348432192):3.561579802):2.737382063):0.8694053099):2.171778182,49:14.68857755):1.122356902,((50:10.41073756,51:10.41073756):1.566419147,(52:8.997682483,53:8.997682483):2.979474226):3.833777741):5.493560414):2.617169203):2.49256726,(((54:8.165487187,55:8.165487187):8.416719571,56:16.58220676):6.415367128,((((57:11.08826683,((58:1.296495616,59:1.296495616):6.294916745,60:7.591412361):3.496854465):7.725585272,(((61:11.02310868,(62:8.699519173,63:8.699519173):2.323589509):3.945441458,((64:7.311688178,65:7.311688178):5.194378063,66:12.50606624):2.4624839):1.178768668,(67:13.09862958,(((68:7.442889307,69:7.442889307):1.900684394,70:9.343573701):1.834397382,71:11.17797108):1.920658498):3.048689226):2.666533291):1.332698932,((((72:0.1626252869,73:0.1626252869):10.28198973,(74:0.8610842,75:0.8610842):9.583530816):7.419013369,((76:7.825471876,(77:3.874858092,78:3.874858092):3.950613784):7.260963645,(79:10.90057551,80:10.90057551):4.185860014):2.777192864):1.144407775,((((81:8.247756323,82:8.247756323):1.146234087,(83:7.267554425,84:7.267554425):2.126435985):2.21218088,(((85:6.104855371,86:6.104855371):1.285925193,((87:3.621701502,88:3.621701502):1.0310881,89:4.652789602):2.737990961):2.041287717,90:9.432068281):2.174103009):1.669725552,((91:6.904550425,(92:3.39337291,93:3.39337291):3.511177515):4.504076498,94:11.40862692):1.867269919):5.732139318):1.138514871):1.568594018,95:21.71514505):1.282428838):3.416657439):2.970120985);
+END;

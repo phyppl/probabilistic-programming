@@ -1,0 +1,2322 @@
+[
+  {
+    "label": "bamm-1",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.05,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-1.wppl 10",
+    "output": "-157.0849760869726\n-157.01033017038475\n-157.06768402044145\n-157.0457956531074\n-157.08588214426192\n-156.99545557934889\n-157.00934916463441\n-157.05116674094475\n-156.95530329079963\n-157.08856184086324\n"
+  },
+  {
+    "label": "bamm-2",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.05,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-2.wppl 10",
+    "output": "-157.38090105292278\n-157.40211175881186\n-157.37232611888223\n-157.37061766459067\n-157.42691552032392\n-157.41757548618733\n-157.3556239764318\n-157.40008361706407\n-157.42387863317217\n-157.37627403249974\n"
+  },
+  {
+    "label": "bamm-3",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.05,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-3.wppl 10",
+    "output": "-158.94981862180558\n-158.8637521407288\n-158.9116932575666\n-158.9440581318452\n-158.92099090031527\n-158.95078612972213\n-158.87761940400952\n-158.98889159791972\n-158.88104662363745\n-158.89490553408058\n"
+  },
+  {
+    "label": "bamm-4",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.05,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-4.wppl 10",
+    "output": "-160.5465016622605\n-160.48818909069837\n-160.52176429426433\n-160.50987432480275\n-160.54391654075968\n-160.4868379034584\n-160.4845269869784\n-160.5968012867394\n-160.46582450688672\n-160.49494603287906\n"
+  },
+  {
+    "label": "bamm-5",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-5.wppl 10",
+    "output": "-143.2119055269928\n-143.37580003831417\n-143.2963331057974\n-143.36792307421632\n-143.40477902696776\n-143.3095827729128\n-143.35981413932817\n-143.3168273128516\n-143.36762806381032\n-143.2720444593472\n"
+  },
+  {
+    "label": "bamm-6",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-6.wppl 10",
+    "output": "-143.81132376534867\n-143.8517805827961\n-143.74164144508794\n-143.79473421723563\n-143.7517430997605\n-143.7881967713611\n-143.7834813052893\n-143.74215331768747\n-143.81234627155712\n-143.72656833115906\n"
+  },
+  {
+    "label": "bamm-7",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-7.wppl 10",
+    "output": "-145.5625588990753\n-145.6922009057603\n-145.77805617917883\n-145.6023747130209\n-145.68085426446308\n-145.76660882531476\n-145.6939662257283\n-145.68909904684563\n-145.76440275127246\n-145.65171295227776\n"
+  },
+  {
+    "label": "bamm-8",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.1,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-8.wppl 10",
+    "output": "-147.9233983241601\n-148.03479482770757\n-148.02300889460366\n-148.08230464805078\n-147.99470232714503\n-147.90442434619473\n-148.02383729373278\n-148.07211376535892\n-147.9629227754548\n-147.9530050630074\n"
+  },
+  {
+    "label": "bamm-9",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.15,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-9.wppl 10",
+    "output": "-138.3946543851991\n-138.31831628625986\n-138.18627897819107\n-138.18359252814489\n-138.2016896807592\n-138.23485000380072\n-138.2652831286145\n-138.23258908235948\n-138.18597118543204\n-138.27119198624857\n"
+  },
+  {
+    "label": "bamm-10",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.15,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-10.wppl 10",
+    "output": "-138.48133821922104\n-138.62434886293684\n-138.6385218879707\n-138.58203626721877\n-138.644854317066\n-138.5595666743035\n-138.62743397861658\n-138.44314660772216\n-138.48225271266992\n-138.45454888882875\n"
+  },
+  {
+    "label": "bamm-11",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.15,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-11.wppl 10",
+    "output": "-140.17011474701917\n-140.0735903388565\n-140.17731111473748\n-140.1025097988917\n-140.3229035059352\n-140.06845395403934\n-140.0496680733593\n-140.2423891370153\n-140.0383276572305\n-140.33920875266872\n"
+  },
+  {
+    "label": "bamm-12",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.15,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-12.wppl 10",
+    "output": "-142.78120203251726\n-142.5609797000525\n-142.6014821512087\n-142.54671318748956\n-142.8092023890633\n-142.68626807899892\n-142.75634147422574\n-142.53418395460363\n-142.43020617549033\n-142.7812182584676\n"
+  },
+  {
+    "label": "bamm-13",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.2,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-13.wppl 10",
+    "output": "-136.67257764883485\n-136.91131330543226\n-136.6879670074304\n-136.7437976451279\n-136.6342740972256\n-136.6505974166218\n-136.75427527740862\n-136.78955858995687\n-136.62939082850275\n-136.66144198666632\n"
+  },
+  {
+    "label": "bamm-14",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.2,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-14.wppl 10",
+    "output": "-136.73094329064054\n-136.75258044983923\n-136.70519312288008\n-136.84095023523426\n-136.71700551214562\n-136.65900222405375\n-136.56256562450974\n-136.6480022002665\n-136.59211995997626\n-136.6054589530147\n"
+  },
+  {
+    "label": "bamm-15",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.2,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-15.wppl 10",
+    "output": "-137.4815853408123\n-137.58733828655426\n-137.5326640789188\n-137.62557564877596\n-137.5353422039805\n-137.52280316276955\n-137.56316765896537\n-137.4353575147599\n-137.58699360981143\n-137.44936216211164\n"
+  },
+  {
+    "label": "bamm-16",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.2,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-16.wppl 10",
+    "output": "-139.9764642123123\n-139.93240877699893\n-139.796229511709\n-139.76450159675042\n-140.1268642200232\n-139.77476966780924\n-139.7788583498193\n-139.81623544091872\n-139.92930402440825\n-140.01017708699197\n"
+  },
+  {
+    "label": "bamm-17",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.25,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-17.wppl 10",
+    "output": "-136.97934063074618\n-136.96355004668052\n-136.9937846331383\n-137.18422792213562\n-137.19062679112267\n-136.99299752215347\n-137.1818219713454\n-137.12140209213476\n-137.3053282593272\n-136.87519360772083\n"
+  },
+  {
+    "label": "bamm-18",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.25,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-18.wppl 10",
+    "output": "-136.5156697444691\n-136.5466789729224\n-136.54105659915032\n-136.77985817999644\n-136.64110686045217\n-136.8390288852316\n-136.7476974077427\n-136.63218621600052\n-136.75414468475086\n-136.56307403173184\n"
+  },
+  {
+    "label": "bamm-19",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.25,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-19.wppl 10",
+    "output": "-136.22364054691604\n-136.5212121295844\n-136.26961110113686\n-136.7029955984947\n-136.48839515067516\n-136.44536572205192\n-136.50884091414622\n-136.38500807849317\n-136.4525168203844\n-136.41148649388344\n"
+  },
+  {
+    "label": "bamm-20",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.25,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-20.wppl 10",
+    "output": "-138.53715764315749\n-138.43841073679053\n-138.167404664857\n-138.36055488340673\n-138.2871557207202\n-138.52873015482575\n-138.41314850504185\n-138.58479056402905\n-138.5946536122514\n-138.66945860704521\n"
+  },
+  {
+    "label": "bamm-21",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-21.wppl 10",
+    "output": "-138.8891732765562\n-138.76657097712183\n-138.90839939392936\n-138.6715710637865\n-138.55080277135664\n-138.6370798902328\n-138.69300326524638\n-138.5131961278834\n-138.74431109291893\n-138.828372659786\n"
+  },
+  {
+    "label": "bamm-22",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-22.wppl 10",
+    "output": "-137.73234190042592\n-138.08609291141616\n-137.85353090279375\n-138.0408580472966\n-137.98659348851882\n-137.6095440122548\n-137.8115953706817\n-137.97403798932118\n-137.89866640170732\n-137.69347555479033\n"
+  },
+  {
+    "label": "bamm-23",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-23.wppl 10",
+    "output": "-136.05478990912565\n-136.2372120968746\n-136.17390275585547\n-136.15613255357113\n-136.05790522432383\n-136.2556838776594\n-136.4697740640193\n-136.08565411303468\n-136.35258947235283\n-136.25420112243583\n"
+  },
+  {
+    "label": "bamm-24",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.3,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-24.wppl 10",
+    "output": "-137.7952737543526\n-137.9798594840153\n-137.83163029548587\n-137.9096249008373\n-137.88563746432942\n-137.53346124924053\n-137.7812247671843\n-137.71092685430696\n-137.6206060820097\n-137.26337050589922\n"
+  },
+  {
+    "label": "bamm-25",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.35,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-25.wppl 10",
+    "output": "-141.18240850869037\n-140.93645145137103\n-141.11044399666744\n-141.310472118491\n-141.1424630433741\n-141.14783832599755\n-141.3100415801905\n-141.27841669992932\n-141.39924841544374\n-141.54015300291218\n"
+  },
+  {
+    "label": "bamm-26",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.35,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-26.wppl 10",
+    "output": "-139.819950266734\n-139.79193175461774\n-140.02684507234662\n-139.73940619612756\n-140.1405945660975\n-139.8380856772901\n-139.7214560836184\n-140.07766203247118\n-140.04690856353062\n-140.07691203043527\n"
+  },
+  {
+    "label": "bamm-27",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.35,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-27.wppl 10",
+    "output": "-136.71690737429927\n-136.7780827022518\n-136.69171902086978\n-136.58038218136608\n-136.64098064479796\n-136.66120731926895\n-136.759865621507\n-136.56304851227742\n-136.5896555724562\n-136.67241815946753\n"
+  },
+  {
+    "label": "bamm-28",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.35,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-28.wppl 10",
+    "output": "-137.02448427505445\n-137.34938798981588\n-137.1230218436599\n-137.58281416775583\n-137.17166112462183\n-137.30527727479924\n-137.19045301328393\n-137.1025533048221\n-137.33391225628438\n-137.44380689045462\n"
+  },
+  {
+    "label": "bamm-29",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.4,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-29.wppl 10",
+    "output": "-144.3062724347939\n-144.37869122814732\n-144.0184772345157\n-144.38306309433045\n-144.31154818495074\n-144.06919564120128\n-144.25671345273506\n-144.35603749923936\n-144.05702727634207\n-144.36547059773457\n"
+  },
+  {
+    "label": "bamm-30",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.4,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-30.wppl 10",
+    "output": "-142.2055656435635\n-142.73849922640917\n-142.54514534623698\n-142.26941244361308\n-142.34618690686864\n-142.39683379607789\n-142.53920111345087\n-142.47581332983998\n-142.42538707898953\n-142.31299261158128\n"
+  },
+  {
+    "label": "bamm-31",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.4,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-31.wppl 10",
+    "output": "-137.41063493004876\n-137.0694389292186\n-137.46584813867224\n-137.52756507602382\n-137.4851957199229\n-137.25238851453906\n-137.54501352193196\n-137.3498920361217\n-137.31150968031474\n-137.49316062232995\n"
+  },
+  {
+    "label": "bamm-32",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.4,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-32.wppl 10",
+    "output": "-137.3856672535724\n-137.069150744154\n-137.55398091434583\n-136.97352833957538\n-137.07206674227695\n-137.42279941322386\n-137.16967564512723\n-137.1281643069898\n-137.35640893573924\n-137.31251859777745\n"
+  },
+  {
+    "label": "bamm-33",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.45,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-33.wppl 10",
+    "output": "-147.73175470822878\n-147.94157107257462\n-147.9149041031056\n-148.0041550224839\n-147.72974417832094\n-147.60037105775632\n-147.88313437863846\n-147.9012189630696\n-147.62884569001812\n-148.17363578994235\n"
+  },
+  {
+    "label": "bamm-34",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.45,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-34.wppl 10",
+    "output": "-145.4041861696972\n-145.6951687341422\n-145.3088073910349\n-145.59001506800922\n-145.08993293541437\n-145.0472286708196\n-145.46649013556336\n-145.2443967959233\n-145.7137532414591\n-145.16954824374616\n"
+  },
+  {
+    "label": "bamm-35",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.45,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-35.wppl 10",
+    "output": "-138.54987341170977\n-138.66429842349905\n-138.42407381916794\n-138.93143604995782\n-138.89471425125885\n-138.51087542108425\n-138.67444252736777\n-138.81158710876971\n-138.427083457976\n-138.41479414068925\n"
+  },
+  {
+    "label": "bamm-36",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.45,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-36.wppl 10",
+    "output": "-137.40183168688276\n-137.71982234337827\n-137.47395995128593\n-137.43936989785686\n-137.67676993095694\n-137.15455573785826\n-137.3182429606194\n-137.54276312682768\n-137.70716949285372\n-137.20488044597883\n"
+  },
+  {
+    "label": "bamm-37",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.5,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-37.wppl 10",
+    "output": "-151.91986201081627\n-151.32043000788258\n-151.6650232980567\n-151.5103518984658\n-151.63663833348795\n-151.5732313601258\n-151.70261785541655\n-151.66257573303994\n-151.489265820488\n-152.13784658564896\n"
+  },
+  {
+    "label": "bamm-38",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.5,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-38.wppl 10",
+    "output": "-149.06465319118345\n-148.965968125094\n-149.26399977623984\n-148.87680507920217\n-148.80835659317194\n-149.0601622446176\n-148.95238076597226\n-148.4236845974461\n-148.9720694073728\n-148.63301460038898\n"
+  },
+  {
+    "label": "bamm-39",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.5,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-39.wppl 10",
+    "output": "-139.96767703097157\n-139.9894676169065\n-139.57215793393075\n-139.9776512967516\n-140.33570603527323\n-139.85932495462274\n-140.13828863168428\n-140.2083448604512\n-140.00402704016727\n-139.55317396065115\n"
+  },
+  {
+    "label": "bamm-40",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.5,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-40.wppl 10",
+    "output": "-137.2357665573407\n-137.35478176201204\n-137.72924658917592\n-137.69699849937473\n-137.74125009166468\n-138.1045716157794\n-138.12583184324123\n-137.42527667497274\n-137.93807377176137\n-137.5400685596117\n"
+  },
+  {
+    "label": "bamm-41",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.55,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-41.wppl 10",
+    "output": "-156.30772424140807\n-156.37636300351159\n-156.08251995166805\n-156.3638824657864\n-155.53744663055437\n-155.62191746799817\n-156.38462891276214\n-156.1262197095542\n-155.91309040894103\n-156.00202027154995\n"
+  },
+  {
+    "label": "bamm-42",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.55,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-42.wppl 10",
+    "output": "-152.32744760330712\n-152.7967080137557\n-152.54074954113614\n-151.97645962310898\n-152.68859930084477\n-152.50246264436538\n-152.12867160112984\n-152.2216582624381\n-152.5417461360466\n-152.2510468520679\n"
+  },
+  {
+    "label": "bamm-43",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.55,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-43.wppl 10",
+    "output": "-141.85784960308033\n-141.40866698189336\n-140.95360345532478\n-141.20189444936986\n-140.83752257978568\n-141.53331661039766\n-141.19892277947875\n-141.13031923535158\n-141.24176694612194\n-141.28084720610175\n"
+  },
+  {
+    "label": "bamm-44",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.55,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-44.wppl 10",
+    "output": "-138.1154812015292\n-138.0384181071468\n-138.05001634899287\n-138.28493258008203\n-137.68763438523487\n-137.81127230379658\n-137.96606800417965\n-138.00587725174262\n-137.1060761656063\n-137.96414314116424\n"
+  },
+  {
+    "label": "bamm-45",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.6,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-45.wppl 10",
+    "output": "-160.3593973614622\n-160.2063698781963\n-160.49892061552038\n-160.5837755254371\n-160.83681640230608\n-161.46987234206355\n-160.34004101084824\n-160.67283253602284\n-161.01954909432203\n-160.09402426528942\n"
+  },
+  {
+    "label": "bamm-46",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.6,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-46.wppl 10",
+    "output": "-155.72184826531807\n-156.4008965954681\n-156.17504447524132\n-156.89415932278217\n-156.74402843005612\n-155.93926481592797\n-156.8051689326142\n-155.75202727503242\n-156.0213599962689\n-155.86758314126868\n"
+  },
+  {
+    "label": "bamm-47",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.6,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-47.wppl 10",
+    "output": "-142.7097159808718\n-142.57666847667036\n-142.44801882095243\n-142.88717481088966\n-143.09700360634773\n-142.99155404512726\n-142.94342823218398\n-142.60333887641968\n-142.97883256233857\n-142.59035772714068\n"
+  },
+  {
+    "label": "bamm-48",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.6,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-48.wppl 10",
+    "output": "-138.7477508592169\n-138.14887076485115\n-138.64960851522082\n-138.28850287518654\n-138.77665772072234\n-138.0585439370338\n-138.1706349927258\n-138.46090968486308\n-138.98175273152236\n-138.27646655648002\n"
+  },
+  {
+    "label": "bamm-49",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.65,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-49.wppl 10",
+    "output": "-164.7840336965751\n-165.34401007481452\n-165.0655221555626\n-165.2403221587844\n-165.76496955032906\n-165.03260137475223\n-165.22701290760165\n-165.54424043988047\n-166.0367155275653\n-165.4118368828384\n"
+  },
+  {
+    "label": "bamm-50",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.65,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-50.wppl 10",
+    "output": "-160.81447326675476\n-160.51812258056353\n-160.59879172507559\n-160.9469199746654\n-161.0428536696141\n-160.2985420222164\n-159.5581178854328\n-160.0969862477799\n-160.6281285903166\n-159.70678437114537\n"
+  },
+  {
+    "label": "bamm-51",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.65,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-51.wppl 10",
+    "output": "-145.468252288596\n-145.16961126782218\n-145.4927118553319\n-145.57614335000667\n-144.91859924426635\n-145.02502734814692\n-144.41262259350057\n-144.64683072726044\n-145.1317012184276\n-144.8993890841408\n"
+  },
+  {
+    "label": "bamm-52",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.65,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-52.wppl 10",
+    "output": "-139.05308208065165\n-138.8189586039191\n-139.24513367364347\n-139.2511948152144\n-139.55280952259818\n-138.6524293076168\n-139.16539685572602\n-138.68239704328877\n-139.32124980317965\n-139.01277334799323\n"
+  },
+  {
+    "label": "bamm-53",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.7,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-53.wppl 10",
+    "output": "-170.96398179071545\n-168.89764670023152\n-169.1672040322997\n-169.88179907599087\n-170.60371509154908\n-170.5400993201436\n-170.78302898504867\n-169.46758443607695\n-169.7725461649281\n-170.31698558378224\n"
+  },
+  {
+    "label": "bamm-54",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.7,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-54.wppl 10",
+    "output": "-164.50150353765838\n-165.2011638094352\n-165.06956884823882\n-164.62066025464438\n-164.2662773668197\n-164.57953902530218\n-164.81353972677985\n-164.79771867886114\n-164.78816322483107\n-164.18373409236335\n"
+  },
+  {
+    "label": "bamm-55",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.7,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-55.wppl 10",
+    "output": "-146.62112482002723\n-147.30320535231505\n-146.87248994183378\n-146.88783146959437\n-147.12073444008706\n-146.6518796573898\n-147.4706028823343\n-146.89996535182286\n-146.1999880907803\n-147.04596721397814\n"
+  },
+  {
+    "label": "bamm-56",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.7,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-56.wppl 10",
+    "output": "-139.17379335547102\n-139.33257678312688\n-139.3840102342066\n-139.24644367502572\n-138.8377057647736\n-139.20851955213632\n-139.05199078795658\n-138.57038687682808\n-139.92649521505405\n-139.4720554107433\n"
+  },
+  {
+    "label": "bamm-57",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.75,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-57.wppl 10",
+    "output": "-174.36522450043222\n-174.9214901976502\n-175.24158014820318\n-175.25370550833122\n-174.8824591161906\n-175.4520276215132\n-175.9593876083961\n-175.91800761251167\n-175.9700067238435\n-175.1528050901135\n"
+  },
+  {
+    "label": "bamm-58",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.75,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-58.wppl 10",
+    "output": "-170.40893509311917\n-169.12590394014853\n-169.22710832801732\n-168.98555663486692\n-169.05403346312244\n-169.33563274118416\n-170.39099853077911\n-168.3762250677497\n-168.8090634522505\n-170.20585899213037\n"
+  },
+  {
+    "label": "bamm-59",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.75,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-59.wppl 10",
+    "output": "-149.1858731389286\n-148.8081161405793\n-148.2786448051194\n-148.80502308781436\n-149.86125517273933\n-148.70427066049237\n-148.8746322341426\n-149.07498570550976\n-149.9271411235046\n-149.0687218941285\n"
+  },
+  {
+    "label": "bamm-60",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.75,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-60.wppl 10",
+    "output": "-140.08881855009886\n-139.3374226378954\n-139.12723352479662\n-138.6105631728136\n-140.16226732504853\n-139.2791913907507\n-140.49411602313683\n-140.03788814019654\n-139.90751958171057\n-139.84908147151154\n"
+  },
+  {
+    "label": "bamm-61",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.8,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-61.wppl 10",
+    "output": "-181.666338137724\n-179.64052687012696\n-180.42141302806752\n-180.73948896561797\n-180.20028949930494\n-180.00601807493805\n-180.11531556554732\n-179.5105221212052\n-181.04348332460313\n-180.68231217036146\n"
+  },
+  {
+    "label": "bamm-62",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.8,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-62.wppl 10",
+    "output": "-173.84990638988455\n-174.46125874574935\n-173.44458818947257\n-174.5910334528404\n-173.91152323642757\n-174.41012477558724\n-173.65732672029287\n-174.04317499612944\n-173.28231095473822\n-174.53315382431424\n"
+  },
+  {
+    "label": "bamm-63",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.8,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-63.wppl 10",
+    "output": "-152.60734243813206\n-151.5102813534156\n-151.45218081629727\n-151.21549845432526\n-151.0430807718173\n-150.99480613216969\n-151.50894214380708\n-150.71891532096092\n-151.11019475657963\n-150.9701490422041\n"
+  },
+  {
+    "label": "bamm-64",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.8,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-64.wppl 10",
+    "output": "-141.10309584095594\n-139.99187254687973\n-140.28097379519033\n-140.64982547954696\n-140.08841594546666\n-139.95460238397453\n-139.44393438746266\n-140.05129180349928\n-139.9659981917703\n-140.9263907199868\n"
+  },
+  {
+    "label": "bamm-65",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.85,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-65.wppl 10",
+    "output": "-185.93607162985768\n-184.57025665890362\n-183.97006811101443\n-187.4679348095377\n-186.37345550905596\n-186.50722735789546\n-186.1087500323756\n-184.8203504022978\n-188.38574132250372\n-184.78768562425984\n"
+  },
+  {
+    "label": "bamm-66",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.85,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-66.wppl 10",
+    "output": "-179.4862275213233\n-180.45868210897763\n-178.32225892240396\n-179.59854082157088\n-178.40557546776643\n-178.74356323134336\n-177.67402709865345\n-179.2315725023365\n-177.8254113611435\n-177.43505412796753\n"
+  },
+  {
+    "label": "bamm-67",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.85,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-67.wppl 10",
+    "output": "-153.58207458917013\n-152.5356656874002\n-154.94822208915738\n-152.48469892483982\n-153.6929580427578\n-153.6419795976935\n-153.07096249552262\n-152.70782229155444\n-153.6045374629214\n-152.58681186463272\n"
+  },
+  {
+    "label": "bamm-68",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.85,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-68.wppl 10",
+    "output": "-141.11195116460513\n-141.38650059438666\n-141.6865478715883\n-142.46976254339617\n-141.54398467552406\n-140.43804556672487\n-141.81948739866687\n-140.90867146161344\n-141.63401572571993\n-141.16288136549522\n"
+  },
+  {
+    "label": "bamm-69",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.9,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-69.wppl 10",
+    "output": "-191.38378731305892\n-190.02043977804038\n-192.66064476016805\n-194.02626228047947\n-191.4625418159286\n-191.33738167800374\n-191.82622039236597\n-192.86437550171365\n-192.8324849819987\n-192.62066513716798\n"
+  },
+  {
+    "label": "bamm-70",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.9,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-70.wppl 10",
+    "output": "-184.4529152862716\n-185.7692768852404\n-183.78051993957757\n-184.06631921383308\n-183.54139866675794\n-182.14381932759576\n-184.7346944198015\n-184.4303885800648\n-183.4999151601782\n-182.97183369557771\n"
+  },
+  {
+    "label": "bamm-71",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.9,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-71.wppl 10",
+    "output": "-155.7632475655523\n-156.40192686319347\n-155.1316727180719\n-155.52119065057664\n-156.758458090652\n-155.20325236398412\n-156.0281029797012\n-156.58328178397556\n-156.78113236750283\n-153.45097923858066\n"
+  },
+  {
+    "label": "bamm-72",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.9,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-72.wppl 10",
+    "output": "-141.0904511038775\n-142.78399204039923\n-142.23298844122493\n-141.8312873881279\n-142.55205185050013\n-141.05686746550467\n-141.59981414694914\n-140.7670808933221\n-142.03273159362078\n-142.39644276173814\n"
+  },
+  {
+    "label": "bamm-73",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.95,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-73.wppl 10",
+    "output": "-197.0987617957162\n-196.94623513658652\n-197.70470949994885\n-197.07949493168337\n-197.34785610919485\n-194.6640478840461\n-197.1129072809336\n-195.89485106696398\n-196.1960759212229\n"
+  },
+  {
+    "label": "bamm-74",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.95,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-74.wppl 10",
+    "output": "-189.2614705768437\n-189.16618046999918\n-188.93145424243332\n-187.42678020088854\n-188.4646149958759\n-189.3707470647414\n-186.93682207199467\n-190.62468947713856\n-188.17970098479825\n-186.40380178319694\n"
+  },
+  {
+    "label": "bamm-75",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.95,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-75.wppl 10",
+    "output": "-157.19975119934628\n-158.89203172770164\n-158.40878893177444\n-157.96700456074674\n-158.30071176216543\n-158.79234614729418\n-158.51141240665308\n-157.67777293210597\n-156.69470107589038\n-157.27846239428266\n"
+  },
+  {
+    "label": "bamm-76",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.95,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-76.wppl 10",
+    "output": "-142.67174251623467\n-143.23316564581367\n-142.70381120943551\n-142.21247132495716\n-142.3009154063509\n-142.08606540138015\n-140.58322208141354\n-141.94539504679096\n-141.4702366538381\n-141.97505281784237\n"
+  },
+  {
+    "label": "bamm-77",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 1,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-77.wppl 10",
+    "output": "-201.46311839470863\n-203.7852386562378\n-202.04643779733001\n-201.26832753328196\n"
+  },
+  {
+    "label": "bamm-78",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-78.wppl 10",
+    "output": "-190.888018972334\n-192.86051890053312\n-192.43076883317903\n-194.04927268404833\n-195.1108456953053\n-194.2390671643813\n-193.0163831878076\n-193.61066172183402\n-194.5057801444054\n"
+  },
+  {
+    "label": "bamm-79",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-79.wppl 10",
+    "output": "-160.84809318385302\n-160.02766393993474\n-162.21986176287004\n-162.48278882903253\n-160.3449087405332\n-161.2647798967041\n-160.1189295706213\n-161.55714334742314\n-160.6811603817707\n-160.9756634469422\n"
+  },
+  {
+    "label": "bamm-80",
+    "description": "Conditions, under which BAMM degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 1,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 1,
+      "z_0": 0,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }",
+      "DistZ": "function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }",
+      "lambdaFun_0": "function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 1\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 1\n\tvar z_0 = 0\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\tvar DistZ = function() { return ( gaussian( { mu: 0, sigma: 0.0000001 } ) ) }\n\tvar lambdaFun_0 = function(t) {\n\treturn ( lambda_0*Math.exp(z_0*(tree.age - t))) \n\t }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\t var max_M = 10000 \n\t var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M ) \n\t factor(Math.log(M)) \n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/bamm/bamm-80.wppl 10",
+    "output": "-144.2955991185852\n-142.89445919980565\n-143.41254908984274\n-142.63883725826855\n-143.00438629417175\n-143.47909671418435\n-142.84228392366825\n-141.70031235516555\n-143.84152501907494\n-142.41073039149214\n"
+  }
+]

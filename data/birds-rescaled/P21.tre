@@ -1,0 +1,197 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 92;
+	TAXLABELS
+		Xanthocephalus_xanthocephalus
+		Dolichonyx_oryzivorus
+		Sturnella_militaris
+		Sturnella_bellicosa
+		Sturnella_superciliaris
+		Sturnella_loyca
+		Sturnella_neglecta
+		Sturnella_magna
+		Icterus_wagleri
+		Icterus_cucullatus
+		Icterus_spurius
+		Icterus_oberi
+		Icterus_bonana
+		Icterus_laudabilis
+		Icterus_cayanensis
+		Icterus_dominicensis
+		Icterus_auricapillus
+		Icterus_prosthemelas
+		Icterus_maculialatus
+		Icterus_pectoralis
+		Icterus_graceannae
+		Icterus_icterus
+		Icterus_jamacaii
+		Icterus_mesomelas
+		Icterus_pustulatus
+		Icterus_bullockii
+		Icterus_galbula
+		Icterus_abeillei
+		Icterus_auratus
+		Icterus_nigrogularis
+		Icterus_gularis
+		Icterus_leucopteryx
+		Icterus_chrysater
+		Icterus_graduacauda
+		Icterus_parisorum
+		Dives_warszewiczi
+		Dives_dives
+		Nesopsar_nigerrimus
+		Curaeus_curaeus
+		Amblyramphus_holosericeus
+		Agelasticus_thilius
+		Agelasticus_xanthophthalmus
+		Agelasticus_cyanopus
+		Oreopsar_bolivianus
+		Agelaioides_badius
+		Chrysomus_icterocephalus
+		Chrysomus_ruficapillus
+		Xanthopsar_flavus
+		Pseudoleistes_guirahuro
+		Pseudoleistes_virescens
+		Gnorimopsar_chopi
+		Gymnomystax_mexicanus
+		Macroagelaius_imthurni
+		Macroagelaius_subalaris
+		Hypopyrrhus_pyrohypogaster
+		Lampropsar_tanagrinus
+		Molothrus_rufoaxillaris
+		Molothrus_bonariensis
+		Molothrus_ater
+		Molothrus_aeneus
+		Molothrus_oryzivorus
+		Agelaius_tricolor
+		Agelaius_phoeniceus
+		Agelaius_xanthomus
+		Agelaius_humeralis
+		Quiscalus_quiscula
+		Quiscalus_lugubris
+		Quiscalus_nicaraguensis
+		Quiscalus_niger
+		Quiscalus_major
+		Quiscalus_mexicanus
+		Euphagus_carolinus
+		Euphagus_cyanocephalus
+		Amblycercus_holosericeus
+		Psarocolius_bifasciatus
+		Psarocolius_montezuma
+		Psarocolius_viridis
+		Psarocolius_decumanus
+		Psarocolius_wagleri
+		Psarocolius_angustifrons
+		Psarocolius_atrovirens
+		Cacicus_solitarius
+		Cacicus_sclateri
+		Cacicus_chrysopterus
+		Cacicus_cela
+		Cacicus_uropygialis
+		Cacicus_haemorrhous
+		Ocyalus_latirostris
+		Clypicterus_oseryi
+		Cacicus_chrysonotus
+		Cacicus_leucoramphus
+		Cacicus_melanicterus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Xanthocephalus_xanthocephalus,
+		2	Dolichonyx_oryzivorus,
+		3	Sturnella_militaris,
+		4	Sturnella_bellicosa,
+		5	Sturnella_superciliaris,
+		6	Sturnella_loyca,
+		7	Sturnella_neglecta,
+		8	Sturnella_magna,
+		9	Icterus_wagleri,
+		10	Icterus_cucullatus,
+		11	Icterus_spurius,
+		12	Icterus_oberi,
+		13	Icterus_bonana,
+		14	Icterus_laudabilis,
+		15	Icterus_cayanensis,
+		16	Icterus_dominicensis,
+		17	Icterus_auricapillus,
+		18	Icterus_prosthemelas,
+		19	Icterus_maculialatus,
+		20	Icterus_pectoralis,
+		21	Icterus_graceannae,
+		22	Icterus_icterus,
+		23	Icterus_jamacaii,
+		24	Icterus_mesomelas,
+		25	Icterus_pustulatus,
+		26	Icterus_bullockii,
+		27	Icterus_galbula,
+		28	Icterus_abeillei,
+		29	Icterus_auratus,
+		30	Icterus_nigrogularis,
+		31	Icterus_gularis,
+		32	Icterus_leucopteryx,
+		33	Icterus_chrysater,
+		34	Icterus_graduacauda,
+		35	Icterus_parisorum,
+		36	Dives_warszewiczi,
+		37	Dives_dives,
+		38	Nesopsar_nigerrimus,
+		39	Curaeus_curaeus,
+		40	Amblyramphus_holosericeus,
+		41	Agelasticus_thilius,
+		42	Agelasticus_xanthophthalmus,
+		43	Agelasticus_cyanopus,
+		44	Oreopsar_bolivianus,
+		45	Agelaioides_badius,
+		46	Chrysomus_icterocephalus,
+		47	Chrysomus_ruficapillus,
+		48	Xanthopsar_flavus,
+		49	Pseudoleistes_guirahuro,
+		50	Pseudoleistes_virescens,
+		51	Gnorimopsar_chopi,
+		52	Gymnomystax_mexicanus,
+		53	Macroagelaius_imthurni,
+		54	Macroagelaius_subalaris,
+		55	Hypopyrrhus_pyrohypogaster,
+		56	Lampropsar_tanagrinus,
+		57	Molothrus_rufoaxillaris,
+		58	Molothrus_bonariensis,
+		59	Molothrus_ater,
+		60	Molothrus_aeneus,
+		61	Molothrus_oryzivorus,
+		62	Agelaius_tricolor,
+		63	Agelaius_phoeniceus,
+		64	Agelaius_xanthomus,
+		65	Agelaius_humeralis,
+		66	Quiscalus_quiscula,
+		67	Quiscalus_lugubris,
+		68	Quiscalus_nicaraguensis,
+		69	Quiscalus_niger,
+		70	Quiscalus_major,
+		71	Quiscalus_mexicanus,
+		72	Euphagus_carolinus,
+		73	Euphagus_cyanocephalus,
+		74	Amblycercus_holosericeus,
+		75	Psarocolius_bifasciatus,
+		76	Psarocolius_montezuma,
+		77	Psarocolius_viridis,
+		78	Psarocolius_decumanus,
+		79	Psarocolius_wagleri,
+		80	Psarocolius_angustifrons,
+		81	Psarocolius_atrovirens,
+		82	Cacicus_solitarius,
+		83	Cacicus_sclateri,
+		84	Cacicus_chrysopterus,
+		85	Cacicus_cela,
+		86	Cacicus_uropygialis,
+		87	Cacicus_haemorrhous,
+		88	Ocyalus_latirostris,
+		89	Clypicterus_oseryi,
+		90	Cacicus_chrysonotus,
+		91	Cacicus_leucoramphus,
+		92	Cacicus_melanicterus
+	;
+	TREE * UNTITLED = [&R] (((1:9.524762921,2:9.524762921):2.998289575,((3:3.870697949,4:3.870697949):6.126466809,((5:2.549350439,6:2.549350439):1.821995538,(7:2.649255909,8:2.649255909):1.722090068):5.625818781):2.525887738):1.506543521,((((((9:5.580748829,(10:4.353936257,((11:3.823438095,((((12:1.953825526,13:1.953825526):0.3705947454,14:2.324420271):0.1776087528,15:2.502029024):0.8345369401,(16:1.837571194,17:1.837571194):1.49899477):0.4868721313):0.1108439105,18:3.934282006):0.4196542516):1.226812572):0.9785389482,19:6.559287777):0.6558162718,(((20:4.012208038,21:4.012208038):1.112980634,(22:2.484090548,23:2.484090548):2.641098124):0.6651653549,24:5.790354027):1.424750022):1.016758947,(((((25:1.782088592,26:1.782088592):0.6842526544,(27:0.1458734873,28:0.1458734873):2.320467759):0.2476013005,(29:2.341849996,(30:1.487177422,31:1.487177422):0.8546725739):0.3720925507):0.2870013038,32:3.00094385):2.586858613,((33:1.019998191,34:1.019998191):3.478701377,35:4.498699567):1.089102895):2.644060533):4.257586657,(((((36:3.376240526,37:3.376240526):3.61373785,38:6.989978376):0.6917724141,(((39:4.74895814,40:4.74895814):1.359635965,(((41:4.482160306,(42:0.2443641048,43:0.2443641048):4.237796201):0.9894199622,((44:3.931783717,45:3.931783717):1.202365047,((46:1.836526526,47:1.836526526):2.903695415,(48:2.22604348,(49:1.420443038,50:1.420443038):0.8056004419):2.514178462):0.3939268216):0.3374315045):0.1189751919,51:5.59055546):0.5180386456):0.5268014292,((52:5.498285301,(53:2.222485908,54:2.222485908):3.275799394):0.5501340689,(55:5.287296667,56:5.287296667):0.7611227031):0.5869761644):1.046355255):0.4138052536,(((57:3.814888008,(((58:1.060499663,59:1.060499663):0.3633509643,60:1.423850627):1.361269373,61:2.78512):1.029768008):3.0810727,((62:4.42846892,63:4.42846892):1.139561316,(64:0.6954307677,65:0.6954307677):4.872599468):1.327930472):0.3661166826,((66:2.871052565,((67:1.369843192,68:1.369843192):0.51586746,(69:1.170894306,(70:0.9566111953,71:0.9566111953):0.2142831106):0.7148163466):0.9853419122):2.240382712,(72:3.514375651,73:3.514375651):1.597059626):2.150642113):0.8334786534):3.2518796,74:11.34743564):1.14201401):0.6324820625,(((((((75:0.8230800399,76:0.8230800399):0.2732585596,77:1.0963386):1.716275481,78:2.81261408):1.84549351,(79:2.799690859,(80:2.166431959,81:2.166431959):0.6332589005):1.858416732):2.285379401,82:6.943486992):0.4484464572,((83:3.597011397,84:3.597011397):3.179902089,((85:4.892786837,86:4.892786837):1.055694799,((87:2.351593356,(88:1.934334175,89:1.934334175):0.4172591813):2.968517058,(90:3.576436768,91:3.576436768):1.743673646):0.628371222):0.8284318502):0.6150199628):0.7511022552,92:8.143035704):4.978896012):0.9076643018);
+END;

@@ -1,0 +1,193 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 90;
+	TAXLABELS
+		Pardalotus_punctatus
+		Pardalotus_striatus
+		Pardalotus_rubricatus
+		Glycichaera_fallax
+		Ptiloprora_guisei
+		Ptiloprora_plumbea
+		Phylidonyris_melanops
+		Melipotes_fumigatus
+		Macgregoria_pulchra
+		Epthianura_albifrons
+		Epthianura_aurifrons
+		Epthianura_tricolor
+		Epthianura_crocea
+		Ashbyia_lovensis
+		Melilestes_megarhynchus
+		Timeliopsis_fulvigula
+		Timeliopsis_griseigula
+		Ramsayornis_fasciatus
+		Ramsayornis_modestus
+		Conopophila_rufogularis
+		Conopophila_albogularis
+		Lichenostomus_ornatus
+		Phylidonyris_albifrons
+		Melidectes_ochromelas
+		Melidectes_belfordi
+		Melidectes_torquatus
+		Manorina_melanophrys
+		Manorina_flavigula
+		Manorina_melanocephala
+		Lichenostomus_flavus
+		Lichenostomus_penicillatus
+		Lichenostomus_virescens
+		Anthochaera_lunulata
+		Anthochaera_chrysoptera
+		Xanthomyza_phrygia
+		Anthochaera_carunculata
+		Anthochaera_paradoxa
+		Acanthagenys_rufogularis
+		Meliphaga_gracilis
+		Meliphaga_albonotata
+		Meliphaga_orientalis
+		Meliphaga_analoga
+		Meliphaga_montana
+		Meliphaga_mimikae
+		Meliphaga_albilineata
+		Meliphaga_reticulata
+		Meliphaga_flavirictus
+		Meliphaga_aruensis
+		Meliphaga_lewinii
+		Meliphaga_notata
+		Certhionyx_variegatus
+		Pycnopygius_stictocephalus
+		Pycnopygius_cinereus
+		Prosthemadera_novaeseelandiae
+		Acanthorhynchus_tenuirostris
+		Acanthorhynchus_superciliosus
+		Phylidonyris_niger
+		Phylidonyris_novaehollandiae
+		Phylidonyris_pyrrhopterus
+		Trichodere_cockerelli
+		Lichmera_alboauricularis
+		Lichmera_indistincta
+		Certhionyx_pectoralis
+		Gymnomyza_samoensis
+		Foulehaio_carunculatus
+		Entomyzon_cyanotis
+		Melithreptus_validirostris
+		Melithreptus_gularis
+		Melithreptus_brevirostris
+		Melithreptus_lunatus
+		Melithreptus_affinis
+		Melithreptus_albogularis
+		Lichenostomus_leucotis
+		Philemon_citreogularis
+		Philemon_meyeri
+		Philemon_argenticeps
+		Philemon_corniculatus
+		Philemon_buceroides
+		Plectorhyncha_lanceolata
+		Grantiella_picta
+		Xanthotis_flaviventer
+		Myzomela_rosenbergii
+		Myzomela_cineracea
+		Myzomela_obscura
+		Myzomela_eques
+		Myzomela_lafargei
+		Myzomela_sanguinolenta
+		Myzomela_cardinalis
+		Myzomela_erythrocephala
+		Certhionyx_niger
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Pardalotus_punctatus,
+		2	Pardalotus_striatus,
+		3	Pardalotus_rubricatus,
+		4	Glycichaera_fallax,
+		5	Ptiloprora_guisei,
+		6	Ptiloprora_plumbea,
+		7	Phylidonyris_melanops,
+		8	Melipotes_fumigatus,
+		9	Macgregoria_pulchra,
+		10	Epthianura_albifrons,
+		11	Epthianura_aurifrons,
+		12	Epthianura_tricolor,
+		13	Epthianura_crocea,
+		14	Ashbyia_lovensis,
+		15	Melilestes_megarhynchus,
+		16	Timeliopsis_fulvigula,
+		17	Timeliopsis_griseigula,
+		18	Ramsayornis_fasciatus,
+		19	Ramsayornis_modestus,
+		20	Conopophila_rufogularis,
+		21	Conopophila_albogularis,
+		22	Lichenostomus_ornatus,
+		23	Phylidonyris_albifrons,
+		24	Melidectes_ochromelas,
+		25	Melidectes_belfordi,
+		26	Melidectes_torquatus,
+		27	Manorina_melanophrys,
+		28	Manorina_flavigula,
+		29	Manorina_melanocephala,
+		30	Lichenostomus_flavus,
+		31	Lichenostomus_penicillatus,
+		32	Lichenostomus_virescens,
+		33	Anthochaera_lunulata,
+		34	Anthochaera_chrysoptera,
+		35	Xanthomyza_phrygia,
+		36	Anthochaera_carunculata,
+		37	Anthochaera_paradoxa,
+		38	Acanthagenys_rufogularis,
+		39	Meliphaga_gracilis,
+		40	Meliphaga_albonotata,
+		41	Meliphaga_orientalis,
+		42	Meliphaga_analoga,
+		43	Meliphaga_montana,
+		44	Meliphaga_mimikae,
+		45	Meliphaga_albilineata,
+		46	Meliphaga_reticulata,
+		47	Meliphaga_flavirictus,
+		48	Meliphaga_aruensis,
+		49	Meliphaga_lewinii,
+		50	Meliphaga_notata,
+		51	Certhionyx_variegatus,
+		52	Pycnopygius_stictocephalus,
+		53	Pycnopygius_cinereus,
+		54	Prosthemadera_novaeseelandiae,
+		55	Acanthorhynchus_tenuirostris,
+		56	Acanthorhynchus_superciliosus,
+		57	Phylidonyris_niger,
+		58	Phylidonyris_novaehollandiae,
+		59	Phylidonyris_pyrrhopterus,
+		60	Trichodere_cockerelli,
+		61	Lichmera_alboauricularis,
+		62	Lichmera_indistincta,
+		63	Certhionyx_pectoralis,
+		64	Gymnomyza_samoensis,
+		65	Foulehaio_carunculatus,
+		66	Entomyzon_cyanotis,
+		67	Melithreptus_validirostris,
+		68	Melithreptus_gularis,
+		69	Melithreptus_brevirostris,
+		70	Melithreptus_lunatus,
+		71	Melithreptus_affinis,
+		72	Melithreptus_albogularis,
+		73	Lichenostomus_leucotis,
+		74	Philemon_citreogularis,
+		75	Philemon_meyeri,
+		76	Philemon_argenticeps,
+		77	Philemon_corniculatus,
+		78	Philemon_buceroides,
+		79	Plectorhyncha_lanceolata,
+		80	Grantiella_picta,
+		81	Xanthotis_flaviventer,
+		82	Myzomela_rosenbergii,
+		83	Myzomela_cineracea,
+		84	Myzomela_obscura,
+		85	Myzomela_eques,
+		86	Myzomela_lafargei,
+		87	Myzomela_sanguinolenta,
+		88	Myzomela_cardinalis,
+		89	Myzomela_erythrocephala,
+		90	Certhionyx_niger
+	;
+	TREE * UNTITLED = [&R] (((1:8.036472559,2:8.036472559):1.793069797,3:9.829542356):27.23925081,((((((4:19.39335318,(5:13.69423373,6:13.69423373):5.699119453):3.477768312,7:22.87112149):2.420971945,((((8:13.75365248,9:13.75365248):8.023951745,(((10:5.171091175,11:5.171091175):1.634062992,(12:5.608914765,13:5.608914765):1.196239402):4.217392634,14:11.0225468):10.75505742):1.287972875,(15:20.63388737,(16:12.50133953,17:12.50133953):8.132547846):2.431689728):0.5950667494,((18:8.607857336,19:8.607857336):7.879573122,(20:6.704931548,21:6.704931548):9.78249891):7.173213391):1.631449587):1.15878436,(((22:16.66246614,(((23:14.04103648,(((24:2.90806007,25:2.90806007):5.02241046,26:7.93047053):2.828835464,(27:8.374364617,(28:0.9067129484,29:0.9067129484):7.467651668):2.384941377):3.281730489):1.38695535,(30:10.11959197,(31:8.493211753,32:8.493211753):1.626380214):5.308399867):1.099111285,(((33:4.384668008,34:4.384668008):3.126002822,(35:4.388409618,(36:2.278337426,37:2.278337426):2.110072191):3.122261212):5.763478197,38:13.27414903):3.252954092):0.1353630191):2.547152998,((((39:4.899311338,40:4.899311338):3.05046313,(41:4.307830091,42:4.307830091):3.641944376):2.2432399,((43:5.13535767,44:5.13535767):3.554080734,((45:5.220352295,46:5.220352295):2.570961112,47:7.791313407):0.8981249965):1.503575964):6.290497596,(48:9.544665931,(49:7.144838478,50:7.144838478):2.399827452):6.938846032):2.726107173):5.771474244,(51:21.69978693,((52:0.2970424908,53:0.2970424908):18.81220512,54:19.10924761):2.590539326):3.281306448):1.469784416):1.123766165,(55:11.47822515,56:11.47822515):16.09641881):2.08610869,((((((((57:3.079367648,58:3.079367648):5.427698922,59:8.50706657):2.23539519,60:10.74246176):2.319225869,(61:4.179771857,62:4.179771857):8.881915772):1.579981929,63:14.64166956):10.04545582,((64:10.98443733,65:10.98443733):10.99010054,((66:15.09175516,(((67:6.884771119,(68:3.13583108,69:3.13583108):3.748940038):2.521166298,(70:2.392326266,71:2.392326266):7.013611151):0.9865875506,72:10.39252497):4.699230189):3.720082753,73:18.81183791):3.162699961):2.712587511):2.894619278,(((74:11.35152336,75:11.35152336):1.607584305,((76:3.934913114,77:3.934913114):3.398637073,78:7.333550187):5.625557475):10.84529765,((79:18.09910282,80:18.09910282):4.179999141,81:22.27910196):1.525303354):3.777339347):0.9948865465,((82:17.53112216,(((83:8.485211523,84:8.485211523):2.468635254,85:10.95384678):5.436583252,((86:5.632525659,(87:4.77545387,88:4.77545387):0.8570717889):1.064136499,89:6.696662158):9.69376787):1.140692135):6.041255673,90:23.57237784):5.004253369):1.084121444):7.408040517);
+END;

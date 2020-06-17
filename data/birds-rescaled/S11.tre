@@ -1,0 +1,171 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 79;
+	TAXLABELS
+		Nesillas_typica
+		Acrocephalus_bistrigiceps
+		Acrocephalus_paludicola
+		Acrocephalus_schoenobaenus
+		Acrocephalus_melanopogon
+		Acrocephalus_baeticatus
+		Acrocephalus_scirpaceus
+		Acrocephalus_dumetorum
+		Acrocephalus_orinus
+		Acrocephalus_agricola
+		Acrocephalus_tangorum
+		Acrocephalus_concinens
+		Acrocephalus_griseldis
+		Acrocephalus_stentoreus
+		Acrocephalus_familiaris
+		Acrocephalus_rimatarae
+		Acrocephalus_kerearako
+		Acrocephalus_mendanae
+		Acrocephalus_atyphus
+		Acrocephalus_caffer
+		Acrocephalus_taiti
+		Acrocephalus_vaughani
+		Acrocephalus_aequinoctialis
+		Acrocephalus_australis
+		Acrocephalus_arundinaceus
+		Acrocephalus_gracilirostris
+		Acrocephalus_rufescens
+		Acrocephalus_brevipennis
+		Acrocephalus_newtoni
+		Acrocephalus_sechellensis
+		Chloropeta_gracilirostris
+		Acrocephalus_aedon
+		Chloropeta_natalensis
+		Chloropeta_similis
+		Hippolais_opaca
+		Hippolais_pallida
+		Hippolais_rama
+		Hippolais_caligata
+		Hippolais_polyglotta
+		Hippolais_icterina
+		Hippolais_olivetorum
+		Hippolais_languida
+		Neomixis_flavoviridis
+		Cryptosylvicola_randrianasoloi
+		Oxylabes_madagascariensis
+		Thamnornis_chloropetoides
+		Crossleyia_xanthophrys
+		Donacobius_atricapilla
+		Cincloramphus_mathewsi
+		Megalurus_palustris
+		Bradypterus_sylvaticus
+		Schoenicola_brevirostris
+		Dromaeocercus_brunneus
+		Bradypterus_baboecala
+		Bradypterus_carpalis
+		Bradypterus_lopezi
+		Bradypterus_barratti
+		Bradypterus_cinnamomeus
+		Bradypterus_bangwaensis
+		Bradypterus_tacsanowskius
+		Locustella_naevia
+		Bradypterus_castaneus
+		Bradypterus_thoracicus
+		Bradypterus_davidi
+		Bradypterus_mandelli
+		Bradypterus_montis
+		Locustella_lanceolata
+		Locustella_fluviatilis
+		Locustella_luscinioides
+		Locustella_pleskei
+		Locustella_ochotensis
+		Locustella_certhiola
+		Locustella_fasciolata
+		Megalurus_gramineus
+		Locustella_pryeri
+		Acrocephalus_palustris
+		Amaurocichla_bocagei
+		Scotocerca_inquieta
+		Hyliota_flavigaster
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Nesillas_typica,
+		2	Acrocephalus_bistrigiceps,
+		3	Acrocephalus_paludicola,
+		4	Acrocephalus_schoenobaenus,
+		5	Acrocephalus_melanopogon,
+		6	Acrocephalus_baeticatus,
+		7	Acrocephalus_scirpaceus,
+		8	Acrocephalus_dumetorum,
+		9	Acrocephalus_orinus,
+		10	Acrocephalus_agricola,
+		11	Acrocephalus_tangorum,
+		12	Acrocephalus_concinens,
+		13	Acrocephalus_griseldis,
+		14	Acrocephalus_stentoreus,
+		15	Acrocephalus_familiaris,
+		16	Acrocephalus_rimatarae,
+		17	Acrocephalus_kerearako,
+		18	Acrocephalus_mendanae,
+		19	Acrocephalus_atyphus,
+		20	Acrocephalus_caffer,
+		21	Acrocephalus_taiti,
+		22	Acrocephalus_vaughani,
+		23	Acrocephalus_aequinoctialis,
+		24	Acrocephalus_australis,
+		25	Acrocephalus_arundinaceus,
+		26	Acrocephalus_gracilirostris,
+		27	Acrocephalus_rufescens,
+		28	Acrocephalus_brevipennis,
+		29	Acrocephalus_newtoni,
+		30	Acrocephalus_sechellensis,
+		31	Chloropeta_gracilirostris,
+		32	Acrocephalus_aedon,
+		33	Chloropeta_natalensis,
+		34	Chloropeta_similis,
+		35	Hippolais_opaca,
+		36	Hippolais_pallida,
+		37	Hippolais_rama,
+		38	Hippolais_caligata,
+		39	Hippolais_polyglotta,
+		40	Hippolais_icterina,
+		41	Hippolais_olivetorum,
+		42	Hippolais_languida,
+		43	Neomixis_flavoviridis,
+		44	Cryptosylvicola_randrianasoloi,
+		45	Oxylabes_madagascariensis,
+		46	Thamnornis_chloropetoides,
+		47	Crossleyia_xanthophrys,
+		48	Donacobius_atricapilla,
+		49	Cincloramphus_mathewsi,
+		50	Megalurus_palustris,
+		51	Bradypterus_sylvaticus,
+		52	Schoenicola_brevirostris,
+		53	Dromaeocercus_brunneus,
+		54	Bradypterus_baboecala,
+		55	Bradypterus_carpalis,
+		56	Bradypterus_lopezi,
+		57	Bradypterus_barratti,
+		58	Bradypterus_cinnamomeus,
+		59	Bradypterus_bangwaensis,
+		60	Bradypterus_tacsanowskius,
+		61	Locustella_naevia,
+		62	Bradypterus_castaneus,
+		63	Bradypterus_thoracicus,
+		64	Bradypterus_davidi,
+		65	Bradypterus_mandelli,
+		66	Bradypterus_montis,
+		67	Locustella_lanceolata,
+		68	Locustella_fluviatilis,
+		69	Locustella_luscinioides,
+		70	Locustella_pleskei,
+		71	Locustella_ochotensis,
+		72	Locustella_certhiola,
+		73	Locustella_fasciolata,
+		74	Megalurus_gramineus,
+		75	Locustella_pryeri,
+		76	Acrocephalus_palustris,
+		77	Amaurocichla_bocagei,
+		78	Scotocerca_inquieta,
+		79	Hyliota_flavigaster
+	;
+	TREE * UNTITLED = [&R] (((1:13.50623155,((((((2:6.146016531,3:6.146016531):1.001446411,(4:4.931482661,5:4.931482661):2.215980281):2.499341931,(((6:0.6872547766,7:0.6872547766):5.357218396,(8:4.962032902,9:4.962032902):1.08244027):0.8479916282,(10:4.491784365,(11:3.509910213,12:3.509910213):0.9818741512):2.400680436):2.754340073):0.7687679664,(13:7.511490345,(((14:2.299964117,(15:1.406066588,(((16:0.6635655177,17:0.6635655177):0.3715210891,(((18:0.3413784706,19:0.3413784706):0.3949688125,20:0.7363472831):0.1378718988,(21:0.5035406547,22:0.5035406547):0.3706785272):0.160867425):0.2374400808,(23:0.591501426,24:0.591501426):0.6810252616):0.1335399003):0.8938975287):0.6392968796,25:2.939260996):2.996639425,((26:2.965121801,(27:0.8665852274,28:0.8665852274):2.098536573):0.8100598025,(29:1.934465242,30:1.934465242):1.840716361):2.160718818):1.575589924):2.904082495):1.481070207,(31:11.42180918,(32:10.3925868,(((33:4.740713678,34:4.740713678):2.093903868,(35:5.832370932,36:5.832370932):1.002246614):1.244463126,(37:2.363107832,38:2.363107832):5.71597284):2.313506127):1.029222382):0.4748338662):1.047091234,((39:4.483458766,40:4.483458766):3.133314689,(41:5.994070903,42:5.994070903):1.622702553):5.326960825):0.5624972665):12.68707568,((((((43:8.661601498,44:8.661601498):2.279984912,45:10.94158641):3.575378806,46:14.51696522):1.639833002,47:16.15679822):4.895909519,48:21.05270774):1.890942236,((((49:9.052794682,50:9.052794682):2.425995144,((51:3.554614907,52:3.554614907):5.146469641,(((53:3.572580096,54:3.572580096):1.491779758,55:5.064359854):1.628220026,(((56:3.237058844,57:3.237058844):1.165984444,58:4.403043287):0.9309030636,59:5.333946351):1.358633529):2.008504668):2.777705277):2.662789524,(((((60:3.532394325,61:3.532394325):4.76166614,(62:7.18461272,((63:2.178853203,64:2.178853203):3.171728998,(65:1.169729525,66:1.169729525):4.180852675):1.834030519):1.109447745):0.5811751459,67:8.875235611):0.4110655811,(68:5.591103919,69:5.591103919):3.695197274):3.527370293,(((70:1.11648215,71:1.11648215):1.498208164,72:2.614690314):7.298793253,73:9.913483566):2.900187919):1.327907865):3.136854405,(74:15.00924088,(75:0.1908335408,76:0.1908335408):14.81840734):2.269192875):5.665216218):3.249657252):1.93978464,((77:6.904521778,78:6.904521778):18.78226412,79:25.6867859):2.446305963);
+END;

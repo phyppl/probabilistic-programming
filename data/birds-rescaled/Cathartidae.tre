@@ -1,0 +1,153 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 70;
+	TAXLABELS
+		Pericrocotus_erythropygius
+		Pericrocotus_roseus
+		Pericrocotus_tegimae
+		Pericrocotus_divaricatus
+		Pericrocotus_cantonensis
+		Pericrocotus_flammeus
+		Pericrocotus_solaris
+		Pericrocotus_miniatus
+		Pericrocotus_brevirostris
+		Pericrocotus_lansbergei
+		Pericrocotus_ethologus
+		Pericrocotus_igneus
+		Pericrocotus_cinnamomeus
+		Campephaga_oriolina
+		Campephaga_petiti
+		Campephaga_flava
+		Campephaga_phoenicea
+		Coracina_dohertyi
+		Coracina_dispar
+		Coracina_mindanensis
+		Coracina_sula
+		Coracina_tenuirostris
+		Coracina_incerta
+		Coracina_morio
+		Coracina_holopolia
+		Coracina_ceramensis
+		Coracina_montana
+		Coracina_analis
+		Coracina_coerulescens
+		Coracina_ostenta
+		Coracina_abbotti
+		Coracina_azurea
+		Lalage_leucopygialis
+		Lalage_nigra
+		Coracina_typica
+		Coracina_newtoni
+		Coracina_fimbriata
+		Coracina_polioptera
+		Coracina_melanoptera
+		Coracina_melaschistos
+		Lalage_melanoleuca
+		Lalage_leucomela
+		Lalage_atrovirens
+		Lalage_leucopyga
+		Lalage_sueurii
+		Lalage_tricolor
+		Lalage_sharpei
+		Lalage_maculosa
+		Coracina_mcgregori
+		Campochaera_sloetii
+		Coracina_temminckii
+		Coracina_novaehollandiae
+		Coracina_atriceps
+		Coracina_papuensis
+		Coracina_caledonica
+		Coracina_macei
+		Coracina_striata
+		Coracina_leucopygia
+		Coracina_schistacea
+		Coracina_larvata
+		Coracina_boyeri
+		Coracina_lineata
+		Coracina_bicolor
+		Coracina_maxima
+		Coracina_longicauda
+		Coracina_caeruleogrisea
+		Coracina_cinerea
+		Coracina_graueri
+		Coracina_pectoralis
+		Coracina_caesia
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Pericrocotus_erythropygius,
+		2	Pericrocotus_roseus,
+		3	Pericrocotus_tegimae,
+		4	Pericrocotus_divaricatus,
+		5	Pericrocotus_cantonensis,
+		6	Pericrocotus_flammeus,
+		7	Pericrocotus_solaris,
+		8	Pericrocotus_miniatus,
+		9	Pericrocotus_brevirostris,
+		10	Pericrocotus_lansbergei,
+		11	Pericrocotus_ethologus,
+		12	Pericrocotus_igneus,
+		13	Pericrocotus_cinnamomeus,
+		14	Campephaga_oriolina,
+		15	Campephaga_petiti,
+		16	Campephaga_flava,
+		17	Campephaga_phoenicea,
+		18	Coracina_dohertyi,
+		19	Coracina_dispar,
+		20	Coracina_mindanensis,
+		21	Coracina_sula,
+		22	Coracina_tenuirostris,
+		23	Coracina_incerta,
+		24	Coracina_morio,
+		25	Coracina_holopolia,
+		26	Coracina_ceramensis,
+		27	Coracina_montana,
+		28	Coracina_analis,
+		29	Coracina_coerulescens,
+		30	Coracina_ostenta,
+		31	Coracina_abbotti,
+		32	Coracina_azurea,
+		33	Lalage_leucopygialis,
+		34	Lalage_nigra,
+		35	Coracina_typica,
+		36	Coracina_newtoni,
+		37	Coracina_fimbriata,
+		38	Coracina_polioptera,
+		39	Coracina_melanoptera,
+		40	Coracina_melaschistos,
+		41	Lalage_melanoleuca,
+		42	Lalage_leucomela,
+		43	Lalage_atrovirens,
+		44	Lalage_leucopyga,
+		45	Lalage_sueurii,
+		46	Lalage_tricolor,
+		47	Lalage_sharpei,
+		48	Lalage_maculosa,
+		49	Coracina_mcgregori,
+		50	Campochaera_sloetii,
+		51	Coracina_temminckii,
+		52	Coracina_novaehollandiae,
+		53	Coracina_atriceps,
+		54	Coracina_papuensis,
+		55	Coracina_caledonica,
+		56	Coracina_macei,
+		57	Coracina_striata,
+		58	Coracina_leucopygia,
+		59	Coracina_schistacea,
+		60	Coracina_larvata,
+		61	Coracina_boyeri,
+		62	Coracina_lineata,
+		63	Coracina_bicolor,
+		64	Coracina_maxima,
+		65	Coracina_longicauda,
+		66	Coracina_caeruleogrisea,
+		67	Coracina_cinerea,
+		68	Coracina_graueri,
+		69	Coracina_pectoralis,
+		70	Coracina_caesia
+	;
+	TREE * UNTITLED = [&R] ((1:18.67622342,(((((2:1.683885622,3:1.683885622):0.7648309747,(4:1.361418952,5:1.361418952):1.087297645):3.848396912,6:6.297113508):3.978360737,(7:8.842099376,((8:5.942042423,9:5.942042423):0.9773127307,(10:4.900522033,11:4.900522033):2.018833121):1.922744223):1.433374869):3.308135327,(12:4.571461745,13:4.571461745):9.012147828):5.092613844):11.38509812,(((14:11.60780314,((15:2.741259018,16:2.741259018):3.808191201,17:6.549450219):5.058352921):7.440548757,((((((((18:3.352146293,19:3.352146293):1.617759064,((20:3.540074229,(((21:0.7487110852,22:0.7487110852):0.4315194948,(23:0.6013740186,24:0.6013740186):0.5788565614):0.8229406329,25:2.003171213):1.536903016):0.582091659,26:4.122165888):0.8477394688):4.389924132,27:9.359829489):3.485009794,(28:11.74383369,(29:3.632475365,30:3.632475365):8.111358324):1.101005595):1.536932912,(31:12.97637171,32:12.97637171):1.405400481):0.7463392747,(((((33:4.984302968,34:4.984302968):2.011797244,((35:2.274809349,36:2.274809349):1.103167321,(((37:0.598943012,38:0.598943012):0.9765656274,39:1.575508639):0.9409340944,40:2.516442734):0.8615339359):3.618123542):1.459236111,41:8.455336323):0.4124689254,(42:1.091059038,43:1.091059038):7.776746211):0.8502957065,(((44:3.352833109,(45:0.6385480387,46:0.6385480387):2.71428507):2.016068958,47:5.368902067):0.8638334727,48:6.23273554):3.485365415):5.410010515):0.3744105401,49:15.50252201):2.528629223,50:18.03115123):1.017200664):3.558510695,(((51:12.14449559,((((52:5.058170791,((53:2.407616979,54:2.407616979):1.975711758,(55:4.058294042,((56:2.560723815,57:2.560723815):0.9907983983,((58:2.317101691,59:2.317101691):0.1801072973,60:2.497208988):1.054313225):0.5067718289):0.3250346949):0.6748420543):2.180245279,61:7.23841607):1.013434676,62:8.251850745):1.921795283,(63:8.839562965,64:8.839562965):1.334083063):1.970849562):1.822628849,(65:12.3344484,66:12.3344484):1.632676037):2.632264819,(67:13.58684644,(68:8.065386213,(69:3.742277544,70:3.742277544):4.323108668):5.521460231):3.012542815):6.007473332):7.45445895);
+END;

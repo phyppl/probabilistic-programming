@@ -1,0 +1,279 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 133;
+	TAXLABELS
+		Claravis_pretiosa
+		Columbina_picui
+		Columbina_inca
+		Columbina_squammata
+		Columbina_passerina
+		Columbina_minuta
+		Columbina_talpacoti
+		Columbina_cruziana
+		Metriopelia_ceciliae
+		Metriopelia_morenoi
+		Metriopelia_melanoptera
+		Metriopelia_aymara
+		Uropelia_campestris
+		Patagioenas_plumbea
+		Patagioenas_subvinacea
+		Patagioenas_speciosa
+		Patagioenas_squamosa
+		Patagioenas_leucocephala
+		Patagioenas_maculosa
+		Patagioenas_picazuro
+		Patagioenas_cayennensis
+		Patagioenas_oenops
+		Patagioenas_flavirostris
+		Patagioenas_fasciata
+		Patagioenas_araucana
+		Columba_pulchricollis
+		Columba_vitiensis
+		Columba_guinea
+		Columba_oenas
+		Columba_livia
+		Columba_rupestris
+		Columba_bollii
+		Columba_palumbus
+		Columba_arquatrix
+		Columba_junoniae
+		Streptopelia_bitorquata
+		Streptopelia_turtur
+		Streptopelia_hypopyrrha
+		Streptopelia_orientalis
+		Streptopelia_tranquebarica
+		Streptopelia_semitorquata
+		Streptopelia_decipiens
+		Streptopelia_roseogrisea
+		Streptopelia_decaocto
+		Streptopelia_vinacea
+		Streptopelia_capicola
+		Stigmatopelia_chinensis
+		Stigmatopelia_senegalensis
+		Nesoenas_picturata
+		Nesoenas_mayeri
+		Reinwardtoena_browni
+		Turacoena_manadensis
+		Macropygia_mackinlayi
+		Macropygia_amboinensis
+		Macropygia_tenuirostris
+		Macropygia_phasianella
+		Geotrygon_montana
+		Geotrygon_versicolor
+		Leptotila_verreauxi
+		Leptotila_jamaicensis
+		Leptotila_plumbeiceps
+		Leptotila_cassini
+		Leptotila_rufaxilla
+		Leptotila_megalura
+		Zenaida_asiatica
+		Zenaida_meloda
+		Zenaida_aurita
+		Zenaida_auriculata
+		Zenaida_galapagoensis
+		Zenaida_macroura
+		Zenaida_graysoni
+		Geotrygon_albifacies
+		Geotrygon_chiriquensis
+		Geotrygon_costaricensis
+		Geotrygon_saphirina
+		Leucosarcia_melanoleuca
+		Phaps_chalcoptera
+		Petrophassa_albipennis
+		Ocyphaps_lophotes
+		Geopelia_striata
+		Geopelia_cuneata
+		Geophaps_plumifera
+		Gallicolumba_jobiensis
+		Gallicolumba_beccarii
+		Henicophaps_albifrons
+		Gallicolumba_luzonica
+		Gallicolumba_tristigmata
+		Otidiphaps_nobilis
+		Trugon_terrestris
+		Didunculus_strigirostris
+		Caloenas_nicobarica
+		Goura_cristata
+		Goura_victoria
+		Phapitreron_amethystinus
+		Phapitreron_leucotis
+		Hemiphaga_novaeseelandiae
+		Lopholaimus_antarcticus
+		Gymnophaps_albertisii
+		Ducula_zoeae
+		Ducula_rufigaster
+		Ducula_pistrinaria
+		Ducula_aenea
+		Ducula_rubricera
+		Ducula_pacifica
+		Ducula_bicolor
+		Ducula_pinon
+		Ducula_melanochroa
+		Ptilinopus_occipitalis
+		Ptilinopus_leclancheri
+		Ptilinopus_magnificus
+		Ptilinopus_rivoli
+		Ptilinopus_superbus
+		Ptilinopus_solomonensis
+		Ptilinopus_pulchellus
+		Ptilinopus_richardsii
+		Ptilinopus_rarotongensis
+		Ptilinopus_regina
+		Alectroenas_madagascariensis
+		Drepanoptila_holosericea
+		Ptilinopus_victor
+		Ptilinopus_luteovirens
+		Ptilinopus_melanospilus
+		Treron_sieboldii
+		Treron_calvus
+		Treron_australis
+		Treron_waalia
+		Treron_vernans
+		Chalcophaps_stephani
+		Chalcophaps_indica
+		Oena_capensis
+		Turtur_brehmeri
+		Turtur_chalcospilos
+		Turtur_afer
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Claravis_pretiosa,
+		2	Columbina_picui,
+		3	Columbina_inca,
+		4	Columbina_squammata,
+		5	Columbina_passerina,
+		6	Columbina_minuta,
+		7	Columbina_talpacoti,
+		8	Columbina_cruziana,
+		9	Metriopelia_ceciliae,
+		10	Metriopelia_morenoi,
+		11	Metriopelia_melanoptera,
+		12	Metriopelia_aymara,
+		13	Uropelia_campestris,
+		14	Patagioenas_plumbea,
+		15	Patagioenas_subvinacea,
+		16	Patagioenas_speciosa,
+		17	Patagioenas_squamosa,
+		18	Patagioenas_leucocephala,
+		19	Patagioenas_maculosa,
+		20	Patagioenas_picazuro,
+		21	Patagioenas_cayennensis,
+		22	Patagioenas_oenops,
+		23	Patagioenas_flavirostris,
+		24	Patagioenas_fasciata,
+		25	Patagioenas_araucana,
+		26	Columba_pulchricollis,
+		27	Columba_vitiensis,
+		28	Columba_guinea,
+		29	Columba_oenas,
+		30	Columba_livia,
+		31	Columba_rupestris,
+		32	Columba_bollii,
+		33	Columba_palumbus,
+		34	Columba_arquatrix,
+		35	Columba_junoniae,
+		36	Streptopelia_bitorquata,
+		37	Streptopelia_turtur,
+		38	Streptopelia_hypopyrrha,
+		39	Streptopelia_orientalis,
+		40	Streptopelia_tranquebarica,
+		41	Streptopelia_semitorquata,
+		42	Streptopelia_decipiens,
+		43	Streptopelia_roseogrisea,
+		44	Streptopelia_decaocto,
+		45	Streptopelia_vinacea,
+		46	Streptopelia_capicola,
+		47	Stigmatopelia_chinensis,
+		48	Stigmatopelia_senegalensis,
+		49	Nesoenas_picturata,
+		50	Nesoenas_mayeri,
+		51	Reinwardtoena_browni,
+		52	Turacoena_manadensis,
+		53	Macropygia_mackinlayi,
+		54	Macropygia_amboinensis,
+		55	Macropygia_tenuirostris,
+		56	Macropygia_phasianella,
+		57	Geotrygon_montana,
+		58	Geotrygon_versicolor,
+		59	Leptotila_verreauxi,
+		60	Leptotila_jamaicensis,
+		61	Leptotila_plumbeiceps,
+		62	Leptotila_cassini,
+		63	Leptotila_rufaxilla,
+		64	Leptotila_megalura,
+		65	Zenaida_asiatica,
+		66	Zenaida_meloda,
+		67	Zenaida_aurita,
+		68	Zenaida_auriculata,
+		69	Zenaida_galapagoensis,
+		70	Zenaida_macroura,
+		71	Zenaida_graysoni,
+		72	Geotrygon_albifacies,
+		73	Geotrygon_chiriquensis,
+		74	Geotrygon_costaricensis,
+		75	Geotrygon_saphirina,
+		76	Leucosarcia_melanoleuca,
+		77	Phaps_chalcoptera,
+		78	Petrophassa_albipennis,
+		79	Ocyphaps_lophotes,
+		80	Geopelia_striata,
+		81	Geopelia_cuneata,
+		82	Geophaps_plumifera,
+		83	Gallicolumba_jobiensis,
+		84	Gallicolumba_beccarii,
+		85	Henicophaps_albifrons,
+		86	Gallicolumba_luzonica,
+		87	Gallicolumba_tristigmata,
+		88	Otidiphaps_nobilis,
+		89	Trugon_terrestris,
+		90	Didunculus_strigirostris,
+		91	Caloenas_nicobarica,
+		92	Goura_cristata,
+		93	Goura_victoria,
+		94	Phapitreron_amethystinus,
+		95	Phapitreron_leucotis,
+		96	Hemiphaga_novaeseelandiae,
+		97	Lopholaimus_antarcticus,
+		98	Gymnophaps_albertisii,
+		99	Ducula_zoeae,
+		100	Ducula_rufigaster,
+		101	Ducula_pistrinaria,
+		102	Ducula_aenea,
+		103	Ducula_rubricera,
+		104	Ducula_pacifica,
+		105	Ducula_bicolor,
+		106	Ducula_pinon,
+		107	Ducula_melanochroa,
+		108	Ptilinopus_occipitalis,
+		109	Ptilinopus_leclancheri,
+		110	Ptilinopus_magnificus,
+		111	Ptilinopus_rivoli,
+		112	Ptilinopus_superbus,
+		113	Ptilinopus_solomonensis,
+		114	Ptilinopus_pulchellus,
+		115	Ptilinopus_richardsii,
+		116	Ptilinopus_rarotongensis,
+		117	Ptilinopus_regina,
+		118	Alectroenas_madagascariensis,
+		119	Drepanoptila_holosericea,
+		120	Ptilinopus_victor,
+		121	Ptilinopus_luteovirens,
+		122	Ptilinopus_melanospilus,
+		123	Treron_sieboldii,
+		124	Treron_calvus,
+		125	Treron_australis,
+		126	Treron_waalia,
+		127	Treron_vernans,
+		128	Chalcophaps_stephani,
+		129	Chalcophaps_indica,
+		130	Oena_capensis,
+		131	Turtur_brehmeri,
+		132	Turtur_chalcospilos,
+		133	Turtur_afer
+	;
+	TREE * UNTITLED = [&R] ((1:23.06755312,((((2:11.84314765,((3:2.543976685,4:2.543976685):4.818215569,(5:3.951701157,(6:1.344854147,7:1.344854147):2.60684701):3.410491096):4.480955396):1.722760194,8:13.56590784):4.814015808,(((9:3.448758117,10:3.448758117):4.974932971,11:8.423691087):4.302916883,12:12.72660797):5.653315681):1.08919042,13:19.46911407):3.598439047):12.82940871,(((((((14:4.799755819,15:4.799755819):4.002207062,(16:6.841776397,(17:1.271491241,18:1.271491241):5.570285156):1.960186484):0.7109780861,((19:3.342602884,(20:2.60334384,21:2.60334384):0.7392590435):1.073259845,(22:1.071808177,23:1.071808177):3.344054552):5.097078239):2.828422895,(24:1.815492899,25:1.815492899):10.52587096):9.091804198,(((((26:5.040747403,27:5.040747403):9.17942997,(((28:8.753091548,(29:7.11928564,(30:1.566052048,31:1.566052048):5.553233593):1.633805908):1.945481768,(32:3.376821129,33:3.376821129):7.321752188):2.469196775,34:13.16777009):1.052407281):1.052479685,35:15.27265706):2.165852216,((((36:7.542014074,(((37:1.473012987,38:1.473012987):1.838571797,39:3.311584784):3.413594121,40:6.725178905):0.8168351691):1.937789888,(41:7.6888344,(42:3.862085019,(43:1.85273433,44:1.85273433):2.009350689):3.826749381):1.790969562):1.31601857,(45:2.527242313,46:2.527242313):8.268580219):5.919039286,((47:7.551056811,48:7.551056811):7.442622029,(49:3.048559929,50:3.048559929):11.94511891):1.721182979):0.7236474562):3.465004317,(51:13.36401103,(52:9.788012557,(53:8.778505021,(54:6.723544342,(55:0.1775299347,56:0.1775299347):6.546014407):2.054960678):1.009507537):3.575998477):7.539502558):0.5296544699):7.293173085,((57:11.72255959,58:11.72255959):12.89210676,((((59:10.11399721,60:10.11399721):2.396986505,((61:3.229843089,62:3.229843089):1.42452269,(63:3.826487016,64:3.826487016):0.8278787628):7.856617937):10.66668338,(((65:4.103933135,66:4.103933135):12.22282528,((67:4.928386399,(68:4.251345471,69:4.251345471):0.6770409285):1.164284272,(70:0.7253949099,71:0.7253949099):5.367275762):10.23408774):1.659131921,((72:6.260519973,73:6.260519973):6.204684735,74:12.46520471):5.520685623):5.191776761):0.2906957207,75:23.46836281):1.146303544):4.111674789):4.221969595,(((((76:20.69820521,(((77:16.21029941,78:16.21029941):1.460627154,79:17.67092656):1.309330384,((80:10.26992848,81:10.26992848):6.71997186,82:16.98990034):1.990356609):1.717948266):1.206474298,(83:4.777135971,84:4.777135971):17.12754354):2.269543595,85:24.1742231):3.371561098,(86:18.89651725,87:18.89651725):8.649266948):3.898616809,(((88:28.35926361,89:28.35926361):0.6578331991,((90:25.23817178,91:25.23817178):1.902340571,(92:7.03945503,93:7.03945503):20.10105732):1.876584458):1.67253455,((94:16.21298857,95:16.21298857):14.13769003,(((((96:14.06289128,(97:12.15787184,98:12.15787184):1.905019441):10.10541292,(99:16.91168144,(100:13.31459903,((101:4.642193037,(102:3.633237454,(103:1.469554965,104:1.469554965):2.16368249):1.008955582):7.312726125,((105:7.785666747,106:7.785666747):1.3796526,107:9.165319347):2.789599814):1.359679869):3.597082409):7.256622763):1.061596189,(((108:8.051096164,109:8.051096164):8.990824625,110:17.04192079):1.674381696,(((((111:3.59040488,112:3.59040488):1.869488071,113:5.45989295):4.246598805,(114:6.816760272,((115:2.419111804,116:2.419111804):1.034186078,117:3.453297883):3.363462389):2.889731483):3.428821005,(118:10.95805411,119:10.95805411):2.177258649):1.599893352,((120:1.915629843,121:1.915629843):11.37463177,122:13.29026161):1.444944501):3.981096373):6.513597906):3.622270694,(123:13.99573862,((124:3.973401842,(125:2.167556257,126:2.167556257):1.805845585):5.627234415,127:9.600636257):4.39510236):14.85643247):1.153512472,((128:13.3590999,129:13.3590999):7.979544611,(130:16.59923714,(131:14.69133369,(132:8.51725919,133:8.51725919):6.174074504):1.907903447):4.739407371):8.667039045):0.3449950404):0.3389527592):0.7547696562):1.503909728):2.94865109);
+END;

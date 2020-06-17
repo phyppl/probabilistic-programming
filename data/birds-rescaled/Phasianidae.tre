@@ -1,0 +1,275 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 131;
+	TAXLABELS
+		Francolinus_nahani
+		Tetraophasis_obscurus
+		Tetraophasis_szechenyii
+		Lophophorus_sclateri
+		Lophophorus_impejanus
+		Lophophorus_lhuysii
+		Tragopan_blythii
+		Tragopan_satyra
+		Tragopan_caboti
+		Tragopan_temminckii
+		Bonasa_bonasia
+		Bonasa_sewerzowi
+		Dendragapus_falcipennis
+		Dendragapus_canadensis
+		Tetrao_tetrix
+		Tetrao_mlokosiewiczi
+		Tetrao_urogallus
+		Tetrao_parvirostris
+		Centrocercus_urophasianus
+		Centrocercus_minimus
+		Tympanuchus_cupido
+		Tympanuchus_phasianellus
+		Tympanuchus_pallidicinctus
+		Dendragapus_obscurus
+		Lagopus_lagopus
+		Lagopus_muta
+		Lagopus_leucura
+		Bonasa_umbellus
+		Meleagris_gallopavo
+		Rhizothera_longirostris
+		Pucrasia_macrolopha
+		Syrmaticus_reevesii
+		Syrmaticus_ellioti
+		Syrmaticus_humiae
+		Syrmaticus_mikado
+		Syrmaticus_soemmerringii
+		Chrysolophus_amherstiae
+		Chrysolophus_pictus
+		Crossoptilon_crossoptilon
+		Crossoptilon_mantchuricum
+		Crossoptilon_auritum
+		Lophura_nycthemera
+		Lophura_leucomelanos
+		Lophura_edwardsi
+		Lophura_hatinhensis
+		Lophura_swinhoii
+		Lophura_bulweri
+		Lophura_inornata
+		Lophura_diardi
+		Lophura_ignita
+		Lophura_erythrophthalma
+		Catreus_wallichi
+		Phasianus_versicolor
+		Phasianus_colchicus
+		Perdix_hodgsoniae
+		Perdix_dauurica
+		Perdix_perdix
+		Ithaginis_cruentus
+		Polyplectron_malacense
+		Polyplectron_schleiermacheri
+		Polyplectron_katsumatae
+		Polyplectron_inopinatum
+		Polyplectron_chalcurum
+		Polyplectron_bicalcaratum
+		Polyplectron_germaini
+		Polyplectron_napoleonis
+		Galloperdix_lunulata
+		Haematortyx_sanguiniceps
+		Francolinus_pintadeanus
+		Francolinus_francolinus
+		Francolinus_pondicerianus
+		Francolinus_gularis
+		Francolinus_sephaena
+		Gallus_lafayetii
+		Gallus_gallus
+		Gallus_varius
+		Gallus_sonneratii
+		Bambusicola_fytchii
+		Bambusicola_thoracicus
+		Francolinus_finschi
+		Francolinus_africanus
+		Francolinus_levaillantoides
+		Francolinus_levaillantii
+		Francolinus_shelleyi
+		Francolinus_coqui
+		Francolinus_lathami
+		Afropavo_congensis
+		Pavo_cristatus
+		Pavo_muticus
+		Alectoris_barbara
+		Alectoris_philbyi
+		Alectoris_magna
+		Alectoris_graeca
+		Alectoris_rufa
+		Alectoris_chukar
+		Alectoris_melanocephala
+		Perdicula_asiatica
+		Ammoperdix_heyi
+		Francolinus_hartlaubi
+		Francolinus_afer
+		Francolinus_leucoscepus
+		Francolinus_swainsonii
+		Francolinus_squamatus
+		Francolinus_bicalcaratus
+		Francolinus_griseostriatus
+		Francolinus_adspersus
+		Francolinus_capensis
+		Francolinus_natalensis
+		Francolinus_hildebrandti
+		Francolinus_castaneicollis
+		Francolinus_erckelii
+		Tetraogallus_tibetanus
+		Tetraogallus_himalayensis
+		Tetraogallus_altaicus
+		Tetraogallus_caspius
+		Margaroperdix_madagascariensis
+		Coturnix_japonica
+		Coturnix_coturnix
+		Coturnix_pectoralis
+		Coturnix_chinensis
+		Coturnix_ypsilophora
+		Argusianus_argus
+		Rheinardia_ocellata
+		Xenoperdix_udzungwensis
+		Caloperdix_oculeus
+		Rollulus_rouloul
+		Arborophila_torqueola
+		Arborophila_rufipectus
+		Arborophila_rufogularis
+		Arborophila_gingica
+		Arborophila_javanica
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Francolinus_nahani,
+		2	Tetraophasis_obscurus,
+		3	Tetraophasis_szechenyii,
+		4	Lophophorus_sclateri,
+		5	Lophophorus_impejanus,
+		6	Lophophorus_lhuysii,
+		7	Tragopan_blythii,
+		8	Tragopan_satyra,
+		9	Tragopan_caboti,
+		10	Tragopan_temminckii,
+		11	Bonasa_bonasia,
+		12	Bonasa_sewerzowi,
+		13	Dendragapus_falcipennis,
+		14	Dendragapus_canadensis,
+		15	Tetrao_tetrix,
+		16	Tetrao_mlokosiewiczi,
+		17	Tetrao_urogallus,
+		18	Tetrao_parvirostris,
+		19	Centrocercus_urophasianus,
+		20	Centrocercus_minimus,
+		21	Tympanuchus_cupido,
+		22	Tympanuchus_phasianellus,
+		23	Tympanuchus_pallidicinctus,
+		24	Dendragapus_obscurus,
+		25	Lagopus_lagopus,
+		26	Lagopus_muta,
+		27	Lagopus_leucura,
+		28	Bonasa_umbellus,
+		29	Meleagris_gallopavo,
+		30	Rhizothera_longirostris,
+		31	Pucrasia_macrolopha,
+		32	Syrmaticus_reevesii,
+		33	Syrmaticus_ellioti,
+		34	Syrmaticus_humiae,
+		35	Syrmaticus_mikado,
+		36	Syrmaticus_soemmerringii,
+		37	Chrysolophus_amherstiae,
+		38	Chrysolophus_pictus,
+		39	Crossoptilon_crossoptilon,
+		40	Crossoptilon_mantchuricum,
+		41	Crossoptilon_auritum,
+		42	Lophura_nycthemera,
+		43	Lophura_leucomelanos,
+		44	Lophura_edwardsi,
+		45	Lophura_hatinhensis,
+		46	Lophura_swinhoii,
+		47	Lophura_bulweri,
+		48	Lophura_inornata,
+		49	Lophura_diardi,
+		50	Lophura_ignita,
+		51	Lophura_erythrophthalma,
+		52	Catreus_wallichi,
+		53	Phasianus_versicolor,
+		54	Phasianus_colchicus,
+		55	Perdix_hodgsoniae,
+		56	Perdix_dauurica,
+		57	Perdix_perdix,
+		58	Ithaginis_cruentus,
+		59	Polyplectron_malacense,
+		60	Polyplectron_schleiermacheri,
+		61	Polyplectron_katsumatae,
+		62	Polyplectron_inopinatum,
+		63	Polyplectron_chalcurum,
+		64	Polyplectron_bicalcaratum,
+		65	Polyplectron_germaini,
+		66	Polyplectron_napoleonis,
+		67	Galloperdix_lunulata,
+		68	Haematortyx_sanguiniceps,
+		69	Francolinus_pintadeanus,
+		70	Francolinus_francolinus,
+		71	Francolinus_pondicerianus,
+		72	Francolinus_gularis,
+		73	Francolinus_sephaena,
+		74	Gallus_lafayetii,
+		75	Gallus_gallus,
+		76	Gallus_varius,
+		77	Gallus_sonneratii,
+		78	Bambusicola_fytchii,
+		79	Bambusicola_thoracicus,
+		80	Francolinus_finschi,
+		81	Francolinus_africanus,
+		82	Francolinus_levaillantoides,
+		83	Francolinus_levaillantii,
+		84	Francolinus_shelleyi,
+		85	Francolinus_coqui,
+		86	Francolinus_lathami,
+		87	Afropavo_congensis,
+		88	Pavo_cristatus,
+		89	Pavo_muticus,
+		90	Alectoris_barbara,
+		91	Alectoris_philbyi,
+		92	Alectoris_magna,
+		93	Alectoris_graeca,
+		94	Alectoris_rufa,
+		95	Alectoris_chukar,
+		96	Alectoris_melanocephala,
+		97	Perdicula_asiatica,
+		98	Ammoperdix_heyi,
+		99	Francolinus_hartlaubi,
+		100	Francolinus_afer,
+		101	Francolinus_leucoscepus,
+		102	Francolinus_swainsonii,
+		103	Francolinus_squamatus,
+		104	Francolinus_bicalcaratus,
+		105	Francolinus_griseostriatus,
+		106	Francolinus_adspersus,
+		107	Francolinus_capensis,
+		108	Francolinus_natalensis,
+		109	Francolinus_hildebrandti,
+		110	Francolinus_castaneicollis,
+		111	Francolinus_erckelii,
+		112	Tetraogallus_tibetanus,
+		113	Tetraogallus_himalayensis,
+		114	Tetraogallus_altaicus,
+		115	Tetraogallus_caspius,
+		116	Margaroperdix_madagascariensis,
+		117	Coturnix_japonica,
+		118	Coturnix_coturnix,
+		119	Coturnix_pectoralis,
+		120	Coturnix_chinensis,
+		121	Coturnix_ypsilophora,
+		122	Argusianus_argus,
+		123	Rheinardia_ocellata,
+		124	Xenoperdix_udzungwensis,
+		125	Caloperdix_oculeus,
+		126	Rollulus_rouloul,
+		127	Arborophila_torqueola,
+		128	Arborophila_rufipectus,
+		129	Arborophila_rufogularis,
+		130	Arborophila_gingica,
+		131	Arborophila_javanica
+	;
+	TREE * UNTITLED = [&R] (1:27.19717112,(((((((((2:1.899421797,3:1.899421797):9.377336391,((4:3.304670774,5:3.304670774):1.326463669,6:4.631134443):6.645623744):4.552732376,((7:3.714202182,8:3.714202182):1.317274923,(9:2.145087033,10:2.145087033):2.886390071):10.79801346):1.555988104,((((11:3.733222524,12:3.733222524):7.944475361,(((((13:4.314726217,14:4.314726217):1.358953433,((15:1.526795103,16:1.526795103):2.502458658,(17:2.032312018,18:2.032312018):1.996941743):1.64442589):1.048935174,((19:0.658371404,20:0.658371404):4.45472747,(((21:0.3067627158,22:0.3067627158):0.2729327697,23:0.5796954855):3.062302208,24:3.641997693):1.47110118):1.609515951):0.5635363786,((25:3.221214487,26:3.221214487):2.062956798,27:5.284171286):2.001979918):3.37449308,28:10.66064428):1.017053601):3.571566079,29:15.24926396):1.479228569,((30:11.45060363,31:11.45060363):4.412968597,(((32:7.243126817,(((33:0.1039199644,34:0.1039199644):2.314545689,35:2.418465653):4.144535101,36:6.563000755):0.6801260621):2.838116635,(((37:1.21555478,38:1.21555478):6.577903647,((39:1.745564813,(40:0.07615191805,41:0.07615191805):1.669412895):5.143807956,(((((42:1.46861973,43:1.46861973):1.510225075,((44:0.1540681474,45:0.1540681474):1.042888074,46:1.196956221):1.781888585):0.3704862936,47:3.349331099):0.9102724708,((48:2.751622961,(49:1.77272767,50:1.77272767):0.9788952911):0.5237196172,51:3.275342578):0.9842609921):1.881770682,52:6.141374252):0.7479985169):0.9040856582):0.6111917551,(53:1.672436685,54:1.672436685):6.732213497):1.676593269):4.84797184,(55:3.026552966,(56:1.903483978,57:1.903483978):1.123068988):11.90266233):0.9343569349):0.864920307):0.6569861343):1.765020809,58:19.15049948):1.664512078,(((((((59:2.594349366,60:2.594349366):2.276852162,(61:2.560138776,((62:1.520545094,(63:0.8260224011,64:0.8260224011):0.6945226932):0.5736852815,65:2.094230376):0.4659084001):2.311062753):1.246012761,66:6.11721429):2.164143161,67:8.281357451):2.638886604,68:10.92024406):7.873840242,(((69:12.42408826,(70:11.02798373,((71:3.801725552,72:3.801725552):3.916068672,73:7.717794225):3.310189509):1.396104527):1.433350569,((((74:2.568679262,(75:1.441533647,76:1.441533647):1.127145615):0.8346633131,77:3.403342575):7.254678824,(78:6.01452166,79:6.01452166):4.643499739):1.929778787,(80:4.995266685,((81:2.418137218,(82:0.2155979516,83:0.2155979516):2.202539266):0.7192470966,84:3.137384314):1.857882371):7.592533502):1.269638643):0.7635405021,(85:11.58984444,86:11.58984444):3.031134888):4.173104966):0.689408539,(87:5.862263124,(88:1.717014076,89:1.717014076):4.145249049):13.62122971):1.331518719):0.6832425297,((((90:6.4734392,((((91:1.82460678,92:1.82460678):0.424505203,93:2.249111983):0.5958942618,(94:1.711842451,95:1.711842451):1.133163795):2.989034191,96:5.834040437):0.6393987638):9.675033915,((97:10.90709741,98:10.90709741):3.743535747,(99:11.02093943,(((100:3.176016329,(101:2.413935939,102:2.413935939):0.7620803897):1.735539978,((103:2.496686659,104:2.496686659):1.97979856,(105:3.38924426,((106:2.071635261,107:2.071635261):0.7581469846,(108:1.347800424,109:1.347800424):1.481981821):0.5594620145):1.087240959):0.435071088):1.576504606,(110:3.471835088,111:3.471835088):3.016225825):4.532878519):3.629693726):1.497839958):0.9600679848,(112:4.841645231,((113:1.349971907,114:1.349971907):0.5421997583,115:1.892171665):2.949473565):12.26689587):1.026872362,((116:9.480177588,((117:0.6127329603,118:0.6127329603):5.250281226,119:5.863014186):3.617163402):3.009394607,(120:6.46372667,121:6.46372667):6.025845525):5.645841267):3.362840623):1.168377122,(122:5.276973681,123:5.276973681):17.38965753):1.245603211,(124:20.15206793,((125:11.52198732,126:11.52198732):5.212167891,(((127:2.32785294,128:2.32785294):4.003245741,(129:2.757884311,130:2.757884311):3.57321437):1.556921731,131:7.888020411):8.846134796):3.417912719):3.760166492):3.284936706);
+END;

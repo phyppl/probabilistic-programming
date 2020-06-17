@@ -1,0 +1,127 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 57;
+	TAXLABELS
+		Eurostopodus_argus
+		Eurostopodus_mystacalis
+		Eurostopodus_papuensis
+		Caprimulgus_enarratus
+		Lurocalis_rufiventris
+		Lurocalis_semitorquatus
+		Caprimulgus_maculicaudus
+		Hydropsalis_climacocerca
+		Hydropsalis_torquata
+		Caprimulgus_cayennensis
+		Caprimulgus_parvulus
+		Caprimulgus_longirostris
+		Eleothreptus_candicans
+		Eleothreptus_anomalus
+		Caprimulgus_whitelyi
+		Uropsalis_segmentata
+		Uropsalis_lyra
+		Caprimulgus_nigrescens
+		Caprimulgus_anthonyi
+		Nyctidromus_albicollis
+		Nyctiprogne_leucopyga
+		Siphonorhis_brewsteri
+		Nyctiphrynus_yucatanicus
+		Nyctiphrynus_ocellatus
+		Nyctiphrynus_mcleodii
+		Nyctiphrynus_rosenbergi
+		Phalaenoptilus_nuttallii
+		Caprimulgus_saturatus
+		Caprimulgus_vociferus
+		Caprimulgus_ridgwayi
+		Caprimulgus_salvini
+		Caprimulgus_rufus
+		Caprimulgus_carolinensis
+		Macrodipteryx_longipennis
+		Macrodipteryx_vexillarius
+		Caprimulgus_fossii
+		Caprimulgus_climacurus
+		Caprimulgus_rufigena
+		Caprimulgus_europaeus
+		Caprimulgus_fraenatus
+		Caprimulgus_batesi
+		Caprimulgus_indicus
+		Caprimulgus_manillensis
+		Caprimulgus_inornatus
+		Caprimulgus_macrurus
+		Caprimulgus_madagascariensis
+		Caprimulgus_aegyptius
+		Caprimulgus_affinis
+		Caprimulgus_nigriscapularis
+		Caprimulgus_pectoralis
+		Caprimulgus_poliocephalus
+		Chordeiles_minor
+		Chordeiles_rupestris
+		Chordeiles_acutipennis
+		Podager_nacunda
+		Chordeiles_pusillus
+		Eurostopodus_macrotis
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Eurostopodus_argus,
+		2	Eurostopodus_mystacalis,
+		3	Eurostopodus_papuensis,
+		4	Caprimulgus_enarratus,
+		5	Lurocalis_rufiventris,
+		6	Lurocalis_semitorquatus,
+		7	Caprimulgus_maculicaudus,
+		8	Hydropsalis_climacocerca,
+		9	Hydropsalis_torquata,
+		10	Caprimulgus_cayennensis,
+		11	Caprimulgus_parvulus,
+		12	Caprimulgus_longirostris,
+		13	Eleothreptus_candicans,
+		14	Eleothreptus_anomalus,
+		15	Caprimulgus_whitelyi,
+		16	Uropsalis_segmentata,
+		17	Uropsalis_lyra,
+		18	Caprimulgus_nigrescens,
+		19	Caprimulgus_anthonyi,
+		20	Nyctidromus_albicollis,
+		21	Nyctiprogne_leucopyga,
+		22	Siphonorhis_brewsteri,
+		23	Nyctiphrynus_yucatanicus,
+		24	Nyctiphrynus_ocellatus,
+		25	Nyctiphrynus_mcleodii,
+		26	Nyctiphrynus_rosenbergi,
+		27	Phalaenoptilus_nuttallii,
+		28	Caprimulgus_saturatus,
+		29	Caprimulgus_vociferus,
+		30	Caprimulgus_ridgwayi,
+		31	Caprimulgus_salvini,
+		32	Caprimulgus_rufus,
+		33	Caprimulgus_carolinensis,
+		34	Macrodipteryx_longipennis,
+		35	Macrodipteryx_vexillarius,
+		36	Caprimulgus_fossii,
+		37	Caprimulgus_climacurus,
+		38	Caprimulgus_rufigena,
+		39	Caprimulgus_europaeus,
+		40	Caprimulgus_fraenatus,
+		41	Caprimulgus_batesi,
+		42	Caprimulgus_indicus,
+		43	Caprimulgus_manillensis,
+		44	Caprimulgus_inornatus,
+		45	Caprimulgus_macrurus,
+		46	Caprimulgus_madagascariensis,
+		47	Caprimulgus_aegyptius,
+		48	Caprimulgus_affinis,
+		49	Caprimulgus_nigriscapularis,
+		50	Caprimulgus_pectoralis,
+		51	Caprimulgus_poliocephalus,
+		52	Chordeiles_minor,
+		53	Chordeiles_rupestris,
+		54	Chordeiles_acutipennis,
+		55	Podager_nacunda,
+		56	Chordeiles_pusillus,
+		57	Eurostopodus_macrotis
+	;
+	TREE * UNTITLED = [&R] (((1:4.453591305,2:4.453591305):20.03775768,3:24.49134898):32.79920363,(4:50.1134521,(((((5:7.370304845,6:7.370304845):15.94728121,(((((7:9.463093126,((8:5.080672942,9:5.080672942):2.111482905,10:7.192155847):2.270937278):4.079019037,((11:11.44254406,(12:9.215864885,(13:3.279451809,14:3.279451809):5.936413076):2.226679171):0.7475028971,15:12.19004695):1.352065209):1.909484019,(16:4.845882718,17:4.845882718):10.60571346):3.656648036,(18:16.63641422,(19:14.51594617,20:14.51594617):2.120468051):2.471830002):2.193960495,21:21.30220471):2.015381343):5.886856916,(22:24.46611202,((((23:7.959417367,24:7.959417367):3.098176949,25:11.05759432):4.777135792,26:15.83473011):4.14387442,(27:15.4654792,(((28:6.713590941,29:6.713590941):4.702011228,30:11.41560217):1.261060093,(31:9.813949248,(32:5.431285445,33:5.431285445):4.382663803):2.862713014):2.788816943):4.513125323):4.487507488):4.738330956):1.984403571,((((((((34:6.480716229,35:6.480716229):4.522761056,((36:4.329735022,37:4.329735022):4.244955735,((38:0.2973743697,39:0.2973743697):3.92015711,40:4.21753148):4.357159277):2.428786528):1.389520316,41:12.3929976):1.965578525,(42:12.3963362,43:12.3963362):1.962239923):1.493639676,(44:12.25805958,45:12.25805958):3.594156218):0.9285314551,46:16.78074726):1.79026165,((47:10.54286251,48:10.54286251):2.794486033,(49:6.992292305,(50:0.3197177591,51:0.3197177591):6.672574546):6.345056237):5.233660363):10.34913739,((52:15.41001828,(53:6.754636556,54:6.754636556):8.65538172):5.152446798,(55:18.64994224,56:18.64994224):1.912522832):8.35768122):2.268700247):12.28158394,57:43.47043048):6.643021622):7.177100513);
+END;

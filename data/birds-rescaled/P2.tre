@@ -1,0 +1,171 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 79;
+	TAXLABELS
+		Prionochilus_maculatus
+		Prionochilus_thoracicus
+		Prionochilus_plateni
+		Prionochilus_xanthopygius
+		Prionochilus_percussus
+		Prionochilus_olivaceus
+		Dicaeum_australe
+		Dicaeum_trigonostigma
+		Dicaeum_bicolor
+		Dicaeum_anthonyi
+		Dicaeum_aureolimbatum
+		Dicaeum_monticolum
+		Dicaeum_celebicum
+		Dicaeum_ignipectus
+		Dicaeum_eximium
+		Dicaeum_aeneum
+		Dicaeum_geelvinkianum
+		Dicaeum_pectorale
+		Dicaeum_hirundinaceum
+		Dicaeum_tristrami
+		Dicaeum_sanguinolentum
+		Dicaeum_cruentatum
+		Dicaeum_igniferum
+		Dicaeum_concolor
+		Dicaeum_pygmaeum
+		Dicaeum_nigrilore
+		Dicaeum_hypoleucum
+		Dicaeum_chrysorrheum
+		Dicaeum_everetti
+		Dicaeum_agile
+		Dicaeum_melanoxanthum
+		Arachnothera_affinis
+		Arachnothera_magna
+		Arachnothera_chrysogenys
+		Hypogramma_hypogrammicum
+		Arachnothera_robusta
+		Arachnothera_longirostra
+		Nectarinia_loveridgei
+		Nectarinia_moreaui
+		Nectarinia_mediocris
+		Nectarinia_afra
+		Nectarinia_regia
+		Nectarinia_chalybea
+		Nectarinia_preussi
+		Nectarinia_senegalensis
+		Nectarinia_adelberti
+		Nectarinia_kilimensis
+		Nectarinia_coquerellii
+		Nectarinia_sovimanga
+		Nectarinia_humbloti
+		Nectarinia_dussumieri
+		Anthreptes_collaris
+		Nectarinia_jugularis
+		Anthreptes_rectirostris
+		Nectarinia_balfouri
+		Nectarinia_erythrocerca
+		Nectarinia_pulchella
+		Nectarinia_minulla
+		Nectarinia_mariquensis
+		Nectarinia_superba
+		Nectarinia_chloropygia
+		Nectarinia_alinae
+		Nectarinia_verticalis
+		Nectarinia_venusta
+		Nectarinia_talatala
+		Nectarinia_bouvieri
+		Nectarinia_oritis
+		Nectarinia_olivacea
+		Nectarinia_rufipennis
+		Anthreptes_fraseri
+		Anthreptes_orientalis
+		Nectarinia_sperata
+		Aethopyga_siparaja
+		Aethopyga_boltoni
+		Aethopyga_primigenia
+		Aethopyga_christinae
+		Aethopyga_flagrans
+		Aethopyga_duyvenbodei
+		Anthreptes_malacensis
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Prionochilus_maculatus,
+		2	Prionochilus_thoracicus,
+		3	Prionochilus_plateni,
+		4	Prionochilus_xanthopygius,
+		5	Prionochilus_percussus,
+		6	Prionochilus_olivaceus,
+		7	Dicaeum_australe,
+		8	Dicaeum_trigonostigma,
+		9	Dicaeum_bicolor,
+		10	Dicaeum_anthonyi,
+		11	Dicaeum_aureolimbatum,
+		12	Dicaeum_monticolum,
+		13	Dicaeum_celebicum,
+		14	Dicaeum_ignipectus,
+		15	Dicaeum_eximium,
+		16	Dicaeum_aeneum,
+		17	Dicaeum_geelvinkianum,
+		18	Dicaeum_pectorale,
+		19	Dicaeum_hirundinaceum,
+		20	Dicaeum_tristrami,
+		21	Dicaeum_sanguinolentum,
+		22	Dicaeum_cruentatum,
+		23	Dicaeum_igniferum,
+		24	Dicaeum_concolor,
+		25	Dicaeum_pygmaeum,
+		26	Dicaeum_nigrilore,
+		27	Dicaeum_hypoleucum,
+		28	Dicaeum_chrysorrheum,
+		29	Dicaeum_everetti,
+		30	Dicaeum_agile,
+		31	Dicaeum_melanoxanthum,
+		32	Arachnothera_affinis,
+		33	Arachnothera_magna,
+		34	Arachnothera_chrysogenys,
+		35	Hypogramma_hypogrammicum,
+		36	Arachnothera_robusta,
+		37	Arachnothera_longirostra,
+		38	Nectarinia_loveridgei,
+		39	Nectarinia_moreaui,
+		40	Nectarinia_mediocris,
+		41	Nectarinia_afra,
+		42	Nectarinia_regia,
+		43	Nectarinia_chalybea,
+		44	Nectarinia_preussi,
+		45	Nectarinia_senegalensis,
+		46	Nectarinia_adelberti,
+		47	Nectarinia_kilimensis,
+		48	Nectarinia_coquerellii,
+		49	Nectarinia_sovimanga,
+		50	Nectarinia_humbloti,
+		51	Nectarinia_dussumieri,
+		52	Anthreptes_collaris,
+		53	Nectarinia_jugularis,
+		54	Anthreptes_rectirostris,
+		55	Nectarinia_balfouri,
+		56	Nectarinia_erythrocerca,
+		57	Nectarinia_pulchella,
+		58	Nectarinia_minulla,
+		59	Nectarinia_mariquensis,
+		60	Nectarinia_superba,
+		61	Nectarinia_chloropygia,
+		62	Nectarinia_alinae,
+		63	Nectarinia_verticalis,
+		64	Nectarinia_venusta,
+		65	Nectarinia_talatala,
+		66	Nectarinia_bouvieri,
+		67	Nectarinia_oritis,
+		68	Nectarinia_olivacea,
+		69	Nectarinia_rufipennis,
+		70	Anthreptes_fraseri,
+		71	Anthreptes_orientalis,
+		72	Nectarinia_sperata,
+		73	Aethopyga_siparaja,
+		74	Aethopyga_boltoni,
+		75	Aethopyga_primigenia,
+		76	Aethopyga_christinae,
+		77	Aethopyga_flagrans,
+		78	Aethopyga_duyvenbodei,
+		79	Anthreptes_malacensis
+	;
+	TREE * UNTITLED = [&R] ((((1:14.66225293,(2:12.93820786,((3:4.590440143,4:4.590440143):2.945863352,5:7.536303494):5.40190437):1.724045065):6.399855129,((6:19.90712148,((((7:11.03306698,8:11.03306698):3.904782522,(9:8.864961227,10:8.864961227):6.072888274):1.284526729,(11:14.08451579,(((12:9.319897553,((13:6.283637132,14:6.283637132):2.406956157,((15:7.175225765,16:7.175225765):1.077195075,((17:0.07588044781,18:0.07588044781):5.719703995,19:5.795584443):2.456836398):0.4381724494):0.6293042628):1.489445989,((20:9.309131489,(21:7.683854078,(22:6.447965538,23:6.447965538):1.235888539):1.625277412):0.8278557946,(24:1.197840596,25:1.197840596):8.939146688):0.6723562578):2.350038468,26:13.15938201):0.9251337766):2.137860444):2.405397785,27:18.62777402):1.27934746):0.9744894385,(28:16.37180427,((29:10.04161565,30:10.04161565):4.641616025,31:14.68323167):1.688572596):4.509806645):0.1804971433):6.917445927,(((32:15.00839252,33:15.00839252):4.817183534,(34:7.916630058,35:7.916630058):11.90894599):5.086167435,(36:15.85998081,37:15.85998081):9.05176267):3.0678105):7.826526923,(((((((38:3.26078156,39:3.26078156):5.214441782,40:8.475223342):2.042380614,(41:7.611895397,(42:6.001978362,43:6.001978362):1.609917035):2.905708558):0.6501904311,44:11.16779439):10.0893718,(((((((45:4.533602708,46:4.533602708):3.3918131,47:7.925415808):0.1361716953,((48:5.123267787,(49:4.849242004,50:4.849242004):0.2740257826):0.8196706434,51:5.94293843):2.118649073):5.429732108,(((52:10.64715536,53:10.64715536):1.971107823,54:12.61826318):0.1102902091,(55:4.662367707,56:4.662367707):8.066185686):0.7627662189):0.9895059948,((((57:3.729068769,58:3.729068769):5.804247107,(59:3.912153997,60:3.912153997):5.621161879):0.9356959439,61:10.46901182):2.639850551,(62:4.530603583,63:4.530603583):8.578258787):1.371963236):0.8357932243,((64:9.438667684,(65:8.364488503,66:8.364488503):1.074179181):3.434030388,((67:7.816607693,68:7.816607693):1.270893092,69:9.087500785):3.785197287):2.443920758):1.539248863,(70:13.95719331,71:13.95719331):2.89867438):4.401298497):3.374788946,(72:19.41304071,((73:17.14152501,(((74:4.557469427,75:4.557469427):9.413507763,76:13.97097719):0.1891829522,77:14.16016014):2.981364866):2.360218961,78:19.50174397):0):5.218914427):0.6161540439,79:25.24810918):10.55797173);
+END;

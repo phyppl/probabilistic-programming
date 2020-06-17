@@ -1,0 +1,1842 @@
+[
+  {
+    "label": "tdbd-grid2-analytical-1",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.05,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-1.wppl 1",
+    "output": "-180.64265448837722\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-2",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.05,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-2.wppl 1",
+    "output": "-181.3907985359559\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-3",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-3.wppl 1",
+    "output": "-163.0018794912111\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-4",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-4.wppl 1",
+    "output": "-164.20729092485251\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-5",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.15,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-5.wppl 1",
+    "output": "-153.92910830410435\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-6",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.15,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-6.wppl 1",
+    "output": "-155.37267661129857\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-7",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.2,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-7.wppl 1",
+    "output": "-148.3397167110986\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-8",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.2,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-8.wppl 1",
+    "output": "-149.8492610954394\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-9",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.25,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-9.wppl 1",
+    "output": "-144.64580545295792\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-10",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.25,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-10.wppl 1",
+    "output": "-146.08187864209384\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-11",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-11.wppl 1",
+    "output": "-142.1432079772385\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-12",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-12.wppl 1",
+    "output": "-143.39029762105937\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-13",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.35,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-13.wppl 1",
+    "output": "-140.45815915033066\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-14",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.35,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-14.wppl 1",
+    "output": "-141.4188985415563\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-15",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.4,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-15.wppl 1",
+    "output": "-139.36870192833044\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-16",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.4,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-16.wppl 1",
+    "output": "-139.95987934996964\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-17",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.45,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-17.wppl 1",
+    "output": "-138.73239698794166\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-18",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.45,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-18.wppl 1",
+    "output": "-138.8820997130164\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-19",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.5,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-19.wppl 1",
+    "output": "-138.45245819057706\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-20",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.5,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-20.wppl 1",
+    "output": "-138.09796417980576\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-21",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.55,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-21.wppl 1",
+    "output": "-138.4601605397713\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-22",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.55,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-22.wppl 1",
+    "output": "-137.54634105950413\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-23",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.6,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-23.wppl 1",
+    "output": "-138.70496458662117\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-24",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.6,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-24.wppl 1",
+    "output": "-137.18304689941033\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-25",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.65,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-25.wppl 1",
+    "output": "-139.1486265738461\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-26",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.65,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-26.wppl 1",
+    "output": "-136.97521725342463\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-27",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.7,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-27.wppl 1",
+    "output": "-139.76151031991225\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-28",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.7,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-28.wppl 1",
+    "output": "-136.8978116567691\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-29",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.75,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-29.wppl 1",
+    "output": "-140.52018322110587\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-30",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.75,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-30.wppl 1",
+    "output": "-136.9313556469894\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-31",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.8,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-31.wppl 1",
+    "output": "-141.4057955819915\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-32",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.8,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-32.wppl 1",
+    "output": "-137.06043253468218\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-33",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.85,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-33.wppl 1",
+    "output": "-142.40295619793625\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-34",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.85,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-34.wppl 1",
+    "output": "-137.2726469698203\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-35",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.9,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-35.wppl 1",
+    "output": "-143.49893264664095\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-36",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.9,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-36.wppl 1",
+    "output": "-137.5578950677239\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-37",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.95,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-37.wppl 1",
+    "output": "-144.68307006979137\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-38",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.95,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-38.wppl 1",
+    "output": "-137.90783932622188\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-39",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-39.wppl 1",
+    "output": "-145.9463606130866\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-40",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-40.wppl 1",
+    "output": "-138.31552370152457\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-41",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.05,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-41.wppl 1",
+    "output": "-141.09995066979647\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-42",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.05,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-42.wppl 1",
+    "output": "-143.34931717457454\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-43",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-43.wppl 1",
+    "output": "-137.74636387235574\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-44",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-44.wppl 1",
+    "output": "-138.1217314431692\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-45",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.15,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-45.wppl 1",
+    "output": "-142.5316547396518\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-46",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.15,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-46.wppl 1",
+    "output": "-139.14488055682267\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-47",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.2,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-47.wppl 1",
+    "output": "-150.6217660742961\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-48",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.2,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-48.wppl 1",
+    "output": "-142.4096601967345\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-49",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.25,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-49.wppl 1",
+    "output": "-160.52986078518825\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-50",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.25,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-50.wppl 1",
+    "output": "-146.83673735151623\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-51",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-51.wppl 1",
+    "output": "-171.59490438943837\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-52",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-52.wppl 1",
+    "output": "-151.9942589855875\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-53",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.35,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-53.wppl 1",
+    "output": "-183.46241826775747\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-54",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.35,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-54.wppl 1",
+    "output": "-157.66555822541434\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-55",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.4,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-55.wppl 1",
+    "output": "-195.91942288220866\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-56",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.4,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-56.wppl 1",
+    "output": "-163.72404266422402\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-57",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.45,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-57.wppl 1",
+    "output": "-208.82779099697447\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-58",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.45,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-58.wppl 1",
+    "output": "-170.08747295771767\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-59",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.5,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-59.wppl 1",
+    "output": "-222.0928428008315\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-60",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.5,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-60.wppl 1",
+    "output": "-176.69834856237134\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-61",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.55,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-61.wppl 1",
+    "output": "-235.6468739156342\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-62",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.55,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-62.wppl 1",
+    "output": "-183.5143694392449\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-63",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.6,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-63.wppl 1",
+    "output": "-249.43981254119595\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-64",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.6,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-64.wppl 1",
+    "output": "-190.5032875002654\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-65",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.65,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-65.wppl 1",
+    "output": "-263.43359385307207\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-66",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.65,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-66.wppl 1",
+    "output": "-197.63987376153125\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-67",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.7,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-67.wppl 1",
+    "output": "-277.5986081197688\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-68",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.7,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-68.wppl 1",
+    "output": "-204.90399988939583\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-69",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.75,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-69.wppl 1",
+    "output": "-291.91136932084777\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-70",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.75,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-70.wppl 1",
+    "output": "-212.27935472869993\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-71",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.8,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-71.wppl 1",
+    "output": "-306.3529342226991\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-72",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.8,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-72.wppl 1",
+    "output": "-219.75254801872114\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-73",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.85,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-73.wppl 1",
+    "output": "-320.90780010942075\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-74",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.85,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-74.wppl 1",
+    "output": "-227.31246384110602\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-75",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.9,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-75.wppl 1",
+    "output": "-335.5631175066073\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-76",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.9,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-76.wppl 1",
+    "output": "-234.94978253304902\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-77",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.95,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-77.wppl 1",
+    "output": "-350.3081158908917\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-78",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.95,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-78.wppl 1",
+    "output": "-242.65662029074542\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-79",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-79.wppl 1",
+    "output": "-365.1336768768646\n"
+  },
+  {
+    "label": "tdbd-grid2-analytical-80",
+    "description": "TDBD Model with Decaying λ and μ. Analytical solution. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = (exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho ) + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-analytical/tdbd-grid2-analytical-80.wppl 1",
+    "output": "-250.42625324877355\n"
+  }
+]

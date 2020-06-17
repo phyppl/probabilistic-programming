@@ -1,0 +1,79 @@
+/** 
+ * @file 
+ * Example: ClaDS0
+ * 
+ * To run the example use:
+ * 
+ * npm run wppl examples/clads0.wppl [N]
+ * 
+ * where [N] is the number of iterations, for example 3
+ *
+ */
+
+
+/** 
+ * Tree selection
+ * uncomment the observed tree that you would like 
+ * or use the read_phyjson function to read in a tree in the PhyJSON format 
+ */
+//var tree   = phyjs.example_2;
+var tree = phyjs.bisse_32;
+//var tree =  phyjs.read_phyjson("../../data/bisse_32.phyjson")
+//var tree = phylodata.primates_61;
+//var tree = phylodata.cetacean_87;
+//var tree = phylodata.read_phyjson("example.json")
+
+var MAX_DIV = 5
+var MAX_LAMBDA = 5
+var MIN_LAMBDA = 1e-5
+var PANDA = true
+
+
+
+/**
+ * Model specification
+ */
+var model = function()
+{
+    // Define priors on lambda_0, alpha and sigma
+    // See Maliet et al (2019) for some discussion. They
+    // use improper priors except in the verification of
+    // the MCMC implementation. Here, we use the same priors
+    // for lambda_0 and alpha as those used in the verification,
+    // except that we make the priors symmetric around 1.0, that
+    // is, such that the median of the prior is 1.0.
+    //    var lambda_0 = exp( uniform( {a:log(1e-4), b:log(1e4)} ) )
+    //    var alpha    = exp( uniform( {a:log(1.0/2.0), b:log(2.0)} ) )
+    //    var sigma    = 1.0 / ( gamma( {shape:1.0, scale:10.0} )
+    //    var rho      = 1.0
+
+    // Test settings to compare with analytical CRBD with mu = 0
+    var lambda_0 = 0.2
+    var alpha    = 1.0
+    var sigma    = 0.0000001
+    var rho      = 1.0
+
+    // Simulate conditionally on the tree
+    // It returns all variables of interest
+    var ret = simClaDS0_panda( tree, lambda_0, alpha, sigma, rho )
+
+    // Condition on survival
+    var dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda_0, alpha, sigma, rho ) }, method: 'forward', samples: 100 } )
+    factor( - 2.0 * dist.score( false ) )
+
+    return ret
+}
+
+
+/**
+ * Inference
+ * tweak the number of particles if you want to */
+var particles = 1000
+var dist = Infer( {method: 'SMC', particles: particles, model: model} );
+
+
+/** 
+ *Print the distribution or the normalization constant
+ */
+// dist;
+dist.normalizationConstant;

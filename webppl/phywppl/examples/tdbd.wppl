@@ -1,0 +1,77 @@
+/** 
+ * @file 
+ * Example: Time-Dependent Birth-Death Model
+ * 
+ * Example usage:
+ * 
+ * npm run wppl examples/tdbd.wppl 1
+ * 
+ * You can replace 1 with the desired number of replicates.
+ *
+ */
+
+
+/*
+ * Tree selection
+ * Uncomment the observed tree that you would like
+ * or use the ~read_phyjson~ function to read in a tree in the PhyJSON format. 
+ */
+//var tree   = phyjs.example_2;
+//var tree = phylodata.primates_61;
+//var tree = phylodata.cetacean_87;
+var tree = phyjs.bisse_32;
+
+//var tree =  phyjs.read_phyjson("../../data/bisse_32.phyjson")
+
+/* Tuning parameters 
+   Needed to avoid excessive computation */
+var MAX_LAMBDA = 5
+var MAX_DIV = 5
+var MIN_LAMBDA = 0.0000001
+
+/**
+ * Model specification
+ */
+var model = function()
+{
+    /* Define priors on lambda_0, mu_0, z, rho, as well as the decay functions
+       lambdaFun and muFun. z = 0 leads to CRBD*/
+    var lambda_0 = 0.2
+    var mu_0     = 0.1
+    var z        = 0.0
+    var rho      = 1.0
+    // var lambda_0 = gamma( {shape:20, scale:0.01} )
+    // var z        = Gaussian( gamma( {mu:0.0, sigma:0.01} )
+
+    /* Construct lambda(t) */
+    var lambdaFun = function( t ) { lambda_0 * Math.exp( z * ( tree.age - t ) ) }
+    var muFun = function( t) { mu_0 * Math.exp( z * ( tree.age - t ) ) }
+      
+    /* Simulate conditionally on the tree */
+    var ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, false )
+
+    /* Condition on detection */
+    //var dist = Infer ( { model: function() { tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, false ) }, method: 'forward', samples: 100 } )
+    //factor( - 2.0 * dist.score( false ) )
+
+    var max_M = 10000 // abort survivorship bias if recursion is too deep
+    var M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, false )
+    factor(Math.log(M))
+    
+    return [ rho, lambda_0, mu_0, z ]
+}
+
+
+
+/**
+ * Inference
+ * tweak the number of particles if you want to */
+var particles = 10000
+var dist = Infer( {method: 'SMC', particles: particles, model: model} );
+
+
+/** 
+ *Print the distribution or the normalization constant
+ */
+// dist;
+dist.normalizationConstant;

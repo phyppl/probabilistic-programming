@@ -1,0 +1,203 @@
+/**
+ * @file Analytical Solution of TDBD (Constant Turnover)
+ *
+ * Equations based on Section 3.4.2 in the supplementary info.
+ *
+ */
+
+
+/** 
+ * Exact Analytical Likelihood of Tree under TDBD
+ *
+ * λ and μ are both exponentially decreasing or increasing at the same rate z.
+ *
+ *     λ(t) = λ₀ exp(z * (tree.age - t))
+ *     μ(t) = μ₀ exp(z * (tree.age - t))
+ *
+ * @param tree 
+ * @param lambda_0
+ * @param mu_0
+ * @param z
+ * @param rho
+ *
+ * @return log-probability of tree under TDBD with constant turnover.
+ *
+ */
+var exactTDBDLikelihood = function( tree, lambda_0, mu_0, z, rho )
+{
+    // Compute correction factor from oriented to labelled unoriented trees
+    var numLeaves = phyjs.countLeaves(tree)
+    var corrFactor = (numLeaves - 1) * Math.log(2.0) - phyjs.lnFactorial(numLeaves)
+
+    // Non-stalked tree, unconditional likelihood
+    // lambda_0 and is here λ(0)
+    var lambda_0 = lambda_0 * Math.exp(z * tree.age)
+    var mu_0 = mu_0 * Math.exp(z * tree.age)
+    
+    var ln1 = (numLeaves - 2) * Math.log(lambda_0)
+    var ln2 = numLeaves * Math.log(rho)
+    var ln3 = 2.0 * TDBD_lnGhat(tree.age, lambda_0, mu_0, z, rho )
+    var ln4 = TDBD_lnLike(tree.left, lambda_0, mu_0, z, rho) + TDBD_lnLike(tree.right, lambda_0, mu_0, z, rho)
+    var ln5 = -numLeaves*TDBD_lnGhat(0, lambda_0, mu_0, z, rho)
+    //var ln6 = -2.0*TDBD_lnS(tree.age, lambda_0, mu_0, z, rho)
+    var ln6 = 0
+    
+    return (corrFactor + ln1 + ln2 + ln3 + ln4 + ln5 + ln6)
+}
+
+
+/** Survivorship Bias Correction, TDBD Model
+ *
+ * @param tree
+ * @param lambda_0
+ * @param mu_9
+ * @param z
+ * @param rho
+ *
+ * @return log-likehood of the survivorship bias 
+ * 
+ */
+var TDBD_survivorshipBias = function( tree, lambda_0, mu_0, z, rho )
+{
+    var lambda_0 = lambda_0 * Math.exp(z * tree.age)
+    var mu_0 = mu_0 * Math.exp(z * tree.age)
+    return(-2.0*TDBD_lnS(tree.age, lambda_0, mu_0, z, rho))
+}
+    
+
+
+
+
+/** 
+ * Propagator g^ According to Nicolas's Notation
+ *
+ * page 11 in the SI
+ *
+ * @param t
+ * @param lambda_0
+ * @param mu_0
+ * @param z
+ * @param rho
+ *
+ * @return
+ *
+ */
+var TDBD_lnGhat = function( t, lambda_0, mu_0, z, rho )
+{
+
+    
+    var  r0 = lambda_0 - mu_0
+    
+    var eRT = function(z) {
+	return Math.exp(-r0/z*(1 - Math.exp(-z*t) ))
+    }
+
+    var num = -r0/z*(1 - Math.exp(-z*t))
+    var f   = Math.log( lambda_0 - (lambda_0 - r0/rho)*eRT(z) )
+
+    return( num - 2.0*f )
+}
+/** CRBD version **/
+// var TDBD_lnGhat = function( t, lambda_0, mu_0, z, rho )
+// {
+//     var  r0 = lambda_0 - mu_0
+
+//     var eRT = function(z) {
+// 	return Math.exp(-r0*t)
+//     }
+  
+//     var f   = Math.log( lambda_0 - (lambda_0 - r0/rho)*eRT(z) )
+
+//     return( -r0*t - 2.0*f )
+// }
+
+
+
+
+
+
+
+
+
+
+/** 
+ * Compute Likelihood of Oriented Tree Recursively
+ *              
+ *                n-1
+ * Corresponds to  Π g^
+ *                i-2
+ *
+ * @param tree
+ * @param lambda_0
+ * @param mu_0
+ * @param z
+ * @param rho
+ * 
+ * @return
+ */
+// var TDBD_lnLike = function( tree, lambda_0, mu_0, z, rho )
+// {
+//     if ( tree.type == 'leaf' )
+//         return ( 2.0 * Math.log( lambda_0 - mu_0 ) )
+    
+//     var lnLikeLeft  = TDBD_lnLike( tree.left,  lambda_0, mu_0, z, rho )
+//     var lnLikeRight = TDBD_lnLike( tree.right, lambda_0, mu_0, z, rho )
+    
+//     return
+//     ( lnLikeLeft + lnLikeRight + TDBD_lnGhat(tree.age, lambda_0, mu_0, z, rho) + Math.log(lambda_0) )
+// }
+var TDBD_lnLike = function(tree, lambda_0, mu_0, z, rho)
+{
+
+    if ( tree.type == 'leaf' ) {
+        return 0
+    }
+    
+    var lnLikeLeft  = TDBD_lnLike( tree.left,  lambda_0, mu_0, z, rho )
+    var lnLikeRight = TDBD_lnLike( tree.right, lambda_0, mu_0, z, rho )
+
+    return lnLikeLeft + lnLikeRight + TDBD_lnGhat(tree.age, lambda_0, mu_0, z, rho) - z*tree.age
+bu}
+
+
+
+
+
+/**
+ * Probability of Lineage Starting at Time t Surviving Till Present
+ *
+ * @param t
+ * @param lambda_0
+ * @param mu_0
+ * @param z
+ * @param rho
+ *
+ * @return log-probability
+ */
+var TDBD_lnS = function(t, lambda_0, mu_0, z, rho)
+{
+    var r0 = lambda_0 - mu_0
+    
+    var eRT = function(z) {
+	return Math.exp(-r0/z*(1 - Math.exp(-z*t) ))
+    }
+    
+    var lnNum = Math.log(r0)
+    var lnDenom = Math.log(lambda_0 - (lambda_0 - r0/rho)*eRT(z))
+
+    return (lnNum - lnDenom)
+}
+/** CRBD version */
+// var TDBD_lnS = function(t, lambda_0, mu_0, z, rho)
+// {
+//     var r0 = lambda_0 - mu_0
+    
+//     var eRT = function(z) {
+// 	return Math.exp(-r0*t)
+//     }
+    
+//     var lnNum = Math.log(r0)
+//     var lnDenom = Math.log(lambda_0 - (lambda_0 - r0/rho)*eRT(z) )
+
+//     return (lnNum - lnDenom)
+// }

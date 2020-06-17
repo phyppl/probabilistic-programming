@@ -1,0 +1,162 @@
+[
+  {
+    "label": "bamm-1",
+    "description": "WebPPL BAMM model vs BIRCH. We change z, but fix eta. λ ε parameterization.",
+    "hyper_parameters": {
+      "particles": 20000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "z_template": -0.1,
+      "DistZ": "function() { return z_template }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 20000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar z_template = -0.1\n\tvar DistZ = function() { return z_template }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm/bamm-1.wppl 12",
+    "output": "-140.8950446254915\n-140.93869615435932\n-141.10589877522204\n-141.2746017608881\n-140.95452356631924\n-140.93643284085644\n-141.0626716038057\n-141.21466283121075\n-140.6366979876134\n-141.0044772149317\n-141.22150754796328\n-141.31420648590816\n"
+  },
+  {
+    "label": "bamm-2",
+    "description": "WebPPL BAMM model vs BIRCH. We change z, but fix eta. λ ε parameterization.",
+    "hyper_parameters": {
+      "particles": 20000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "z_template": -0.05,
+      "DistZ": "function() { return z_template }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 20000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar z_template = -0.05\n\tvar DistZ = function() { return z_template }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm/bamm-2.wppl 12",
+    "output": "-141.11245103193164\n-141.38264677917317\n-141.13206644412256\n-140.7899039521668\n-141.30182596280082\n-141.9512899261126\n-141.07969000092405\n-141.3454967902531\n-141.13527005485767\n-141.73037991795275\n-141.16879802111904\n-141.5061896764416\n"
+  },
+  {
+    "label": "bamm-3",
+    "description": "WebPPL BAMM model vs BIRCH. We change z, but fix eta. λ ε parameterization.",
+    "hyper_parameters": {
+      "particles": 20000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "z_template": 0,
+      "DistZ": "function() { return z_template }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 20000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar z_template = 0\n\tvar DistZ = function() { return z_template }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm/bamm-3.wppl 12",
+    "output": "-141.68504675648492\n-141.92658085654347\n-141.63756131276637\n-142.18010605048903\n-142.38141836281707\n-141.4273348652485\n-142.2518852357462\n-142.0406629649787\n-142.6411557892614\n-141.62348857585624\n-141.95890711469863\n-141.75546350180514\n"
+  },
+  {
+    "label": "bamm-4",
+    "description": "WebPPL BAMM model vs BIRCH. We change z, but fix eta. λ ε parameterization.",
+    "hyper_parameters": {
+      "particles": 20000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "z_template": 0.05,
+      "DistZ": "function() { return z_template }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 20000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar z_template = 0.05\n\tvar DistZ = function() { return z_template }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm/bamm-4.wppl 12",
+    "output": "-142.92185119691243\n-143.46519952996263\n-143.31876789821015\n-142.8375617654638\n-143.34176446967305\n-143.9940148082046\n-143.08539302602304\n-143.5255384329436\n-142.9737337627361\n-143.03400235665134\n-143.61663817142383\n-142.85855777691265\n"
+  },
+  {
+    "label": "bamm-5",
+    "description": "WebPPL BAMM model vs BIRCH. We change z, but fix eta. λ ε parameterization.",
+    "hyper_parameters": {
+      "particles": 20000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "z_template": 0.1,
+      "DistZ": "function() { return z_template }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 20000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar z_template = 0.1\n\tvar DistZ = function() { return z_template }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm/bamm-5.wppl 12",
+    "output": "-145.37587638644243\n-144.67135386346357\n-145.54202391134692\n-145.23124395456762\n-145.42749124135278\n-145.63368565972132\n-144.4645927164604\n-144.30767713067462\n-144.6580869960826\n-145.17943813785985\n-144.61376198790114\n-144.2544656930958\n"
+  }
+]

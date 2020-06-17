@@ -1,0 +1,52 @@
+/** @file 
+ * Source code for the example from Listing 1 from the paper.
+ * 
+ * To run me, either paste me in the sandbox on 
+ *
+ *   http://webppl.org 
+ *
+ * or type
+ *
+ *   npm run wppl paper_analyses/basic/basic.wppl
+ * 
+ */	
+
+var evolve = function( { time:       t,
+                         startState: s,
+                         switchRate: r } ) {
+
+  var waitingTime = sample( Exponential( { a:r } ) )
+
+  if ( waitingTime >= t )
+    return s
+
+  return( evolve( { time:       t - waitingTime,
+                    startState: 1 - s,
+                    switchRate: r } ) )
+}
+
+var binaryCharacterModel = function() {
+
+  var rootState = sample( Categorical( { ps: [0.5, 0.5],
+                                         vs: [0, 1] } ) )
+
+  var endState = evolve( { time:       10.0,
+                           startState: rootState,
+                           switchRate: 0.05 } )
+
+  var observedState = 1
+  var dist = Categorical( { ps: [ 0.9, 0.1 ],
+                            vs: [ endState, 1 - endState  ] } )
+  observe(dist, observedState)
+
+  return rootState
+}
+
+var dist = Infer( { method: 'SMC', particles: 10000, rejuvSteps: 5,
+         model: binaryCharacterModel } )
+
+// Uncomment for the web
+//viz(dist)
+
+// Uncomment for the command line
+dist.sample()

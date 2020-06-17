@@ -1,0 +1,12 @@
+{
+  "model": {
+    "class": "BAMMModel"
+  },
+  "filter": {
+    "class": "AliveParticleFilter",
+    "nparticles": 20000
+  },
+  "sampler": {
+    "nsamples": 50
+  }
+}

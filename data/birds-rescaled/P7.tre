@@ -1,0 +1,215 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 101;
+	TAXLABELS
+		Vidua_fischeri
+		Vidua_chalybeata
+		Vidua_purpurascens
+		Vidua_raricola
+		Vidua_wilsoni
+		Vidua_camerunensis
+		Vidua_regia
+		Vidua_hypocherina
+		Vidua_macroura
+		Vidua_interjecta
+		Vidua_orientalis
+		Vidua_paradisaea
+		Vidua_obtusa
+		Anomalospiza_imberbis
+		Amandava_amandava
+		Amandava_subflava
+		Amandava_formosa
+		Nigrita_bicolor
+		Parmoptila_jamesoni
+		Nigrita_canicapillus
+		Estrilda_quartinia
+		Estrilda_melanotis
+		Nesocharis_shelleyi
+		Cryptospiza_reichenovii
+		Cryptospiza_shelleyi
+		Mandingoa_nitidula
+		Nesocharis_capistrata
+		Estrilda_troglodytes
+		Estrilda_paludicola
+		Estrilda_melpoda
+		Estrilda_rhodopyga
+		Estrilda_atricapilla
+		Estrilda_nonnula
+		Estrilda_astrild
+		Estrilda_perreini
+		Estrilda_caerulescens
+		Estrilda_erythronotos
+		Hypargos_margaritatus
+		Pytilia_melba
+		Hypargos_niveoguttatus
+		Euschistospiza_cinereovinacea
+		Euschistospiza_dybowskii
+		Clytospiza_monteiri
+		Lagonosticta_rara
+		Lagonosticta_larvata
+		Lagonosticta_virata
+		Lagonosticta_sanguinodorsalis
+		Lagonosticta_umbrinodorsalis
+		Lagonosticta_rhodopareia
+		Pyrenestes_sanguineus
+		Lagonosticta_rubricata
+		Pytilia_lineata
+		Pytilia_afra
+		Pytilia_hypogrammica
+		Pytilia_phoenicoptera
+		Spermophaga_haematina
+		Uraeginthus_bengalus
+		Uraeginthus_cyanocephalus
+		Uraeginthus_angolensis
+		Lagonosticta_nitidula
+		Lagonosticta_rufopicta
+		Lagonosticta_senegala
+		Uraeginthus_granatinus
+		Uraeginthus_ianthinogaster
+		Amadina_fasciata
+		Amadina_erythrocephala
+		Stagonopleura_guttata
+		Lonchura_malabarica
+		Lonchura_cantans
+		Neochmia_temporalis
+		Neochmia_phaeton
+		Emblema_pictum
+		Taeniopygia_guttata
+		Neochmia_ruficauda
+		Taeniopygia_bichenovii
+		Neochmia_modesta
+		Poephila_personata
+		Poephila_cincta
+		Poephila_acuticauda
+		Lonchura_griseicapilla
+		Lonchura_nigriceps
+		Lonchura_bicolor
+		Lonchura_fringilloides
+		Lonchura_cucullata
+		Heteromunia_pectoralis
+		Lonchura_malacca
+		Lonchura_pallida
+		Lonchura_maja
+		Lonchura_castaneothorax
+		Lonchura_quinticolor
+		Lonchura_leucogastroides
+		Lonchura_striata
+		Lonchura_kelaarti
+		Lonchura_punctulata
+		Lonchura_nana
+		Padda_oryzivora
+		Ortygospiza_atricollis
+		Erythrura_prasina
+		Erythrura_trichroa
+		Erythrura_tricolor
+		Erythrura_gouldiae
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Vidua_fischeri,
+		2	Vidua_chalybeata,
+		3	Vidua_purpurascens,
+		4	Vidua_raricola,
+		5	Vidua_wilsoni,
+		6	Vidua_camerunensis,
+		7	Vidua_regia,
+		8	Vidua_hypocherina,
+		9	Vidua_macroura,
+		10	Vidua_interjecta,
+		11	Vidua_orientalis,
+		12	Vidua_paradisaea,
+		13	Vidua_obtusa,
+		14	Anomalospiza_imberbis,
+		15	Amandava_amandava,
+		16	Amandava_subflava,
+		17	Amandava_formosa,
+		18	Nigrita_bicolor,
+		19	Parmoptila_jamesoni,
+		20	Nigrita_canicapillus,
+		21	Estrilda_quartinia,
+		22	Estrilda_melanotis,
+		23	Nesocharis_shelleyi,
+		24	Cryptospiza_reichenovii,
+		25	Cryptospiza_shelleyi,
+		26	Mandingoa_nitidula,
+		27	Nesocharis_capistrata,
+		28	Estrilda_troglodytes,
+		29	Estrilda_paludicola,
+		30	Estrilda_melpoda,
+		31	Estrilda_rhodopyga,
+		32	Estrilda_atricapilla,
+		33	Estrilda_nonnula,
+		34	Estrilda_astrild,
+		35	Estrilda_perreini,
+		36	Estrilda_caerulescens,
+		37	Estrilda_erythronotos,
+		38	Hypargos_margaritatus,
+		39	Pytilia_melba,
+		40	Hypargos_niveoguttatus,
+		41	Euschistospiza_cinereovinacea,
+		42	Euschistospiza_dybowskii,
+		43	Clytospiza_monteiri,
+		44	Lagonosticta_rara,
+		45	Lagonosticta_larvata,
+		46	Lagonosticta_virata,
+		47	Lagonosticta_sanguinodorsalis,
+		48	Lagonosticta_umbrinodorsalis,
+		49	Lagonosticta_rhodopareia,
+		50	Pyrenestes_sanguineus,
+		51	Lagonosticta_rubricata,
+		52	Pytilia_lineata,
+		53	Pytilia_afra,
+		54	Pytilia_hypogrammica,
+		55	Pytilia_phoenicoptera,
+		56	Spermophaga_haematina,
+		57	Uraeginthus_bengalus,
+		58	Uraeginthus_cyanocephalus,
+		59	Uraeginthus_angolensis,
+		60	Lagonosticta_nitidula,
+		61	Lagonosticta_rufopicta,
+		62	Lagonosticta_senegala,
+		63	Uraeginthus_granatinus,
+		64	Uraeginthus_ianthinogaster,
+		65	Amadina_fasciata,
+		66	Amadina_erythrocephala,
+		67	Stagonopleura_guttata,
+		68	Lonchura_malabarica,
+		69	Lonchura_cantans,
+		70	Neochmia_temporalis,
+		71	Neochmia_phaeton,
+		72	Emblema_pictum,
+		73	Taeniopygia_guttata,
+		74	Neochmia_ruficauda,
+		75	Taeniopygia_bichenovii,
+		76	Neochmia_modesta,
+		77	Poephila_personata,
+		78	Poephila_cincta,
+		79	Poephila_acuticauda,
+		80	Lonchura_griseicapilla,
+		81	Lonchura_nigriceps,
+		82	Lonchura_bicolor,
+		83	Lonchura_fringilloides,
+		84	Lonchura_cucullata,
+		85	Heteromunia_pectoralis,
+		86	Lonchura_malacca,
+		87	Lonchura_pallida,
+		88	Lonchura_maja,
+		89	Lonchura_castaneothorax,
+		90	Lonchura_quinticolor,
+		91	Lonchura_leucogastroides,
+		92	Lonchura_striata,
+		93	Lonchura_kelaarti,
+		94	Lonchura_punctulata,
+		95	Lonchura_nana,
+		96	Padda_oryzivora,
+		97	Ortygospiza_atricollis,
+		98	Erythrura_prasina,
+		99	Erythrura_trichroa,
+		100	Erythrura_tricolor,
+		101	Erythrura_gouldiae
+	;
+	TREE * UNTITLED = [&R] (((((1:1.69810951,(((2:0.6282232162,3:0.6282232162):0.3019771711,4:0.9302003873):0.1362498198,(5:0.1795907794,6:0.1795907794):0.8868594277):0.631659303):0.5217483429,7:2.219857853):4.372581656,(8:5.765180658,(9:4.923209408,((10:0.3958593343,11:0.3958593343):0.953694183,(12:0.6948468336,13:0.6948468336):0.6547066838):3.57365589):0.8419712508):0.8272588504):10.33961263,14:16.93205213):2.538891446,(((15:7.506862628,16:7.506862628):1.561471416,17:9.068334045):4.764090474,(((((18:3.808229567,19:3.808229567):1.471584346,20:5.279813913):4.21025301,((((21:1.626422404,22:1.626422404):2.683031672,23:4.309454076):3.673245205,((24:3.719458631,25:3.719458631):2.420957121,26:6.140415752):1.842283529):0.9635973556,(27:7.175324974,((((28:2.236662557,(29:1.75662352,(30:1.319202163,31:1.319202163):0.4374213568):0.4800390373):0.8112037619,(32:0.3291675273,33:0.3291675273):2.718698792):0.383514416,34:3.431380735):3.353331146,(35:4.617970995,(36:4.195707087,37:4.195707087):0.4222639076):2.166740886):0.3906130934):1.770971662):0.5437702863):2.307002682,(((38:5.413628562,(39:3.52551865,40:3.52551865):1.888109912):2.836022942,(41:5.801726162,42:5.801726162):2.447925342):2.410945719,(((((43:6.378012255,(44:4.768415058,45:4.768415058):1.609597196):1.486375514,(((46:2.920709687,(47:1.387787438,48:1.387787438):1.53292225):0.9490608468,49:3.869770534):1.712398757,(50:2.049751994,51:2.049751994):3.532417297):2.282218477):0.9725220267,(((52:0.755816577,53:0.755816577):0.3134228857,(54:0.1956356165,55:0.1956356165):0.8736038462):5.625181414,56:6.694420877):2.142488918):0.5273529869,(((57:0.7996759923,58:0.7996759923):0.9903877512,59:1.790063743):5.93005236,(((60:2.011218683,61:2.011218683):1.557907654,62:3.569126338):2.208527223,(63:3.848753548,64:3.848753548):1.928900012):1.942462543):1.644146679):0.740951362,(65:1.907016784,66:1.907016784):8.19819736):0.5553830785):1.136472383):1.13171863,(((67:6.854398394,(68:0.601430458,69:0.601430458):6.252967936):4.483563171,((((70:5.449352275,71:5.449352275):2.121034988,72:7.570387264):1.169962919,((73:5.541347047,74:5.541347047):2.508779305,(75:7.118100439,(76:6.474065278,(77:5.273966036,(78:2.32676989,79:2.32676989):2.947196146):1.200099242):0.6440351615):0.9320259125):0.6902238306):2.053063754,((80:8.051242992,(((81:1.166475386,82:1.166475386):1.229408883,83:2.395884269):3.707097155,84:6.102981424):1.948261568):2.003979216,(85:9.41164238,((((86:1.083981085,(87:0.2008719533,88:0.2008719533):0.8831091313):1.404921419,(89:0.7049552025,90:0.7049552025):1.783947301):2.293873691,((91:1.157616833,(92:0.623692386,93:0.623692386):0.533924447):2.709899519,94:3.867516352):0.9152598416):2.7125969,(95:2.473640068,96:2.473640068):5.021733026):1.916269286):0.6435798283):0.7381917287):0.5445476289):0.7172945731,(97:10.59991582,((98:5.566201323,(99:2.327713962,100:2.327713962):3.238487361):2.509659634,101:8.075860958):2.524054859):1.455340322):0.8735320965):0.9036362835):5.638519061);
+END;

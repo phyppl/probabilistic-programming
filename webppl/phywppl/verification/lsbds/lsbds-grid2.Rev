@@ -1,0 +1,105 @@
+################################################################################
+#
+# LSBDS Validation : Computing Likelihood under LSBDS with RevBayes
+#
+# "Fixed" params are not really possible, as LSBDS is parameterized via
+# a distribution. We compute the likelihood under LSBDS for the priors
+# for the bird trees.
+#
+# authors: Viktor Senderov
+#
+################################################################################
+
+clear()
+
+#######################
+# Reading in the Data #
+#######################
+
+DATASETS <- [ "bisse_32" ]
+DATASET <- DATASETS[1]
+
+# Read in the observed phylogeny
+observed_phylogeny <- readTrees("../../data/bisse_32.nex")[1]
+
+# Get the names of the taxa in the tree and the age of the tree. We need these later on.
+taxa <- observed_phylogeny.taxa()
+root <- observed_phylogeny.rootAge()
+tree_length <- observed_phylogeny.treeLength()
+
+# Global parameters for our analysis
+NUM_TOTAL_SPECIES <- taxa.size()
+NUM_RATE_CATEGORIES <- 10
+
+
+####################
+# Create the rates #
+####################
+write(file="verification/lsbds/" + DATASET + "-grid2-results.csv","eta","rho","revbayes\n",append=FALSE)
+
+rho = 1
+    for (EXPECTED_NUMBER_EVENTS in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) {
+
+        print("rho = ", rho)
+        print("events = ", EXPECTED_NUMBER_EVENTS)
+        
+### Create a deterministic variable for the speciation rate categories
+
+# speciation := fnDiscretizeDistribution( dnLognormal(ln(rate_mean), rate_sd), NUM_RATE_CATEGORIES )
+# uniform [1]  0.0000000  0.9090909  1.8181818  2.7272727  3.6363636  4.5454545
+# [7]  5.4545455  6.3636364  7.2727273  8.1818182  9.0909091 10.0000000
+# all combinations
+
+# Speciation and extinction rates sampled from exponeital( { a : 1 } ), all combinations
+speciation <- [0.051,0.051,0.051,0.051,0.051,0.051,0.051,0.051,0.051,0.051,0.163,0.163,0.163,0.163,0.163,0.163,0.163,0.163,0.163,0.163,0.288,0.288,0.288,0.288,0.288,0.288,0.288,0.288,0.288,0.288,0.431,0.431,0.431,0.431,0.431,0.431,0.431,0.431,0.431,0.431,0.598,0.598,0.598,0.598,0.598,0.598,0.598,0.598,0.598,0.598,0.799,0.799,0.799,0.799,0.799,0.799,0.799,0.799,0.799,0.799,1.05,1.05,1.05,1.05,1.05,1.05,1.05,1.05,1.05,1.05,1.386,1.386,1.386,1.386,1.386,1.386,1.386,1.386,1.386,1.386,1.897,1.897,1.897,1.897,1.897,1.897,1.897,1.897,1.897,1.897,2.996,2.996,2.996,2.996,2.996,2.996,2.996,2.996,2.996,2.996 ]
+
+epsilon <- [0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1,0,0.1111111,0.2222222,0.3333333,0.4444444,0.5555556,0.6666667,0.7777778,0.8888889,1]
+
+# we have all possible combinations of speciation and epsilon by now
+
+extinction <- speciation * epsilon
+
+#extinction := epsilon * speciation
+#extinction := rep(mu, NUM_RATE_CATEGORIES)
+
+### Create a exponential distributed variable for the rate of rate-shift events
+#event_rate ~ dnExponential(tree_length)
+        event_rate := EXPECTED_NUMBER_EVENTS/root
+
+        rate_cat_probs <- simplex( rep(1, NUM_RATE_CATEGORIES^2) )
+
+       
+
+	#### construct a variable for the tree drawn from a birth death process
+	timetree ~ dnCDBDP( rootAge           = root,
+                    speciationRates   = speciation,
+                    extinctionRates   = extinction, 
+                    Q                 = fnJC(NUM_RATE_CATEGORIES^2),
+                    delta             = event_rate, 
+                    pi                = rate_cat_probs,
+                    rho               = rho,
+                    condition         = "time",
+		    nTimeSlices       = 500)
+
+        
+### clamp the model with the "observed" tree
+	timetree.clamp(observed_phylogeny)
+        
+	logz <- timetree.lnProbability()
+        
+	write(file="verification/lsbds/" + DATASET + "-grid2-results.csv", event_rate, rho, logz, "\n",append=TRUE)
+	
+    }
+
+
+#for (i in 1:100) {
+#root_category ~ dnCategorical( rate_cat_probs )
+#
+#timetree_DA ~  dnHBDP(lambda=speciation, mu=extinction, rootAge=root, rho=rho, rootState=root_category, #delta=event_rate, taxa=taxa, condition="time", allowSameCategory=FALSE )
+
+#timetree_DA.clamp(observed_phylogeny)
+#
+#timetree_DA.lnProbability()
+#}
+## quit ##
+q()

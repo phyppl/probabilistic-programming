@@ -1,0 +1,249 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 118;
+	TAXLABELS
+		Psilopsiagon_aurifrons
+		Psilopsiagon_aymara
+		Poicephalus_robustus
+		Poicephalus_gulielmi
+		Poicephalus_senegalus
+		Poicephalus_rufiventris
+		Poicephalus_meyeri
+		Poicephalus_cryptoxanthus
+		Psittacus_erithacus
+		Myiopsitta_monachus
+		Brotogeris_cyanoptera
+		Brotogeris_chrysoptera
+		Brotogeris_jugularis
+		Brotogeris_pyrrhoptera
+		Brotogeris_versicolurus
+		Brotogeris_chiriri
+		Brotogeris_sanctithomae
+		Brotogeris_tirica
+		Pyrilia_pulchra
+		Pyrilia_haematotis
+		Pyrilia_pyrilia
+		Pyrilia_barrabandi
+		Pyrilia_vulturina
+		Pyrilia_caica
+		Hapalopsittaca_amazonina
+		Pionus_fuscus
+		Pionus_menstruus
+		Pionus_senilis
+		Pionus_chalcopterus
+		Pionus_tumultuosus
+		Pionus_sordidus
+		Pionus_maximiliani
+		Amazona_vittata
+		Amazona_leucocephala
+		Amazona_collaria
+		Amazona_ventralis
+		Amazona_albifrons
+		Amazona_agilis
+		Amazona_amazonica
+		Amazona_autumnalis
+		Amazona_rhodocorytha
+		Amazona_dufresniana
+		Amazona_finschi
+		Amazona_viridigenalis
+		Amazona_festiva
+		Amazona_vinacea
+		Amazona_tucumana
+		Amazona_pretrei
+		Amazona_auropalliata
+		Amazona_oratrix
+		Amazona_ochrocephala
+		Amazona_aestiva
+		Amazona_versicolor
+		Amazona_arausiaca
+		Amazona_barbadensis
+		Amazona_imperialis
+		Amazona_brasiliensis
+		Amazona_guildingii
+		Amazona_farinosa
+		Amazona_kawalli
+		Alipiopsitta_xanthops
+		Graydidascalus_brachyurus
+		Triclaria_malachitacea
+		Pionopsitta_pileata
+		Deroptyus_accipitrinus
+		Pionites_leucogaster
+		Pionites_melanocephalus
+		Pyrrhura_griseipectus
+		Pyrrhura_leucotis
+		Pyrrhura_picta
+		Pyrrhura_pfrimeri
+		Pyrrhura_melanura
+		Pyrrhura_albipectus
+		Pyrrhura_orcesi
+		Pyrrhura_rhodocephala
+		Pyrrhura_hoffmanni
+		Pyrrhura_rupicola
+		Pyrrhura_lepida
+		Pyrrhura_perlata
+		Pyrrhura_molinae
+		Pyrrhura_frontalis
+		Pyrrhura_cruentata
+		Rhynchopsitta_pachyrhyncha
+		Cyanoliseus_patagonus
+		Enicognathus_leptorhynchus
+		Aratinga_jandaya
+		Aratinga_solstitialis
+		Aratinga_auricapillus
+		Nandayus_nenday
+		Aratinga_weddellii
+		Aratinga_nana
+		Aratinga_cactorum
+		Aratinga_pertinax
+		Aratinga_aurea
+		Aratinga_leucophthalma
+		Cyanopsitta_spixii
+		Primolius_couloni
+		Primolius_maracana
+		Primolius_auricollis
+		Orthopsittaca_manilata
+		Ara_glaucogularis
+		Ara_ararauna
+		Ara_severus
+		Ara_chloropterus
+		Ara_macao
+		Aratinga_acuticaudata
+		Aratinga_mitrata
+		Guaruba_guarouba
+		Diopsittaca_nobilis
+		Leptosittaca_branickii
+		Anodorhynchus_leari
+		Anodorhynchus_hyacinthinus
+		Forpus_passerinus
+		Forpus_xanthopterygius
+		Touit_batavicus
+		Nannopsittaca_panychlora
+		Bolborhynchus_lineola
+		Nannopsittaca_dachilleae
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Psilopsiagon_aurifrons,
+		2	Psilopsiagon_aymara,
+		3	Poicephalus_robustus,
+		4	Poicephalus_gulielmi,
+		5	Poicephalus_senegalus,
+		6	Poicephalus_rufiventris,
+		7	Poicephalus_meyeri,
+		8	Poicephalus_cryptoxanthus,
+		9	Psittacus_erithacus,
+		10	Myiopsitta_monachus,
+		11	Brotogeris_cyanoptera,
+		12	Brotogeris_chrysoptera,
+		13	Brotogeris_jugularis,
+		14	Brotogeris_pyrrhoptera,
+		15	Brotogeris_versicolurus,
+		16	Brotogeris_chiriri,
+		17	Brotogeris_sanctithomae,
+		18	Brotogeris_tirica,
+		19	Pyrilia_pulchra,
+		20	Pyrilia_haematotis,
+		21	Pyrilia_pyrilia,
+		22	Pyrilia_barrabandi,
+		23	Pyrilia_vulturina,
+		24	Pyrilia_caica,
+		25	Hapalopsittaca_amazonina,
+		26	Pionus_fuscus,
+		27	Pionus_menstruus,
+		28	Pionus_senilis,
+		29	Pionus_chalcopterus,
+		30	Pionus_tumultuosus,
+		31	Pionus_sordidus,
+		32	Pionus_maximiliani,
+		33	Amazona_vittata,
+		34	Amazona_leucocephala,
+		35	Amazona_collaria,
+		36	Amazona_ventralis,
+		37	Amazona_albifrons,
+		38	Amazona_agilis,
+		39	Amazona_amazonica,
+		40	Amazona_autumnalis,
+		41	Amazona_rhodocorytha,
+		42	Amazona_dufresniana,
+		43	Amazona_finschi,
+		44	Amazona_viridigenalis,
+		45	Amazona_festiva,
+		46	Amazona_vinacea,
+		47	Amazona_tucumana,
+		48	Amazona_pretrei,
+		49	Amazona_auropalliata,
+		50	Amazona_oratrix,
+		51	Amazona_ochrocephala,
+		52	Amazona_aestiva,
+		53	Amazona_versicolor,
+		54	Amazona_arausiaca,
+		55	Amazona_barbadensis,
+		56	Amazona_imperialis,
+		57	Amazona_brasiliensis,
+		58	Amazona_guildingii,
+		59	Amazona_farinosa,
+		60	Amazona_kawalli,
+		61	Alipiopsitta_xanthops,
+		62	Graydidascalus_brachyurus,
+		63	Triclaria_malachitacea,
+		64	Pionopsitta_pileata,
+		65	Deroptyus_accipitrinus,
+		66	Pionites_leucogaster,
+		67	Pionites_melanocephalus,
+		68	Pyrrhura_griseipectus,
+		69	Pyrrhura_leucotis,
+		70	Pyrrhura_picta,
+		71	Pyrrhura_pfrimeri,
+		72	Pyrrhura_melanura,
+		73	Pyrrhura_albipectus,
+		74	Pyrrhura_orcesi,
+		75	Pyrrhura_rhodocephala,
+		76	Pyrrhura_hoffmanni,
+		77	Pyrrhura_rupicola,
+		78	Pyrrhura_lepida,
+		79	Pyrrhura_perlata,
+		80	Pyrrhura_molinae,
+		81	Pyrrhura_frontalis,
+		82	Pyrrhura_cruentata,
+		83	Rhynchopsitta_pachyrhyncha,
+		84	Cyanoliseus_patagonus,
+		85	Enicognathus_leptorhynchus,
+		86	Aratinga_jandaya,
+		87	Aratinga_solstitialis,
+		88	Aratinga_auricapillus,
+		89	Nandayus_nenday,
+		90	Aratinga_weddellii,
+		91	Aratinga_nana,
+		92	Aratinga_cactorum,
+		93	Aratinga_pertinax,
+		94	Aratinga_aurea,
+		95	Aratinga_leucophthalma,
+		96	Cyanopsitta_spixii,
+		97	Primolius_couloni,
+		98	Primolius_maracana,
+		99	Primolius_auricollis,
+		100	Orthopsittaca_manilata,
+		101	Ara_glaucogularis,
+		102	Ara_ararauna,
+		103	Ara_severus,
+		104	Ara_chloropterus,
+		105	Ara_macao,
+		106	Aratinga_acuticaudata,
+		107	Aratinga_mitrata,
+		108	Guaruba_guarouba,
+		109	Diopsittaca_nobilis,
+		110	Leptosittaca_branickii,
+		111	Anodorhynchus_leari,
+		112	Anodorhynchus_hyacinthinus,
+		113	Forpus_passerinus,
+		114	Forpus_xanthopterygius,
+		115	Touit_batavicus,
+		116	Nannopsittaca_panychlora,
+		117	Bolborhynchus_lineola,
+		118	Nannopsittaca_dachilleae
+	;
+	TREE * UNTITLED = [&R] (((1:4.103641256,2:4.103641256):9.835201257,((3:10.53721349,(4:8.925311823,((5:2.340972215,6:2.340972215):4.442779239,(7:4.800893751,8:4.800893751):1.982857703):2.141560368):1.611901672):3.171303328,9:13.70851682):0.2303256897):20.91684499,((((10:20.36210769,(((11:1.514699885,12:1.514699885):3.338290368,(13:3.176184379,14:3.176184379):1.676805874):2.754209806,(((15:1.536652763,16:1.536652763):2.325646398,17:3.862299161):0.9401660841,18:4.802465246):2.804734813):12.75490763):7.954945977,((((((19:4.329337325,20:4.329337325):4.834080327,((21:4.534883361,22:4.534883361):1.211787541,(23:3.889154914,24:3.889154914):1.857515988):3.41674675):6.103103358,25:15.26652101):5.082410657,(((26:7.22536394,(27:5.570959288,((28:1.894756538,29:1.894756538):2.909662777,30:4.804419315):0.766539973):1.654404652):0.5166621171,(31:2.485721515,32:2.485721515):5.256304541):7.965662629,(((((((((33:2.090185227,34:2.090185227):0.7621323458,35:2.852317573):0.8409570953,36:3.693274668):1.222129599,37:4.915404267):0.5311961727,38:5.44660044):2.654289173,((((39:4.909977724,(40:3.248253227,(41:1.34516585,42:1.34516585):1.903087377):1.661724496):0.7764845044,(43:2.4372485,44:2.4372485):3.249213728):1.290845309,((45:4.935731853,46:4.935731853):0.7993700358,(47:2.131499371,48:2.131499371):3.603602517):1.242205648):0.7460355442,((((49:1.02313627,(50:0.5005473268,51:0.5005473268):0.5225889427):1.015967796,52:2.039104066):0.768842874,(53:2.059129453,54:2.059129453):0.7488174864):1.113323714,55:3.921270654):3.802072427):0.3775465323):0.4240488604,(56:6.239112498,(57:2.02733467,58:2.02733467):4.211777829):2.285825975):0.8936751942,(59:6.173608098,60:6.173608098):3.24500557):4.631609428,(61:10.21593764,62:10.21593764):3.83428546):1.65746559):4.641242981):0.6483158315,63:20.9972475):2.299557794,64:23.29680529):5.020248374):1.132544601,(((65:11.93293464,(66:2.109265193,67:2.109265193):9.823669443):5.610835605,(((((((((68:0.865600396,69:0.865600396):0.4165610196,70:1.282161416):0.7911193064,71:2.073280722):2.614264013,(((((72:0.883973996,73:0.883973996):0.8284006005,74:1.712374596):0.3183157282,75:2.030690325):0.2508605951,76:2.28155092):0.6384270556,(77:2.655693426,(((78:0.911598281,79:0.911598281):0.6588443423,80:1.570442623):0.3255075354,81:1.895950159):0.7597432674):0.2642845494):1.76756676):1.115420965,82:5.8029657):7.195316086,83:12.99828179):0.7841569271,84:13.78243871):0.7769296357,85:14.55936835):0.8411412771,((((((((86:0.2119431201,87:0.2119431201):0.5509528466,88:0.7628959667):2.385941164,89:3.148837131):5.932527455,90:9.081364587):2.229735677,((91:2.201970503,92:2.201970503):4.063611336,(93:4.741610441,94:4.741610441):1.523971398):5.045518425):0.7161524631,95:12.02725273):1.115745472,(96:11.48210645,(((97:2.463072063,(98:1.096142601,99:1.096142601):1.366929462):7.674818864,(100:9.329922034,((101:6.499776309,102:6.499776309):1.334743279,(103:6.228230611,(104:3.422142943,105:3.422142943):2.806087668):1.606288976):1.495402447):0.807968892):0.04862809333,(106:3.247424276,107:3.247424276):6.939094744):1.295587426):1.660891753):0.8921820644,(((108:5.346383594,109:5.346383594):3.121018268,110:8.467401862):3.610843886,(111:4.00413022,112:4.00413022):8.074115529):1.956934515):1.365329363):2.143260615):10.54324941,(113:3.563303007,114:3.563303007):24.52371665):1.362578614):0.9783898292,(115:23.0064062,(116:13.05347342,(117:10.89955147,118:10.89955147):2.153921946):9.952932783):7.421581895):4.427699403);
+END;

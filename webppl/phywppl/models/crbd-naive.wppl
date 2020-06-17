@@ -1,0 +1,106 @@
+
+// Simulate constant rate birth-death (CRBD) model naively
+var simCRBDNaive = function( tree, lambda, mu, rho )
+{
+    
+    // Simulate process along a branch
+    // This function simulates speciation events on a branch
+    // that is known to survive through the timeperiod and
+    // computes the ln probability of the simulation.
+    var simBranch = function( startTime, stopTime, lambda, mu, rho )
+    {
+	// extreme values patch 
+	if ( lambda  > phyjs.MAX_LAMBDA )
+	    return -Infinity
+	
+	if ( lambda == 0.0 )
+	{
+	    var t1 = startTime - stopTime
+            return 0.0
+	}
+	// extreme values patch
+	
+	// Draw a waiting time until next speciation
+	var t = exponential ( {a: lambda} );
+
+	// Compute current time
+	var currentTime = startTime - t;
+
+	// If we pass the tip, we return
+	// This is the terminating condition, no probability accumulated yet
+	if ( currentTime <= stopTime )
+            return 0.0;
+	
+	// We need a speciation followed by one extinction and
+	// one survival (the branch we are on). We account for
+	// this with one simulation that is conditioned on
+	// extinction, for the side branch, and a factor of 2
+	// to account for the two possible rotations of lineages
+	// after the speciation event, that is, we do not care
+	// whether we survive on the left or the right branch,
+	// as long as the other branch dies out.
+	factor( Math.log( 2.0 ) );
+	condition ( crbdGoesUndetected( currentTime, lambda, mu, rho ) )
+
+	return simBranch( currentTime, stopTime, lambda, mu, rho )
+    }
+    
+
+    
+    // Simulate process along tree
+    var simTree = function( tree, parent, lambda, mu, rho)
+    {
+	// Factor in the probability of no extinction
+	// along the branch
+	factor( - mu * ( parent.age - tree.age ) );
+
+	// Now simulate the hidden speciation events along
+	// the branch using a recursive function
+	simBranch( parent.age, tree.age, lambda, mu, rho );
+
+		
+	// Finally, if this is an interior node, recurse over
+	// the subtree rooted here after taking the speciation
+	// event at the end of the branch into account.
+	if ( tree.type == 'node')
+	{
+            // First weight according to the speciation probability
+            // at the end of the branch because we need to
+            // draw exactly the waiting time until the end
+            // of the branch. Also weight for the fact that
+            // we only explore one of the two possible
+            // rotations of the speciation event when we
+            // continue the simulation.
+            factor( Math.log(  lambda ) );
+
+            // Now recurse over the left and right descendants
+            simTree( tree.left,  tree, lambda, mu, rho)
+            simTree( tree.right, tree, lambda, mu, rho)
+
+	}
+	else { // leaf
+	    factor ( Math.log(rho))
+	}
+    
+    }
+
+
+    // Convert to density on labelled unoriented trees up front
+    // to make sure the normalization constant is correct
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+    factor( corrFactor )
+
+    // Simulate conditionally on the tree
+    // If clause is needed to exclude stalked tree
+    simTree( tree.left,  tree, lambda, mu, rho )
+    simTree( tree.right, tree, lambda, mu, rho )
+
+    return [ lambda, mu ];
+}
+
+
+
+
+
+

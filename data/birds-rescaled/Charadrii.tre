@@ -1,0 +1,139 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 63;
+	TAXLABELS
+		Burhinus_bistriatus
+		Burhinus_superciliaris
+		Burhinus_grallarius
+		Burhinus_vermiculatus
+		Burhinus_oedicnemus
+		Burhinus_senegalensis
+		Burhinus_capensis
+		Pluvianellus_socialis
+		Chionis_minor
+		Chionis_albus
+		Recurvirostra_avosetta
+		Recurvirostra_americana
+		Recurvirostra_andina
+		Cladorhynchus_leucocephalus
+		Himantopus_mexicanus
+		Himantopus_himantopus
+		Himantopus_leucocephalus
+		Himantopus_novaezelandiae
+		Haematopus_chathamensis
+		Haematopus_finschi
+		Haematopus_unicolor
+		Haematopus_ostralegus
+		Haematopus_leucopodus
+		Haematopus_palliatus
+		Haematopus_bachmani
+		Haematopus_ater
+		Ibidorhyncha_struthersii
+		Pluvialis_squatarola
+		Pluvialis_apricaria
+		Pluvialis_fulva
+		Pluvialis_dominica
+		Vanellus_miles
+		Vanellus_vanellus
+		Vanellus_chilensis
+		Vanellus_resplendens
+		Erythrogonys_cinctus
+		Charadrius_veredus
+		Charadrius_mongolus
+		Charadrius_leschenaultii
+		Charadrius_montanus
+		Charadrius_marginatus
+		Charadrius_alexandrinus
+		Charadrius_bicinctus
+		Charadrius_ruficapillus
+		Charadrius_alticola
+		Charadrius_falklandicus
+		Charadrius_collaris
+		Charadrius_wilsonia
+		Charadrius_australis
+		Anarhynchus_frontalis
+		Oreopholus_ruficollis
+		Elseyornis_melanops
+		Thinornis_rubricollis
+		Charadrius_dubius
+		Thinornis_novaeseelandiae
+		Charadrius_vociferus
+		Charadrius_melodus
+		Charadrius_hiaticula
+		Charadrius_semipalmatus
+		Eudromias_morinellus
+		Charadrius_modestus
+		Phegornis_mitchellii
+		Pluvianus_aegyptius
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Burhinus_bistriatus,
+		2	Burhinus_superciliaris,
+		3	Burhinus_grallarius,
+		4	Burhinus_vermiculatus,
+		5	Burhinus_oedicnemus,
+		6	Burhinus_senegalensis,
+		7	Burhinus_capensis,
+		8	Pluvianellus_socialis,
+		9	Chionis_minor,
+		10	Chionis_albus,
+		11	Recurvirostra_avosetta,
+		12	Recurvirostra_americana,
+		13	Recurvirostra_andina,
+		14	Cladorhynchus_leucocephalus,
+		15	Himantopus_mexicanus,
+		16	Himantopus_himantopus,
+		17	Himantopus_leucocephalus,
+		18	Himantopus_novaezelandiae,
+		19	Haematopus_chathamensis,
+		20	Haematopus_finschi,
+		21	Haematopus_unicolor,
+		22	Haematopus_ostralegus,
+		23	Haematopus_leucopodus,
+		24	Haematopus_palliatus,
+		25	Haematopus_bachmani,
+		26	Haematopus_ater,
+		27	Ibidorhyncha_struthersii,
+		28	Pluvialis_squatarola,
+		29	Pluvialis_apricaria,
+		30	Pluvialis_fulva,
+		31	Pluvialis_dominica,
+		32	Vanellus_miles,
+		33	Vanellus_vanellus,
+		34	Vanellus_chilensis,
+		35	Vanellus_resplendens,
+		36	Erythrogonys_cinctus,
+		37	Charadrius_veredus,
+		38	Charadrius_mongolus,
+		39	Charadrius_leschenaultii,
+		40	Charadrius_montanus,
+		41	Charadrius_marginatus,
+		42	Charadrius_alexandrinus,
+		43	Charadrius_bicinctus,
+		44	Charadrius_ruficapillus,
+		45	Charadrius_alticola,
+		46	Charadrius_falklandicus,
+		47	Charadrius_collaris,
+		48	Charadrius_wilsonia,
+		49	Charadrius_australis,
+		50	Anarhynchus_frontalis,
+		51	Oreopholus_ruficollis,
+		52	Elseyornis_melanops,
+		53	Thinornis_rubricollis,
+		54	Charadrius_dubius,
+		55	Thinornis_novaeseelandiae,
+		56	Charadrius_vociferus,
+		57	Charadrius_melodus,
+		58	Charadrius_hiaticula,
+		59	Charadrius_semipalmatus,
+		60	Eudromias_morinellus,
+		61	Charadrius_modestus,
+		62	Phegornis_mitchellii,
+		63	Pluvianus_aegyptius
+	;
+	TREE * UNTITLED = [&R] ((((1:1.135221436,2:1.135221436):32.86723558,(3:20.49647668,((4:4.776450934,5:4.776450934):9.118824068,(6:4.242840553,7:4.242840553):9.65243445):6.601201678):13.50598034):19.38622727,(8:22.08870847,(9:2.44513589,10:2.44513589):19.64357258):31.29997583):6.178066765,(((((((11:5.355937771,(12:1.473862274,13:1.473862274):3.882075497):14.22620051,(14:14.21763452,((15:2.657109918,(16:1.750092318,17:1.750092318):0.9070175998):1.686294641,18:4.343404559):9.874229959):5.364503759):9.256951655,(((19:1.171301514,(20:0.2797734725,21:0.2797734725):0.8915280419):0.787260599,22:1.958562113):16.28246964,(23:6.02152662,((24:0.8040642175,25:0.8040642175):1.278909752,26:2.08297397):3.93855265):12.21950513):10.59805818):6.065913027,27:34.90500296):7.170342498,(28:11.19384639,((29:4.070629167,30:4.070629167):2.93716423,31:7.007793397):4.18605299):30.88149907):4.15383238,((((32:4.889972185,33:4.889972185):12.49589298,(34:6.85398837,35:6.85398837):10.5318768):18.44725799,(36:31.12959069,((((37:9.36697775,(38:0.3304421273,39:0.3304421273):9.036535623):7.419587708,(40:13.38730779,(41:3.941624575,42:3.941624575):9.445683213):3.39925767):2.242674037,(((43:9.4416393,44:9.4416393):5.130851874,(((45:2.457495814,46:2.457495814):10.42383428,47:12.88133009):0.7779353257,48:13.65926542):0.9132257564):1.21420424,49:15.78669541):3.242544081):3.308310143,50:22.33754964):8.792041053):4.703532471):3.851515164,(51:37.42076246,(((((52:11.78078837,53:11.78078837):6.217917799,(54:6.697251856,55:6.697251856):11.30145431):7.388090654,(56:17.79327836,((57:11.06319877,58:11.06319877):3.969927931,59:15.0331267):2.760151657):7.593518463):6.091617795,60:31.47841462):3.514427202,(61:20.1289333,62:20.1289333):14.86390852):2.42792064):2.263875866):6.544539511):9.283320356,63:55.51249819):4.054252864);
+END;

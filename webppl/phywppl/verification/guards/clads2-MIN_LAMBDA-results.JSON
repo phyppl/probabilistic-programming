@@ -1,0 +1,272 @@
+[
+  {
+    "label": "clads2-MIN_LAMBDA-1",
+    "description": "Effect of the Minimum Admissible λ on log Z of the ClaDS2",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 1e-9,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 1e-9\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-1.wppl 10",
+    "output": "-138.1299572916812\n-138.91237148991652\n-137.5097395796499\n-137.39585955747157\n-139.69302684054855\n-137.60520402458485\n-138.10154042960522\n-139.17024206573768\n-139.19858144821933\n-140.4588770452491\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-2",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 1e-8,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 1e-8\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-2.wppl 10",
+    "output": "-137.61356319993408\n-138.7646393377528\n-137.68738171399573\n-138.2276201767486\n-137.76232753532017\n-138.3360826605915\n-138.07028130839214\n-139.00942543243886\n-139.39470683053614\n-139.21573786641645\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-3",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 1e-7,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 1e-7\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-3.wppl 10",
+    "output": "-139.1680494651379\n-138.35777143275251\n-137.06688721975215\n-138.1912398094618\n-138.24102984840005\n-137.85664060961426\n-140.32666206003663\n-137.6615394610364\n-136.7597602718666\n-139.68631640460575\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-4",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.000001,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.000001\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-4.wppl 10",
+    "output": "-136.5321444469166\n-138.14939216367534\n-138.57263404106777\n-137.49689022693408\n-138.24868824149632\n-139.43298664275943\n-137.13271685195102\n-137.31780392790947\n-140.42237271762164\n-140.68568476269076\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-5",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-5.wppl 10",
+    "output": "-138.62563641645184\n-138.2020451738006\n-137.34052058374445\n-138.06964083635512\n-137.85354470348025\n-137.65217475023937\n-138.99978265724627\n-139.63358837884704\n-137.81046497266348\n-139.51195462077163\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-6",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.0001,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.0001\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-6.wppl 10",
+    "output": "-137.4836766875373\n-138.15517258681228\n-138.31056066416832\n-138.89972797790344\n-137.48502834558516\n-137.80669395536964\n-138.17600351621516\n-138.59932141725204\n-141.4098723216096\n-140.0701047419207\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-7",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.001,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.001\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-7.wppl 10",
+    "output": "-139.8345143411452\n-138.4481824621433\n-138.4760550456432\n-138.1084811739272\n-137.75410486547963\n-138.9522443567817\n-138.0384336793043\n-137.12521727654374\n-141.9856635328393\n-138.28328121669182\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-8",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.01,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.01\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-8.wppl 10",
+    "output": "-139.179287524298\n-138.32894626483332\n-138.9656513896394\n-137.69875112374567\n-137.20724470089425\n-138.79392822138774\n-138.6001411349718\n-139.49804273949485\n-139.56712505149858\n-139.13938793531256\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-9",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.1,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.1\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-9.wppl 10",
+    "output": "-137.97573914094545\n-137.2559740764959\n-138.46354299539382\n-137.47597424323536\n-137.83809142560446\n-137.62591766402738\n-139.0284071755791\n-137.1506956484617\n-138.7279132653187\n-139.52021944806222\n"
+  },
+  {
+    "label": "clads2-MIN_LAMBDA-10",
+    "description": "Testing the Effect of the Minimum Admissable λ on log Z of the ClaDS2 Model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 1,
+      "MAX_LAMBDA": 5,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 1\n\tvar MAX_LAMBDA = 5\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MIN_LAMBDA/clads2-MIN_LAMBDA-10.wppl 10",
+    "output": "-79.17188371417195\n-77.98956275409712\n-83.1036337144488\n-82.14673792783039\n-81.87867683215495\n-81.26410103346058\n-82.40132956284432\n-80.23832752342446\n-76.32589284396241\n-78.43631658716208\n"
+  }
+]

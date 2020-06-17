@@ -1,0 +1,2162 @@
+[
+  {
+    "label": "clads1-panda-1",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.05,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.05\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-1.wppl 12",
+    "output": "970.9760459512655\n971.1037826874983\n970.9448454838544\n971.0327979832086\n970.7454320180738\n971.0800276337969\n971.0108211726639\n970.9597863214708\n970.986232441642\n971.1398234783702\n970.9409583675313\n971.3248371903884\n"
+  },
+  {
+    "label": "clads1-panda-2",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.1,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.1\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-2.wppl 12",
+    "output": "941.7117895836649\n942.0386497112713\n941.8574251536305\n941.801911751996\n941.5991523253317\n941.81409591634\n941.721389034702\n941.756599050594\n941.8550460249658\n942.0147416691815\n941.651817252292\n941.7841907697691\n"
+  },
+  {
+    "label": "clads1-panda-3",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.15,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.15\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-3.wppl 12",
+    "output": "921.879480998318\n921.8079662361049\n921.545032675018\n921.8368440645575\n921.9242218484759\n921.7250552646915\n921.5831192378353\n921.5776456813387\n921.7562571564652\n921.762537206675\n921.4307791035271\n921.6702199315647\n"
+  },
+  {
+    "label": "clads1-panda-4",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.2,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.2\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-4.wppl 12",
+    "output": "905.2188597176142\n905.6765825642738\n905.1529501412244\n905.473163341311\n905.3046790753991\n905.3288937252928\n905.1417215388788\n905.5064068582319\n905.611567678753\n905.5894146463231\n905.6163865937586\n905.5261921324317\n"
+  },
+  {
+    "label": "clads1-panda-5",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.25,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.25\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-5.wppl 12",
+    "output": "890.9669266137424\n891.1455386937756\n891.2581126750368\n891.1251010275066\n890.9185221837787\n891.091663126474\n891.2642612187183\n891.3031851546634\n891.6467515318051\n890.9078773777285\n891.169969611926\n890.8710170484618\n"
+  },
+  {
+    "label": "clads1-panda-6",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.3,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.3\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-6.wppl 12",
+    "output": "878.132933686061\n878.3317809274205\n877.7259683768932\n878.92167157113\n877.9568692319323\n878.2561011951483\n878.3108910938813\n878.4571186896138\n877.7057392883415\n878.0805399795842\n878.0455412671565\n877.845064538174\n"
+  },
+  {
+    "label": "clads1-panda-7",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.35,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.35\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-7.wppl 12",
+    "output": "866.2595326894825\n866.1906795022902\n866.3760344412029\n866.0466010628288\n865.5344707782899\n866.0907306941689\n866.0792773813719\n866.4351600505137\n866.0753240422256\n866.4039253840763\n865.7758295390122\n866.0636593313193\n"
+  },
+  {
+    "label": "clads1-panda-8",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.4,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.4\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-8.wppl 12",
+    "output": "854.489622048989\n854.5791907407566\n854.5858484172984\n854.3348476551623\n855.3695070792569\n855.3537106939388\n855.1470884454278\n854.7968692985704\n855.1521355706373\n854.2344665386418\n854.892861755135\n853.8975153474087\n"
+  },
+  {
+    "label": "clads1-panda-9",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.45,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.45\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-9.wppl 12",
+    "output": "843.6409519354202\n843.6304489527774\n843.8236724753265\n844.4758023874577\n843.8757838186667\n843.9560441275902\n844.5258477250387\n844.2467390299931\n844.151904487114\n843.9802353620667\n844.4741730797161\n843.0283350124757\n"
+  },
+  {
+    "label": "clads1-panda-10",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.5,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.5\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-10.wppl 12",
+    "output": "832.7719593705691\n833.4544743171227\n834.496283307385\n833.6645650360601\n833.1180968741796\n833.3963886590104\n832.0919716415401\n832.2865337169146\n833.535345881414\n832.8248148346498\n832.998824613567\n831.714787846487\n"
+  },
+  {
+    "label": "clads1-panda-11",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.55,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.55\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-11.wppl 12",
+    "output": "822.9351383136313\n822.6520538926408\n823.3332239259237\n824.220269457903\n823.0466258805882\n822.7959716764458\n822.8514168547725\n822.1006385319804\n822.5035672785679\n822.2997971383007\n823.0847257279914\n823.1346014957159\n"
+  },
+  {
+    "label": "clads1-panda-12",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.6,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.6\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-12.wppl 12",
+    "output": "814.3314071413791\n813.2733326608508\n814.4123996522861\n813.4989712033309\n811.8689512741855\n813.7532465406887\n811.7284311951042\n812.904870346158\n811.5483436937402\n813.0730628000184\n813.8245601728696\n812.2508957781755\n"
+  },
+  {
+    "label": "clads1-panda-13",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.65,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.65\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-13.wppl 12",
+    "output": "803.5462055157229\n804.630087928533\n804.5048136319712\n803.0651718455249\n803.3870911609793\n804.3646396888332\n802.1916097282941\n803.0179548249138\n802.9522148991405\n803.595195940173\n804.0663656356169\n803.6382501465918\n"
+  },
+  {
+    "label": "clads1-panda-14",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.7,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.7\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-14.wppl 12",
+    "output": "793.573502973739\n794.080777618213\n792.9179439265822\n794.0938120450039\n795.3555447235789\n794.0528549415991\n794.5848699550231\n793.3073159321973\n794.9919227450627\n792.287098554405\n795.3599034088363\n794.0396135564974\n"
+  },
+  {
+    "label": "clads1-panda-15",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.75,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.75\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-15.wppl 12",
+    "output": "782.5576380591814\n785.6223746230658\n784.3880994745869\n783.2833288698902\n783.4645493661412\n786.8366829729813\n783.4571537110784\n"
+  },
+  {
+    "label": "clads1-panda-16",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.8,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.8\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-16.wppl 12",
+    "output": "774.3035766384986\n776.5215948837222\n775.8587515917358\n773.5838391684281\n775.8356013669575\n777.5252200013479\n775.2730703939153\n775.3299721997413\n"
+  },
+  {
+    "label": "clads1-panda-17",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.85,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.85\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-17.wppl 12",
+    "output": "767.8443727923133\n"
+  },
+  {
+    "label": "clads1-panda-18",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.9,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.9\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-18.wppl 12",
+    "output": "759.7727380083726\n"
+  },
+  {
+    "label": "clads1-panda-19",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 0.95,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 0.95\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-19.wppl 12",
+    "output": "751.9684453100666\n"
+  },
+  {
+    "label": "clads1-panda-20",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda_0": 1,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda_0 = 1\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-20.wppl 12",
+    "output": ""
+  },
+  {
+    "label": "clads1-panda-21",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.05,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.05\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-21.wppl 12",
+    "output": "970.6989376072265\n970.6931090121155\n970.6091758265441\n970.5901354415106\n970.6948588536875\n970.6143325352016\n970.6713087151445\n970.5255814634113\n970.6110092663191\n970.7810268772427\n970.4773652848077\n970.7893720665227\n"
+  },
+  {
+    "label": "clads1-panda-22",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.1,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.1\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-22.wppl 12",
+    "output": "941.0069930455982\n941.1767269472577\n940.8687781921318\n941.014362834573\n940.8591950024585\n941.1232323261045\n941.0132836178119\n940.9542450966873\n940.7968953118481\n941.1389007434108\n940.9952827771908\n941.2321555797603\n"
+  },
+  {
+    "label": "clads1-panda-23",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.15,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.15\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-23.wppl 12",
+    "output": "920.693191724244\n920.9194782825743\n920.7097772273363\n920.7548251954971\n920.9460553669152\n921.0342471258646\n920.8005686196454\n920.9654347805733\n920.6202616882067\n920.9110846077849\n921.0981846407471\n921.0794127143598\n"
+  },
+  {
+    "label": "clads1-panda-24",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.2,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.2\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-24.wppl 12",
+    "output": "904.9346816068906\n904.5868828729689\n904.4333273354575\n904.0661135806454\n904.7267620532906\n904.8204404118534\n904.7300563870514\n904.8417255559964\n905.0406798276648\n904.6682275408034\n904.4236179710492\n904.6839332024304\n"
+  },
+  {
+    "label": "clads1-panda-25",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.25,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.25\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-25.wppl 12",
+    "output": "890.5539286692314\n890.7915632275771\n890.450910786227\n890.7260167415393\n890.8641091053821\n890.4482780702997\n890.9345117486316\n890.5529108073247\n890.6335541204805\n890.2168270628039\n890.6040523524068\n890.4399782460791\n"
+  },
+  {
+    "label": "clads1-panda-26",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.3,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.3\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-26.wppl 12",
+    "output": "877.9049819445404\n878.1883486755021\n877.1158131996084\n877.0281709749145\n877.3616837720772\n877.5631723114475\n877.7130527414157\n877.9959845348332\n877.6831775435603\n877.9091052445884\n877.3755523757867\n877.6400251570905\n"
+  },
+  {
+    "label": "clads1-panda-27",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.35,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.35\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-27.wppl 12",
+    "output": "866.0452921552335\n865.6786330513622\n864.8701904188437\n865.6388141092455\n865.1231499849\n865.9970445968262\n865.992625106606\n865.3764070524761\n866.2995948049627\n865.2578930419023\n865.5710200916714\n865.7405083115651\n"
+  },
+  {
+    "label": "clads1-panda-28",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.4,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.4\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-28.wppl 12",
+    "output": "854.7894782698503\n854.693429877406\n854.6274066025189\n854.1380934863582\n853.9155684900367\n854.3271783911728\n854.8031040916856\n853.9207312183255\n854.6130612588717\n855.5162715931882\n854.9476410633802\n854.507408663467\n"
+  },
+  {
+    "label": "clads1-panda-29",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.45,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.45\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-29.wppl 12",
+    "output": "844.7843039336387\n844.7530341525719\n844.9465175426178\n843.6691515123719\n843.6137199873071\n843.4344462395143\n843.7931310337611\n843.9273773737714\n844.2092812455795\n843.8660517910289\n844.2517005026542\n843.7308677995795\n"
+  },
+  {
+    "label": "clads1-panda-30",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.5,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.5\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-30.wppl 12",
+    "output": "834.4839515413632\n834.2786718999325\n834.8466926582387\n832.7861106175349\n833.9599585652381\n833.4488719080282\n834.607902582366\n833.965907904514\n834.7217785898116\n834.101692112754\n833.7781717115919\n834.8508519692324\n"
+  },
+  {
+    "label": "clads1-panda-31",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.55,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.55\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-31.wppl 12",
+    "output": "823.3314623613029\n823.7390567939913\n823.9300250259084\n823.9316109074591\n823.688539731398\n823.4965692566537\n823.9632758358365\n822.3200781572845\n824.2038468670231\n824.3670097484265\n823.1914196288221\n824.7540511676068\n"
+  },
+  {
+    "label": "clads1-panda-32",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.6,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.6\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-32.wppl 12",
+    "output": "815.1312118530416\n815.5740238141349\n814.9121230475579\n814.7532996962316\n814.9679725763026\n814.1840726135924\n812.7632964545267\n814.9271730825856\n813.8896264067848\n812.9662752829715\n815.7113071905975\n814.3713442990553\n"
+  },
+  {
+    "label": "clads1-panda-33",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.65,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.65\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-33.wppl 12",
+    "output": "805.3271441702842\n803.8990071263245\n805.1385803476951\n803.4346873033505\n804.9814240521409\n805.1310452616495\n805.5949412365757\n805.4629273041733\n804.5498042304074\n804.5876476682809\n803.9569973999081\n806.3713233614217\n"
+  },
+  {
+    "label": "clads1-panda-34",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.7,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.7\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-34.wppl 12",
+    "output": "796.404877086324\n794.2374472153074\n795.4234073801138\n795.0488744700612\n795.1288981710354\n796.4966637330722\n794.8271974429806\n794.4634740988262\n793.8804145770832\n795.5528740681009\n793.8715078562271\n796.4389350440536\n"
+  },
+  {
+    "label": "clads1-panda-35",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.75,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.75\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-35.wppl 12",
+    "output": "784.9461472760601\n783.0675673099555\n789.2532246682524\n785.4649558903135\n786.1119634577216\n785.5104739550311\n788.1245320576121\n785.9804847760524\n785.2955100890281\n785.9303030091565\n786.7469298139749\n788.6574663087283\n"
+  },
+  {
+    "label": "clads1-panda-36",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.8,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.8\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-36.wppl 12",
+    "output": "776.853696510665\n776.044191785105\n778.3897871758974\n776.9003027430684\n774.3085093330396\n774.1893989881639\n777.5709841735601\n775.50912746059\n777.5997830437227\n"
+  },
+  {
+    "label": "clads1-panda-37",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.85,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.85\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-37.wppl 12",
+    "output": "765.6747033226911\n769.0236392157373\n766.2910690671802\n764.9996099395522\n768.167554959588\n768.1689423207631\n770.1587211049383\n"
+  },
+  {
+    "label": "clads1-panda-38",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.9,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.9\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-38.wppl 12",
+    "output": "759.8382186531597\n759.7942526115944\n763.0616061680356\n760.4161890920449\n762.3916763638576\n763.3111416511989\n"
+  },
+  {
+    "label": "clads1-panda-39",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 0.95,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 0.95\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-39.wppl 12",
+    "output": "754.184065879517\n"
+  },
+  {
+    "label": "clads1-panda-40",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda_0": 1,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda_0 = 1\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-40.wppl 12",
+    "output": "745.6628742580584\n"
+  },
+  {
+    "label": "clads1-panda-41",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.05,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.05\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-41.wppl 12",
+    "output": "968.8246454360218\n968.6818414156525\n968.6749608660255\n968.9299621797107\n968.864380586236\n968.9962097322965\n968.6974812814033\n968.8203755037496\n968.76548972525\n968.8465304896484\n968.6131493665042\n968.7826387997118\n"
+  },
+  {
+    "label": "clads1-panda-42",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.1,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.1\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-42.wppl 12",
+    "output": "938.3162529969263\n938.3346281366361\n938.1217564284763\n938.0275403309371\n938.3881561752966\n938.3406847363414\n938.142836627474\n938.1840285337308\n938.2605165841568\n938.3565321108035\n938.3648392996731\n938.0833196553666\n"
+  },
+  {
+    "label": "clads1-panda-43",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.15,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.15\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-43.wppl 12",
+    "output": "917.1696022881356\n917.4504777328376\n917.7057595509427\n917.6082643815687\n917.4745185947658\n917.9220331376077\n917.6265150917428\n917.4777401153793\n917.5922103937704\n917.07895963486\n917.5141216175689\n917.8269122341984\n"
+  },
+  {
+    "label": "clads1-panda-44",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.2,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.2\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-44.wppl 12",
+    "output": "900.9550510827919\n901.4942033703832\n900.8864230878416\n901.0247497521597\n901.261232442542\n901.239819083169\n901.231349064006\n901.5105428222431\n901.4199678644809\n901.1327316410003\n901.636252567849\n900.9851454528929\n"
+  },
+  {
+    "label": "clads1-panda-45",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.25,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.25\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-45.wppl 12",
+    "output": "886.8898196875823\n887.1138989907813\n887.3960911144671\n887.1761002050954\n887.6827921469375\n887.0154567362562\n887.3616207854011\n887.3781427933288\n887.3884669536758\n888.0764155345323\n887.0254564588341\n887.194295730301\n"
+  },
+  {
+    "label": "clads1-panda-46",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.3,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.3\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-46.wppl 12",
+    "output": "874.5072168712129\n874.9605019039722\n875.3310813594751\n874.4146413086529\n874.7354409672868\n875.3610849045137\n874.7447102396872\n874.6879996977144\n873.8340017711905\n874.7391349946802\n874.8629032105458\n875.2136135196345\n"
+  },
+  {
+    "label": "clads1-panda-47",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.35,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.35\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-47.wppl 12",
+    "output": "864.1106374183516\n864.1403356980672\n863.4897969260201\n864.0061856295879\n863.5167153116728\n864.1837511124279\n863.6971755060737\n863.3474144029105\n864.0061610241531\n864.0993138748493\n864.1166550855326\n864.1640659256078\n"
+  },
+  {
+    "label": "clads1-panda-48",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.4,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.4\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-48.wppl 12",
+    "output": "853.8821711253867\n854.0444885242173\n854.2064342228624\n853.6096665054849\n853.4656351325384\n853.3187395581913\n853.937867495221\n854.2800414775095\n853.9136231940655\n853.9887134155945\n852.7809956642345\n853.5562310293445\n"
+  },
+  {
+    "label": "clads1-panda-49",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.45,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.45\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-49.wppl 12",
+    "output": "843.1405444320276\n843.6941603739158\n845.0270307416108\n844.0070093759631\n844.5566498963373\n844.2213736300743\n844.2371892529613\n843.2527457590123\n843.4227257348717\n844.0816719052575\n843.4413184935254\n844.4492823665856\n"
+  },
+  {
+    "label": "clads1-panda-50",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.5,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.5\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-50.wppl 12",
+    "output": "834.6586528417947\n835.6343383969838\n834.8268715050498\n833.9716778687064\n835.0690931889991\n834.8628346858223\n834.962375927818\n834.1683753536782\n835.4960384114097\n834.9520656322511\n835.0612524071322\n834.3758816828869\n"
+  },
+  {
+    "label": "clads1-panda-51",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.55,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.55\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-51.wppl 12",
+    "output": "827.6746644101971\n826.5662549725164\n826.6080077221627\n825.3200949166101\n827.1871710345154\n826.6488942042962\n825.7617308837898\n827.657017062984\n826.1490414233606\n827.1172511369732\n826.3913968383478\n826.3210851983436\n"
+  },
+  {
+    "label": "clads1-panda-52",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.6,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.6\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-52.wppl 12",
+    "output": "818.4066949582761\n818.926683434531\n818.6314119294287\n817.8645104911461\n818.405507534217\n819.1377607198266\n818.5040990275168\n818.8090164019618\n818.7629563421588\n818.7022434440541\n817.9357708359416\n817.6519822910998\n"
+  },
+  {
+    "label": "clads1-panda-53",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.65,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.65\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-53.wppl 12",
+    "output": "811.3255430317573\n809.5908354510627\n811.5192705735059\n810.1476551802139\n810.4383070555361\n809.2377322265372\n809.9507720266927\n810.3686374109668\n811.1767913808081\n808.932000429872\n810.2014322310074\n810.6200789655862\n"
+  },
+  {
+    "label": "clads1-panda-54",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.7,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.7\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-54.wppl 12",
+    "output": "803.375470340221\n801.8981032716655\n803.2533946898309\n803.1162309957316\n803.4493332463051\n805.6683883207568\n802.942451565738\n803.2018695371924\n804.5540395409204\n802.8337886217892\n803.0345475830975\n801.8325687958574\n"
+  },
+  {
+    "label": "clads1-panda-55",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.75,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.75\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-55.wppl 12",
+    "output": "796.1854085106104\n796.7196901979298\n793.6023572319895\n792.821858841327\n796.8374496587795\n796.2577262233613\n796.4514988335302\n795.6306579685503\n796.0421041973449\n796.3825132580303\n795.1543050667053\n796.9116716434336\n"
+  },
+  {
+    "label": "clads1-panda-56",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.8,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.8\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-56.wppl 12",
+    "output": "789.3460875157768\n787.6815545151487\n789.8225270684519\n789.7966250810372\n788.1883785665555\n788.9021317104746\n790.1140909589026\n787.9354520707157\n788.728604417259\n787.080109130089\n791.3359724131424\n788.3154194124825\n"
+  },
+  {
+    "label": "clads1-panda-57",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.85,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.85\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-57.wppl 12",
+    "output": "780.5807661844844\n782.4133005696063\n782.21673309153\n782.4192673972126\n779.5716926213307\n783.3124433111768\n781.7065496013797\n780.0601189754511\n780.6699567766341\n782.7718557526713\n778.8886253774566\n782.243003954368\n"
+  },
+  {
+    "label": "clads1-panda-58",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.9,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.9\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-58.wppl 12",
+    "output": "772.6571862201515\n774.2800523296969\n774.0804567155934\n773.1719779975708\n773.3220535682289\n771.9570995140261\n772.3317285076854\n777.0573786600353\n774.8027945035876\n775.5305262539509\n773.6175236936219\n776.0563139087604\n"
+  },
+  {
+    "label": "clads1-panda-59",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 0.95,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 0.95\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-59.wppl 12",
+    "output": "766.4599329142931\n769.8797906730638\n767.0435259685214\n768.0439333243532\n760.955961612251\n768.0255860865168\n768.6169929463668\n766.3105470388016\n767.0834646573046\n768.2162229590926\n766.9805963831385\n767.356934779833\n"
+  },
+  {
+    "label": "clads1-panda-60",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda_0": 1,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda_0 = 1\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-60.wppl 12",
+    "output": "758.5571469590528\n763.6537526557023\n764.5862199970817\n766.2524774064503\n761.4809479279777\n763.5970172404782\n765.3297838395886\n763.5238619089479\n760.6151942803775\n764.4217444996533\n758.382052024326\n759.665485879985\n"
+  },
+  {
+    "label": "clads1-panda-61",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.05,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.05\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-61.wppl 12",
+    "output": "966.9236477820184\n966.9982891450979\n966.8512363950572\n967.0946911022279\n967.1625031627053\n966.9704419131057\n967.0491962714395\n966.943873314514\n967.0112766260967\n967.1131734769485\n967.0180390213266\n967.0623675955322\n"
+  },
+  {
+    "label": "clads1-panda-62",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.1,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.1\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-62.wppl 12",
+    "output": "935.3731475976841\n935.2086305016671\n935.4189292978978\n935.5135293585507\n935.0894112417835\n935.1086171981647\n935.3770197295337\n935.1837840116658\n935.2938010452634\n935.23369920556\n935.2489932082364\n935.2929806748483\n"
+  },
+  {
+    "label": "clads1-panda-63",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.15,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.15\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-63.wppl 12",
+    "output": "913.6815217733839\n913.6955841693597\n913.6228177173612\n913.9309501479337\n913.7642232955894\n913.5589855343101\n913.8079417469186\n913.6904252047719\n913.7970154375098\n913.7973495485057\n913.6704325095876\n913.9017620387956\n"
+  },
+  {
+    "label": "clads1-panda-64",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.2,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.2\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-64.wppl 12",
+    "output": "897.1970611026251\n897.274202960981\n896.6838687097476\n897.0796081178731\n897.2527917213545\n896.8847658289628\n896.8736517815403\n896.6273937541783\n896.3723968680463\n896.8819213038344\n896.6616110692057\n896.9680487828696\n"
+  },
+  {
+    "label": "clads1-panda-65",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.25,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.25\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-65.wppl 12",
+    "output": "882.4081889159287\n882.6645096734322\n882.8678557551117\n882.8595221128219\n882.6533937261495\n882.8327807194898\n882.9827312196269\n882.975267810024\n882.9745074259405\n882.9120192021726\n882.7248346995747\n883.016166176506\n"
+  },
+  {
+    "label": "clads1-panda-66",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.3,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.3\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-66.wppl 12",
+    "output": "870.7637955757731\n870.335043570019\n870.1694456511291\n871.1024238079602\n870.9393454685196\n870.6117154924057\n870.4603023212172\n870.3284976579483\n870.63165979179\n870.4783025044335\n870.3867064402555\n870.8336893545975\n"
+  },
+  {
+    "label": "clads1-panda-67",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.35,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.35\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-67.wppl 12",
+    "output": "859.8416233036384\n859.6006587546257\n859.6126677043579\n860.7829062942526\n859.9797726832677\n860.3050235336884\n860.434662484131\n859.5467828264245\n859.5399602551583\n859.611034944586\n860.301840695985\n859.8606136518678\n"
+  },
+  {
+    "label": "clads1-panda-68",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.4,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.4\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-68.wppl 12",
+    "output": "850.5171994925882\n851.2156855397443\n849.9074872823026\n850.9937383193704\n849.608630021215\n850.3908107271387\n849.7909840146475\n850.2648900902266\n849.1777614905145\n849.6454850449563\n849.5364265789938\n850.2573055268484\n"
+  },
+  {
+    "label": "clads1-panda-69",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.45,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.45\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-69.wppl 12",
+    "output": "841.1704728560837\n841.5062121914841\n840.3507484948993\n841.404186980247\n840.6980342419589\n840.49636583321\n841.0826099922773\n840.9161180006053\n841.5281602762501\n840.9332857855401\n840.9902084640242\n841.1993899895023\n"
+  },
+  {
+    "label": "clads1-panda-70",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.5,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.5\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-70.wppl 12",
+    "output": "832.4495140581452\n832.4257643942694\n833.4620714021153\n832.8442091681367\n832.7735974861539\n833.7525149187861\n832.4652721537834\n833.2719404627627\n832.9467266321728\n831.5702330209504\n832.557117401887\n832.3064131858853\n"
+  },
+  {
+    "label": "clads1-panda-71",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.55,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.55\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-71.wppl 12",
+    "output": "825.5468665565587\n825.0152943011277\n825.6220582230426\n826.0886499310608\n825.6561652025139\n824.2621641001629\n826.582441682695\n825.6040167826072\n826.1826976946492\n826.2099078023809\n826.0351739997247\n825.2476283895274\n"
+  },
+  {
+    "label": "clads1-panda-72",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.6,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.6\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-72.wppl 12",
+    "output": "818.5682103745856\n818.1536974218633\n817.8898823386497\n818.2902871195591\n819.5046565827568\n818.0673142360342\n819.8785693481402\n817.9546920993209\n817.8334665514408\n818.2525128323629\n817.6854529748722\n818.6880833076556\n"
+  },
+  {
+    "label": "clads1-panda-73",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.65,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.65\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-73.wppl 12",
+    "output": "810.7301542447055\n812.4389810174372\n810.2941840637584\n812.8485926152443\n812.4745021984605\n812.2815983971616\n811.0191551392433\n810.8295376293412\n812.1762046681854\n810.5307858492705\n811.9227464322526\n812.5262556869507\n"
+  },
+  {
+    "label": "clads1-panda-74",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.7,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.7\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-74.wppl 12",
+    "output": "805.3920436293752\n805.3412296249733\n804.3848569766944\n805.4122163800625\n804.9585957709459\n806.3894017900162\n806.4167878210932\n805.3489913062701\n804.5181234252526\n805.0225614119794\n803.640887632033\n804.5981376845754\n"
+  },
+  {
+    "label": "clads1-panda-75",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.75,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.75\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-75.wppl 12",
+    "output": "798.3652972108227\n800.0173431555771\n799.3242770692509\n800.323708456515\n801.7528448116938\n800.5828466000938\n800.4649325408305\n799.9357061111125\n800.7108062447062\n800.0014250989349\n799.0850109602391\n799.7751514476109\n"
+  },
+  {
+    "label": "clads1-panda-76",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.8,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.8\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-76.wppl 12",
+    "output": "793.8233940223879\n794.0806224851915\n794.0323002273369\n795.1410802512104\n794.5036060351341\n793.5282602349936\n793.2095549107091\n793.2193918250513\n793.3332468918111\n793.7348711576263\n794.7765416285606\n793.5297703178497\n"
+  },
+  {
+    "label": "clads1-panda-77",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.85,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.85\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-77.wppl 12",
+    "output": "788.7421275052124\n788.9368655213109\n788.7594813733762\n788.2675178836278\n793.7133368283044\n787.2348462458339\n790.0952046707134\n787.2777678835536\n787.9513254515858\n787.464410491633\n788.9658317905386\n788.6409002792266\n"
+  },
+  {
+    "label": "clads1-panda-78",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.9,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.9\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-78.wppl 12",
+    "output": "784.7311399224418\n783.5357072209621\n784.7551611631417\n781.5470269583674\n785.7872959808576\n780.9386915583979\n781.3589158307742\n783.3550350684349\n786.3671058749605\n781.99855011726\n781.7742829631692\n785.771170150925\n"
+  },
+  {
+    "label": "clads1-panda-79",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 0.95,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 0.95\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-79.wppl 12",
+    "output": "776.9602176049157\n779.9741716944344\n779.051115447068\n777.5587159531889\n778.5843403796969\n779.9605715590678\n779.1642703985056\n777.8838776973099\n778.2411678057828\n778.7517219280572\n778.9521515017302\n777.6982344132874\n"
+  },
+  {
+    "label": "clads1-panda-80",
+    "description": "Under these values, ClaDS1 (PANDA) degenerates into CRBD (hopefully).",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 1000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1e-7,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda_0": 1,
+      "rho": 1
+    },
+    "model": "var mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 1000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1e-7\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda_0 = 1\n\tvar rho = 1\n\tvar mu = epsilon * lambda_0\n\tvar ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho)\n\t var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/clads1-panda/clads1-panda-80.wppl 12",
+    "output": "775.0517869771481\n773.0939272112557\n772.1496646843215\n772.6221947127334\n772.9451551758486\n774.0433303058231\n774.9054521911922\n772.7603555371466\n773.8757559416965\n774.498306703425\n775.0353970227487\n772.0916792984603\n"
+  }
+]

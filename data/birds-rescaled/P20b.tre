@@ -1,0 +1,263 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 125;
+	TAXLABELS
+		Emberiza_impetuani
+		Emberiza_tahapisi
+		Emberiza_striolata
+		Emberiza_capensis
+		Emberiza_flaviventris
+		Emberiza_cabanisi
+		Latoucheornis_siemsseni
+		Emberiza_elegans
+		Emberiza_pallasi
+		Emberiza_schoeniclus
+		Emberiza_yessoensis
+		Emberiza_fucata
+		Emberiza_rustica
+		Emberiza_variabilis
+		Emberiza_tristrami
+		Emberiza_chrysophrys
+		Emberiza_sulphurata
+		Emberiza_rutila
+		Emberiza_spodocephala
+		Emberiza_aureola
+		Emberiza_pusilla
+		Emberiza_melanocephala
+		Emberiza_bruniceps
+		Melophus_lathami
+		Emberiza_jankowskii
+		Emberiza_godlewskii
+		Emberiza_cioides
+		Emberiza_cia
+		Emberiza_buchanani
+		Emberiza_caesia
+		Emberiza_hortulana
+		Emberiza_cirlus
+		Emberiza_leucocephalos
+		Emberiza_citrinella
+		Emberiza_stewarti
+		Miliaria_calandra
+		Aimophila_strigiceps
+		Aimophila_stolzmanni
+		Aimophila_sumichrasti
+		Aimophila_carpalis
+		Arremonops_rufivirgatus
+		Arremonops_chloronotus
+		Arremonops_conirostris
+		Ammodramus_humeralis
+		Ammodramus_aurifrons
+		Ammodramus_savannarum
+		Aimophila_botterii
+		Aimophila_aestivalis
+		Aimophila_cassinii
+		Aimophila_ruficauda
+		Aimophila_mystacalis
+		Aimophila_humeralis
+		Chlorospingus_pileatus
+		Chlorospingus_ophthalmicus
+		Chlorospingus_inornatus
+		Chlorospingus_tacarcunae
+		Chlorospingus_semifuscus
+		Chlorospingus_parvirostris
+		Chlorospingus_flavigularis
+		Chlorospingus_canigularis
+		Amphispiza_bilineata
+		Aimophila_quinquestriata
+		Spizella_atrogularis
+		Spizella_breweri
+		Spizella_pusilla
+		Spizella_wortheni
+		Spizella_passerina
+		Spizella_pallida
+		Arremon_torquatus
+		Arremon_brunneinucha
+		Arremon_castaneiceps
+		Arremon_schlegeli
+		Arremon_aurantiirostris
+		Arremon_flavirostris
+		Junco_hyemalis
+		Junco_phaeonotus
+		Zonotrichia_leucophrys
+		Zonotrichia_atricapilla
+		Zonotrichia_querula
+		Zonotrichia_albicollis
+		Zonotrichia_capensis
+		Passerella_iliaca
+		Spizella_arborea
+		Pezopetes_capitalis
+		Aimophila_ruficeps
+		Aimophila_notosticta
+		Aimophila_rufescens
+		Melozone_biarcuata
+		Melozone_leucotis
+		Melozone_kieneri
+		Pipilo_crissalis
+		Pipilo_aberti
+		Pipilo_fuscus
+		Pipilo_albicollis
+		Atlapetes_fulviceps
+		Atlapetes_citrinellus
+		Pselliophorus_tibialis
+		Pselliophorus_luteoviridis
+		Atlapetes_albinucha
+		Atlapetes_pileatus
+		Pipilo_ocai
+		Pipilo_erythrophthalmus
+		Pipilo_maculatus
+		Pipilo_chlorurus
+		Passerculus_sandwichensis
+		Xenospiza_baileyi
+		Melospiza_melodia
+		Melospiza_georgiana
+		Melospiza_lincolnii
+		Ammodramus_henslowii
+		Ammodramus_bairdii
+		Ammodramus_leconteii
+		Ammodramus_caudacutus
+		Ammodramus_nelsoni
+		Ammodramus_maritimus
+		Pooecetes_gramineus
+		Amphispiza_belli
+		Oriturus_superciliosus
+		Atlapetes_rufinucha
+		Atlapetes_tricolor
+		Atlapetes_schistaceus
+		Atlapetes_melanopsis
+		Atlapetes_rufigenis
+		Chondestes_grammacus
+		Calamospiza_melanocorys
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Emberiza_impetuani,
+		2	Emberiza_tahapisi,
+		3	Emberiza_striolata,
+		4	Emberiza_capensis,
+		5	Emberiza_flaviventris,
+		6	Emberiza_cabanisi,
+		7	Latoucheornis_siemsseni,
+		8	Emberiza_elegans,
+		9	Emberiza_pallasi,
+		10	Emberiza_schoeniclus,
+		11	Emberiza_yessoensis,
+		12	Emberiza_fucata,
+		13	Emberiza_rustica,
+		14	Emberiza_variabilis,
+		15	Emberiza_tristrami,
+		16	Emberiza_chrysophrys,
+		17	Emberiza_sulphurata,
+		18	Emberiza_rutila,
+		19	Emberiza_spodocephala,
+		20	Emberiza_aureola,
+		21	Emberiza_pusilla,
+		22	Emberiza_melanocephala,
+		23	Emberiza_bruniceps,
+		24	Melophus_lathami,
+		25	Emberiza_jankowskii,
+		26	Emberiza_godlewskii,
+		27	Emberiza_cioides,
+		28	Emberiza_cia,
+		29	Emberiza_buchanani,
+		30	Emberiza_caesia,
+		31	Emberiza_hortulana,
+		32	Emberiza_cirlus,
+		33	Emberiza_leucocephalos,
+		34	Emberiza_citrinella,
+		35	Emberiza_stewarti,
+		36	Miliaria_calandra,
+		37	Aimophila_strigiceps,
+		38	Aimophila_stolzmanni,
+		39	Aimophila_sumichrasti,
+		40	Aimophila_carpalis,
+		41	Arremonops_rufivirgatus,
+		42	Arremonops_chloronotus,
+		43	Arremonops_conirostris,
+		44	Ammodramus_humeralis,
+		45	Ammodramus_aurifrons,
+		46	Ammodramus_savannarum,
+		47	Aimophila_botterii,
+		48	Aimophila_aestivalis,
+		49	Aimophila_cassinii,
+		50	Aimophila_ruficauda,
+		51	Aimophila_mystacalis,
+		52	Aimophila_humeralis,
+		53	Chlorospingus_pileatus,
+		54	Chlorospingus_ophthalmicus,
+		55	Chlorospingus_inornatus,
+		56	Chlorospingus_tacarcunae,
+		57	Chlorospingus_semifuscus,
+		58	Chlorospingus_parvirostris,
+		59	Chlorospingus_flavigularis,
+		60	Chlorospingus_canigularis,
+		61	Amphispiza_bilineata,
+		62	Aimophila_quinquestriata,
+		63	Spizella_atrogularis,
+		64	Spizella_breweri,
+		65	Spizella_pusilla,
+		66	Spizella_wortheni,
+		67	Spizella_passerina,
+		68	Spizella_pallida,
+		69	Arremon_torquatus,
+		70	Arremon_brunneinucha,
+		71	Arremon_castaneiceps,
+		72	Arremon_schlegeli,
+		73	Arremon_aurantiirostris,
+		74	Arremon_flavirostris,
+		75	Junco_hyemalis,
+		76	Junco_phaeonotus,
+		77	Zonotrichia_leucophrys,
+		78	Zonotrichia_atricapilla,
+		79	Zonotrichia_querula,
+		80	Zonotrichia_albicollis,
+		81	Zonotrichia_capensis,
+		82	Passerella_iliaca,
+		83	Spizella_arborea,
+		84	Pezopetes_capitalis,
+		85	Aimophila_ruficeps,
+		86	Aimophila_notosticta,
+		87	Aimophila_rufescens,
+		88	Melozone_biarcuata,
+		89	Melozone_leucotis,
+		90	Melozone_kieneri,
+		91	Pipilo_crissalis,
+		92	Pipilo_aberti,
+		93	Pipilo_fuscus,
+		94	Pipilo_albicollis,
+		95	Atlapetes_fulviceps,
+		96	Atlapetes_citrinellus,
+		97	Pselliophorus_tibialis,
+		98	Pselliophorus_luteoviridis,
+		99	Atlapetes_albinucha,
+		100	Atlapetes_pileatus,
+		101	Pipilo_ocai,
+		102	Pipilo_erythrophthalmus,
+		103	Pipilo_maculatus,
+		104	Pipilo_chlorurus,
+		105	Passerculus_sandwichensis,
+		106	Xenospiza_baileyi,
+		107	Melospiza_melodia,
+		108	Melospiza_georgiana,
+		109	Melospiza_lincolnii,
+		110	Ammodramus_henslowii,
+		111	Ammodramus_bairdii,
+		112	Ammodramus_leconteii,
+		113	Ammodramus_caudacutus,
+		114	Ammodramus_nelsoni,
+		115	Ammodramus_maritimus,
+		116	Pooecetes_gramineus,
+		117	Amphispiza_belli,
+		118	Oriturus_superciliosus,
+		119	Atlapetes_rufinucha,
+		120	Atlapetes_tricolor,
+		121	Atlapetes_schistaceus,
+		122	Atlapetes_melanopsis,
+		123	Atlapetes_rufigenis,
+		124	Chondestes_grammacus,
+		125	Calamospiza_melanocorys
+	;
+	TREE * UNTITLED = [&R] (((((1:5.484948962,(2:4.590886386,3:4.590886386):0.8940625759):1.010123261,4:6.495072223):3.308023767,(5:6.985949265,6:6.985949265):2.817146725):3.794940392,(((7:7.805680624,8:7.805680624):2.412603432,(((9:4.595895864,10:4.595895864):3.239125305,11:7.835021169):1.209482093,(12:7.876124682,(13:6.975198804,(((14:2.657745427,15:2.657745427):1.409813821,16:4.067559248):1.768709295,((17:4.881194132,(18:4.607643816,(19:4.120162421,20:4.120162421):0.4874813945):0.2735503158):0.3024541787,21:5.18364831):0.6526202326):1.138930261):0.900925878):1.16837858):1.173780794):2.48402508,(((22:4.394374088,23:4.394374088):2.655263496,24:7.049637584):5.038549264,(((25:5.020087803,((26:1.707595135,27:1.707595135):0.4340616752,28:2.14165681):2.878430993):3.826422218,((29:6.051175847,(30:2.425133508,31:2.425133508):3.626042339):1.790421689,(32:6.10090482,((33:0.33570087,34:0.33570087):3.565923863,35:3.901624733):2.199280087):1.740692716):1.004912484):0.9715222071,36:9.818032228):2.27015462):0.614122288):0.8957272464):1.17089929,((((((37:6.606019554,38:6.606019554):2.437608204,(39:6.430112948,40:6.430112948):2.613514809):0.7442840203,((((41:3.585999682,42:3.585999682):3.822833868,43:7.40883355):1.084227631,((44:4.781546919,45:4.781546919):1.02249992,46:5.804046839):2.689014342):0.7504765199,((47:6.241134967,(48:3.542798938,49:3.542798938):2.698336029):1.628637149,(50:5.616604954,(51:3.924862121,52:3.924862121):1.691742833):2.253167162):1.373765585):0.5443740775):2.406481349,((53:5.122100819,(54:4.360349848,(55:3.306979393,(56:2.951382336,57:2.951382336):0.3555970575):1.053370455):0.7617509713):3.38294884,((58:5.010968636,59:5.010968636):2.342251548,60:7.353220185):1.151829474):3.689343469):0.9214453652,(((61:8.808525459,62:8.808525459):2.520505363,(63:6.280573371,(((64:3.064360881,65:3.064360881):0.5145975919,66:3.578958473):1.356545004,(67:2.852743177,68:2.852743177):2.0827603):1.345069893):5.048457452):1.29583164,(((69:4.388819925,(70:1.635914813,(71:1.17593819,72:1.17593819):0.4599766228):2.752905111):5.80263385,(73:6.184020979,74:6.184020979):4.007432795):1.490156629,((((75:0.3919665957,76:0.3919665957):6.202497125,(((77:0.3410658901,78:0.3410658901):1.754477343,(79:1.567699091,80:1.567699091):0.5278441415):2.754064792,81:4.849608025):1.744855696):1.977094607,(82:7.571758562,83:7.571758562):0.9997997655):2.301718204,((84:8.983052808,((((((85:3.537832916,86:3.537832916):1.287900608,87:4.825733524):1.632649672,88:6.458383195):0.3913851239,89:6.849768319):0.5581748642,(90:6.035189809,((91:1.16945926,92:1.16945926):3.054851066,(93:3.577067812,94:3.577067812):0.6472425134):1.810879483):1.372753375):1.284364858,((((95:0.5586400089,96:0.5586400089):2.988487239,(97:0.4793077344,98:0.4793077344):3.067819514):1.006299619,(99:1.990736601,100:1.990736601):2.562690266):1.872795162,(101:3.47421644,((102:0.6909317161,103:0.6909317161):2.317108466,104:3.008040182):0.4661762574):2.95200559):2.266086012):0.2907447666):1.318491497,(((105:6.590547143,((106:4.351812105,(107:2.829017111,(108:1.632698701,109:1.632698701):1.196318411):1.522794994):1.152778825,(110:4.493494263,111:4.493494263):1.011096668):1.085956213):1.71685482,((112:3.524971302,((113:0.7897320859,114:0.7897320859):1.658246169,115:2.447978255):1.076993047):4.007797292,(116:6.58996423,117:6.58996423):0.942804363):0.7746333698):0.3811708407,118:8.688572804):1.612971501):0.571732227):0.8083338719):0.9432520592):0.4909760304):0.6543600377,(((((119:1.287553772,120:1.287553772):1.030606481,(121:1.681664809,122:1.681664809):0.6364954444):0.5332834848,123:2.851443738):0.4542723619,124:3.3057161):2.712270788,125:6.017986888):7.752211642):0.9987371414);
+END;

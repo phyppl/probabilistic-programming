@@ -1,0 +1,252 @@
+[
+  {
+    "label": "lsbds-birch-grid-1",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-1.wppl 12",
+    "output": "-142.0653337849739\n-142.48091956774675\n-141.6210940735586\n-142.2866426773287\n-142.12798747528862\n-141.28339404124787\n-142.18735702504063\n-142.29440913863505\n-142.20463308520624\n-141.35444902750757\n-141.7826356543958\n-142.27977270036615\n"
+  },
+  {
+    "label": "lsbds-birch-grid-2",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 2,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 2\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-2.wppl 12",
+    "output": "-144.90865059009786\n-144.37202925797052\n-144.22785298462915\n-144.93708687825068\n-145.54401828641977\n-145.14207854418248\n-144.39098418683642\n-144.14643533693408\n-143.90262379018702\n-144.61273264268203\n-144.00916392093308\n-144.05464111664043\n"
+  },
+  {
+    "label": "lsbds-birch-grid-3",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 3,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 3\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-3.wppl 12",
+    "output": "-147.09016889105948\n-146.62270740653693\n-146.47516183640855\n-146.78213467545652\n-146.42145698636293\n-146.75687863125268\n-146.60147284413375\n-146.79788548988364\n-146.60587145727555\n-146.48128031524195\n-146.89739946800802\n-146.8328775556022\n"
+  },
+  {
+    "label": "lsbds-birch-grid-4",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 4,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 4\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-4.wppl 12",
+    "output": "-148.16084960732613\n-148.49313029547272\n-148.78048744362962\n-148.4763091610109\n-148.68159791047253\n-148.17338868595192\n-149.12609701371852\n-147.7677488661409\n-148.4021179613815\n-148.20967223157956\n-148.78771058353004\n-148.99934231565712\n"
+  },
+  {
+    "label": "lsbds-birch-grid-5",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 5,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 5\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-5.wppl 12",
+    "output": "-150.0027270107153\n-149.5237688138275\n-150.04413228602124\n-149.5211598886905\n-150.01832213380172\n-149.5153453975012\n-150.56940034650043\n-150.27977324041154\n-150.33602545465655\n-150.2985495187669\n-150.26283729931149\n-150.5679634585242\n"
+  },
+  {
+    "label": "lsbds-birch-grid-6",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 6,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 6\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-6.wppl 12",
+    "output": "-151.0663601497332\n-151.3276823053083\n-151.61524666034788\n-151.23035053470772\n-151.146450839491\n-150.87811345673387\n-151.64481928333967\n-151.4116666820182\n-151.35564518536174\n-151.12690374342188\n-151.70893815089858\n-151.3732572198614\n"
+  },
+  {
+    "label": "lsbds-birch-grid-7",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 7,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 7\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-7.wppl 12",
+    "output": "-152.2747968709365\n-152.16494473085865\n-152.37123149095527\n-152.4307308661675\n-152.18706153973613\n-152.3611372264252\n-152.36830715730247\n-152.7217173638278\n-152.14905119710224\n-153.10214655631637\n-152.7178536601585\n-152.58736908827441\n"
+  },
+  {
+    "label": "lsbds-birch-grid-8",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 8,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 8\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-8.wppl 12",
+    "output": "-153.63521062638623\n-153.2506971582788\n-153.8826204748722\n-153.14043330844908\n-153.66274062387393\n-153.40473465719973\n-153.18854408146427\n-152.52540701157545\n-153.21890477496376\n-154.03094134171948\n-153.2263419337381\n-153.45747683980844\n"
+  },
+  {
+    "label": "lsbds-birch-grid-9",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 9,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 9\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-9.wppl 12",
+    "output": "-153.47973736501038\n-153.89854055440733\n-154.5451762077181\n-154.28569622134896\n-153.66683911847076\n-153.6910180129198\n-153.3382216572879\n-153.84717806645327\n-154.0736421978503\n-154.8777348965174\n-154.051726147388\n-154.62338351683474\n"
+  },
+  {
+    "label": "lsbds-birch-grid-10",
+    "description": "Comparison vs BIRCH.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 10,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 10\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds-birch-grid/lsbds-birch-grid-10.wppl 12",
+    "output": "-154.97328512772813\n-154.77780250654035\n-154.86552447421542\n-153.6447355955799\n-154.94428122844894\n-154.53234578732574\n-154.15064810219252\n-154.66638150252862\n-155.12697071243733\n-154.2220231556839\n-155.17339567460434\n-154.45072705022136\n"
+  }
+]

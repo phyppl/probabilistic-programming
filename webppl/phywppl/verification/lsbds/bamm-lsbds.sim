@@ -1,0 +1,33 @@
+{
+    "label" : "bamm-lsbds",
+    
+    "description" : "BAMM model for z = 0 should degrade to LSBDS.",
+
+    "hyper_parameters" : {
+       	"particles" : 10000,
+	"MAX_DIV" : 10,
+	"MAX_LAMBDA" : 10
+    },
+    
+    "parameters" : {
+	"tree" :  "phyjs.bisse_32",
+	"EXPECTED_NUM_EVENTS" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+	"DistLambda" : "function() { return ( exponential( { a: 1 } ) )  }",
+	"DistMu"     : "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+	"DistZ"      : "function() { return 0 }",
+	"lambda_0"   : "DistLambda()",
+	"z_0"        : "DistZ()",
+	"lambdaFun_0" : "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+	"mu_0"        : "DistMu(lambda_0)",
+	"eta"      : "EXPECTED_NUM_EVENTS / tree.age ",
+	"rho"      : 1
+    },
+    
+    "model" : "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}
+

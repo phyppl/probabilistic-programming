@@ -1,0 +1,190 @@
+// Forward simulation from a starting time, returning extinction (true) or survival (false)
+var clads1GoesUndetected = function( startTime, lambda, alpha, sigma, mu, rho)
+{
+    // lambda-guard
+    if ( lambda > phyjs.MAX_LAMBDA )
+     	return false
+    // lambda-guard
+    
+    // extreme values patch 1/2
+     if ( lambda - mu > phyjs.MAX_DIV )
+     	return false
+    
+     if ( lambda == 0.0 )
+     {
+     	if ( flip( rho ) )
+     	    return false
+         else
+             return true
+     }
+    // end extreme values patch 1/2
+    
+    
+    var t = exponential( {a: lambda + mu } )
+    
+    var currentTime = startTime - t
+    if ( currentTime < 0 ) {
+	if ( flip(rho) ) return false
+        else return true
+    }
+    
+    var extinction = flip( mu/(mu+lambda) )
+    if ( extinction )
+        return true 
+    
+    // Speciation; first draw values for daughter lineages and then recurse
+    var lambda1 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+    var lambda2 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+    return ( clads1GoesUndetected( currentTime, lambda1, alpha, sigma, mu, rho )
+             && clads1GoesUndetected( currentTime, lambda2, alpha, sigma, mu, rho )
+	   )
+}
+
+
+
+// Simulation function for ClaDS1 model
+var simClaDS1 = function( tree, lambda0, alpha, sigma, mu0, rho )
+{
+    // Simulate process along a branch
+    var simBranch = function( startTime, stopTime, lambda, alpha, sigma, mu, rho )
+    {
+	var t1 = startTime - stopTime
+	// extreme values patch 2/2
+	if ( lambda  > phyjs.MAX_LAMBDA )
+	     return [ 0.0, 0.0, -Infinity ]
+	
+	if ( lambda == 0.0 )
+	{
+	    var t1 = startTime - stopTime
+             return [ lambda, lambda*t1, -mu*t1  ]
+	}
+	// extreme values patch 2/2
+	
+	// Draw a waiting time until next speciation
+	var t = exponential ( {a: lambda} )
+
+	// Compute current time
+	var currentTime = startTime - t;
+
+	// This is the terminating condition, return ending lambda,
+	// and effective lambda and probability contributions
+	if ( currentTime <= stopTime )
+	{
+            return [ lambda, lambda*t1, -mu*t1  ]
+	}
+
+	// We have a speciation event; handle this case
+	// We arbitrarily assume that lambda1 applies to the surviving lineage
+	// and lambda2 to the extinct side lineage.
+	var lambda1 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+	var lambda2 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+	var sideExtinction = clads1GoesUndetected( currentTime, lambda2, alpha, sigma, mu, rho )
+	if ( sideExtinction == false )
+            return [ 0.0, 0.0, -Infinity ]
+
+	// Return probability from recursion plus factor 2 * lambda; factor 2 because we
+	// do not care whether extinction is on left or right side branch
+	var ret = simBranch( currentTime, stopTime, lambda1, alpha, sigma, mu, rho )
+	return [ ret[0], ret[1] + lambda*t, ret[2] + Math.log( 2.0 ) - mu*t ]
+    }
+
+
+    // Simulate process along a tree
+    var simTree = function( tree, parent, lambda, alpha, sigma, mu, rho )
+    {
+
+	var lambda_chooser = function(lambda, lambdaEnd, alpha, sigma)
+	{
+	    if (PANDA) {
+		observe(Gaussian({mu:Math.log(alpha*lambdaEnd),sigma:sigma}),Math.log(lambda))
+		return lambda
+	    } else {
+		return (Math.exp(gaussian({mu:Math.log(alpha*lambdaEnd),sigma:sigma})))
+	    }
+	}
+	
+	// var lambda_chooser = function(lambda, lambdaEnd, alpha, sigma) {
+	//     if (PANDA == true) {
+	// 	factor( phyjs.lognormal_logpdf( lambda, sigma, Math.log( alpha * lambdaEnd ) ) )
+	// 	return lambda
+	//     }
+	//     else {
+	// 	return ( Math.exp( gaussian( {mu: Math.log( alpha * lambdaEnd ), sigma: sigma} ) ) )
+	//     }
+	// }
+	
+	if ( parent == null )
+	{
+	    //var lambda1 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+	    //var lambda2 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+
+	    var lambda1 = lambda_chooser(lambda, lambda, alpha, sigma)
+	    var lambda2 = lambda_chooser(lambda, lambda, alpha, sigma)
+
+	    
+            // Recursive call under diversification rates
+            var subtree1 = simTree( tree.left,  tree, lambda1, alpha, sigma, mu, rho )
+            var subtree2 = simTree( tree.right, tree, lambda2, alpha, sigma, mu, rho )
+
+            // Return total subtree with diversification info attached as an 'extended newick' character string
+            var nodeInfo = '[&lambda=' + lambda + ']'
+            return '(' + subtree1 + ',' + subtree2 + ')' + nodeInfo
+	}
+
+	// Simulate process along branch leading to node 
+	var ret = simBranch( parent.age, tree.age, lambda, alpha, sigma, mu, rho )
+	var lambdaEnd = ret[0]
+	
+	// Factor in the accumulated probability weight, plus speciation weight at end of branch
+	var lambdaEnd = ret[0]
+	var lnSpecProb = ( tree.type == 'node' ? Math.log( lambdaEnd ) : Math.log(rho) )
+	factor( ret[2] + lnSpecProb )
+
+	// Collect node info
+	var nodeInfo = '[&lambda=' + ret[0] + ']'
+
+	// Collect branch info
+	var length = parent.age - tree.age
+	var branchInfo = '[&effectiveLambda=' + (ret[1]/length) + ']'
+
+	if ( tree.type == 'node' )
+	{
+            // Get daughter rates and then recurse
+            //var lambda1 = Math.exp( gaussian( {mu: Math.log( alpha * lambdaEnd ), sigma: sigma} ) )
+            //var lambda2 = Math.exp( gaussian( {mu: Math.log( alpha * lambdaEnd ), sigma: sigma} ) )
+	    
+	    var lambda1 = lambda_chooser(lambda, lambdaEnd, alpha, sigma)
+	    var lambda2 = lambda_chooser(lambda, lambdaEnd, alpha, sigma)
+
+	    
+            var subtree1 = simTree( tree.left,  tree, lambda1, alpha, sigma, mu, rho )
+            var subtree2 = simTree( tree.right,  tree, lambda2, alpha, sigma, mu, rho )
+	    
+            // Return total subtree with diversification info attached as an 'extended newick' character string
+            return '(' + subtree1 + ',' + subtree2 + ')' + nodeInfo + ':' + length + branchInfo
+	}
+	else
+	{
+            // Return leaf with diversification info attached as an 'extended newick' character string
+            return tree.index + nodeInfo +  ':' + length + branchInfo
+	}
+    }
+
+
+    // Convert to density on unoriented labeled trees up front
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+    factor( corrFactor )
+
+    // Simulate conditionally on the tree
+    var tree = simTree( tree, null, lambda0, alpha, sigma, mu0, rho )
+	
+    // Return model parameters and tree that contains the lineage-specific parameters of interest
+    return [ lambda0, alpha, sigma, mu0, tree ]
+}
+
+
+
+
+
+

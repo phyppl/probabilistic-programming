@@ -1,0 +1,64 @@
+/** 
+ * @file 
+ * Example: Constant-rate birth-death
+ * 
+ * To run the example use:
+ * 
+ * npm run wppl examples/crbd-naive.wppl [N]
+ * 
+ * where [N] is the number of iterations, for example 3
+ *
+ */
+
+
+/** 
+ * Tree selection
+ * uncomment the observed tree that you would like 
+ * or use the read_phyjson function to read in a tree in the PhyJSON format 
+ */
+//var tree   = phyjs.example_2;
+var tree = phyjs.bisse_32;
+
+//var tree =  phyjs.read_phyjson("../../data/bisse_32.phyjson")
+//var tree = phylodata.primates_61;
+//var tree = phylodata.cetacean_87;
+//var tree = phylodata.read_phyjson("example.json")
+
+
+/**
+ * Model specification
+ */
+var model = function()
+{
+    // Define priors on lambda and mu
+    var lambda = 0.2
+    //  var mu     = 0.1
+    var mu = 0.1
+    var rho    = 1.0
+    // var lambda = gamma( {shape:20, scale:0.01} )
+    // var mu     = gamma( {shape:10, scale:0.01} )
+
+       // Simulate conditionally on the tree
+    // It returns all variables of interest
+    var ret = simCRBDNaive( tree, lambda, mu, rho )
+
+    // Condition on detection
+    var dist = Infer ( { model: function() { crbdGoesUndetected( tree.age, lambda, mu, rho ) }, method: 'forward', samples: 100 } )
+    factor( - 2.0 * dist.score( false ) )
+
+    return ret
+}
+
+
+/**
+ * Inference
+ * tweak the number of particles if you want to */
+var particles = 10000
+var dist = Infer( {method: 'SMC', particles: particles, model: model} );
+
+
+/** 
+ *Print the distribution or the normalization constant
+ */
+// dist;
+dist.normalizationConstant;

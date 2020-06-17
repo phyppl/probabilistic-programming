@@ -1,0 +1,217 @@
+/** 
+ * M Iterations to Survive, TDBD
+ *  
+ * Computes M, the number of simulations needed to generate a lineage surviving
+ * to the present.
+ *
+ * @param startTime
+ * @param lambda
+ * @param mu
+ * @param rho
+ * @param max_M (integer) A guard against very deep recursions.
+ *
+ * @return M
+ */
+var M_tdbdGoesUndetected = function(  startTime, lambdaFun, muFun, rho, tree, mu, decayMu, max_M )
+{
+//    console.log("M...")
+    if ( max_M == 0 ) return NaN
+    // We need to survive twice
+    // !tdbdGoesUndetected( startTime, lambda, mu, rho ) is the probability of being
+    // detected/surviving to present
+    if ( !tdbdGoesUndetected(startTime, lambdaFun, muFun, rho, tree, mu, decayMu) &&
+	 !tdbdGoesUndetected(startTime, lambdaFun, muFun, rho, tree, mu, decayMu) ) return 1
+    else return(1 + M_tdbdGoesUndetected( startTime, lambdaFun, muFun, rho, tree, mu, decayMu, max_M - 1 ))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** 
+ * Uses bammLambdaWait or Simple Decay Function
+ *
+ * @param decayFunction
+ * @param startTime
+ * @param stopTime
+ * @param a real The parameter of the exponential from which to sample from if decay is false
+ * @param toggle boolean Yes/no to choose or not the waiting function.
+ * 
+ * @param Waiting time computed either by Waiting function or via robust exponential sampling.
+ */
+var bammLambdaWaitWrapper = function(decayFunction, startTime, stopTime, a, toggle)
+{
+    if (toggle) {
+//	console.log("toggle")
+	return (bammLambdaWait(decayFunction, startTime, stopTime))
+    }
+    return (robust_exponential_sampler(a))
+}
+
+
+/** Forward simulation from startTime to the present
+ * It returns probabilities of extinction (true) and survival (false) */
+var tdbdGoesUndetected = function( startTime, lambdaFun, muFun, rho, tree, mu, decayMu )
+{
+   
+    /* Begin: Extreme values patch (1/2) */
+    if (lambdaFun(tree.age) - muFun(tree.age) > MAX_DIV) {
+    	// <=> if lambda_0 - mu exceed the maximum diversification rate
+    	// lineage will survive for sure
+    	return false
+    }
+    
+    if (lambdaFun(tree.age) < MIN_LAMBDA) {
+    	if (flip(rho)) {
+    	    return false // The lineage is alive and will not go undetected (i.e. it will be detected)
+    	} else return true // undetected
+    }
+    /* End: Extreme values patch (12) */
+
+    /* Sample waiting times till speciation and extinction from the time-dependent process. */
+   // console.log("Sampling lambda")
+    var tLambda = bammLambdaWait( lambdaFun, startTime, 0 )
+    //var tMu = bammLambdaWait( muFun, startTime, 0)
+   // console.log("Sampling mu", decayMu)
+    var tMu = bammLambdaWaitWrapper( muFun, startTime, 0, mu, decayMu)
+    // we use the bammLambdaWait function as it's the same process
+
+    var t = ( tLambda < tMu ? tLambda : tMu )
+    
+    var currentTime = startTime - t;
+    
+    if ( currentTime < 0 ) {
+	if ( flip( rho ) )
+            return false
+        else
+            return true
+    }
+
+    if ( tMu < tLambda )
+        return true;
+    
+    else
+        return ( tdbdGoesUndetected( currentTime, lambdaFun, muFun, rho, tree, mu, decayMu ) && tdbdGoesUndetected( currentTime, lambdaFun, muFun, rho, tree, mu, decayMu ) );
+}
+
+
+
+/** Simulate time-dependent birth-death (TDBD) model
+ * Any monotonously increasing or decreasing function
+ * will do for lambdaFun = lambda(t). We assume that
+ * mu is constant. 
+ 
+ @param decayMu boolean To use muFun or just mu_0?
+*/
+var simTDBD = function( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, decayMu )
+{
+    // Simulate process along a branch
+    // This function simulates speciation events on a branch
+    // that is known to survive through the timeperiod and
+    // computes the ln probability of the simulation.
+    var simBranch = function( startTime, stopTime, lambdaFun, muFun, rho)
+    {
+	/* Begin: Extreme values patch (2/2) */
+	if ( lambdaFun(tree.age)  > MAX_LAMBDA )
+	    return -Infinity
+
+	if ( lambdaFun(tree.age)  < MIN_LAMBDA  )
+	    return 0.0
+	/* End: Extreme values patch (2/2) */
+
+	// Draw a waiting time until next speciation
+	var t = bammLambdaWait( lambdaFun, startTime, stopTime )
+
+	var currentTime = startTime - t;
+
+	// If we pass the tip, we return
+	// This is the terminating condition, no probability accumulated yet
+	if ( currentTime <= stopTime ) {
+            return 0.0
+	}
+	
+	// We need a speciation followed by one extinction and
+	// one survival (the branch we are on). We account for
+	// this with one simulation that is conditioned on
+	// extinction, for the side branch, and a factor of 2
+	// to account for the two possible rotations of lineages
+	// after the speciation event, that is, we do not care
+	// whether we survive on the left or the right branch,
+	// as long as the other branch dies out.
+	var sideDetection = tdbdGoesUndetected( currentTime, lambdaFun, muFun, rho, tree, mu_0, decayMu )
+	if ( sideDetection == false )
+            return ( -Infinity )
+
+	return simBranch( currentTime, stopTime, lambdaFun, muFun, rho ) + Math.log( 2.0 );
+    }
+
+    
+
+    // Simulate process along tree
+    var simTree = function( tree, parent, lambdaFun, muFun, rho, lambda_0, mu_0, z)
+    {
+	// Factor in the probability of no extinction
+	// along the branch leading to the node
+	// Was:
+	// var lnProb1 = - mu * ( parent.age - tree.age );
+	//var tMu = bammLambdaWait( muFun, parent.age, tree.age)
+	//condition( tMu == Infinity )
+	// -λ0 / z0 * exp (z0 * T) * (exp(-t1*z0) - exp(-t0*z0))
+	var robust_extinction_probability = function() {
+	    if (z == 0 || !decayMu) return ( - mu_0 * (parent.age - tree.age) )
+	    return ( 1 / z * ( muFun(parent.age) - muFun(tree.age)  ) )
+	}
+	var lnProb1 = robust_extinction_probability() // https://www.wolframalpha.com/input/?i=-%E2%88%AB%CE%BC+exp%28z+%28T+-+t%29+%29+dt+from+t_0+to+t_1
+	
+	// If this is an interior node, we also need to weight
+	// according to the speciation probability
+	// at the end of the branch because we need to
+	// draw exactly the waiting time until the end
+	// of the branch. Note that this effect does
+	// not occur if the branch is terminal
+	var lnProb2 = ( tree.type == 'node' ? Math.log( lambdaFun( tree.age ) ) : Math.log(rho) );
+
+	// Now simulate the hidden speciation events along
+	// the branch using a recursive function, accumulating ln probs
+	var lnProb3 = simBranch( parent.age, tree.age, lambdaFun, muFun, rho);
+
+	// Now is the time to reweight
+	factor( lnProb1 + lnProb2 + lnProb3 )
+
+	// Finally, if this is an interior node, recurse over
+	// the two descendant subtrees
+	if ( tree.type == 'node')
+	{
+            // Now recurse over the left and right descendants
+            simTree( tree.left,  tree, lambdaFun, muFun, rho, lambda_0, mu_0, z);
+            simTree( tree.right, tree, lambdaFun, muFun, rho, lambda_0, mu_0, z);
+	}
+    }
+
+    // Convert to density on labelled unoriented trees up front
+    // to make sure the normalization constant is correct
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+    factor( corrFactor )
+
+    // Simulate conditionally on the tree
+    simTree( tree.left,  tree, lambdaFun, muFun, rho, lambda_0, mu_0, z )
+    simTree( tree.right, tree, lambdaFun, muFun, rho, lambda_0, mu_0, z )
+
+    return [ lambda_0, mu_0, z ];
+
+}
+
+
+
+
+
+

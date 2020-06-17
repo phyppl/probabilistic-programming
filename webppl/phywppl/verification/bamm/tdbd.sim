@@ -1,0 +1,30 @@
+{
+    "label" : "tdbd",
+    
+    "description" : "TDBD Model with Decaying λ and fixed μ.",
+
+    "hyper_parameters" : {
+       	"particles" : 10000,
+	"MAX_DIV" : 5,
+	"MAX_LAMBDA" : 5,
+	"MIN_LAMBDA" : 0.000001
+    },
+    
+    "parameters" : {
+	"tree"      :  "phyjs.bisse_32",
+	"z"         : [-0.1, -0.05, 0, 0.05, 0.1],
+	"lambda_0"  : [0.1, 0.3, 1],
+	"epsilon"   : [0.0, 0.1, 0.5],
+	"lambdaFun" : "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+	"muFun"     : "function(t) { return (  epsilon * lambda_0 ) }",
+	"rho"      : 1
+    },
+    
+    "model" : "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, false )\n\treturn (ret)",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}
+

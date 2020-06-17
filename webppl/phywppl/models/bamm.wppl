@@ -1,0 +1,303 @@
+/** 
+ * M Iterations to Survive BAMM
+ *  
+ * Computes M, the number of simulations needed to generate a lineage surviving
+ * to the present in BAMM.
+ *
+ * @param startTime
+ * @param lambdaFun
+ * @param mu
+ * @param eta
+ * @param DistLambda
+ * @param DistZ
+ * @param DistMu
+ * @param rho
+ * @param max_M (integer) A guard against very deep recursions.
+ *
+ * @return M
+ */
+var M_bammGoesUndetected = function( startTime,  lambdaFun, mu, eta, DistLambda, DistZ, DistMu, rho, max_M )
+{
+    if ( max_M == 0 ) return NaN
+    // We need to survive twice
+    // !crbdGoesUndetected( startTime, lambda, mu, rho ) is the probability of being
+    // detected/surviving to present
+    if (!bammGoesUndetected( startTime,  lambdaFun,  mu, eta, DistLambda, DistZ, DistMu, rho ) &&
+	!bammGoesUndetected( startTime,  lambdaFun,  mu, eta, DistLambda, DistZ, DistMu, rho )) return 1
+    else return(1 + M_bammGoesUndetected( startTime, lambdaFun, mu, eta, DistLambda, DistZ, DistMu, rho, max_M - 1 ))
+}
+
+
+
+var robust_exponential_sampler = function(a)
+{
+    if (a <= 0) return Infinity
+    if (a == Infinity) return 0
+    return exponential( {a: a} )
+}
+
+/**
+ *  Function to draw waiting time from the speciation process, assuming
+ * that lambdaFun is a monotonously increasing or decreasing function
+ *  Waiting times longer than the interval are correct only in the
+ * sense that they are longer than the interval.
+ * 
+ * @param lambdaFun
+ * @param startTime
+ * @param stopTime
+ * 
+ * @return waiting time according to BAMM/TDBD
+ */
+var bammLambdaWait = function( lambdaFun, startTime, stopTime )
+{
+    var startLambda = lambdaFun( startTime )
+    var stopLambda  = lambdaFun( stopTime )
+
+    var topLambda = (startLambda > stopLambda) ? startLambda : stopLambda
+    
+    var t = startTime - robust_exponential_sampler( topLambda )
+
+    if ( t < stopTime ) { return Infinity }
+
+    if ( flip ( lambdaFun( t )  / topLambda ) ) {
+	  return (startTime - t)
+    }
+    
+    return (startTime - t + bammLambdaWait( lambdaFun, t, stopTime ))
+}
+
+
+/**
+ * Forward simulation from a starting time, returning whether the lineage
+ * goes undetected or extinct (true) or not (false)
+ *
+ * @param startTime
+ * @param lambdaFun
+ * @param mu
+ * @param eta
+ * @param DistLambda
+ * @param DistZ
+ * @param DistMu
+ * @param rho
+ * @param tree
+ * 
+ * @return boolean: if the lineage went undetected or not
+ */
+var bammGoesUndetected = function( startTime, lambdaFun, mu, eta, DistLambda, DistZ, DistMu, rho )
+{
+    /* Begin: Extreme values patch (1/2) */
+    // TODO should be lambdaFun(currentTime), I think
+//    if (lambdaFun(tree.age) - mu > MAX_DIV) {
+	// <=> if lambda_0 - mu exceed the maximum diversification rate
+	// lineage will survive for sure
+//	return false
+//  }
+    
+//    if (lambdaFun(tree.age) < MIN_LAMBDA) {
+//	if (flip(rho)) {
+//	    return false // The lineage is alive and will not go undetected (i.e. it will be detected)
+//	} else return true // undetected
+//  }
+    /* End: Extreme values patch (12) */
+    
+    //var t1 = exponential( {a: mu + eta} )
+    var t1 = robust_exponential_sampler( mu + eta )
+    var tLambda = bammLambdaWait( lambdaFun, startTime, 0 )
+
+    var t = (t1 < tLambda ) ? t1 : tLambda
+
+    var currentTime = startTime - t
+    
+    if ( currentTime < 0 ) { // means we're in the future
+	if (flip(rho)) { // we are in the sample? did we go undetected?
+	    return false
+	}
+	else return true // we are not sample and we did go undetected
+    }
+    
+    if ( t1 < tLambda )
+    {
+        var extinction = flip( mu/(mu+eta) )
+        if ( extinction )
+            return true 
+	
+	// No extinction, so rateshift
+        var lambda2    = DistLambda()
+        var z2         = DistZ()
+//	console.log("Resampling mu (should not happen if η = 0)")
+        var mu2        = DistMu(lambda2)
+        var lambdaFun2 = function( t ) { lambda2 * Math.exp( z2 * ( currentTime - t ) ) }
+	
+        return bammGoesUndetected( currentTime, lambdaFun2, mu2, eta, DistLambda, DistZ, DistMu, rho  )
+    }
+
+    return ( bammGoesUndetected( currentTime, lambdaFun, mu, eta, DistLambda, DistZ, DistMu, rho )
+             && bammGoesUndetected( currentTime, lambdaFun, mu, eta, DistLambda, DistZ, DistMu, rho )
+	   )
+}
+
+
+/** 
+ * Bayesian Analysis of Macroevolutionary Mixtures (BAMM)  model
+ *    (strictly speaking, a statistically coherent model that is
+ *    very similar to the original BAMM model)
+ * 
+ * Implementation details:
+ *  - assuming rooted tree
+ *  - no correction for survivorship bias
+ *  - density on oriented unlabeled trees
+ *  - aligned inference
+ * 
+ * Side effect: correct particle weight is set.
+ *
+ * @param tree          The reconstructed phylogenetic tree
+ * @param DistLambda    Distribution on original birth rate λ_0 (speciation rate)
+ * @param DistZ         Distribution on z parameter of lambda(t) = λ_0 * exp( z*t )
+ * @param DistMu        Distribution on death rate μ (extinction rate)
+ * @param eta         Shift rate
+ * 
+ * @return [lambdaFun2, z2, mu2, sum(meanLambda*t) sum(z*t) sum(mu*t), numShifts, lnSpecProb  ] 
+ *              where tree contains sampled diversification rate parameters
+ *                       in extended newick format
+ */
+var simBAMM = function( tree, lambdaFun, z, mu, eta, DistLambda, DistZ, DistMu, rho )
+{
+    // simulate process along a branch
+    var simBranch = function( startTime, stopTime, lambdaFun, z, mu, eta, DistLambda, DistZ, DistMu, rho )
+    {
+
+	/* Begin: Extreme values patch (2/2) */
+//	if ( lambdaFun(tree.age)  > MAX_LAMBDA )
+//	    return [ lambdaFun, 0.0, 0.0, 0.0, 0.0, 0.0, 0, -Infinity ]
+
+//	if ( lambdaFun(tree.age)  < MIN_LAMBDA  )
+//	{
+//	    var t1 = startTime - stopTime
+//            var meanLambda = ( lambdaFun( startTime ) + lambdaFun( stopTime ) ) / 2.0
+//            return [ lambdaFun, z, mu, meanLambda*t1, z*t1, mu*t1, 0, -mu*t1 ]
+//	}
+	/* End: Extreme values patch (2/2) */
+	
+	// Draw a waiting time until next event
+	var tLambda = bammLambdaWait( lambdaFun, startTime, stopTime )
+	// Testing: we need to disable the draw of tEta to test against CRBD
+	//var tEta  = exponential( {a: eta} )
+	var tEta = robust_exponential_sampler( eta )
+	//var tEta = tLambda + 1.0    // For testing
+	var t = tLambda < tEta ? tLambda : tEta
+	
+	// Compute current time
+	var currentTime = startTime - t;
+	
+	// This is the terminating condition, return final values and appropriate accumulators
+	// for number of shifts and probability
+	if ( currentTime <= stopTime )
+	{
+            var t1 = startTime - stopTime
+            var meanLambda = ( lambdaFun( startTime ) + lambdaFun( stopTime ) ) / 2.0
+            return [ lambdaFun, z, mu, meanLambda*t1, z*t1, mu*t1, 0, -mu*t1 ]
+	}
+
+	// Check whether this is a rate shift, and handle this case
+	if ( tEta < tLambda )
+	{
+            // Draw new values for lambda_0, z and mu
+            var lambda0_2  = DistLambda()
+            var z2         = DistZ()
+            var mu2        = DistMu(lambda0_2)
+            var lambdaFun2 = function( t ) { lambda0_2 * Math.exp( z2 * ( currentTime - t ) ) }
+
+            // Recursive call
+	    var ret = simBranch( currentTime, stopTime, lambdaFun2, z2, mu2, eta, DistLambda, DistZ, DistMu, rho )
+
+            // Return accumulated values
+            // Add this rate shift to the total number of rate shifts
+            // No-extinction probability is dependent on mu before shift
+            var meanLambda = ( lambdaFun( startTime ) + lambdaFun( currentTime ) ) / 2.0
+            return [ ret[0], ret[1], ret[2], ret[3] + meanLambda*t, ret[4] + z*t, ret[5] + mu*t, ret[6] + 1, ret[7] - mu*t ]
+	}
+
+	// We have a speciation event; handle this case
+	phyjs.Counter(0)
+	var sideDetection = bammGoesUndetected( currentTime, lambdaFun, mu, eta, DistLambda, DistZ, DistMu, rho )
+
+	if ( sideDetection == false )
+            return [ lambdaFun, 0.0, 0.0, 0.0, 0.0, 0.0, 0, -Infinity ]
+
+	// Recursive call
+	var ret = simBranch( currentTime, stopTime, lambdaFun, z, mu, eta, DistLambda, DistZ, DistMu, rho )
+
+	// Return accumulated values
+	// Factor 2 because we do not care whether extinction is on left or right side branch
+	var meanLambda = ( lambdaFun( startTime ) + lambdaFun( currentTime ) ) / 2.0
+	return [ ret[0], ret[1], ret[2], ret[3] + meanLambda*t, ret[4] + z*t, ret[5] + mu*t, ret[6], ret[7] + Math.log( 2.0 ) - mu*t ]
+    }
+    
+    // Simulate process along a tree
+    var simTree = function( tree, parent, lambdaFun, z, mu, eta, DistLambda, DistZ, DistMu, rho )
+    {
+
+	if ( parent == null )
+	{
+            // Recursive call under diversification rates
+            var subtree1 = simTree( tree.left,  tree, lambdaFun, z, mu, eta, DistLambda, DistZ, DistMu, rho )
+            var subtree2 = simTree( tree.right, tree, lambdaFun, z, mu, eta, DistLambda, DistZ, DistMu, rho )
+
+            // Return total subtree with diversification info attached as an 'extended newick' character string
+            var nodeInfo = '[&lambda=' + lambdaFun( tree.age ) + ',mu=' + mu + ',z=' + z + ']'
+            return '(' + subtree1 + ',' + subtree2 + ')' + nodeInfo
+	}
+
+	// Simulate process along branch leading to node
+	var ret = simBranch( parent.age, tree.age, lambdaFun, z, mu, eta, DistLambda, DistZ, DistMu, rho )
+	
+	// Collect node info
+	var lambdaFun2 = ret[0]
+	var lambda2    = lambdaFun2( tree.age )
+	var z2         = ret[1]
+	var mu2        = ret[2]
+	var nodeInfo   = '[&lambda=' + lambda2 + ',mu=' + mu2 + ',z=' + z2 + ']'
+
+	
+	// Factor in the accumulated probability weight
+	var lnSpecProb = ( tree.type == 'node' ? Math.log( lambdaFun2( tree.age ) ) : Math.log(rho) )
+	factor( ret[7] + lnSpecProb ) 
+
+
+	// Collect branch info
+	var length = parent.age - tree.age
+	var branchInfo = '[&numShifts=' + ret[6] + ',effectiveLambda=' + (ret[3]/length)  + ',effectiveZ=' + (ret[4]/length) + ',effectiveMu=' + (ret[5]/length) + ']'
+
+	if ( tree.type == 'node' )
+	{
+            // Recursive call under final diversification rates
+            var subtree1 = simTree( tree.left,  tree, lambdaFun2, z2, mu2, eta, DistLambda, DistZ, DistMu, rho )
+            var subtree2 = simTree( tree.right, tree, lambdaFun2, z2, mu2, eta, DistLambda, DistZ, DistMu, rho )
+
+            // Return total subtree with diversification info attached as an 'extended newick' character string
+            return '(' + subtree1 + ',' + subtree2 + ')' + nodeInfo + ':' + length + branchInfo
+	}
+	else
+	{
+            // Return leaf with diversification info attached as an 'extended newick' character string
+            return tree.index + nodeInfo +  ':' + length + branchInfo
+	}
+    }
+
+    // Convert to density on labelled unoriented trees up front
+    // to make sure the normalization constant is correct
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+    factor( corrFactor )
+    
+    // Simulate conditionally on the tree
+    var tree = simTree( tree, null, lambdaFun, z, mu, eta, DistLambda, DistZ, DistMu, rho )
+    
+    // Return eta and tree that contains the branch-specific parameters of interest
+    return [ lambdaFun(tree.age), z, mu, eta, tree ]
+
+}
+
+
+
+

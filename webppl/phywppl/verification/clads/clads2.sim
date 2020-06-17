@@ -1,0 +1,29 @@
+{
+    "label" : "clads2",
+
+    "description" : "Grid computation for the full ClaDS2 model. Part of verification. No survivorship bias correction.",
+    
+     "hyper_parameters" : {
+    	"tree"     : "phyjs.bisse_32" ,
+	"particles" :  5000,
+	"MAX_LAMBDA" : 5,
+	"MAX_DIV" : 5,
+	"MIN_LAMBDA" : 1e-5,
+	"PANDA" : false
+    },
+
+    "parameters" : {
+	"sigma"    :  [ 0.15,    0.6,   1.0 ],	
+	"alpha"    :  [ 0.4,    0.65,   1.0 ],
+	"epsilon"  :  [ 0.015, 0.025, 0.065 ],
+	"lambda"   :  [ 0.03,   0.12,   1.0 ,  0.06, 0.09,  0.15,  0.18,  0.21,  0.24,  0.27,  0.3,  0.33,  0.36,  0.39,  0.42,  0.45,  0.48,  0.51,  0.54,  0.57,  0.6,  0.63,  0.66,  0.69,  0.72,  0.75,  0.78,  0.81,  0.84,  0.87,  0.9,  0.93,  0.96, 0.99 ],
+	"rho"      :   1
+    },
+    
+    "model" : "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\treturn ret",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}

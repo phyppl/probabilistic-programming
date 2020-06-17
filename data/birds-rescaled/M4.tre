@@ -1,0 +1,273 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 130;
+	TAXLABELS
+		Dumetella_carolinensis
+		Melanoptila_glabrirostris
+		Cinclocerthia_ruficauda
+		Cinclocerthia_gutturalis
+		Margarops_fuscatus
+		Margarops_fuscus
+		Ramphocinclus_brachyurus
+		Melanotis_hypoleucus
+		Melanotis_caerulescens
+		Oreoscoptes_montanus
+		Mimus_triurus
+		Mimus_dorsalis
+		Mimus_saturninus
+		Mimus_thenca
+		Mimus_patagonicus
+		Mimus_parvulus
+		Mimus_trifasciatus
+		Mimus_melanotis
+		Mimus_macdonaldi
+		Mimus_gundlachii
+		Mimus_longicaudatus
+		Mimus_gilvus
+		Mimus_polyglottos
+		Mimus_graysoni
+		Toxostoma_lecontei
+		Toxostoma_crissale
+		Toxostoma_redivivum
+		Toxostoma_cinereum
+		Toxostoma_bendirei
+		Toxostoma_curvirostre
+		Toxostoma_guttatum
+		Toxostoma_longirostre
+		Toxostoma_rufum
+		Toxostoma_ocellatum
+		Aplonis_cantoroides
+		Aplonis_panayensis
+		Aplonis_minor
+		Aplonis_grandis
+		Aplonis_brunneicapillus
+		Aplonis_metallica
+		Aplonis_pelzelni
+		Aplonis_insularis
+		Aplonis_tabuensis
+		Aplonis_cinerascens
+		Enodes_erythrophris
+		Scissirostrum_dubium
+		Basilornis_celebensis
+		Ampeliceps_coronatus
+		Gracula_religiosa
+		Gracula_ptilogenys
+		Mino_anais
+		Mino_dumontii
+		Streptocitta_albicollis
+		Sarcops_calvus
+		Basilornis_mirandus
+		Rhabdornis_inornatus
+		Rhabdornis_mystacalis
+		Saroglossa_aurata
+		Cinnyricinclus_leucogaster
+		Creatophora_cinerea
+		Sturnus_roseus
+		Sturnus_albofrontatus
+		Sturnus_malabaricus
+		Sturnus_erythropygius
+		Sturnus_pagodarum
+		Sturnus_sinensis
+		Leucopsar_rothschildi
+		Acridotheres_tristis
+		Acridotheres_ginginianus
+		Sturnus_melanopterus
+		Sturnus_burmannicus
+		Acridotheres_albocinctus
+		Acridotheres_cristatellus
+		Acridotheres_grandis
+		Acridotheres_fuscus
+		Acridotheres_cinereus
+		Sturnus_sericeus
+		Sturnus_cineraceus
+		Sturnus_philippensis
+		Sturnus_sturninus
+		Sturnus_contra
+		Sturnus_nigricollis
+		Sturnus_vulgaris
+		Sturnus_unicolor
+		Lamprotornis_corruscus
+		Lamprotornis_purpureiceps
+		Lamprotornis_cupreocauda
+		Grafisia_torquata
+		Poeoptera_lugubris
+		Poeoptera_kenricki
+		Poeoptera_stuhlmanni
+		Cinnyricinclus_sharpii
+		Cinnyricinclus_femoralis
+		Speculipastor_bicolor
+		Neocichla_gutturalis
+		Saroglossa_spiloptera
+		Lamprotornis_shelleyi
+		Lamprotornis_hildebrandti
+		Lamprotornis_purpuroptera
+		Lamprotornis_caudatus
+		Lamprotornis_mevesii
+		Cosmopsarus_unicolor
+		Lamprotornis_australis
+		Lamprotornis_splendidus
+		Lamprotornis_ornatus
+		Cosmopsarus_regius
+		Spreo_bicolor
+		Lamprotornis_superbus
+		Lamprotornis_pulcher
+		Spreo_albicapillus
+		Spreo_fischeri
+		Lamprotornis_purpureus
+		Lamprotornis_chalcurus
+		Lamprotornis_nitens
+		Lamprotornis_chalybaeus
+		Lamprotornis_acuticaudus
+		Lamprotornis_chloropterus
+		Coccycolius_iris
+		Onychognathus_tenuirostris
+		Onychognathus_morio
+		Onychognathus_frater
+		Onychognathus_blythii
+		Onychognathus_salvadorii
+		Onychognathus_albirostris
+		Onychognathus_tristramii
+		Onychognathus_walleri
+		Onychognathus_fulgidus
+		Onychognathus_nabouroup
+		Buphagus_africanus
+		Buphagus_erythrorhynchus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Dumetella_carolinensis,
+		2	Melanoptila_glabrirostris,
+		3	Cinclocerthia_ruficauda,
+		4	Cinclocerthia_gutturalis,
+		5	Margarops_fuscatus,
+		6	Margarops_fuscus,
+		7	Ramphocinclus_brachyurus,
+		8	Melanotis_hypoleucus,
+		9	Melanotis_caerulescens,
+		10	Oreoscoptes_montanus,
+		11	Mimus_triurus,
+		12	Mimus_dorsalis,
+		13	Mimus_saturninus,
+		14	Mimus_thenca,
+		15	Mimus_patagonicus,
+		16	Mimus_parvulus,
+		17	Mimus_trifasciatus,
+		18	Mimus_melanotis,
+		19	Mimus_macdonaldi,
+		20	Mimus_gundlachii,
+		21	Mimus_longicaudatus,
+		22	Mimus_gilvus,
+		23	Mimus_polyglottos,
+		24	Mimus_graysoni,
+		25	Toxostoma_lecontei,
+		26	Toxostoma_crissale,
+		27	Toxostoma_redivivum,
+		28	Toxostoma_cinereum,
+		29	Toxostoma_bendirei,
+		30	Toxostoma_curvirostre,
+		31	Toxostoma_guttatum,
+		32	Toxostoma_longirostre,
+		33	Toxostoma_rufum,
+		34	Toxostoma_ocellatum,
+		35	Aplonis_cantoroides,
+		36	Aplonis_panayensis,
+		37	Aplonis_minor,
+		38	Aplonis_grandis,
+		39	Aplonis_brunneicapillus,
+		40	Aplonis_metallica,
+		41	Aplonis_pelzelni,
+		42	Aplonis_insularis,
+		43	Aplonis_tabuensis,
+		44	Aplonis_cinerascens,
+		45	Enodes_erythrophris,
+		46	Scissirostrum_dubium,
+		47	Basilornis_celebensis,
+		48	Ampeliceps_coronatus,
+		49	Gracula_religiosa,
+		50	Gracula_ptilogenys,
+		51	Mino_anais,
+		52	Mino_dumontii,
+		53	Streptocitta_albicollis,
+		54	Sarcops_calvus,
+		55	Basilornis_mirandus,
+		56	Rhabdornis_inornatus,
+		57	Rhabdornis_mystacalis,
+		58	Saroglossa_aurata,
+		59	Cinnyricinclus_leucogaster,
+		60	Creatophora_cinerea,
+		61	Sturnus_roseus,
+		62	Sturnus_albofrontatus,
+		63	Sturnus_malabaricus,
+		64	Sturnus_erythropygius,
+		65	Sturnus_pagodarum,
+		66	Sturnus_sinensis,
+		67	Leucopsar_rothschildi,
+		68	Acridotheres_tristis,
+		69	Acridotheres_ginginianus,
+		70	Sturnus_melanopterus,
+		71	Sturnus_burmannicus,
+		72	Acridotheres_albocinctus,
+		73	Acridotheres_cristatellus,
+		74	Acridotheres_grandis,
+		75	Acridotheres_fuscus,
+		76	Acridotheres_cinereus,
+		77	Sturnus_sericeus,
+		78	Sturnus_cineraceus,
+		79	Sturnus_philippensis,
+		80	Sturnus_sturninus,
+		81	Sturnus_contra,
+		82	Sturnus_nigricollis,
+		83	Sturnus_vulgaris,
+		84	Sturnus_unicolor,
+		85	Lamprotornis_corruscus,
+		86	Lamprotornis_purpureiceps,
+		87	Lamprotornis_cupreocauda,
+		88	Grafisia_torquata,
+		89	Poeoptera_lugubris,
+		90	Poeoptera_kenricki,
+		91	Poeoptera_stuhlmanni,
+		92	Cinnyricinclus_sharpii,
+		93	Cinnyricinclus_femoralis,
+		94	Speculipastor_bicolor,
+		95	Neocichla_gutturalis,
+		96	Saroglossa_spiloptera,
+		97	Lamprotornis_shelleyi,
+		98	Lamprotornis_hildebrandti,
+		99	Lamprotornis_purpuroptera,
+		100	Lamprotornis_caudatus,
+		101	Lamprotornis_mevesii,
+		102	Cosmopsarus_unicolor,
+		103	Lamprotornis_australis,
+		104	Lamprotornis_splendidus,
+		105	Lamprotornis_ornatus,
+		106	Cosmopsarus_regius,
+		107	Spreo_bicolor,
+		108	Lamprotornis_superbus,
+		109	Lamprotornis_pulcher,
+		110	Spreo_albicapillus,
+		111	Spreo_fischeri,
+		112	Lamprotornis_purpureus,
+		113	Lamprotornis_chalcurus,
+		114	Lamprotornis_nitens,
+		115	Lamprotornis_chalybaeus,
+		116	Lamprotornis_acuticaudus,
+		117	Lamprotornis_chloropterus,
+		118	Coccycolius_iris,
+		119	Onychognathus_tenuirostris,
+		120	Onychognathus_morio,
+		121	Onychognathus_frater,
+		122	Onychognathus_blythii,
+		123	Onychognathus_salvadorii,
+		124	Onychognathus_albirostris,
+		125	Onychognathus_tristramii,
+		126	Onychognathus_walleri,
+		127	Onychognathus_fulgidus,
+		128	Onychognathus_nabouroup,
+		129	Buphagus_africanus,
+		130	Buphagus_erythrorhynchus
+	;
+	TREE * UNTITLED = [&R] (((((1:7.312750509,(2:6.760536637,((((3:1.317730765,4:1.317730765):2.392024637,5:3.709755402):0.8402338418,6:4.549989244):0.8299419545,7:5.379931198):1.380605438):0.552213872):4.743628859,(8:1.313774292,9:1.313774292):10.74260508):4.181031564,((10:10.43871461,((((11:0.7936140906,12:0.7936140906):1.930142705,13:2.723756795):1.335425574,(14:1.92757772,15:1.92757772):2.131604649):2.039369697,(((16:2.823411628,17:2.823411628):1.014655302,(18:0.4644861062,19:0.4644861062):3.373580824):1.412447627,(20:4.73817846,(21:4.117193671,((22:1.760219418,23:1.760219418):0.9061737888,24:2.666393207):1.450800464):0.6209847891):0.5123360963):0.8480375097):4.340162547):3.118976309,((((25:5.491683387,26:5.491683387):1.274695052,27:6.766378439):2.049816652,(28:1.36835969,29:1.36835969):7.447835402):1.909135193,((30:8.03957051,((31:3.953763602,32:3.953763602):1.051818229,33:5.005581831):3.033988679):0.8155107063,34:8.855081216):1.870249068):2.832360637):2.67972001):7.212101159,((((((35:3.634149014,(36:2.347484108,37:2.347484108):1.286664906):1.377114997,(38:4.348040076,((39:2.496082289,(40:0.6603688295,41:0.6603688295):1.835713459):1.485530063,(42:3.3568722,(43:1.099175161,44:1.099175161):2.257697038):0.6247401524):0.3664277241):0.6632239347):3.712999174,(45:6.379644267,46:6.379644267):2.344618918):0.9229246123,(47:7.187920635,(((48:5.098486326,(49:1.831753033,50:1.831753033):3.266733293):0.9880383747,(51:4.212781293,52:4.212781293):1.873743408):0.4919053918,((53:2.268774466,54:2.268774466):1.62559389,55:3.894368357):2.684061736):0.6094905421):2.459267163):10.1816187,(56:10.63687589,57:10.63687589):9.191930608):2.148943438,(((58:14.02520429,59:14.02520429):2.445688736,(((60:7.233102473,61:7.233102473):0.921428906,((((62:4.845149789,(((63:0.9615039118,64:0.9615039118):1.110644655,65:2.072148567):0.9057925278,66:2.977941095):1.867208694):0.8331792317,67:5.67832902):0.8559702891,(((68:1.849189209,69:1.849189209):1.612851663,((70:1.171744684,71:1.171744684):1.366354354,((72:0.9007216087,(73:0.4824201817,74:0.4824201817):0.4183014271):0.7504008145,(75:0.7201384779,76:0.7201384779):0.9309839454):0.886976615):0.9239418339):1.907058593,(77:4.48230757,78:4.48230757):0.8867918951):1.165199844):1.033726834,((79:1.715088721,80:1.715088721):4.219561675,(81:4.136417069,82:4.136417069):1.798233328):1.633375747):0.586505236):3.127799562,(83:0.5165439735,84:0.5165439735):10.76578697):5.188562086):1.168204608,(((85:13.47531002,(86:4.338166906,87:4.338166906):9.137143109):2.080694179,(((88:12.63780258,(((89:2.935043946,(90:1.63885179,91:1.63885179):1.296192156):5.600853133,(92:6.745999994,93:6.745999994):1.789897084):3.084878242,94:11.62077532):1.017027258):1.271945933,(95:12.13590799,96:12.13590799):1.773840521):1.141498429,((97:7.586350759,98:7.586350759):6.173464129,((((99:2.725510731,100:2.725510731):4.475545871,(101:3.420524897,102:3.420524897):3.780531705):0.9902016906,103:8.191258293):4.173845889,((((104:1.252599717,105:1.252599717):6.879958712,106:8.132558429):1.195144628,(107:6.70126471,((108:4.814922735,109:4.814922735):1.004216153,(110:2.833590376,111:2.833590376):2.985548512):0.8821258215):2.626438347):1.679469302,(((112:6.314796286,(113:3.883923096,114:3.883923096):2.43087319):0.9383523378,115:7.253148624):0.9445651318,((116:2.475890882,117:2.475890882):3.957190841,118:6.433081723):1.764632033):2.809458604):1.357931822):1.394710706):1.291432052):0.5047572544):0.66584082,(119:12.64006743,((120:8.47305714,((((121:2.549304984,122:2.549304984):0.9488052328,123:3.498110217):3.362511075,(124:5.754651896,125:5.754651896):1.105969395):0.9489099399,(126:6.424126059,127:6.424126059):1.385405173):0.663525908):2.454879494,128:10.92793663):1.712130792):3.581777589):1.417252621):4.338652303):1.471762152):1.467177739,(129:6.18675836,130:6.18675836):18.72993147);
+END;

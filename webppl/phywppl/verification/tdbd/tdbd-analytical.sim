@@ -1,0 +1,24 @@
+{
+    "label" : "tdbd-analytical",
+    
+    "description" : "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+
+    "hyper_parameters" : {
+	"particles" : 5000	
+    },
+    
+    "parameters" : {
+	"tree"      : "phyjs.bisse_32",
+	"z"         : [-0.1, -0.05, 0, 0.05, 0.1],
+	"lambda_0"  : [0.1, 0.3, 1],
+	"epsilon"   : [0.0, 0.1, 0.5],
+	"rho"       : 1
+    },
+    
+    "model" : "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    
+    "inference" : {
+	"method" : false
+    }
+}
+

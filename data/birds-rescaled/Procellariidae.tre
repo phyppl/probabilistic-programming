@@ -1,0 +1,223 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 105;
+	TAXLABELS
+		Oceanodroma_castro
+		Oceanodroma_leucorhoa
+		Oceanodroma_tristrami
+		Oceanodroma_homochroa
+		Oceanodroma_tethys
+		Halocyptena_microsoma
+		Oceanodroma_melania
+		Hydrobates_pelagicus
+		Oceanodroma_furcata
+		Oceanites_oceanicus
+		Fregetta_grallaria
+		Fregetta_tropica
+		Pelagodroma_marina
+		Garrodia_nereis
+		Phoebastria_immutabilis
+		Phoebastria_nigripes
+		Phoebastria_irrorata
+		Phoebastria_albatrus
+		Diomedea_sanfordi
+		Diomedea_epomophora
+		Diomedea_dabbenena
+		Diomedea_amsterdamensis
+		Diomedea_antipodensis
+		Thalassarche_impavida
+		Thalassarche_melanophrys
+		Thalassarche_chrysostoma
+		Thalassarche_chlororhynchos
+		Thalassarche_carteri
+		Thalassarche_bulleri
+		Thalassarche_cauta
+		Diomedea_exulans
+		Thalassarche_steadi
+		Thalassarche_salvini
+		Thalassarche_eremita
+		Phoebetria_palpebrata
+		Phoebetria_fusca
+		Thalassoica_antarctica
+		Pagodroma_nivea
+		Macronectes_halli
+		Macronectes_giganteus
+		Fulmarus_glacialis
+		Fulmarus_glacialoides
+		Daption_capense
+		Pterodroma_hasitata
+		Pterodroma_madeira
+		Pterodroma_feae
+		Pterodroma_cahow
+		Pterodroma_magentae
+		Pterodroma_macroptera
+		Pterodroma_lessonii
+		Pterodroma_incerta
+		Pterodroma_mollis
+		Pterodroma_solandri
+		Pterodroma_inexpectata
+		Pterodroma_alba
+		Pterodroma_heraldica
+		Pterodroma_arminjoniana
+		Pterodroma_neglecta
+		Pterodroma_externa
+		Pterodroma_cervicalis
+		Pterodroma_phaeopygia
+		Pterodroma_sandwichensis
+		Pterodroma_baraui
+		Pterodroma_nigripennis
+		Pterodroma_axillaris
+		Pterodroma_hypoleuca
+		Pterodroma_longirostris
+		Pterodroma_cookii
+		Bulweria_bulwerii
+		Pseudobulweria_rostrata
+		Calonectris_diomedea
+		Calonectris_leucomelas
+		Puffinus_pacificus
+		Puffinus_bulleri
+		Puffinus_griseus
+		Puffinus_gravis
+		Puffinus_creatopus
+		Puffinus_carneipes
+		Puffinus_tenuirostris
+		Puffinus_nativitatis
+		Puffinus_huttoni
+		Puffinus_gavia
+		Puffinus_yelkouan
+		Puffinus_mauretanicus
+		Puffinus_puffinus
+		Puffinus_lherminieri
+		Puffinus_assimilis
+		Puffinus_newelli
+		Puffinus_opisthomelas
+		Pseudobulweria_aterrima
+		Procellaria_parkinsoni
+		Procellaria_cinerea
+		Procellaria_aequinoctialis
+		Procellaria_conspicillata
+		Procellaria_westlandica
+		Pelecanoides_garnotii
+		Pelecanoides_georgicus
+		Pelecanoides_magellani
+		Pelecanoides_urinatrix
+		Lugensa_brevirostris
+		Pachyptila_desolata
+		Pachyptila_salvini
+		Pachyptila_vittata
+		Pachyptila_turtur
+		Halobaena_caerulea
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Oceanodroma_castro,
+		2	Oceanodroma_leucorhoa,
+		3	Oceanodroma_tristrami,
+		4	Oceanodroma_homochroa,
+		5	Oceanodroma_tethys,
+		6	Halocyptena_microsoma,
+		7	Oceanodroma_melania,
+		8	Hydrobates_pelagicus,
+		9	Oceanodroma_furcata,
+		10	Oceanites_oceanicus,
+		11	Fregetta_grallaria,
+		12	Fregetta_tropica,
+		13	Pelagodroma_marina,
+		14	Garrodia_nereis,
+		15	Phoebastria_immutabilis,
+		16	Phoebastria_nigripes,
+		17	Phoebastria_irrorata,
+		18	Phoebastria_albatrus,
+		19	Diomedea_sanfordi,
+		20	Diomedea_epomophora,
+		21	Diomedea_dabbenena,
+		22	Diomedea_amsterdamensis,
+		23	Diomedea_antipodensis,
+		24	Thalassarche_impavida,
+		25	Thalassarche_melanophrys,
+		26	Thalassarche_chrysostoma,
+		27	Thalassarche_chlororhynchos,
+		28	Thalassarche_carteri,
+		29	Thalassarche_bulleri,
+		30	Thalassarche_cauta,
+		31	Diomedea_exulans,
+		32	Thalassarche_steadi,
+		33	Thalassarche_salvini,
+		34	Thalassarche_eremita,
+		35	Phoebetria_palpebrata,
+		36	Phoebetria_fusca,
+		37	Thalassoica_antarctica,
+		38	Pagodroma_nivea,
+		39	Macronectes_halli,
+		40	Macronectes_giganteus,
+		41	Fulmarus_glacialis,
+		42	Fulmarus_glacialoides,
+		43	Daption_capense,
+		44	Pterodroma_hasitata,
+		45	Pterodroma_madeira,
+		46	Pterodroma_feae,
+		47	Pterodroma_cahow,
+		48	Pterodroma_magentae,
+		49	Pterodroma_macroptera,
+		50	Pterodroma_lessonii,
+		51	Pterodroma_incerta,
+		52	Pterodroma_mollis,
+		53	Pterodroma_solandri,
+		54	Pterodroma_inexpectata,
+		55	Pterodroma_alba,
+		56	Pterodroma_heraldica,
+		57	Pterodroma_arminjoniana,
+		58	Pterodroma_neglecta,
+		59	Pterodroma_externa,
+		60	Pterodroma_cervicalis,
+		61	Pterodroma_phaeopygia,
+		62	Pterodroma_sandwichensis,
+		63	Pterodroma_baraui,
+		64	Pterodroma_nigripennis,
+		65	Pterodroma_axillaris,
+		66	Pterodroma_hypoleuca,
+		67	Pterodroma_longirostris,
+		68	Pterodroma_cookii,
+		69	Bulweria_bulwerii,
+		70	Pseudobulweria_rostrata,
+		71	Calonectris_diomedea,
+		72	Calonectris_leucomelas,
+		73	Puffinus_pacificus,
+		74	Puffinus_bulleri,
+		75	Puffinus_griseus,
+		76	Puffinus_gravis,
+		77	Puffinus_creatopus,
+		78	Puffinus_carneipes,
+		79	Puffinus_tenuirostris,
+		80	Puffinus_nativitatis,
+		81	Puffinus_huttoni,
+		82	Puffinus_gavia,
+		83	Puffinus_yelkouan,
+		84	Puffinus_mauretanicus,
+		85	Puffinus_puffinus,
+		86	Puffinus_lherminieri,
+		87	Puffinus_assimilis,
+		88	Puffinus_newelli,
+		89	Puffinus_opisthomelas,
+		90	Pseudobulweria_aterrima,
+		91	Procellaria_parkinsoni,
+		92	Procellaria_cinerea,
+		93	Procellaria_aequinoctialis,
+		94	Procellaria_conspicillata,
+		95	Procellaria_westlandica,
+		96	Pelecanoides_garnotii,
+		97	Pelecanoides_georgicus,
+		98	Pelecanoides_magellani,
+		99	Pelecanoides_urinatrix,
+		100	Lugensa_brevirostris,
+		101	Pachyptila_desolata,
+		102	Pachyptila_salvini,
+		103	Pachyptila_vittata,
+		104	Pachyptila_turtur,
+		105	Halobaena_caerulea
+	;
+	TREE * UNTITLED = [&R] ((1:34.88437808,(((2:16.6643441,3:16.6643441):3.37597796,4:20.04032206):10.76272102,(((5:12.70099651,6:12.70099651):4.847489567,7:17.54848607):11.14735355,(8:21.68065558,9:21.68065558):7.015184047):2.10720345):4.081335):24.73991432,((10:31.10177205,((11:19.64624771,12:19.64624771):9.254414746,(13:21.72525603,14:21.72525603):7.175406425):2.2011096):23.86620999,(((((15:2.518799752,16:2.518799752):4.583536048,(17:5.581958505,18:5.581958505):1.520377296):6.7905031,((19:0.2867169499,20:0.2867169499):5.395490772,(21:1.579450621,(22:0.8300898941,23:0.8300898941):0.7493607265):4.102757101):8.210631179):10.0631603,(((((24:0.3428623516,25:0.3428623516):1.453759095,26:1.796621447):1.903929023,(27:0.4895530815,28:0.4895530815):3.210997388):4.214143104,(29:3.965444558,((30:0.7578693428,(31:0.3986147318,32:0.3986147318):0.359254611):1.61723723,(33:0.5851104587,34:0.5851104587):1.789996114):1.590337986):3.949249015):8.424711377,(35:3.369498774,36:3.369498774):12.96990618):7.616594251):29.61010171,(((37:12.50950247,38:12.50950247):4.095125371,(((39:1.810311234,40:1.810311234):8.306108015,(41:5.85632706,42:5.85632706):4.260092189):2.332605798,43:12.44902505):4.155602797):22.40312551,((((((44:4.324971373,((45:2.736927059,46:2.736927059):1.014799236,47:3.751726294):0.5732450788):1.749704868,(48:3.546661503,((49:1.639776824,50:1.639776824):1.290249613,51:2.930026437):0.6166350655):2.528014738):1.844292417,52:7.918968658):8.913381617,(((53:11.10322449,(54:8.604018007,(((55:1.505571141,56:1.505571141):0.7906225323,(57:0.5620585262,58:0.5620585262):1.734135148):5.115814552,((59:3.92646429,60:3.92646429):1.51469173,((61:2.308989841,62:2.308989841):1.306552582,63:3.615542423):1.825613596):1.970852206):1.192009781):2.499206484):1.227051563,(64:9.541339992,65:9.541339992):2.788936062):2.123311775,(66:13.27448347,(67:8.941762317,68:8.941762317):4.332721155):1.179104357):2.378762446):19.02432942,((69:21.22732854,70:21.22732854):9.045284583,(((71:4.734455534,72:4.734455534):15.14155459,(((73:5.715776524,74:5.715776524):3.815410544,((75:5.371089189,(76:4.170286322,(77:0.9104863438,78:0.9104863438):3.259799978):1.200802868):0.9111948132,79:6.282284003):3.248903065):9.007875837,(80:14.24201753,((81:4.461364255,82:4.461364255):5.164496935,((83:3.389926144,84:3.389926144):3.892740411,((85:4.897721239,(86:3.192006251,87:3.192006251):1.705714988):0.7822089619,(88:4.066995547,(89:3.458824253,90:3.458824253):0.6081712938):1.612934653):1.602736355):2.343194635):4.616156337):4.297045378):1.336947219):7.401219792,(91:6.574908681,(92:5.58429429,((93:2.430784721,94:2.430784721):2.513622479,95:4.9444072):0.6398870901):0.9906143906):20.70232124):2.995383203):5.58406658):1.655839567,(((96:26.02940549,((97:9.80151998,98:9.80151998):6.073591342,99:15.87511132):10.15429417):8.39512156,100:34.42452706):0.8384958581,((((101:0.8541564899,102:0.8541564899):1.162784017,103:2.016940506):3.652511708,104:5.669452214):11.71827688,105:17.3877291):17.87529382):2.249496353):1.49523409):14.55834755):1.401881131):4.65631035);
+END;

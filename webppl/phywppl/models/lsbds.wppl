@@ -1,0 +1,174 @@
+// Forward simulation from a starting time, returning extinction (true) or survival (false)
+var lsbdsGoesUndetected = function( startTime, lambda, mu, eta, DistLambda, DistMu, rho )
+{
+
+    // extreme values patch 1/2
+    if ( lambda - mu > phyjs.MAX_DIV )
+	return false
+
+    if ( lambda == 0.0 )
+    {
+	if ( flip( rho ) )
+	    return false
+        else
+            return true
+    }
+    // end extreme values patch 1/2
+    
+    
+    var t = exponential( {a: lambda + mu + eta} )
+    
+    var currentTime = startTime - t
+    
+    if ( currentTime < 0 ) {
+	if (flip(rho)) { // we are in the sample? did we go undetected?
+	    return false
+	}
+	else return true // we are not sample and we did go undetected
+    }
+    
+    var extinction = flip( mu/(lambda+mu+eta) )
+    if (extinction)
+        return true 
+    
+    var rateshift = flip( eta/(lambda+eta) )
+    
+    if ( rateshift )
+    {
+        var lambda2 = DistLambda()
+        var mu2     = DistMu(lambda2)
+        return lsbdsGoesUndetected( currentTime, lambda2, mu2, eta, DistLambda, DistMu, rho )
+    }
+    
+    return ( lsbdsGoesUndetected( currentTime, lambda, mu, eta, DistLambda, DistMu, rho )
+             && lsbdsGoesUndetected( currentTime, lambda, mu, eta, DistLambda, DistMu, rho ) )
+}
+
+
+// Simulation function for lineage-specific birth-death-shift model
+var simLSBDS = function( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )
+{
+    // Simulate process along a branch
+    var simBranch = function( startTime, stopTime, lambda, mu, eta, DistLambda, DistMu, rho )
+    {
+	// extreme values patch 2/2
+	if ( lambda  > phyjs.MAX_LAMBDA )
+	    return [ lambda, mu, lambda, mu, 0, -Infinity ]
+	
+	if ( lambda == 0.0 )
+	{
+	    var t1 = startTime - stopTime
+            return [ lambda, mu, lambda*t1, mu*t1, 0, -mu*t1 ]
+	}
+	// extreme values patch 2/2
+	
+	// Draw a waiting time until next event
+	var t = exponential ( {a: lambda+eta} )
+	
+	// Compute current time
+	var currentTime = startTime - t;
+	
+	// This is the terminating condition, return final values and appropriate
+	// accumulators for number of shifts and probability 
+	if ( currentTime <= stopTime )
+	{
+            var t1 = startTime - stopTime
+            return [ lambda, mu, lambda*t1, mu*t1, 0, -mu*t1 ]
+	}
+	
+	// Check whether this is a rate shift, and handle this case
+	var rateshift = flip( eta/(lambda+eta) )
+	if ( rateshift )
+	{
+            // Draw new values for lambda and mu
+            var lambda2 = DistLambda()
+            var mu2     = DistMu(lambda2)
+	    
+            // Recursive call
+            var ret = simBranch( currentTime, stopTime, lambda2, mu2, eta, DistLambda, DistMu, rho )
+	    
+            // Return accumulated values
+            // Add this rate shift to the total number of rate shifts
+            // No-extinction probability is dependent on mu before shift
+            return [ ret[0], ret[1], ret[2] + lambda*t, ret[3] + mu*t, ret[4] + 1, ret[5] - mu*t ]
+	}
+	
+	// We have a detection event; handle this case
+	var sideDetection = lsbdsGoesUndetected( currentTime, lambda, mu, eta, DistLambda, DistMu, rho )
+	if ( sideDetection == false )
+            return [ lambda, mu, lambda, mu, 0, -Infinity ]
+	
+	// Recursive call
+	var ret = simBranch( currentTime, stopTime, lambda, mu, eta, DistLambda, DistMu, rho )
+	
+	// Return accumulated values
+	// Factor 2 because we do not care whether extinction is on left or right side branch
+	return [ ret[0], ret[1], ret[2] + lambda*t, ret[3] + mu*t, ret[4], ret[5] + Math.log( 2.0 ) - mu*t ]
+    }
+
+
+    // Simulate process along a tree
+    var simTree = function( tree, parent, lambda, mu, eta, DistLambda, DistMu, rho )
+    {
+	if ( parent == null )
+	{
+            // Recursive call under diversification rates
+            var subtree1 = simTree( tree.left,  tree, lambda, mu, eta, DistLambda, DistMu, rho )
+            var subtree2 = simTree( tree.right, tree, lambda, mu, eta, DistLambda, DistMu, rho )
+
+            // Return total subtree with diversification info attached as an 'extended newick' character string
+            var nodeInfo = '[&lambda=' + lambda + ',mu=' + mu + ']'
+            return '(' + subtree1 + ',' + subtree2 + ')' + nodeInfo
+	}
+
+	// Simulate process along branch leading to node 
+	var ret = simBranch( parent.age, tree.age, lambda, mu, eta, DistLambda, DistMu, rho )
+	
+	// Collect node info
+	var lambda2   = ret[0]
+	var mu2       = ret[1]
+	var nodeInfo = '[&lambda=' + lambda2 + ',mu=' + mu2 + ']'
+	
+	// Factor in the accumulated probability weight
+	// The speciation happens at rate lambda2, not at rate lambda
+	var lnSpecProb = ( tree.type == 'node' ? Math.log( lambda2 ) : Math.log(rho) )
+	factor( ret[5] + lnSpecProb ) 
+	
+	// Collect branch info
+	var length = parent.age - tree.age
+	var branchInfo = '[&numShifts=' + ret[4] + ',effectiveLambda=' + (ret[2]/length)  + ',effectiveMu=' + (ret[3]/length) + ']'
+	
+	if ( tree.type == 'node')
+	{
+            // Recursive call under final diversification rates
+            var subtree1 = simTree( tree.left,  tree, lambda2, mu2, eta, DistLambda, DistMu, rho )
+            var subtree2 = simTree( tree.right, tree, lambda2, mu2, eta, DistLambda, DistMu, rho )
+	    
+            // Return total subtree with diversification info attached as an 'extended newick' character string
+            return '(' + subtree1 + ',' + subtree2 + ')' + nodeInfo + ':' + length + branchInfo
+	}
+	else
+	{
+            // Return leaf with diversification info attached as an 'extended newick' character string
+            return tree.index + nodeInfo +  ':' + length + branchInfo
+	}
+    }
+
+    // Convert to density on labelled unoriented trees up front
+    // to make sure the normalization constant is correct
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+    factor( corrFactor )
+
+    // Simulate conditionally on the tree
+    var tree = simTree( tree, null, lambda_0, mu_0, eta, DistLambda, DistMu, rho )
+    
+    // Return eta and tree that contains the branch-specific parameters of interest
+    return [ eta, tree ]
+}
+
+
+
+
+
+

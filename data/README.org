@@ -1,0 +1,9 @@
+#+TITLE: Phylogenetic Trees
+
+| Tree               | Description                                                          | Local copy      | Source                                                                                                           |
+|--------------------+----------------------------------------------------------------------+-----------------+------------------------------------------------------------------------------------------------------------------|
+| phyjs.bisse_32     | An example tree from the Mesquite software. First of the two.        | bisse_32.nex    | https://github.com/MesquiteProject/MesquiteCore/blob/master/Resources/examples/Diversification/06-BiSSEtrees.nex |
+| phyjs.cetacean_87  | Cetacean tree from BAMM, modified to parse as NEXUS                  | cetacean_87.nex | https://github.com/macroevolution/bamm/blob/master/examples/diversification/whales/whaletree.tre                 |
+| phyjs.primates_233 | Diversitree example, 233 primates, modified to parse and only tree 1 | primates_233.nex | https://raw.githubusercontent.com/richfitz/diversitree/master/pub/example/data/primates-100.nex                  |
+|                    |                                                                      |                 |                                                                                                                  |
+	

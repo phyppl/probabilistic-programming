@@ -1,0 +1,1352 @@
+[
+  {
+    "label": "clads2-MAX_LAMBDA-1",
+    "description": "Effect of the Maximum Admissible λ on log Z of ClaDS2",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.11,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.11\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-1.wppl 10",
+    "output": "-161.40626916537866\n-157.2747379525268\n-157.5513446149857\n-157.85393170412357\n-159.70789219817883\n-156.66904825298542\n-155.10366633282234\n-154.71307909842955\n-155.89435773790996\n-152.88332404892589\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-2",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.121,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.121\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-2.wppl 10",
+    "output": "-157.5899025013819\n-154.2426638011195\n-154.42128416255562\n-155.01282718784964\n-155.89728161863792\n-155.19477418037098\n-155.3311442033188\n-154.0631271066554\n-152.7999951743111\n-152.85782927878012\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-3",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.1331,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.1331\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-3.wppl 10",
+    "output": "-154.4825345064407\n-152.73813858290148\n-151.97667963365998\n-152.2304978421877\n-152.85864869150555\n-152.3490783030583\n-151.5614075131549\n-152.30587784581334\n-152.25068820821238\n-153.33070957303062\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-4",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.14641,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.14641\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-4.wppl 10",
+    "output": "-151.14095055899324\n-149.56727982970827\n-149.53694163724745\n-149.70708650781148\n-150.5689753849435\n-148.7337443198541\n-150.94801950445097\n-149.33945283440042\n-147.6544032017127\n-149.88239935778213\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-5",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.161051,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.161051\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-5.wppl 10",
+    "output": "-151.15645764301672\n-152.05805693237843\n-152.42067599002706\n-147.4834554107327\n-149.6716294380747\n-148.74927545161367\n-147.9537618094476\n-149.21595849249118\n-146.8457356373405\n-148.98285777980527\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-6",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.1771561,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.1771561\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-6.wppl 10",
+    "output": "-148.54074125606465\n-147.96002399692273\n-147.85042005471942\n-149.39809942546404\n-148.2131140724101\n-150.37701800314343\n-148.25863532187736\n-146.8548363102983\n-147.43547667466078\n-147.2653793144813\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-7",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.1948717,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.1948717\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-7.wppl 10",
+    "output": "-145.43949160979273\n-149.28684106157127\n-149.41928828632385\n-147.8105299672583\n-146.7235332851456\n-146.92598132474046\n-147.2206818704242\n-145.7593373211798\n-145.73365371313668\n-145.5103238570783\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-8",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.2143589,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.2143589\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-8.wppl 10",
+    "output": "-146.63955627778574\n-143.679986822752\n-146.2756788980182\n-145.42227108676948\n-145.2261489285333\n-144.92633462057742\n-146.3304730161375\n-145.00797616183618\n-145.0927387729012\n-144.79052643410864\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-9",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.2357948,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.2357948\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-9.wppl 10",
+    "output": "-146.4237781105676\n-144.8136391679993\n-145.01631215104797\n-144.96242343891527\n-144.65945554805998\n-145.134156116461\n-145.23665194889787\n-143.9417779530073\n-144.45712928333558\n-143.4464178908405\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-10",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.2593742,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.2593742\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-10.wppl 10",
+    "output": "-145.27011398503177\n-144.6013236210765\n-144.73218804988767\n-143.57020111863116\n-142.4864610955524\n-145.0158992840253\n-143.27599762587164\n-144.0773298261778\n-142.87277416776712\n-142.08813085924834\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-11",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.2853117,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.2853117\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-11.wppl 10",
+    "output": "-144.00696413229286\n-142.32771907713834\n-143.48013546738818\n-141.99821652165957\n-142.23615333943616\n-143.25886292055966\n-143.523557571001\n-141.48762405304757\n-142.3543758688525\n-141.43953767607158\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-12",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.3138428,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.3138428\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-12.wppl 10",
+    "output": "-142.97943034582087\n-142.23377142618818\n-142.22802002300133\n-142.05568920557687\n-142.97092088378847\n-141.97346424043835\n-141.93933393507822\n-141.91433889594424\n-141.98776727868284\n-140.86348311475243\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-13",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.3452271,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.3452271\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-13.wppl 10",
+    "output": "-141.75727451559905\n-142.16897910154623\n-141.73505082670613\n-141.78712545684294\n-142.16990018795718\n-139.9909201974678\n-141.31255602212414\n-142.2017351665353\n-140.97963810493093\n-140.31822703234073\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-14",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.3797498,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.3797498\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-14.wppl 10",
+    "output": "-141.44273087821324\n-141.3048924888394\n-140.8852636015345\n-140.60617543000586\n-140.45281735082057\n-140.79506763616988\n-140.98515891579612\n-143.1675528406361\n-140.32244269136345\n-141.2236542690425\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-15",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.4177248,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.4177248\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-15.wppl 10",
+    "output": "-140.66886450656474\n-140.62057863969684\n-141.05172045497676\n-141.39656228452947\n-141.65648655658254\n-140.3004064247035\n-139.66693738902745\n-139.90863892347815\n-140.8317179109558\n-140.60938414073254\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-16",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.4594973,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.4594973\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-16.wppl 10",
+    "output": "-139.78544777173175\n-141.54099175252452\n-140.07075688153864\n-140.0205539025886\n-140.06444925831084\n-139.13200251666532\n-140.25490970264576\n-140.0541525548521\n-140.64161606302844\n-139.5752578875443\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-17",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.505447,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.505447\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-17.wppl 10",
+    "output": "-139.88353820603766\n-139.16269479368384\n-140.07141167743376\n-139.5485662616677\n-139.5583549703632\n-138.90024907816863\n-139.7922083325577\n-139.4843925322297\n-139.8433844174101\n-140.09713842797777\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-18",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.5559917,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.5559917\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-18.wppl 10",
+    "output": "-139.43580940483628\n-140.35045615695415\n-139.79571603588738\n-140.02140346396058\n-139.3619754878967\n-139.3134431077615\n-138.95669586404352\n-139.38244471827818\n-140.29143802700798\n-140.70814611788438\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-19",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.6115909,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.6115909\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-19.wppl 10",
+    "output": "-139.52873470324\n-140.28326405708424\n-139.79958508392144\n-139.2898370675806\n-139.59994155510765\n-139.502882594016\n-138.9538901839452\n-140.59325509854855\n-140.68312279391355\n-139.65192913249294\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-20",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.67275,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.67275\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-20.wppl 10",
+    "output": "-139.59100172808778\n-139.1625845204317\n-139.77015761434055\n-140.29368990428333\n-139.501675144431\n-139.88102048034065\n-138.59292769370967\n-137.91228517598603\n-139.39761005892265\n-138.98724366888146\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-21",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.740025,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.740025\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-21.wppl 10",
+    "output": "-139.56517251404125\n-138.42978339471375\n-138.67186498127205\n-139.28926288384883\n-139.0762583103562\n-138.6626542167578\n-138.85556540301505\n-138.72609680859895\n-138.66205868847587\n-139.2514940471379\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-22",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.8140275,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.8140275\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-22.wppl 10",
+    "output": "-139.20505256398494\n-138.5603157444927\n-139.2371029343502\n-138.36638595230622\n-139.41398375857656\n-139.1003211653664\n-138.48332362476063\n-139.33026621198542\n-139.76813839878483\n-138.55839257527114\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-23",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.8954302,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.8954302\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-23.wppl 10",
+    "output": "-139.24363497853216\n-138.84253661156865\n-138.3121328196657\n-138.5725380256358\n-139.57001607713607\n-138.52623332387944\n-139.37619949017824\n-138.73513854043816\n-139.69568063865626\n-139.88456475700403\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-24",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 0.9849733,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 0.9849733\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-24.wppl 10",
+    "output": "-138.93210936271967\n-139.0617316216574\n-138.5399624729627\n-138.79329119725855\n-138.33597055495014\n-138.5848894689249\n-138.2790393600222\n-139.22796435627163\n-139.6622170779164\n-138.49927723231698\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-25",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 1.083471,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 1.083471\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-25.wppl 10",
+    "output": "-138.30114099312607\n-138.2649643799175\n-138.4243256739425\n-138.10061784253008\n-138.83642283283038\n-139.67590720749953\n-138.86926636025154\n-139.2267170181634\n-139.23439041891368\n-138.58766684621978\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-26",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 1.191818,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 1.191818\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-26.wppl 10",
+    "output": "-139.0733620361054\n-138.3095186867506\n-138.2719634987258\n-139.48838652227974\n-138.94784240745147\n-138.4750743108257\n-138.33791885262067\n-139.7658594407963\n-138.54984594655193\n-139.78718285557542\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-27",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 1.310999,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 1.310999\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-27.wppl 10",
+    "output": "-138.99022578415855\n-137.7582871966881\n-138.29555099294228\n-138.75290197593938\n-138.63690699040743\n-139.05954804654579\n-139.2194060873674\n-138.2022577557976\n-138.01405233605055\n-138.4651374687677\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-28",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 1.442099,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 1.442099\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-28.wppl 10",
+    "output": "-137.72337069244372\n-138.89711088922107\n-139.11702633740836\n-139.2220120400111\n-138.16210512323454\n-137.62371684389103\n-138.89496416853984\n-138.18762369967627\n-137.75020253964396\n-137.60654454705946\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-29",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 1.586309,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 1.586309\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-29.wppl 10",
+    "output": "-138.55729056949957\n-138.9475651489513\n-138.6772582641309\n-138.76155536280507\n-137.91343772374043\n-139.8127679267278\n-138.944308661497\n-137.9588854401095\n-137.93866180147063\n-137.9528023101243\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-30",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 1.74494,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 1.74494\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-30.wppl 10",
+    "output": "-138.39122317317933\n-139.35498778281254\n-137.90232130188036\n-138.23348282337614\n-138.02678310293612\n-138.76255091916929\n-137.7620771928509\n-138.36203450188214\n-139.41368874213364\n-138.57232990421062\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-31",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 1.919434,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 1.919434\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-31.wppl 10",
+    "output": "-139.7711176945474\n-137.3529009548866\n-137.07185188723716\n-138.90234727485537\n-139.03184319751767\n-138.94175756826374\n-139.1606436685439\n-137.656299742784\n-137.65064088623802\n-140.84178142565403\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-32",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 2.111378,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 2.111378\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-32.wppl 10",
+    "output": "-138.12150673809913\n-138.1958121783691\n-139.11049933290957\n-138.82069846806397\n-137.72027253108504\n-138.79691465623932\n-138.39110661172919\n-138.93806294288956\n-139.7582488987412\n-138.2661394048125\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-33",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 2.322515,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 2.322515\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-33.wppl 10",
+    "output": "-138.3620166925848\n-137.7246762273653\n-138.48479688827388\n-138.41043602475614\n-138.6114594108508\n-139.12028595975065\n-138.51729950229748\n-138.33118277138314\n-139.4422424039646\n-138.97969321975302\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-34",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 2.554767,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 2.554767\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-34.wppl 10",
+    "output": "-137.1224783766331\n-138.9314567624808\n-140.48503651444773\n-138.15972189054753\n-137.24664936798106\n-138.39385479239095\n-137.74548456072839\n-138.10641318728864\n-138.94872973859415\n-140.0760909033424\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-35",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 2.810244,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 2.810244\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-35.wppl 10",
+    "output": "-139.19327102462572\n-140.27342674508887\n-137.67185780148108\n-138.38312531890466\n-138.04763620190576\n-138.76528458162218\n-138.05322350634597\n-139.21322188056692\n-141.55496238838586\n-138.04974757372977\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-36",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 3.091268,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 3.091268\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-36.wppl 10",
+    "output": "-136.87472548888573\n-137.1463859710412\n-137.70445223080984\n-138.914335393772\n-138.45498404596393\n-139.023810583775\n-138.00981428840612\n-137.85753946160477\n-138.58641293125905\n-139.2965555471834\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-37",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 3.400395,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 3.400395\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-37.wppl 10",
+    "output": "-138.65230176532904\n-140.09565990851848\n-137.83227833077493\n-138.6718516710819\n-137.13395229118444\n-138.60041623476937\n-138.6523759480464\n-139.45417403948423\n-137.97117583330862\n-139.76227182412333\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-38",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 3.740434,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 3.740434\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-38.wppl 10",
+    "output": "-139.4661831345566\n-137.85014714817027\n-138.24719390925276\n-136.82529810144538\n-139.76043514109267\n-138.10254397467568\n-139.23712953259962\n-138.0106417550368\n-138.94741203907842\n-136.92911596730264\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-39",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 4.114478,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 4.114478\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-39.wppl 10",
+    "output": "-138.8380510161678\n-137.3673395274316\n-137.80489129959128\n-138.20705580241415\n-138.0811496658475\n-137.95523650976114\n-138.2032451843634\n-137.83496402593673\n-138.6246799434905\n-139.40109021336986\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-40",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 4.525926,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 4.525926\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-40.wppl 10",
+    "output": "-137.3713124000722\n-138.7826414516012\n-138.07140172408532\n-137.81268245481277\n-139.29800719142324\n-138.0946720077241\n-138.5972156977995\n-138.07697274198424\n-137.64370354407984\n-138.53449195606476\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-41",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 4.978518,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 4.978518\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-41.wppl 10",
+    "output": "-137.93116153090668\n-138.62257646636917\n-137.6792633214264\n-140.03872832319894\n-139.14841850228294\n-138.90594426817518\n-138.5421971616431\n-137.56769167989512\n-137.13457762702217\n-138.7551041265488\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-42",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 5.47637,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 5.47637\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-42.wppl 10",
+    "output": "-139.09622130455767\n-137.21202129571506\n-138.65716942524975\n-135.3030007200867\n-139.1344617943968\n-138.63282238127758\n-138.75145944811405\n-138.11989516874837\n-138.91012006287474\n-138.61914289572482\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-43",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 6.024007,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 6.024007\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-43.wppl 10",
+    "output": "-137.86382051572144\n-138.80731621776425\n-138.35874641458437\n-138.51951457949016\n-138.67649155552456\n-139.78934812810718\n-138.66116192387352\n-137.05842615796396\n-139.35685557738492\n-138.4446653768298\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-44",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 6.626408,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 6.626408\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-44.wppl 10",
+    "output": "-138.16615383167814\n-139.67584741269252\n-138.45018115439112\n-137.9451487201498\n-141.75251519009592\n-138.0013683389388\n-138.02678330244578\n-138.8221344314621\n-140.22498819715622\n-138.50933439817692\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-45",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 7.289048,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 7.289048\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-45.wppl 10",
+    "output": "-136.9745018587139\n-137.84871975443667\n-138.47303639411993\n-136.97958504388143\n-138.905731298839\n-138.5176765833749\n-138.19059994489464\n-138.9769827018783\n-141.06846973813828\n-141.8439300785952\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-46",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 8.017953,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 8.017953\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-46.wppl 10",
+    "output": "-137.04568471895158\n-138.33564723671952\n-139.83263811313236\n-139.01164991683945\n-138.18850201422157\n-138.1477036166987\n-138.49658475555597\n-139.11715484488903\n-138.06277420817406\n-138.106905561027\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-47",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 8.819749,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 8.819749\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-47.wppl 10",
+    "output": "-137.93659204641838\n-138.7240529315309\n-137.34006688125598\n-137.5287705511907\n-139.11507866022666\n-138.85244246525968\n-139.1425310678696\n-138.3085889378195\n-139.31789756216688\n-147.74807021806694\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-48",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 9.701723,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 9.701723\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-48.wppl 10",
+    "output": "-137.97201874692726\n-138.39771106807586\n-138.05844076545247\n-138.4998230929588\n-138.00702334687003\n-138.78521497183235\n-139.08284347294816\n-137.9019990390378\n-138.72523148369513\n-139.445281831917\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-49",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 10.6719,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 10.6719\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-49.wppl 10",
+    "output": "-138.77883362823496\n-137.17485653780025\n-138.59140438452357\n-138.58705680345122\n-138.69525487819251\n-138.2840753503533\n-138.76358082474613\n-137.74468348090798\n-138.13081688167821\n-137.86359905252823\n"
+  },
+  {
+    "label": "clads2-MAX_LAMBDA-50",
+    "description": "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "MAX_LAMBDA": 11.73909,
+      "PANDA": false
+    },
+    "parameters": {
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+      "lambda_0": "exponential( { a: 1 } )",
+      "epsilon": "uniform( { a:0.0, b:1.0 } )",
+      "alpha": "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",
+      "sigma": "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",
+      "rho": 1
+    },
+    "model": "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference": {
+      "particles": 1000,
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar MAX_LAMBDA = 11.73909\n\tvar PANDA = false\nvar model = function()\n{\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\n\tvar lambda_0 = exponential( { a: 1 } )\n\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\tvar alpha = Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )\n\tvar sigma = Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )\n\tvar rho = 1\n\tvar ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: 1000, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/extreme-values/clads2-MAX_LAMBDA/clads2-MAX_LAMBDA-50.wppl 10",
+    "output": "-139.12570593286264\n-138.7414961938316\n-137.84583851600271\n-138.72652404778046\n-136.82234599834374\n-138.1218486392539\n-137.6407998313682\n-138.55575827482775\n-138.9604100535405\n-141.3009350895264\n"
+  }
+]

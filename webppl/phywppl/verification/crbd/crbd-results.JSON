@@ -1,0 +1,1842 @@
+[
+  {
+    "label": "crbd-1",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.05,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.05\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-1.wppl 10",
+    "output": "-157.04092362634606\n-157.06554178616332\n-157.00051050340724\n-157.02488589972563\n-157.0647199935808\n-157.01001805553634\n-157.01249424649163\n-157.08864086998338\n-157.04108312281593\n-157.05369001178556\n"
+  },
+  {
+    "label": "crbd-2",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.05,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.05\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-2.wppl 10",
+    "output": "-157.43240563105977\n-157.32934384915077\n-157.3889098629752\n-157.4157149565865\n-157.39194529821754\n-157.4899711898137\n-157.44540676244836\n-157.38932658543405\n-157.41619481174058\n-157.3951193544612\n"
+  },
+  {
+    "label": "crbd-3",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.05,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.05\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-3.wppl 10",
+    "output": "-158.93042846134253\n-158.88738848407664\n-158.9403486451094\n-158.93975499598218\n-159.01546467538572\n-159.0036340154286\n-158.87588073956073\n-158.86724720717464\n-158.95917787423804\n-158.9547116083214\n"
+  },
+  {
+    "label": "crbd-4",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.05,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.05\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-4.wppl 10",
+    "output": "-160.52437920727675\n-160.5393791479088\n-160.49075369056257\n-160.4939449997566\n-160.53531945567798\n-160.48403285716313\n-160.57406883945558\n-160.53154048284634\n-160.49157895292734\n-160.5367860547469\n"
+  },
+  {
+    "label": "crbd-5",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-5.wppl 10",
+    "output": "-143.3877735106922\n-143.2616639973418\n-143.40781022022182\n-143.21453415127766\n-143.30795787993657\n-143.23589883641546\n-143.28016340719003\n-143.3590613460291\n-143.4090413309701\n-143.26809359774137\n"
+  },
+  {
+    "label": "crbd-6",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-6.wppl 10",
+    "output": "-143.61434335464548\n-143.7158151225264\n-143.73202222909\n-143.80604180921208\n-143.72980049195945\n-143.94675068288714\n-143.7964479535587\n-143.65519513040266\n-143.68427423869042\n-143.81229689028308\n"
+  },
+  {
+    "label": "crbd-7",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-7.wppl 10",
+    "output": "-145.7231780920686\n-145.70949038247787\n-145.7108654006343\n-145.76641443490087\n-145.74707076194986\n-145.63929247207025\n-145.62629445071855\n-145.74490170262914\n-145.8016793156115\n-145.7760554113476\n"
+  },
+  {
+    "label": "crbd-8",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.1,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.1\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-8.wppl 10",
+    "output": "-147.9230261470771\n-147.97799216420032\n-147.9721565977683\n-147.92873767863526\n-148.01239365124343\n-148.06230663391577\n-147.88589079274368\n-147.99768232532628\n-147.95819440915835\n-147.94140522005262\n"
+  },
+  {
+    "label": "crbd-9",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.15,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.15\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-9.wppl 10",
+    "output": "-138.31231389753034\n-138.37767406053004\n-138.1974268594592\n-138.29023882304213\n-138.21595650657076\n-138.09649913966666\n-138.3601683028987\n-138.36332356139408\n-138.2998584098615\n-138.33164851044666\n"
+  },
+  {
+    "label": "crbd-10",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.15,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.15\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-10.wppl 10",
+    "output": "-138.52321964240681\n-138.63406738076978\n-138.39598816206288\n-138.51161082845212\n-138.54159475674592\n-138.6606324302261\n-138.57691590814642\n-138.39238522376365\n-138.62040359631408\n-138.44856976834873\n"
+  },
+  {
+    "label": "crbd-11",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.15,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.15\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-11.wppl 10",
+    "output": "-140.13583415051022\n-140.0566865514748\n-140.12921362425848\n-140.16431059121018\n-140.18503882294428\n-140.25939345520806\n-140.30266108832367\n-140.03798208810747\n-140.17443411383994\n-140.19148327202436\n"
+  },
+  {
+    "label": "crbd-12",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.15,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.15\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-12.wppl 10",
+    "output": "-142.73698558542836\n-142.66850856507224\n-142.59975082356564\n-142.73909569315987\n-142.65114924025494\n-142.6018992719472\n-142.76589278284808\n-142.552077604257\n-142.61805755466128\n-142.77831601868056\n"
+  },
+  {
+    "label": "crbd-13",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-13.wppl 10",
+    "output": "-136.77122497513284\n-136.87311298494708\n-136.6667252032502\n-136.723492650513\n-136.70171927492586\n-136.6317187888545\n-136.79867202241837\n-136.7953678779019\n-136.93491869228444\n-136.59914417692454\n"
+  },
+  {
+    "label": "crbd-14",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-14.wppl 10",
+    "output": "-136.72326401878405\n-136.6056655778854\n-136.6832051255484\n-136.64493050227182\n-136.8312186880605\n-136.67258956834033\n-136.80569989261915\n-136.7647896425225\n-136.6301522633388\n-136.61270914857246\n"
+  },
+  {
+    "label": "crbd-15",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-15.wppl 10",
+    "output": "-137.79296649138735\n-137.6364084717487\n-137.50558800199138\n-137.5535218600919\n-137.68389384688092\n-137.62528218704853\n-137.57187369667432\n-137.52917966284198\n-137.62973775364694\n-137.5846523806724\n"
+  },
+  {
+    "label": "crbd-16",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-16.wppl 10",
+    "output": "-139.97618593208725\n-139.98951452465798\n-139.9579192657913\n-139.9596093143132\n-139.82401734579864\n-139.83579559636502\n-139.89387937964986\n-139.87945596396264\n-140.05925145054155\n-139.91173873898424\n"
+  },
+  {
+    "label": "crbd-17",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.25,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.25\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-17.wppl 10",
+    "output": "-137.13459669739157\n-136.968252516002\n-137.19322685790306\n-137.05960698574114\n-137.09060219505034\n-137.3751213429998\n-137.070733428969\n-137.08144742589474\n-137.09791271393067\n-137.20272708020136\n"
+  },
+  {
+    "label": "crbd-18",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.25,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.25\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-18.wppl 10",
+    "output": "-136.85125915961103\n-136.65962509755994\n-137.0684570480018\n-136.69337798738806\n-136.82288852530368\n-136.5369230543767\n-136.75148171141132\n-136.86254456231322\n-136.65475356218198\n-136.50832936053385\n"
+  },
+  {
+    "label": "crbd-19",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.25,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.25\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-19.wppl 10",
+    "output": "-136.44329791963682\n-136.41238366910164\n-136.57694322490013\n-136.5060862886029\n-136.3734193265848\n-136.51696860385988\n-136.61561321889187\n-136.47584064835294\n-136.53093353491934\n-136.5725850872851\n"
+  },
+  {
+    "label": "crbd-20",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.25,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.25\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-20.wppl 10",
+    "output": "-138.55360035818657\n-138.5782579193913\n-138.51734679616874\n-138.43539753952288\n-138.22862511634605\n-138.22200903746884\n-138.48209423183124\n-138.4126328740479\n-138.49308368222702\n-138.4690464489641\n"
+  },
+  {
+    "label": "crbd-21",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.3,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.3\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-21.wppl 10",
+    "output": "-138.74093451146322\n-138.90776585943453\n-138.74316592766252\n-139.18882342294813\n-138.92365299175896\n-138.84185317441805\n-138.89737775605735\n-138.90830114273575\n-138.9725825679052\n-138.72868278138444\n"
+  },
+  {
+    "label": "crbd-22",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.3,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.3\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-22.wppl 10",
+    "output": "-138.19364484830183\n-138.00698530138268\n-137.92968749815498\n-137.907245146342\n-137.95647812031987\n-137.77113078408394\n-137.5074291754835\n-137.92925511684984\n-137.86459414943351\n-137.91743492650306\n"
+  },
+  {
+    "label": "crbd-23",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.3,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.3\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-23.wppl 10",
+    "output": "-136.11058860325585\n-136.30676271404639\n-136.29437466523402\n-135.96457353571435\n-136.2732289851496\n-136.34877732670418\n-136.18050681957283\n-136.1159003802795\n-136.21228930209043\n-136.02596488295796\n"
+  },
+  {
+    "label": "crbd-24",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.3,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.3\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-24.wppl 10",
+    "output": "-137.5510812601105\n-137.54613374669245\n-137.67405765443633\n-137.61858382733408\n-137.89468464978805\n-137.6443297513276\n-137.6301095806767\n-138.05108860988153\n-137.80661250408096\n-137.5025969120786\n"
+  },
+  {
+    "label": "crbd-25",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.35,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.35\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-25.wppl 10",
+    "output": "-141.3291317513635\n-141.0792675433602\n-141.22988673618295\n-140.94858841837717\n-140.87603632783447\n-140.89925970417804\n-141.32300197722196\n-141.03508205062926\n-141.30136257910115\n-141.35395195447364\n"
+  },
+  {
+    "label": "crbd-26",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.35,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.35\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-26.wppl 10",
+    "output": "-139.93055350763967\n-140.28884501200534\n-139.91941760070605\n-140.03651969422413\n-140.07622859712748\n-140.2416826530765\n-139.83212592142078\n-140.1200860167707\n-140.20638971685943\n-139.94775318477653\n"
+  },
+  {
+    "label": "crbd-27",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.35,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.35\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-27.wppl 10",
+    "output": "-136.7926617397909\n-136.48798498791413\n-136.52649863230462\n-137.01592762253665\n-136.60986898659678\n-136.5351971526552\n-136.8024882677984\n-136.68061504330942\n-136.6894978429905\n-136.8307534450624\n"
+  },
+  {
+    "label": "crbd-28",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.35,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.35\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-28.wppl 10",
+    "output": "-137.32828114251902\n-137.1174947157062\n-137.20706127649942\n-137.44663943915077\n-137.22753261206972\n-137.24362984368267\n-137.49267231859213\n-137.5536615285173\n-137.28592569672983\n-137.32082938878582\n"
+  },
+  {
+    "label": "crbd-29",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.4,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.4\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-29.wppl 10",
+    "output": "-144.30526128947218\n-144.47488710907857\n-144.79958058334347\n-144.11221532532477\n-144.19034090639587\n-144.43460470114863\n-144.31703419314002\n-144.56057741386266\n-144.4638150437817\n-144.14413640374997\n"
+  },
+  {
+    "label": "crbd-30",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.4,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.4\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-30.wppl 10",
+    "output": "-142.44385057515495\n-142.65859843138404\n-142.68415850672238\n-142.57982957008457\n-142.3173054028707\n-142.6187966706038\n-142.36573565814422\n-142.6089310556724\n-142.02120113521255\n-142.25055188520182\n"
+  },
+  {
+    "label": "crbd-31",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.4,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.4\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-31.wppl 10",
+    "output": "-137.44591454737497\n-137.59250205275674\n-137.356661952478\n-137.32107932192497\n-137.5593201435946\n-137.23707502057428\n-137.42166639846081\n-137.21375189376326\n-137.57883917270684\n-137.43771056022482\n"
+  },
+  {
+    "label": "crbd-32",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.4,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.4\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-32.wppl 10",
+    "output": "-137.28359100656766\n-137.2828798289765\n-137.26197533986428\n-136.89488792928097\n-137.17536279809434\n-137.11722566821774\n-137.16302080269267\n-136.96582336899695\n-137.22917811621082\n-136.76401676772224\n"
+  },
+  {
+    "label": "crbd-33",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.45,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.45\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-33.wppl 10",
+    "output": "-148.0999483281227\n-147.73646471369443\n-147.99994604962401\n-147.8721173596913\n-147.85093693618077\n-147.5727401662856\n-147.7409429529877\n-147.93685431863292\n-147.33394076079767\n-148.0338249401979\n"
+  },
+  {
+    "label": "crbd-34",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.45,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.45\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-34.wppl 10",
+    "output": "-145.72733089085108\n-145.19657946250194\n-145.38104007151662\n-145.44874472920506\n-145.8405972421419\n-145.11275145715572\n-145.85452162701904\n-145.5283788645363\n-145.67102438743558\n-145.44158833402165\n"
+  },
+  {
+    "label": "crbd-35",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.45,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.45\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-35.wppl 10",
+    "output": "-138.78560396327214\n-138.59051194079223\n-139.0991346673075\n-138.32267850755403\n-138.28410954654632\n-138.3785014501821\n-138.07288934885187\n-138.8851640388429\n-138.5997490638773\n-138.58508169343162\n"
+  },
+  {
+    "label": "crbd-36",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.45,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.45\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-36.wppl 10",
+    "output": "-137.48736651687423\n-137.2631562321917\n-137.39390861069455\n-137.6178892576487\n-137.39741091152626\n-137.68854120628558\n-137.87045145660366\n-137.27108893274212\n-137.51741560396874\n-136.79453277793883\n"
+  },
+  {
+    "label": "crbd-37",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.5,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.5\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-37.wppl 10",
+    "output": "-151.82609472402208\n-152.0783541243503\n-152.0039997772326\n-151.8241101678603\n-152.1096594269548\n-152.01607543394817\n-151.9176524727315\n-151.7418317057969\n-151.61048228889845\n-151.56244664575345\n"
+  },
+  {
+    "label": "crbd-38",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.5,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.5\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-38.wppl 10",
+    "output": "-149.24067398283074\n-148.4737052989131\n-148.54768826219924\n-148.89318859949833\n-148.8458944237045\n-148.17418214622955\n-149.4404115249247\n-148.9832902149928\n-148.68248348429108\n-148.4186762943616\n"
+  },
+  {
+    "label": "crbd-39",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.5,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.5\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-39.wppl 10",
+    "output": "-139.7512337776056\n-139.74879084847984\n-140.06718037328352\n-139.82388028674217\n-139.74617094649244\n-139.90079849425885\n-140.14544679025272\n-139.49109562027076\n-140.05807755529173\n-139.93625407789028\n"
+  },
+  {
+    "label": "crbd-40",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.5,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.5\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-40.wppl 10",
+    "output": "-137.4723957386108\n-137.85814570866515\n-137.56505238768375\n-137.78986558334904\n-137.69906507001164\n-137.61715841418177\n-137.23669238184422\n-137.64946667513726\n-137.56184762028175\n-137.55259718280408\n"
+  },
+  {
+    "label": "crbd-41",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.55,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.55\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-41.wppl 10",
+    "output": "-155.8239466045291\n-156.07234861561795\n-156.50459190372132\n-155.67458783216185\n-155.97617779996366\n-156.07725967069533\n-156.2408042482321\n-156.18871637783408\n-155.98804905797087\n-155.6233395141695\n"
+  },
+  {
+    "label": "crbd-42",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.55,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.55\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-42.wppl 10",
+    "output": "-152.1252033674634\n-152.09512627512467\n-152.4127018514715\n-152.07581300091243\n-151.71189868625598\n-152.81244799691976\n-152.90309323190968\n-152.7693150331688\n-152.5026828870519\n-152.79875639871256\n"
+  },
+  {
+    "label": "crbd-43",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.55,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.55\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-43.wppl 10",
+    "output": "-141.4985645789355\n-141.7350570920312\n-141.77970988440748\n-141.1807454870311\n-141.67756491367317\n-141.04951855469412\n-141.35615435052426\n-141.10855265302922\n-141.3158214868266\n-141.59727701875119\n"
+  },
+  {
+    "label": "crbd-44",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.55,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.55\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-44.wppl 10",
+    "output": "-137.47421482787163\n-138.42796049722227\n-137.77556097428788\n-137.66318364695965\n-137.9247697594669\n-137.90256755676097\n-137.68922330597687\n-137.70520232469076\n-138.18619207139946\n-138.11675075715885\n"
+  },
+  {
+    "label": "crbd-45",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.6,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.6\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-45.wppl 10",
+    "output": "-160.80565330409752\n-160.0973442119226\n-160.7035046952025\n-160.22650598825842\n-160.6372993002576\n-160.49841467054506\n-160.5414837811704\n-160.67844306468777\n-160.90151945753527\n-161.3546170773312\n"
+  },
+  {
+    "label": "crbd-46",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.6,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.6\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-46.wppl 10",
+    "output": "-155.91090787351214\n-156.10770281969795\n-157.093637496689\n-156.597547945821\n-156.290855349453\n-156.63159061257588\n-156.40727641137056\n-156.14780689692188\n-157.07053822052058\n-156.45858215209037\n"
+  },
+  {
+    "label": "crbd-47",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.6,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.6\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-47.wppl 10",
+    "output": "-143.2220176074308\n-142.81570831328446\n-143.55077911912164\n-143.07730241612185\n-143.74914931528184\n-143.5838959575688\n-143.19087571499279\n-143.63871530690886\n-143.1323451481789\n-143.57413189503578\n"
+  },
+  {
+    "label": "crbd-48",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.6,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.6\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-48.wppl 10",
+    "output": "-138.28810394866335\n-137.06210591678698\n-138.74102080314813\n-138.1076610782064\n-137.9541271725567\n-138.79685507327287\n-138.1761061539737\n-138.6396909653864\n-138.52585410831853\n-138.43209602286265\n"
+  },
+  {
+    "label": "crbd-49",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.65,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.65\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-49.wppl 10",
+    "output": "-165.45437220851144\n-165.9181763998104\n-164.46869878950838\n-165.62643862277395\n-165.4646722368029\n-165.27331401268123\n-165.50962716438593\n-164.7720820749656\n-165.5888236712166\n-165.18136351842546\n"
+  },
+  {
+    "label": "crbd-50",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.65,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.65\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-50.wppl 10",
+    "output": "-160.47448808257667\n-160.94669606182802\n-160.94817479486863\n-160.7885461023959\n-161.6968498771022\n-159.729261205663\n-160.89852374953142\n-160.80509390267525\n-160.9303914580378\n-161.51053267810104\n"
+  },
+  {
+    "label": "crbd-51",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.65,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.65\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-51.wppl 10",
+    "output": "-144.3024929896481\n-145.03713825748355\n-145.20230032210006\n-144.7296815001135\n-144.8963465561066\n-145.72656860922652\n-144.31356086283884\n-144.88377455060888\n-144.83385101584787\n-144.6501121030894\n"
+  },
+  {
+    "label": "crbd-52",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.65,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.65\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-52.wppl 10",
+    "output": "-139.2516185766261\n-138.96986422769973\n-138.68799429139395\n-138.7965412023723\n-138.60754579384593\n-139.16072919417525\n-138.72249399036937\n-139.09273062172744\n-138.65264913227136\n-138.96732055134112\n"
+  },
+  {
+    "label": "crbd-53",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.7,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.7\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-53.wppl 10",
+    "output": "-169.3319540421423\n-169.6039870851652\n-169.697405323511\n-170.78908653003091\n-170.90470992761223\n-170.28031219102382\n-169.91475167711695\n-171.1261319059271\n-171.1240878901364\n-169.16050055132666\n"
+  },
+  {
+    "label": "crbd-54",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.7,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.7\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-54.wppl 10",
+    "output": "-164.98599236132878\n-165.15108518068254\n-164.8688229288593\n-165.01515796372388\n-164.61824363104793\n-164.99435378587864\n-164.28776094365438\n-164.86488576231756\n-164.81089127439557\n-163.7855247671134\n"
+  },
+  {
+    "label": "crbd-55",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.7,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.7\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-55.wppl 10",
+    "output": "-146.99557042829562\n-147.0887857109867\n-146.4815455034236\n-145.9036401848815\n-147.68839147612934\n-146.91498726859328\n-146.59461599730514\n-147.42368912598715\n-147.0834569669956\n-147.8415274554144\n"
+  },
+  {
+    "label": "crbd-56",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.7,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.7\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-56.wppl 10",
+    "output": "-139.38186911994535\n-138.36534403781903\n-139.92053335003303\n-138.48157852424958\n-138.8657124635787\n-139.29129402945372\n-139.10663034142513\n-138.75133567449197\n-139.48021428692707\n-139.8459102728396\n"
+  },
+  {
+    "label": "crbd-57",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.75,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.75\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-57.wppl 10",
+    "output": "-175.01256630990918\n-175.94513390641518\n-175.28428177905366\n-176.830426685467\n-176.5998824924078\n-175.4706485399879\n-176.27117439633747\n-174.95843348827535\n-175.0696781754626\n-176.1541466042255\n"
+  },
+  {
+    "label": "crbd-58",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.75,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.75\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-58.wppl 10",
+    "output": "-169.3058844323682\n-168.596156845576\n-169.01709845062646\n-170.0098512222844\n-168.66959165674817\n-168.81883760995817\n-169.59441406426183\n-169.21347941555928\n-170.3797820842654\n-169.77256027315946\n"
+  },
+  {
+    "label": "crbd-59",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.75,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.75\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-59.wppl 10",
+    "output": "-149.45231684682494\n-150.01711820449134\n-149.75137132629445\n-149.0359532830643\n-148.5330699777871\n-148.67429634296062\n-148.3146719572015\n-148.20967223865097\n-148.96102037706382\n-148.28376557313646\n"
+  },
+  {
+    "label": "crbd-60",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.75,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.75\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-60.wppl 10",
+    "output": "-140.69921063182935\n-140.3566124935089\n-140.0295687709022\n-139.7338046739251\n-140.68890786765294\n-139.6835539798726\n-140.13256848423669\n-139.6548126418251\n-139.65921726467465\n-139.84776417890473\n"
+  },
+  {
+    "label": "crbd-61",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.8,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.8\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-61.wppl 10",
+    "output": "-181.33265387491514\n-179.30229294277495\n-181.3714868974557\n-180.43549683084032\n-181.08707941096267\n-181.2725410045073\n-179.71584547790957\n-181.01814190872216\n-180.2190247920728\n-181.10372758642882\n"
+  },
+  {
+    "label": "crbd-62",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.8,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.8\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-62.wppl 10",
+    "output": "-174.56243760618221\n-173.97597272693756\n-173.88266781060568\n-173.5221650462235\n-173.54135204726035\n-173.45267208442291\n-173.65284241515107\n-174.45790048723947\n-174.71303864561528\n-173.42153148576864\n"
+  },
+  {
+    "label": "crbd-63",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.8,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.8\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-63.wppl 10",
+    "output": "-151.64289532562287\n-151.10076466829926\n-151.9296304115364\n-151.18782106148913\n-150.5635236653904\n-149.68163931268475\n-152.15735125462754\n-150.56047552210066\n-152.62214492070802\n-150.2233001487304\n"
+  },
+  {
+    "label": "crbd-64",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.8,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.8\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-64.wppl 10",
+    "output": "-139.83320152476765\n-140.6537193749615\n-140.44041877347394\n-140.47067424106297\n-140.10786804120298\n-140.1085638975252\n-140.45886771792163\n-140.6242158968743\n-140.4981981991176\n-140.3309537424182\n"
+  },
+  {
+    "label": "crbd-65",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.85,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.85\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-65.wppl 10",
+    "output": "-185.18074357455455\n-187.48144222634252\n-184.41362105299143\n-184.18147302202905\n-185.7058202119579\n-187.5576126555087\n-187.46537599207954\n-186.2755598944427\n-187.226773380195\n-184.57900820385672\n"
+  },
+  {
+    "label": "crbd-66",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.85,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.85\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-66.wppl 10",
+    "output": "-178.46061473620276\n-178.66512956023536\n-178.399870122777\n-178.92679595295834\n-179.43758074422735\n-177.26673209334658\n-179.07962124581522\n-177.554264684186\n-178.054828731708\n-179.52405140764313\n"
+  },
+  {
+    "label": "crbd-67",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.85,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.85\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-67.wppl 10",
+    "output": "-150.37802552682697\n-153.34952493230753\n-152.62620265282212\n-152.6571263345773\n-153.62872818764507\n-152.78836215987508\n-151.86495586701884\n-153.2490854757401\n-154.35217424433839\n-153.67239672144592\n"
+  },
+  {
+    "label": "crbd-68",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.85,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.85\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-68.wppl 10",
+    "output": "-140.6961037547975\n-140.96515027096856\n-141.23790194953142\n-141.77507336162807\n-140.97599520817192\n-139.60909199605777\n-139.5168999413475\n-140.84888871853613\n-141.3146182458132\n-140.60895573366204\n"
+  },
+  {
+    "label": "crbd-69",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.9,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.9\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-69.wppl 10",
+    "output": "-192.23223807340082\n-189.10154901792706\n-191.44208493493414\n-192.68908044922577\n-191.87800481456375\n-190.37018298602374\n-190.33957908297248\n-189.40859916759064\n"
+  },
+  {
+    "label": "crbd-70",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.9,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.9\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-70.wppl 10",
+    "output": "-184.93321971777078\n-183.87136015518888\n-183.1534522780154\n-183.5440034196913\n-183.69591082847433\n-183.36866547678937\n-181.48660862188012\n-181.12016938739038\n-183.46346803088596\n-182.25303830150477\n"
+  },
+  {
+    "label": "crbd-71",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.9,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.9\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-71.wppl 10",
+    "output": "-155.00076475471735\n-157.31795277716066\n-155.15384629376743\n-155.12537350735474\n-156.11024384374082\n-155.09334859224865\n-154.5584715367317\n-157.5060005437585\n-155.1381305092113\n-155.08173053230672\n"
+  },
+  {
+    "label": "crbd-72",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.9,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.9\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-72.wppl 10",
+    "output": "-142.13941234770155\n-142.46229733846377\n-139.6772519806284\n-142.2335473130806\n-141.52992623234832\n-142.16511031037075\n-141.16632180481562\n-142.8497506035571\n-141.5128501654529\n-142.53700193208329\n"
+  },
+  {
+    "label": "crbd-73",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.95,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.95\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-73.wppl 10",
+    "output": "-195.8949367759067\n-197.00544810693685\n-197.32914725292426\n-196.05033101042028\n-196.4852957043364\n-197.69879224332772\n-196.2926273535968\n-195.1056697673385\n-197.20515214119862\n"
+  },
+  {
+    "label": "crbd-74",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.95,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.95\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-74.wppl 10",
+    "output": "-187.5595095449818\n-187.953049394476\n-185.38198978067612\n-190.25777288864398\n-189.6709243469639\n-189.92948556925722\n-188.53697177684484\n-187.66610162600304\n-190.50178068563676\n"
+  },
+  {
+    "label": "crbd-75",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.95,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.95\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-75.wppl 10",
+    "output": "-157.99656137948733\n-155.83057856799655\n-159.5190174275342\n-159.30339550425478\n-158.6718167966558\n-159.54082813548317\n-157.86709533433242\n-157.0548641322201\n-158.88356755827004\n-157.54880805142952\n"
+  },
+  {
+    "label": "crbd-76",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 0.95,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 0.95\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-76.wppl 10",
+    "output": "-142.66322923402672\n-142.16368485029403\n-143.49710010129976\n-142.7001161895969\n-142.8343683461592\n-142.68544956331394\n-142.1936045170605\n-142.5397684361367\n-142.30363072956305\n-143.1888984085174\n"
+  },
+  {
+    "label": "crbd-77",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-77.wppl 10",
+    "output": "-201.21730345578857\n-204.82456174897845\n"
+  },
+  {
+    "label": "crbd-78",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-78.wppl 10",
+    "output": "-193.96296078089088\n-195.5002749134114\n-194.6499302779353\n-196.26966585890526\n-192.1061855003193\n-192.20174597719833\n-191.60963826770742\n"
+  },
+  {
+    "label": "crbd-79",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-79.wppl 10",
+    "output": "-160.1762399576055\n-162.91637921509647\n-162.11271056183745\n-162.41718023894313\n-159.11294857931057\n-161.3599223223035\n-160.0016224351384\n-162.82922972489592\n-160.8383604397022\n-160.20710217303014\n"
+  },
+  {
+    "label": "crbd-80",
+    "description": "Survivorship bias correction with Jan's algorithm.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda": 1,
+      "epsilon": 0.9,
+      "rho": 1
+    },
+    "model": "\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda = 1\n\tvar epsilon = 0.9\n\tvar rho = 1\n\t\n\t var mu = epsilon * lambda\n\t var ret = simCRBD( tree, lambda, mu, rho )\n\t var max_M = 10000\n\t var M = M_crbdGoesUndetected( tree.age, lambda, mu, rho, max_M )\n\t factor(Math.log(M))\n\t return ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/crbd/crbd-80.wppl 10",
+    "output": "-144.0526960757236\n-142.28485303821063\n-143.0914333359876\n-142.7640786174472\n-142.71017673422975\n-143.27565650413356\n-143.06134252648056\n-144.16964475469638\n-142.647373876781\n-142.65915783598416\n"
+  }
+]

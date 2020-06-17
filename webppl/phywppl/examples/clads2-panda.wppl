@@ -1,0 +1,80 @@
+/** 
+ * @file Example: ClaDS2
+ * 
+ * To run the example use:
+ * 
+ * npm run wppl examples/clads2.wppl 
+ * 
+ */
+
+
+/** 
+ * Tree selection
+ * uncomment the observed tree that you would like 
+ * or use the read_phyjson function to read in a tree in the PhyJSON format 
+ */
+//var tree   = phyjs.example_2;
+var tree = phyjs.bisse_32;
+//var tree =  phyjs.read_phyjson("../../data/bisse_32.phyjson")
+//var tree = phylodata.primates_61;
+//var tree = phylodata.cetacean_87;
+//var tree = phylodata.read_phyjson("example.json")
+
+// Hyperparameters
+var MAX_DIV = 5
+var MAX_LAMBDA = 5
+var MIN_LAMBDA = 1e-5
+var PANDA = true
+
+/**
+ * Model specification
+ */
+var model = function()
+{
+    // Define priors on lambda_0, alpha, sigma and epsilon
+    // See Maliet et al (2019) for some discussion. They
+    // use improper priors except in the verification of
+    // the MCMC implementation. Here, we use the same priors
+    // for lambda_0 and alpha as those used in the verification,
+    // except that we make the priors symmetrix around 1.0, that
+    // is, such that the median of the prior is 1.0.
+    // The sampling fraction, rho, is typically assumed to be
+    // fixed, because of identifiability problems if it is
+    // estimated.
+    //var lambda_0 = Math.exp( uniform( {a:Math.log(1e-4), b:Math.log(1e4)} ) )	
+    //var alpha    = Math.exp( uniform( {a:Math.log(1.0/2.0), b:Math.log(2.0)} ) )
+    //var sigma    = 1.0 / ( gamma( {shape:1.0, scale:10.0} ) )
+    //var epsilon  = uniform( {a:0.0, b:1.0} )
+    //var rho      = 1.0
+
+    // Test settings to compare with analytical CRBD 
+    var lambda_0 = 0.2
+    var alpha    = 1.0
+    var sigma    = 0.0000001
+    var epsilon  = 0.5   // Corresponds to mu = epsilon*lambda = 0.1
+    var rho      = 1.0
+
+    // Simulate conditionally on the tree
+    // It returns all variables of interest
+    var ret = simClaDS2( tree, lambda_0, alpha, sigma, epsilon, rho )
+
+    // Condition on detection
+    var dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda_0, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 } )
+    factor( - 2.0 * dist.score( false ) )
+    
+    return ret
+}
+
+
+/**
+ * Inference
+ * tweak the number of particles if you want to */
+var particles = 10000
+var dist = Infer( {method: 'SMC', particles: particles, model: model} );
+
+
+/** 
+ *Print the distribution or the normalization constant
+ */
+// dist;
+dist.normalizationConstant;

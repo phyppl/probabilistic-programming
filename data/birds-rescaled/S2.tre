@@ -1,0 +1,123 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 55;
+	TAXLABELS
+		Auriparus_flaviceps
+		Remiz_pendulinus
+		Anthoscopus_minutus
+		Anthoscopus_musculus
+		Sylviparus_modestus
+		Pseudopodoces_humilis
+		Melanochlora_sultanea
+		Parus_caeruleus
+		Parus_cyanus
+		Parus_fasciiventer
+		Parus_rufiventris
+		Parus_funereus
+		Parus_niger
+		Parus_albiventris
+		Parus_holsti
+		Parus_spilonotus
+		Parus_xanthogenys
+		Parus_afer
+		Parus_palustris
+		Parus_major
+		Parus_monticolus
+		Parus_lugubris
+		Parus_varius
+		Parus_superciliosus
+		Parus_montanus
+		Parus_davidi
+		Parus_atricapillus
+		Parus_gambeli
+		Parus_sclateri
+		Parus_carolinensis
+		Parus_rufescens
+		Parus_hudsonicus
+		Parus_cinctus
+		Parus_venustulus
+		Parus_amabilis
+		Parus_elegans
+		Parus_rubidiventris
+		Parus_rufonuchalis
+		Parus_ater
+		Parus_dichrous
+		Parus_cristatus
+		Baeolophus_wollweberi
+		Baeolophus_bicolor
+		Baeolophus_atricristatus
+		Baeolophus_ridgwayi
+		Baeolophus_inornatus
+		Culicicapa_ceylonensis
+		Culicicapa_helianthea
+		Elminia_nigromitrata
+		Elminia_albonotata
+		Elminia_albiventris
+		Elminia_albicauda
+		Elminia_longicauda
+		Stenostira_scita
+		Chelidorhynx_hypoxantha
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Auriparus_flaviceps,
+		2	Remiz_pendulinus,
+		3	Anthoscopus_minutus,
+		4	Anthoscopus_musculus,
+		5	Sylviparus_modestus,
+		6	Pseudopodoces_humilis,
+		7	Melanochlora_sultanea,
+		8	Parus_caeruleus,
+		9	Parus_cyanus,
+		10	Parus_fasciiventer,
+		11	Parus_rufiventris,
+		12	Parus_funereus,
+		13	Parus_niger,
+		14	Parus_albiventris,
+		15	Parus_holsti,
+		16	Parus_spilonotus,
+		17	Parus_xanthogenys,
+		18	Parus_afer,
+		19	Parus_palustris,
+		20	Parus_major,
+		21	Parus_monticolus,
+		22	Parus_lugubris,
+		23	Parus_varius,
+		24	Parus_superciliosus,
+		25	Parus_montanus,
+		26	Parus_davidi,
+		27	Parus_atricapillus,
+		28	Parus_gambeli,
+		29	Parus_sclateri,
+		30	Parus_carolinensis,
+		31	Parus_rufescens,
+		32	Parus_hudsonicus,
+		33	Parus_cinctus,
+		34	Parus_venustulus,
+		35	Parus_amabilis,
+		36	Parus_elegans,
+		37	Parus_rubidiventris,
+		38	Parus_rufonuchalis,
+		39	Parus_ater,
+		40	Parus_dichrous,
+		41	Parus_cristatus,
+		42	Baeolophus_wollweberi,
+		43	Baeolophus_bicolor,
+		44	Baeolophus_atricristatus,
+		45	Baeolophus_ridgwayi,
+		46	Baeolophus_inornatus,
+		47	Culicicapa_ceylonensis,
+		48	Culicicapa_helianthea,
+		49	Elminia_nigromitrata,
+		50	Elminia_albonotata,
+		51	Elminia_albiventris,
+		52	Elminia_albicauda,
+		53	Elminia_longicauda,
+		54	Stenostira_scita,
+		55	Chelidorhynx_hypoxantha
+	;
+	TREE * UNTITLED = [&R] (((1:30.34047337,((2:21.33566469,3:21.33566469):0.09109777721,4:21.42676247):8.913710896):6.268485198,(5:28.22484329,(6:26.27537798,(7:20.96838135,((8:2.643711216,9:2.643711216):16.16274172,((((10:11.71073639,11:11.71073639):1.623212104,(12:11.11799678,(13:5.665877391,14:5.665877391):5.452119394):2.215951709):1.949881803,(((15:9.988822258,(16:5.064682369,17:5.064682369):4.92413989):2.542923816,18:12.53174607):1.668366466,((19:7.930301745,20:7.930301745):1.698773118,21:9.629074862):4.571037678):1.083717756):1.003289053,((((22:10.99189963,(23:10.13296283,24:10.13296283):0.8589368023):1.301643082,((25:8.264131824,26:8.264131824):2.208577201,(((27:5.305987859,28:5.305987859):1.992278948,(29:6.131749964,30:6.131749964):1.166516843):0.7199800265,((31:3.939364032,32:3.939364032):0.7874745428,33:4.726838575):3.291408258):2.454462193):1.820833688):2.290646478,((34:4.518124878,(35:3.693641038,36:3.693641038):0.8244838398):6.969489002,((37:7.098529692,38:7.098529692):2.370048568,39:9.46857826):2.019035621):3.096575312):0.5592245657,((40:7.312458335,41:7.312458335):5.966833468,(42:10.03620381,((43:0.8619093892,44:0.8619093892):5.74871179,(45:3.666896006,46:3.666896006):2.943725173):3.425582631):3.243087994):1.864121955):1.143705592):2.519333589):2.161928416):5.306996625):1.949465313):8.384115271):4.29925174,((((47:4.908727617,48:4.908727617):23.10060042,((49:11.9257207,(50:4.007951248,51:4.007951248):7.917769447):5.046520733,(52:5.52847067,53:5.52847067):11.44377076):11.0370866):4.735470644,54:32.74479868):3.853268103,55:36.59806678):4.310143523);
+END;

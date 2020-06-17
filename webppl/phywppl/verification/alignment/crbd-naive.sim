@@ -1,0 +1,32 @@
+{
+    "label" : "crbd-naive",
+    
+    "description" : "Alignment test. Three trees of different sizes. Fixed priors. Compute the normalizing constant with a naive (unaligned) CRBD simulation.",
+    
+    "hyper_parameters" : {
+	"particles" : 10000,
+
+	"MAX_LAMBDA" : 5,
+	"MAX_DIV" : 5,
+	
+	"tree"     : [
+	    "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+	    "phyjs.read_phyjson('../../data/cetaceans_87.phyjson')",
+	    "phyjs.read_phyjson('../../data/primates_233.phyjson')"
+	]
+    },
+    
+    "parameters" : {
+	"lambda"   : 0.2,
+	"epsilon"  : 0.5,
+	"rho"      : 1  
+    },
+    
+    "model" : "\n\tvar mu = epsilon*lambda\n\tvar nsamples = 100\n\tvar ret = simCRBDNaive( tree, lambda, mu, rho )\n\tvar dist = Infer ( { model: function() { crbdGoesUndetected( tree.age, lambda, mu, rho ) }, method: 'forward', samples: nsamples } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}
+

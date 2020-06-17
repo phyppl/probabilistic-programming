@@ -1,0 +1,752 @@
+[
+  {
+    "label": "lsbds-1",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-1.wppl 12",
+    "output": "-144.43273787817412\n-143.89700164642466\n-144.35281645288492\n-143.09895013456594\n-143.9854752182196\n-143.177280927907\n-146.53281239503286\n-144.3940336535931\n-144.27068890940743\n-145.4645166989931\n-145.48238133762862\n-144.7701048961602\n"
+  },
+  {
+    "label": "lsbds-2",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-2.wppl 12",
+    "output": "-147.38708164599845\n-148.88091611541816\n-148.82292834970175\n-149.10251054390002\n-148.81982169476757\n-146.91596774154863\n-149.4458570989218\n-147.63429697086218\n-148.89751146610092\n-149.17602440885005\n-148.95246702319315\n-148.99336755485479\n"
+  },
+  {
+    "label": "lsbds-3",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-3.wppl 12",
+    "output": "-170.63723444754382\n-160.66137137135246\n-163.92897365248223\n-164.22761786494965\n-162.5324539241495\n-165.16692502311966\n-161.3008008955997\n-163.48860004539642\n-164.0218548048138\n-163.89950161445498\n-163.0165276684687\n-161.74020672939895\n"
+  },
+  {
+    "label": "lsbds-4",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 2,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 2\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-4.wppl 12",
+    "output": "-146.8939044274015\n-147.68080110649228\n-147.7377822325845\n-147.4094709661762\n-148.36700563774045\n-146.6995172202261\n-147.42583155772107\n-148.64373772833707\n-147.36910278525534\n-147.07941631616833\n-146.65317886094016\n-146.28804616338007\n"
+  },
+  {
+    "label": "lsbds-5",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 2,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 2\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-5.wppl 12",
+    "output": "-149.15533864065486\n-149.4179136700533\n-150.48615735887083\n-150.71465748671477\n-150.76913525143942\n-151.455427065832\n-150.91850499665497\n-151.78589697469758\n-149.80709389643698\n-150.53941031262653\n-151.15150573398424\n-151.69755159317654\n"
+  },
+  {
+    "label": "lsbds-6",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 2,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 2\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-6.wppl 12",
+    "output": "-165.82817125862593\n-162.36919371893657\n-165.1382099811844\n-162.3587696663892\n-165.77263232704942\n-157.9552818386847\n-167.0365428327523\n-162.39809104997687\n-162.84107628314183\n-166.99428123705243\n-166.59029384685553\n-166.35245744870443\n"
+  },
+  {
+    "label": "lsbds-7",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 3,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 3\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-7.wppl 12",
+    "output": "-149.456491436483\n-152.04472504029164\n-149.73917098705243\n-149.99556209961182\n-149.0214171271209\n-151.45585474818293\n-151.94216768001115\n-152.5776111696138\n-150.38460481470915\n-152.81985200103534\n-150.96661554090696\n-150.8837621499012\n"
+  },
+  {
+    "label": "lsbds-8",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 3,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 3\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-8.wppl 12",
+    "output": "-150.9443362896693\n-153.47015336080048\n-152.74421150866044\n-153.87170286369258\n-151.507179908712\n-151.78164399825081\n-153.35101455313972\n-151.36990587437336\n-153.91076765552057\n-152.76839223076\n-151.08525315469828\n-152.2607880998102\n"
+  },
+  {
+    "label": "lsbds-9",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 3,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 3\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-9.wppl 12",
+    "output": "-164.087627014451\n-162.9508884963521\n-166.06537376988467\n-165.8125731970805\n-169.3039744121954\n-163.95409286659023\n-166.70266017005227\n-164.56111356096235\n-167.48687967966174\n-161.7343219524618\n-166.1880736286436\n-166.38434811702135\n"
+  },
+  {
+    "label": "lsbds-10",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 4,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 4\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-10.wppl 12",
+    "output": "-153.70348464665284\n-153.56448693769073\n-153.30576770501193\n-153.5166189900403\n-155.00652011047592\n-155.57621273588435\n-151.84233326778838\n-153.4099819926237\n-155.32737341117925\n-154.0103542647986\n-152.32901806934507\n-155.4761369145144\n"
+  },
+  {
+    "label": "lsbds-11",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 4,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 4\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-11.wppl 12",
+    "output": "-155.53449591193646\n-154.9573076899826\n-154.52351272721174\n-154.50349950730498\n-154.25926409028455\n-154.87966754411534\n-156.7861716021532\n-153.8381369346055\n-155.85814585570327\n-155.79165502034928\n-156.29959269403489\n-158.1003047440044\n"
+  },
+  {
+    "label": "lsbds-12",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 4,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 4\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-12.wppl 12",
+    "output": "-166.17331430911173\n-174.4771594277225\n-172.3370336758684\n-165.4977934568693\n-171.12781678140928\n-166.78077820781135\n-172.2909274624883\n-165.87939479920342\n-168.19241459568715\n-169.47871655959347\n-166.04935429339392\n-168.70718260466836\n"
+  },
+  {
+    "label": "lsbds-13",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 5,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 5\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-13.wppl 12",
+    "output": "-158.07860111649768\n-157.29651726712902\n-157.79994239651495\n-156.49453693828477\n-158.61063785218624\n-156.87150833524947\n-157.77987523126484\n-156.10977431736762\n-158.3006236686246\n-157.8058579544737\n-157.38098134014268\n-157.52166315819892\n"
+  },
+  {
+    "label": "lsbds-14",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 5,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 5\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-14.wppl 12",
+    "output": "-157.73224820952592\n-157.17659223419938\n-157.89737759100908\n-157.11541458367384\n-156.45224718187544\n-157.5461800804635\n-159.02167207092978\n-159.01243519605256\n-159.942497119602\n-157.86897623901095\n-157.40240823774226\n-156.9596115197124\n"
+  },
+  {
+    "label": "lsbds-15",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 5,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 5\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-15.wppl 12",
+    "output": "-169.0945020720424\n-172.8247758208296\n-171.3585443862396\n-170.86470298986916\n-169.82617738962682\n-170.44758914472035\n-168.68461936945846\n-172.82897198099747\n-170.60043756829575\n-168.7000309550378\n-171.71764784459992\n-170.81367370933123\n"
+  },
+  {
+    "label": "lsbds-16",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 6,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 6\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-16.wppl 12",
+    "output": "-158.24974872814587\n-159.89476828159545\n-161.73461661679278\n-160.29938210191094\n-160.12359227462056\n-158.89797533144565\n-159.13993716985271\n-160.87177953807526\n-162.02367837211347\n-158.02327002527264\n-161.34031802250036\n-160.87096199069526\n"
+  },
+  {
+    "label": "lsbds-17",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 6,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 6\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-17.wppl 12",
+    "output": "-157.09239623940374\n-160.0209453322366\n-155.91865608950752\n-159.40022146303494\n-159.14024743097642\n-160.04096815901713\n-158.30414868565154\n-161.01400841113002\n-161.6334622079876\n-160.0980271838823\n-159.08138314879957\n-159.99203951812075\n"
+  },
+  {
+    "label": "lsbds-18",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 6,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 6\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-18.wppl 12",
+    "output": "-171.2671526315155\n-171.3455977521671\n-172.46181226329443\n-173.1924418115827\n-174.10953701018343\n-177.90966829035509\n-169.58514107354335\n-171.03556929973078\n-173.85665597444802\n-174.77098570855534\n-170.8961514347368\n-171.9804127021196\n"
+  },
+  {
+    "label": "lsbds-19",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 7,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 7\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-19.wppl 12",
+    "output": "-162.83773939677647\n-161.9816087247114\n-161.75343361566667\n-162.93260697952732\n-163.059488116079\n-161.74058969169175\n-161.7037433823389\n-161.23648962487584\n-163.57604532727342\n-163.72506328789257\n-161.6151953523244\n-162.63869522837473\n"
+  },
+  {
+    "label": "lsbds-20",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 7,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 7\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-20.wppl 12",
+    "output": "-164.8265110785526\n-160.43193733001752\n-161.09955514168433\n-161.84546501609344\n-162.87669307805317\n-161.36802635784252\n-160.47138337665962\n-160.23024138030587\n-161.85083978165096\n-161.53608243512437\n-162.5790900936389\n-160.89057844706167\n"
+  },
+  {
+    "label": "lsbds-21",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 7,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 7\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-21.wppl 12",
+    "output": "-172.81559951191895\n-177.97730375482018\n-172.39539507534283\n-175.37139931227418\n-170.88292513703402\n-172.45611315407953\n-175.69942110595738\n-174.24577516450256\n-171.93620111356262\n-175.68013036068703\n-176.49686543127999\n-178.18654369546158\n"
+  },
+  {
+    "label": "lsbds-22",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 8,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 8\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-22.wppl 12",
+    "output": "-164.2824539959524\n-165.06415713188423\n-166.20559706566496\n-163.69286496637352\n-165.44991118801568\n-162.49875457157924\n-163.04344140485966\n-164.5591573780808\n-164.6609947584264\n-165.58533024609676\n-165.9143244149305\n-164.41882148553907\n"
+  },
+  {
+    "label": "lsbds-23",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 8,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 8\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-23.wppl 12",
+    "output": "-163.20113235048532\n-162.080691173649\n-163.2906327889275\n-161.25834514545\n-162.1802002128524\n-165.17907100569795\n-163.1269702734538\n-161.72284952093833\n-164.08949563591383\n-165.38711313978118\n-165.2600121764539\n-163.4891750105752\n"
+  },
+  {
+    "label": "lsbds-24",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 8,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 8\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-24.wppl 12",
+    "output": "-177.30094494888533\n-175.64650167165487\n-175.85780801688458\n-173.54044133363237\n-176.88181496399616\n-175.34866503069188\n-173.40908500285846\n-178.4793300260574\n-176.52041914998156\n-179.74692136123852\n-178.50164266124395\n-176.70041555127852\n"
+  },
+  {
+    "label": "lsbds-25",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 9,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 9\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-25.wppl 12",
+    "output": "-165.64985131303158\n-165.82847140698416\n-166.37847240716692\n-164.47157958445396\n-166.41103663257374\n-167.5032710871122\n-165.0864467442773\n-165.56150263362946\n-165.65384039853603\n-164.78712415648081\n-166.15442700142867\n-167.19528608289752\n"
+  },
+  {
+    "label": "lsbds-26",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 9,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 9\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-26.wppl 12",
+    "output": "-163.96026906816894\n-164.16572758964128\n-162.66983113211995\n-163.9932557378929\n-162.6535916717253\n-165.87633330182058\n-162.80290511062958\n-163.0922016473647\n-164.59984139966778\n-164.18296986290434\n-163.5705474385035\n-162.2529333863101\n"
+  },
+  {
+    "label": "lsbds-27",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 9,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 9\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-27.wppl 12",
+    "output": "-170.6849181326642\n-174.2610476307173\n-178.54728240821993\n-176.95900427451343\n-176.71322809109074\n-171.03406110495916\n-177.79804360970425\n-178.29669285022126\n-176.29566743664233\n-178.12403238269513\n-176.4182632703071\n-173.20033782174073\n"
+  },
+  {
+    "label": "lsbds-28",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 10,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 10\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-28.wppl 12",
+    "output": "-168.10782040450462\n-166.9198343941273\n-165.32422450579182\n-167.14568775827385\n-167.1754797410699\n-166.98702954451718\n-167.5102266297941\n-167.68187929701438\n-168.40745727868685\n-165.9574158730514\n-167.1247122280456\n-167.98794891025057\n"
+  },
+  {
+    "label": "lsbds-29",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 10,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.1
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 10\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.1\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-29.wppl 12",
+    "output": "-164.00871925223205\n-167.16712896907342\n-163.92508398456283\n-165.22302955280043\n-165.3443804564737\n-166.07629493605975\n-164.7259945407807\n-166.68350187125395\n-165.7545896987915\n-163.94600847129044\n-164.94942263622045\n-165.84442418770288\n"
+  },
+  {
+    "label": "lsbds-30",
+    "description": "vary eta and rho",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 10,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 0.01
+    },
+    "model": "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 10\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 0.01\n\t\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/lsbds/lsbds/lsbds-30.wppl 12",
+    "output": "-175.0504700545968\n-182.21637886136892\n-178.81229176732828\n-178.91326544961024\n-177.16150650173043\n-180.73848119595928\n-179.27060834575423\n-172.77306396913457\n-179.38684266548796\n-181.831947174213\n-174.73288167929215\n-176.2322126744242\n"
+  }
+]

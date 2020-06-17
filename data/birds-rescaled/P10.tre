@@ -1,0 +1,259 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 123;
+	TAXLABELS
+		Mycerobas_affinis
+		Mycerobas_carnipes
+		Eophona_migratoria
+		Eophona_personata
+		Coccothraustes_vespertinus
+		Coccothraustes_coccothraustes
+		Carpodacus_rubicilla
+		Carpodacus_roseus
+		Carpodacus_trifasciatus
+		Carpodacus_thura
+		Carpodacus_pulcherrimus
+		Uragus_sibiricus
+		Carpodacus_rodopeplus
+		Carpodacus_rubicilloides
+		Haematospiza_sipahi
+		Carpodacus_vinaceus
+		Loxioides_bailleui
+		Telespiza_cantans
+		Telespiza_ultima
+		Vestiaria_coccinea
+		Himatione_sanguinea
+		Palmeria_dolei
+		Hemignathus_kauaiensis
+		Hemignathus_virens
+		Loxops_caeruleirostris
+		Loxops_coccineus
+		Oreomystis_mana
+		Hemignathus_munroi
+		Pseudonestor_xanthophrys
+		Hemignathus_parvus
+		Oreomystis_bairdi
+		Paroreomyza_montana
+		Pyrrhula_nipalensis
+		Pyrrhula_erythrocephala
+		Pyrrhula_erythaca
+		Pyrrhula_pyrrhula
+		Pyrrhoplectes_epauletta
+		Pinicola_enucleator
+		Leucosticte_brandti
+		Leucosticte_arctoa
+		Leucosticte_tephrocotis
+		Leucosticte_australis
+		Leucosticte_atrata
+		Carpodacus_nipalensis
+		Leucosticte_nemoricola
+		Eremopsaltria_mongolicus
+		Bucanetes_githagineus
+		Carpodacus_purpureus
+		Carpodacus_cassinii
+		Carpodacus_erythrinus
+		Carpodacus_mexicanus
+		Rhodopechys_obsoletus
+		Carduelis_sinica
+		Carduelis_ambigua
+		Carduelis_spinoides
+		Carduelis_chloris
+		Carduelis_hornemanni
+		Carduelis_flammea
+		Loxia_leucoptera
+		Loxia_megaplaga
+		Loxia_curvirostra
+		Loxia_pytyopsittacus
+		Loxia_scotica
+		Carduelis_carduelis
+		Carduelis_citrinella
+		Serinus_thibetanus
+		Serinus_serinus
+		Serinus_canaria
+		Serinus_pusillus
+		Serinus_canicollis
+		Serinus_flavivertex
+		Serinus_alario
+		Carduelis_spinus
+		Carduelis_pinus
+		Carduelis_notata
+		Carduelis_cucullata
+		Carduelis_barbata
+		Carduelis_siemiradzkii
+		Carduelis_crassirostris
+		Carduelis_uropygialis
+		Carduelis_spinescens
+		Carduelis_xanthogastra
+		Carduelis_yarrellii
+		Carduelis_magellanica
+		Carduelis_olivacea
+		Carduelis_atrata
+		Carduelis_tristis
+		Carduelis_lawrencei
+		Carduelis_psaltria
+		Carduelis_flavirostris
+		Carduelis_cannabina
+		Serinus_burtoni
+		Serinus_flaviventris
+		Serinus_sulphuratus
+		Serinus_albogularis
+		Serinus_reichardi
+		Serinus_gularis
+		Serinus_totta
+		Serinus_striolatus
+		Serinus_whytii
+		Linurgus_olivaceus
+		Serinus_scotops
+		Serinus_citrinelloides
+		Serinus_hypostictus
+		Serinus_capistratus
+		Serinus_mozambicus
+		Serinus_atrogularis
+		Serinus_leucopygius
+		Serinus_citrinipectus
+		Serinus_dorsostriatus
+		Euphonia_cyanocephala
+		Euphonia_musica
+		Euphonia_fulvicrissa
+		Euphonia_gouldi
+		Euphonia_laniirostris
+		Euphonia_hirundinacea
+		Euphonia_affinis
+		Euphonia_finschi
+		Euphonia_chlorotica
+		Euphonia_pectoralis
+		Fringilla_montifringilla
+		Fringilla_coelebs
+		Fringilla_teydea
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Mycerobas_affinis,
+		2	Mycerobas_carnipes,
+		3	Eophona_migratoria,
+		4	Eophona_personata,
+		5	Coccothraustes_vespertinus,
+		6	Coccothraustes_coccothraustes,
+		7	Carpodacus_rubicilla,
+		8	Carpodacus_roseus,
+		9	Carpodacus_trifasciatus,
+		10	Carpodacus_thura,
+		11	Carpodacus_pulcherrimus,
+		12	Uragus_sibiricus,
+		13	Carpodacus_rodopeplus,
+		14	Carpodacus_rubicilloides,
+		15	Haematospiza_sipahi,
+		16	Carpodacus_vinaceus,
+		17	Loxioides_bailleui,
+		18	Telespiza_cantans,
+		19	Telespiza_ultima,
+		20	Vestiaria_coccinea,
+		21	Himatione_sanguinea,
+		22	Palmeria_dolei,
+		23	Hemignathus_kauaiensis,
+		24	Hemignathus_virens,
+		25	Loxops_caeruleirostris,
+		26	Loxops_coccineus,
+		27	Oreomystis_mana,
+		28	Hemignathus_munroi,
+		29	Pseudonestor_xanthophrys,
+		30	Hemignathus_parvus,
+		31	Oreomystis_bairdi,
+		32	Paroreomyza_montana,
+		33	Pyrrhula_nipalensis,
+		34	Pyrrhula_erythrocephala,
+		35	Pyrrhula_erythaca,
+		36	Pyrrhula_pyrrhula,
+		37	Pyrrhoplectes_epauletta,
+		38	Pinicola_enucleator,
+		39	Leucosticte_brandti,
+		40	Leucosticte_arctoa,
+		41	Leucosticte_tephrocotis,
+		42	Leucosticte_australis,
+		43	Leucosticte_atrata,
+		44	Carpodacus_nipalensis,
+		45	Leucosticte_nemoricola,
+		46	Eremopsaltria_mongolicus,
+		47	Bucanetes_githagineus,
+		48	Carpodacus_purpureus,
+		49	Carpodacus_cassinii,
+		50	Carpodacus_erythrinus,
+		51	Carpodacus_mexicanus,
+		52	Rhodopechys_obsoletus,
+		53	Carduelis_sinica,
+		54	Carduelis_ambigua,
+		55	Carduelis_spinoides,
+		56	Carduelis_chloris,
+		57	Carduelis_hornemanni,
+		58	Carduelis_flammea,
+		59	Loxia_leucoptera,
+		60	Loxia_megaplaga,
+		61	Loxia_curvirostra,
+		62	Loxia_pytyopsittacus,
+		63	Loxia_scotica,
+		64	Carduelis_carduelis,
+		65	Carduelis_citrinella,
+		66	Serinus_thibetanus,
+		67	Serinus_serinus,
+		68	Serinus_canaria,
+		69	Serinus_pusillus,
+		70	Serinus_canicollis,
+		71	Serinus_flavivertex,
+		72	Serinus_alario,
+		73	Carduelis_spinus,
+		74	Carduelis_pinus,
+		75	Carduelis_notata,
+		76	Carduelis_cucullata,
+		77	Carduelis_barbata,
+		78	Carduelis_siemiradzkii,
+		79	Carduelis_crassirostris,
+		80	Carduelis_uropygialis,
+		81	Carduelis_spinescens,
+		82	Carduelis_xanthogastra,
+		83	Carduelis_yarrellii,
+		84	Carduelis_magellanica,
+		85	Carduelis_olivacea,
+		86	Carduelis_atrata,
+		87	Carduelis_tristis,
+		88	Carduelis_lawrencei,
+		89	Carduelis_psaltria,
+		90	Carduelis_flavirostris,
+		91	Carduelis_cannabina,
+		92	Serinus_burtoni,
+		93	Serinus_flaviventris,
+		94	Serinus_sulphuratus,
+		95	Serinus_albogularis,
+		96	Serinus_reichardi,
+		97	Serinus_gularis,
+		98	Serinus_totta,
+		99	Serinus_striolatus,
+		100	Serinus_whytii,
+		101	Linurgus_olivaceus,
+		102	Serinus_scotops,
+		103	Serinus_citrinelloides,
+		104	Serinus_hypostictus,
+		105	Serinus_capistratus,
+		106	Serinus_mozambicus,
+		107	Serinus_atrogularis,
+		108	Serinus_leucopygius,
+		109	Serinus_citrinipectus,
+		110	Serinus_dorsostriatus,
+		111	Euphonia_cyanocephala,
+		112	Euphonia_musica,
+		113	Euphonia_fulvicrissa,
+		114	Euphonia_gouldi,
+		115	Euphonia_laniirostris,
+		116	Euphonia_hirundinacea,
+		117	Euphonia_affinis,
+		118	Euphonia_finschi,
+		119	Euphonia_chlorotica,
+		120	Euphonia_pectoralis,
+		121	Fringilla_montifringilla,
+		122	Fringilla_coelebs,
+		123	Fringilla_teydea
+	;
+	TREE * UNTITLED = [&R] ((((((1:11.38305476,2:11.38305476):1.912167048,(3:4.112924144,4:4.112924144):9.182297668):1.946837878,(5:10.25482645,6:10.25482645):4.987233235):4.532413116,(((((7:10.25997149,(((8:6.896226158,(9:5.541987542,10:5.541987542):1.354238617):0.6103178591,11:7.506544017):1.354758717,((12:2.491422275,13:2.491422275):4.928676012,14:7.420098287):1.441204447):1.398668758):2.215289769,(15:3.561610821,16:3.561610821):8.91365044):2.214156288,(((17:4.360908018,(18:1.414568557,19:1.414568557):2.946339461):1.504522308,((((20:2.604324937,(21:2.041831175,22:2.041831175):0.5624937624):1.408392723,(23:1.627246215,24:1.627246215):2.385471445):0.3161278646,((25:1.574048056,26:1.574048056):1.210353357,27:2.784401413):1.544444112):0.7191426495,(28:4.581588752,(29:3.670055195,30:3.670055195):0.9115335567):0.4663994227):0.8174421513):1.940250631,(31:5.919420941,32:5.919420941):1.886260015):6.883736593):1.411478513,(((33:6.895504347,(((34:1.528098038,35:1.528098038):2.178246719,36:3.706344757):2.208926518,37:5.915271275):0.9802330721):4.632608426,38:11.52811277):3.532488854,(((39:2.52372747,(40:1.535942025,(41:0.2050178225,(42:0.1284579284,43:0.1284579284):0.07655989415):1.330924202):0.9877854454):5.143333922,(44:2.778102872,45:2.778102872):4.888958521):5.936248517,(46:6.293989469,47:6.293989469):7.30932044):1.457291718):1.040294435):1.138239894,(((48:3.876681517,49:3.876681517):8.948961121,(50:7.933867057,51:7.933867057):4.89177558):2.539496535,((52:7.665350971,((53:1.457754625,(54:0.7071412313,55:0.7071412313):0.7506133934):0.7471863691,56:2.204940994):5.460409977):2.970444888,(((57:0.5793047249,58:0.5793047249):5.196595065,((59:1.013454088,60:1.013454088):0.6903287142,((61:0.3831150381,62:0.3831150381):0.2052885968,63:0.5884036349):1.115379167):4.072116989):3.08190436,(((64:5.671990364,65:5.671990364):1.906565185,(66:6.911407237,(((67:4.885898822,68:4.885898822):0.6572390779,(69:3.252373685,((70:1.555633345,71:1.555633345):0.9337189873,72:2.489352332):0.7630213527):2.290764215):1.12261173,((((73:1.840470193,74:1.840470193):2.216275008,(75:2.643397163,(76:1.577980719,((77:0.6507744299,78:0.6507744299):0.6950348133,(((79:0.1007905343,80:0.1007905343):0.4346604,81:0.5354509343):0.4862118542,(((82:0.7274505852,(83:0.4179065853,84:0.4179065853):0.3095439998):0.09170144163,85:0.8191520268):0.06902398475,86:0.8881760116):0.133486777):0.3241464547):0.2321714754):1.065416444):1.413348039):1.089954643,(87:4.014952884,(88:1.897509256,89:1.897509256):2.117443628):1.13174696):0.9254657557,(90:3.736170722,91:3.736170722):2.335994878):0.5935840291):0.2456576083):0.6671483117):1.025729764,((((92:6.520289065,(((93:1.784573621,94:1.784573621):3.003659378,(95:1.953081421,96:1.953081421):2.835151578):0.3828094012,97:5.1710424):1.349246664):0.6021149278,(98:5.595467165,(99:2.24681724,100:2.24681724):3.348649925):1.526936828):0.355276952,101:7.477680944):0.6197306212,((102:3.485726191,((103:0.1976148197,104:0.1976148197):0.6492443067,105:0.8468591264):2.638867064):2.842226925,(106:5.125025532,(((107:2.707560312,108:2.707560312):0.5709123123,109:3.278472624):1.073775381,110:4.352248005):0.772777527):1.202927583):1.76945845):0.5068737475):0.2535188374):1.777991708):4.729343314):1.873996784):2.535336849):3.457140472,((111:3.743526212,112:3.743526212):9.727043045,(((113:2.605904328,114:2.605904328):6.824364387,(115:5.451704047,116:5.451704047):3.978564668):1.95156501,((117:6.928891704,(118:4.463137894,119:4.463137894):2.46575381):1.912166218,120:8.841057922):2.540775803):2.088735531):9.761044022):2.13899155,(121:7.690978566,(122:4.912976845,123:4.912976845):2.778001721):17.67962626);
+END;

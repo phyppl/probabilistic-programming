@@ -1,0 +1,2162 @@
+[
+  {
+    "label": "clads2-panda-grid2-1",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-1.wppl 10",
+    "output": "-28.23685066792872\n-28.172728353075577\n-28.32141175934828\n-28.261996358601778\n-28.258081820254652\n-28.272486297420606\n-28.33270746522873\n-28.31077132415985\n-28.286936259388888\n-28.293449629457378\n"
+  },
+  {
+    "label": "clads2-panda-grid2-2",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-2.wppl 10",
+    "output": "-14.474532002709191\n-14.560834066376662\n-14.518591550972696\n-14.539862040558923\n-14.614284604268432\n-14.561325287118969\n-14.494230750555609\n-14.583795789854275\n-14.50214885973936\n-14.52456744308761\n"
+  },
+  {
+    "label": "clads2-panda-grid2-3",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-3.wppl 10",
+    "output": "-9.50690996049597\n-9.51562549470721\n-9.340452329389173\n-9.617148385077272\n-9.497417529850939\n-9.393615352552587\n-9.290689750376357\n-9.470878944199196\n-9.360428972486478\n-9.524756682993182\n"
+  },
+  {
+    "label": "clads2-panda-grid2-4",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-4.wppl 10",
+    "output": "-8.016502874135508\n-8.00803785707987\n-7.906202674113672\n-8.022663966241788\n-7.8813832602103915\n-8.10973599318475\n-7.939568779279044\n-7.89594913124253\n-8.025207939247673\n-7.836046508410368\n"
+  },
+  {
+    "label": "clads2-panda-grid2-5",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-5.wppl 10",
+    "output": "-8.13518022121007\n-8.53870733120517\n-7.979663073856637\n-8.341656327793396\n-8.452592673095095\n-8.341520748311739\n-8.341571728135033\n-8.114121194824127\n-8.33666431585348\n-8.396141112556181\n"
+  },
+  {
+    "label": "clads2-panda-grid2-6",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-6.wppl 10",
+    "output": "-9.929335070897519\n-10.162964446820673\n-10.221506621465604\n-10.001058614060627\n-9.982404036181556\n-10.297538762668927\n-9.85825194374745\n-9.878139934835701\n-10.00523348128344\n-9.83467710512444\n"
+  },
+  {
+    "label": "clads2-panda-grid2-7",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-7.wppl 10",
+    "output": "-12.261506476826119\n-12.430437402316869\n-12.458104184817813\n-12.289644064685378\n-12.303827323393758\n-12.387255050976082\n-12.526521475932098\n-12.605082937113973\n-12.231258636460264\n-12.580639318602358\n"
+  },
+  {
+    "label": "clads2-panda-grid2-8",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-8.wppl 10",
+    "output": "-15.940378024763643\n-15.754477673576224\n-15.466583785766794\n-15.47974909608201\n-15.919615906102596\n-15.364617066686035\n-15.469504358467365\n-15.187190779909347\n-15.188192643672098\n-15.439736824495473\n"
+  },
+  {
+    "label": "clads2-panda-grid2-9",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-9.wppl 10",
+    "output": "-18.841375110776205\n-18.944427510838743\n-19.280727323539914\n-19.155167463707137\n-19.56643858470929\n-19.316314361481346\n-19.05582231411831\n-19.576432014952154\n-19.031288838844173\n-18.700891566597207\n"
+  },
+  {
+    "label": "clads2-panda-grid2-10",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-10.wppl 10",
+    "output": "-23.292694505675307\n-23.070592180991305\n-23.078230212618045\n-23.174797790668684\n-22.967293651282894\n-22.77215382916374\n-22.815132629221367\n-23.038292035671432\n-23.35399386345321\n-23.078508915011085\n"
+  },
+  {
+    "label": "clads2-panda-grid2-11",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-11.wppl 10",
+    "output": "-27.763891770584777\n-26.94915312576842\n-27.54204917364678\n-27.623742659922492\n-27.441204757256386\n-26.953582214259455\n-27.601215246582235\n-27.09572298162525\n-27.649698332871687\n-27.028170645883094\n"
+  },
+  {
+    "label": "clads2-panda-grid2-12",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-12.wppl 10",
+    "output": "-32.00156879808587\n-31.971200355320875\n-32.35562405551438\n-31.514862339473673\n-31.778576179280726\n-32.044675284070124\n-32.06792500912112\n-31.386415740900276\n-30.8645995475281\n-31.709203713191606\n"
+  },
+  {
+    "label": "clads2-panda-grid2-13",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-13.wppl 10",
+    "output": "-36.102145374936434\n-35.64950623602045\n-36.70839523606963\n-36.20211767060234\n-36.656455785082876\n-35.35107184867232\n-36.772097340407214\n-35.73046364977409\n-35.972557222988726\n-36.262801024412106\n"
+  },
+  {
+    "label": "clads2-panda-grid2-14",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-14.wppl 10",
+    "output": "-41.440358091705995\n-41.5587903514494\n-41.43349701617463\n-41.05522212864155\n-42.20731095611538\n-41.44644261264727\n-41.54558576315853\n-41.41570375060717\n-42.93372285661051\n-41.91496700793856\n"
+  },
+  {
+    "label": "clads2-panda-grid2-15",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-15.wppl 10",
+    "output": "-48.167486627059944\n-45.52884595047568\n-46.40965117050243\n-46.451579966273314\n-46.42072596941199\n-48.63093483907709\n-45.42937768546447\n-48.0636822347337\n-45.97379148745868\n-46.554005253767656\n"
+  },
+  {
+    "label": "clads2-panda-grid2-16",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-16.wppl 10",
+    "output": "-51.47880186033524\n-51.655254023435106\n-51.65138225935177\n-51.6130310171749\n-51.6030998940413\n-50.00929563270064\n-50.52778024574231\n-52.25318887919741\n-51.45322384360224\n-51.47317279194942\n"
+  },
+  {
+    "label": "clads2-panda-grid2-17",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-17.wppl 10",
+    "output": "-57.11953008112802\n-56.200743728226705\n-56.745632659568486\n-57.01656744632179\n-56.82416318820807\n-56.77971623222332\n-57.7780734270768\n-57.98776224549591\n-57.593108034248274\n"
+  },
+  {
+    "label": "clads2-panda-grid2-18",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-18.wppl 10",
+    "output": "-63.602198580167745\n-63.75746204463933\n-61.74775049204816\n-63.286729417655586\n-60.56631378877524\n-62.78756642593634\n-62.48016173904719\n"
+  },
+  {
+    "label": "clads2-panda-grid2-19",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-19.wppl 10",
+    "output": "-68.15666709206035\n-70.32089135249485\n-67.98561803883806\n-66.75119298533279\n-66.04128008768852\n-69.02573883993936\n-67.3779098086267\n-66.64486269555827\n"
+  },
+  {
+    "label": "clads2-panda-grid2-20",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-20.wppl 10",
+    "output": "-73.3210868764513\n-72.6235442215853\n-74.76566562082594\n-74.09565141377766\n-72.10017638706422\n-74.74273452873356\n-74.46517339447699\n"
+  },
+  {
+    "label": "clads2-panda-grid2-21",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-21.wppl 10",
+    "output": "-28.772323162269267\n-28.700953717261733\n-28.703999395917442\n-28.777267852060334\n-28.665471927084376\n-28.683943012310117\n-28.744365194471897\n-28.743892548218746\n-28.719396941454363\n-28.685403320813222\n"
+  },
+  {
+    "label": "clads2-panda-grid2-22",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-22.wppl 10",
+    "output": "-15.362544632991916\n-15.334032865033596\n-15.190462503755569\n-15.32470581772005\n-15.370491324963318\n-15.290337611818956\n-15.222240864049017\n-15.269550676089754\n-15.218358096146583\n-15.17449100865932\n"
+  },
+  {
+    "label": "clads2-panda-grid2-23",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-23.wppl 10",
+    "output": "-10.197571509234944\n-10.291686913141177\n-10.294296407604023\n-10.342443495853123\n-10.187076005986658\n-10.270562193091424\n-10.228869272325838\n-10.265308290290825\n-10.10171901571836\n-10.298834568889959\n"
+  },
+  {
+    "label": "clads2-panda-grid2-24",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-24.wppl 10",
+    "output": "-8.76572909378089\n-8.72511593057437\n-8.858593119436126\n-8.55123017030914\n-8.63272973183363\n-8.831172346845863\n-8.688577716166172\n-8.617093387280129\n-8.621526814190117\n-8.872238601867247\n"
+  },
+  {
+    "label": "clads2-panda-grid2-25",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-25.wppl 10",
+    "output": "-8.880151134686528\n-9.12457152123266\n-9.138073994059626\n-9.120985851860292\n-8.947915281383484\n-8.812276576129953\n-9.046125263464075\n-9.145815983486177\n-9.023690551056871\n-9.097088485164615\n"
+  },
+  {
+    "label": "clads2-panda-grid2-26",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-26.wppl 10",
+    "output": "-10.56768952749929\n-10.796520051711928\n-10.511039015255767\n-10.581228920010489\n-10.469253519508815\n-10.558528626637917\n-10.62347898707964\n-10.515407207722161\n-10.616454778057413\n-10.873646986494961\n"
+  },
+  {
+    "label": "clads2-panda-grid2-27",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-27.wppl 10",
+    "output": "-12.817593288710027\n-12.756066388783156\n-12.70229580434952\n-12.898170519980786\n-12.916279427169341\n-12.785871152579151\n-12.947307099194031\n-12.970947229936577\n-12.535328951278744\n-13.014946573564723\n"
+  },
+  {
+    "label": "clads2-panda-grid2-28",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-28.wppl 10",
+    "output": "-16.010900145678995\n-15.57752511444607\n-15.619931497532518\n-15.686175874064668\n-15.904067155795989\n-15.680877161614413\n-15.66733657188221\n-15.695657273510498\n-15.425087571910067\n-15.684622897501209\n"
+  },
+  {
+    "label": "clads2-panda-grid2-29",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-29.wppl 10",
+    "output": "-19.16487391142892\n-19.058281105252398\n-19.244431158053054\n-18.63252259101581\n-18.79919505042033\n-19.44246497631098\n-18.768966202121653\n-18.885832582174793\n-19.426354389488953\n-18.694846349163043\n"
+  },
+  {
+    "label": "clads2-panda-grid2-30",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-30.wppl 10",
+    "output": "-22.568245267715138\n-22.80876716506158\n-22.633540560651713\n-22.528153044178516\n-22.361769441172534\n-23.1526654458993\n-22.78269513791063\n-22.74897298489048\n-22.9186800876517\n-22.49564663188165\n"
+  },
+  {
+    "label": "clads2-panda-grid2-31",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-31.wppl 10",
+    "output": "-26.482296047334778\n-27.077080936837035\n-26.611449465597197\n-27.621903383589952\n-26.37657452466283\n-25.978747981893108\n-26.380234619023106\n-26.972792810816117\n-26.504526548657047\n-26.503964332228627\n"
+  },
+  {
+    "label": "clads2-panda-grid2-32",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-32.wppl 10",
+    "output": "-30.514474146502998\n-30.765766473060523\n-30.983906859087035\n-31.053013520012975\n-30.48620782857276\n-30.854113869361136\n-31.020836343758788\n-30.64679195714485\n-31.008223850872234\n-31.546710414018634\n"
+  },
+  {
+    "label": "clads2-panda-grid2-33",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-33.wppl 10",
+    "output": "-35.1070172235357\n-35.69303869745849\n-35.15021303514791\n-34.49249687822182\n-34.94806313332186\n-35.33198596476678\n-36.354412815919154\n-35.053831304759484\n-35.12732318836731\n-35.14940731479694\n"
+  },
+  {
+    "label": "clads2-panda-grid2-34",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-34.wppl 10",
+    "output": "-39.22897687093112\n-40.592003483727524\n-39.34530712466728\n-39.92315179154887\n-39.48544110724344\n-38.47438047542681\n-38.99884582455996\n-39.42571654500176\n-39.14071191743035\n-40.58054929232445\n"
+  },
+  {
+    "label": "clads2-panda-grid2-35",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-35.wppl 10",
+    "output": "-44.765626966832194\n-44.76282622538241\n-44.02872493502066\n-44.49260392105415\n-44.75235128103131\n-44.804644817433434\n-44.21282772968244\n-44.69594066054897\n-45.00347010028618\n-43.60545609554243\n"
+  },
+  {
+    "label": "clads2-panda-grid2-36",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-36.wppl 10",
+    "output": "-51.571750998996514\n-49.4675934351558\n-49.171080073868794\n-50.355830234748325\n-49.16053765670704\n-49.613728948928475\n-50.1076785931646\n-49.91685393129188\n-49.553992656077426\n-49.81950598054557\n"
+  },
+  {
+    "label": "clads2-panda-grid2-37",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-37.wppl 10",
+    "output": "-54.19375413128703\n-54.528087542291075\n-55.05839014889464\n-53.88727203014302\n-56.042725229184946\n-53.499991359296835\n-54.579075036789774\n-54.52125356092216\n-53.80803175039922\n-53.8118811676529\n"
+  },
+  {
+    "label": "clads2-panda-grid2-38",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-38.wppl 10",
+    "output": "-58.968483764967665\n-58.66932841053426\n-61.22263133675042\n-60.56865087102551\n-61.790213946233074\n-59.23886188269191\n-59.36987671812339\n-59.30548145893376\n-59.03384217018166\n-61.273974364285095\n"
+  },
+  {
+    "label": "clads2-panda-grid2-39",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-39.wppl 10",
+    "output": "-63.72538650694994\n-66.02087890534676\n-65.03828731744406\n-63.077356747921144\n-65.20965418627283\n-64.367667244216\n-63.704714445986255\n-62.193674646558726\n"
+  },
+  {
+    "label": "clads2-panda-grid2-40",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-40.wppl 10",
+    "output": "-70.2340278344255\n-68.90277925416575\n-69.73042871012474\n-70.48751038317903\n-70.4042084855611\n-72.76625709374657\n-68.77030280163612\n-68.71019925017764\n-72.30316413679259\n-70.44280595544623\n"
+  },
+  {
+    "label": "clads2-panda-grid2-41",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-41.wppl 10",
+    "output": "-30.47726010242618\n-30.529302947393717\n-30.48031912623182\n-30.52912302183873\n-30.498157385759242\n-30.48775513122797\n-30.600458133024937\n-30.50847614653518\n-30.52379529260059\n-30.56694159064792\n"
+  },
+  {
+    "label": "clads2-panda-grid2-42",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-42.wppl 10",
+    "output": "-18.034151174853328\n-18.041199823389537\n-18.1202675737697\n-18.038211915631123\n-18.019274659091742\n-18.1490104521335\n-18.020231978263773\n-18.170712064615564\n-18.077635448154112\n-18.0741217484886\n"
+  },
+  {
+    "label": "clads2-panda-grid2-43",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-43.wppl 10",
+    "output": "-13.535193309004203\n-13.659671808337947\n-13.578049777584013\n-13.64097243175808\n-13.655195652715486\n-13.78600012822605\n-13.629003062028147\n-13.495867434117567\n-13.576158421291195\n-13.597724051051753\n"
+  },
+  {
+    "label": "clads2-panda-grid2-44",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-44.wppl 10",
+    "output": "-12.25767509274661\n-12.207308746818029\n-12.307695562730757\n-12.09689308508419\n-12.291212693977828\n-12.289186244569123\n-12.17045620145813\n-12.332962138915416\n-12.299595878310988\n-12.26271966805748\n"
+  },
+  {
+    "label": "clads2-panda-grid2-45",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-45.wppl 10",
+    "output": "-12.35128793301019\n-12.545202322708192\n-12.081464466053262\n-12.17305426273945\n-12.397983216182459\n-12.270873952179056\n-12.200496056987268\n-12.374140589208977\n-12.262986459575494\n-12.33482558043741\n"
+  },
+  {
+    "label": "clads2-panda-grid2-46",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-46.wppl 10",
+    "output": "-13.508339037002635\n-13.104721574080939\n-13.155698621036443\n-13.239751973154139\n-13.18881834823749\n-13.33423620344806\n-13.433617731779368\n-13.248796827970812\n-13.084954691318561\n-13.336630090097675\n"
+  },
+  {
+    "label": "clads2-panda-grid2-47",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-47.wppl 10",
+    "output": "-14.948771847752823\n-14.83853181630532\n-15.060831477834135\n-14.881060541625919\n-14.955411326186127\n-14.68815752066184\n-14.992343389787273\n-14.634418917985158\n-14.72198513219272\n-14.745178021447856\n"
+  },
+  {
+    "label": "clads2-panda-grid2-48",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-48.wppl 10",
+    "output": "-16.958920308054765\n-17.05420729662059\n-16.826866747317247\n-16.395629364596026\n-17.111833726857938\n-16.40149657127453\n-16.684282897240216\n-16.764346410574014\n-17.002059566776744\n-16.601653650105483\n"
+  },
+  {
+    "label": "clads2-panda-grid2-49",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-49.wppl 10",
+    "output": "-18.934011014792677\n-18.489431462420697\n-19.273215162379167\n-18.99776736758575\n-18.608241052158824\n-18.86646957361979\n-19.117340130692863\n-18.910503582136123\n-18.862914192913188\n-18.55276210699504\n"
+  },
+  {
+    "label": "clads2-panda-grid2-50",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-50.wppl 10",
+    "output": "-21.753146038516192\n-20.934067767349717\n-21.36585407088239\n-21.631024116481058\n-21.722774594125674\n-21.45132931214438\n-20.6682424694258\n-21.66830709664461\n-21.591254552439274\n-21.78367277962292\n"
+  },
+  {
+    "label": "clads2-panda-grid2-51",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-51.wppl 10",
+    "output": "-23.500679459878626\n-23.688882100689348\n-23.709340314009147\n-24.094624678816746\n-23.89259051741856\n-24.277655790395947\n-23.91995488531103\n-23.644907323634786\n-23.70019307123627\n-23.97343893361828\n"
+  },
+  {
+    "label": "clads2-panda-grid2-52",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-52.wppl 10",
+    "output": "-26.486819864684627\n-26.656655626868705\n-26.964723328616472\n-26.49053616771888\n-26.253122914848056\n-26.732451222073294\n-26.651928680721944\n-26.402820200664003\n-26.875329016119984\n-26.20277344368869\n"
+  },
+  {
+    "label": "clads2-panda-grid2-53",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-53.wppl 10",
+    "output": "-28.851108149702455\n-28.801167431213997\n-29.85672306513397\n-29.206441086091075\n-29.155423918423907\n-29.281274056577736\n-28.80972851679433\n-29.213492476846383\n-29.896973346949515\n-28.3163299343989\n"
+  },
+  {
+    "label": "clads2-panda-grid2-54",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-54.wppl 10",
+    "output": "-32.37744504958717\n-31.838839251256516\n-31.606280224679892\n-31.95052346600704\n-31.31670892073192\n-31.363955776341\n-32.454335035653635\n-31.546377930379215\n-33.141026007981246\n-31.88457102523136\n"
+  },
+  {
+    "label": "clads2-panda-grid2-55",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-55.wppl 10",
+    "output": "-34.61585728836636\n-34.503871976049005\n-34.87978604604369\n-35.041371990185496\n-34.52335211315104\n-35.04199131491563\n-35.68504486678337\n-34.59148673347828\n-35.722692984432584\n-35.30891957400401\n"
+  },
+  {
+    "label": "clads2-panda-grid2-56",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-56.wppl 10",
+    "output": "-38.791595669401424\n-37.99354280703713\n-36.7769598443713\n-36.93089610460668\n-37.349483461952374\n-36.847117183074566\n-38.674153636616076\n-37.19142533414917\n-39.27654817008266\n-37.701609102083886\n"
+  },
+  {
+    "label": "clads2-panda-grid2-57",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-57.wppl 10",
+    "output": "-41.23302187335221\n-40.416085576234074\n-40.165221766756694\n-40.74452851821995\n-39.95973455846082\n-41.524586028259016\n-41.264289622838156\n-41.44421005670592\n-39.79681716736974\n-40.55763652858108\n"
+  },
+  {
+    "label": "clads2-panda-grid2-58",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-58.wppl 10",
+    "output": "-44.757413665212994\n-43.65549485533758\n-43.72492033611608\n-44.379768206383105\n-45.025135275084146\n-43.44100247549891\n-45.38651571344159\n-44.18765708484176\n-44.06372950758439\n-45.462030511316144\n"
+  },
+  {
+    "label": "clads2-panda-grid2-59",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-59.wppl 10",
+    "output": "-46.39267421902205\n-46.554451930798955\n-45.92451783913505\n-44.69749449415736\n-47.86768367263964\n-48.0573930027897\n-46.69505631141886\n-47.831505883749415\n-48.17527318620088\n-47.108508633297035\n"
+  },
+  {
+    "label": "clads2-panda-grid2-60",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-60.wppl 10",
+    "output": "-49.27220499361975\n-48.12280744634106\n-50.40694621060274\n-50.124128259112844\n-51.36515518617168\n-51.0308872786244\n-48.96761318148187\n-47.600392681476194\n-50.45616274178147\n-50.08463310366726\n"
+  },
+  {
+    "label": "clads2-panda-grid2-61",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-61.wppl 10",
+    "output": "-32.30763544640289\n-32.34130276275563\n-32.282357928726036\n-32.3681456356874\n-32.29779366490876\n-32.30611179234042\n-32.35226804418366\n-32.359140872213594\n-32.388322128663916\n-32.38394507232179\n"
+  },
+  {
+    "label": "clads2-panda-grid2-62",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-62.wppl 10",
+    "output": "-21.08303521576213\n-21.05924022641331\n-21.060574236739058\n-21.086251859472995\n-21.101001264908838\n-21.205226269955777\n-21.12911297460124\n-21.016070652222588\n-21.095474291538864\n-21.12230733899984\n"
+  },
+  {
+    "label": "clads2-panda-grid2-63",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-63.wppl 10",
+    "output": "-17.448756244560386\n-17.398448581866063\n-17.369393927375157\n-17.361311894205798\n-17.441463166586196\n-17.318298416120463\n-17.431327241004738\n-17.2604524126147\n-17.396244340728487\n-17.544752548404514\n"
+  },
+  {
+    "label": "clads2-panda-grid2-64",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-64.wppl 10",
+    "output": "-16.488747241535627\n-16.219969791187854\n-16.356789528182116\n-16.369855116266283\n-16.460559344123865\n-16.416197933992127\n-16.399310586951017\n-16.267853480241875\n-16.29380000071113\n-16.5194893093689\n"
+  },
+  {
+    "label": "clads2-panda-grid2-65",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-65.wppl 10",
+    "output": "-16.713276682102567\n-16.765674446621503\n-16.57022743023618\n-16.585568885486857\n-16.796479552226288\n-16.7622489638904\n-16.678255172525553\n-16.785469842215228\n-16.52608586764528\n-16.63502809270524\n"
+  },
+  {
+    "label": "clads2-panda-grid2-66",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-66.wppl 10",
+    "output": "-17.287622507710807\n-17.648148478202316\n-17.310543106293444\n-17.701478881728193\n-17.303110064450784\n-17.708827102373213\n-17.706401870686364\n-17.653970378130758\n-17.68641210193058\n-17.419523403975752\n"
+  },
+  {
+    "label": "clads2-panda-grid2-67",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-67.wppl 10",
+    "output": "-19.08204706310829\n-18.698630935879848\n-18.988886389018223\n-18.92194767885234\n-18.974600944486234\n-18.453673421443533\n-18.7314570262632\n-18.849224627418472\n-18.99833709891834\n-18.77368664672273\n"
+  },
+  {
+    "label": "clads2-panda-grid2-68",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-68.wppl 10",
+    "output": "-20.379553309003224\n-20.10312642921486\n-20.19208180635551\n-20.269501318710297\n-20.15219192513932\n-20.13998610611356\n-20.198696389527598\n-20.14984971906088\n-20.421356268115964\n-20.328643718638205\n"
+  },
+  {
+    "label": "clads2-panda-grid2-69",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-69.wppl 10",
+    "output": "-22.12117989604716\n-21.808564903043276\n-21.50531669295014\n-21.76338821433562\n-21.733260978424966\n-21.576389083515217\n-21.402435131784245\n-21.59084746440702\n-21.61083780389942\n-21.94923678384821\n"
+  },
+  {
+    "label": "clads2-panda-grid2-70",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-70.wppl 10",
+    "output": "-23.315580836722035\n-23.374120768009103\n-22.969868351033803\n-22.96723054834583\n-23.56500711612763\n-23.365562658542714\n-23.818160256629582\n-22.864615849057166\n-23.290940767474723\n-23.623781687392402\n"
+  },
+  {
+    "label": "clads2-panda-grid2-71",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-71.wppl 10",
+    "output": "-24.618091523887003\n-24.726236595919126\n-24.35128261053334\n-25.25032078648494\n-25.418865113722624\n-25.065147814109437\n-24.520356285739872\n-25.32293250074173\n-25.07364735295053\n-25.218160709765954\n"
+  },
+  {
+    "label": "clads2-panda-grid2-72",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-72.wppl 10",
+    "output": "-26.618026696062785\n-25.695295764979846\n-26.496581811073007\n-27.14573395459888\n-26.72308239494471\n-26.757203215855327\n-26.5138587552009\n-26.212378553890176\n-26.828928745876112\n-26.3997318865553\n"
+  },
+  {
+    "label": "clads2-panda-grid2-73",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-73.wppl 10",
+    "output": "-27.605873485456463\n-29.00956629480006\n-28.20206102637531\n-28.3683269379747\n-27.743668981305234\n-28.744563182767912\n-28.50141318890776\n-27.9114300859194\n-27.64879646262124\n-27.558461694629045\n"
+  },
+  {
+    "label": "clads2-panda-grid2-74",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-74.wppl 10",
+    "output": "-29.735785642089205\n-28.84644938263154\n-29.337378286809738\n-29.75502415200097\n-30.25243804315369\n-29.1155682712879\n-28.933683812028214\n-29.98539828082758\n-30.13824701933384\n-29.830690244610103\n"
+  },
+  {
+    "label": "clads2-panda-grid2-75",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-75.wppl 10",
+    "output": "-31.519866535532024\n-31.850916483241484\n-30.868215207227678\n-31.358286513560152\n-30.43489721192735\n-31.761036669800177\n-32.74955461389277\n-31.75840715288981\n-32.346905673704015\n-32.135862167256924\n"
+  },
+  {
+    "label": "clads2-panda-grid2-76",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-76.wppl 10",
+    "output": "-32.701195318695035\n-32.42422483146619\n-32.84362173614698\n-32.798805758703146\n-32.7874595284372\n-32.315487422233446\n-33.20358275160562\n-32.76192072917158\n-33.2434223355739\n-33.43601623044478\n"
+  },
+  {
+    "label": "clads2-panda-grid2-77",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-77.wppl 10",
+    "output": "-33.66624636761332\n-34.78254446065654\n-33.38415499535643\n-35.404071270856186\n-31.5587321046699\n-33.66997950530611\n-33.56039048513048\n-34.58214150603276\n-35.05964290664899\n-33.84152434376889\n"
+  },
+  {
+    "label": "clads2-panda-grid2-78",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-78.wppl 10",
+    "output": "-35.90551198473156\n-36.403213822619485\n-35.16918483242367\n-36.93047511359647\n-36.74514196652785\n-35.622425300557715\n-36.05160427870886\n-35.31880676059727\n-34.18756088156685\n-34.9479213251591\n"
+  },
+  {
+    "label": "clads2-panda-grid2-79",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-79.wppl 10",
+    "output": "-37.20341166492413\n-37.30216088202554\n-35.84691004139395\n-37.60341987853299\n-36.926119265867975\n-36.056675159122605\n-37.56145340741254\n-37.45007750890917\n-36.9559199887198\n-37.84201507575047\n"
+  },
+  {
+    "label": "clads2-panda-grid2-80",
+    "description": "Grid computation for the ClaDS2 (Panda) model. Part of verification.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads2-panda-grid2/clads2-panda-grid2-80.wppl 10",
+    "output": "-36.6345430270858\n-39.305929433137415\n-36.940436273559406\n-39.54889176295609\n-39.851224214657066\n-39.238693982705435\n-38.86968746374739\n-38.83305553154148\n-40.67908220740919\n-39.274039323729234\n"
+  }
+]

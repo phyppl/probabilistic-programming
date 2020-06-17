@@ -1,0 +1,173 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 80;
+	TAXLABELS
+		Telophorus_dohertyi
+		Telophorus_zeylonus
+		Rhodophoneus_cruentus
+		Telophorus_nigrifrons
+		Telophorus_bocagei
+		Telophorus_sulfureopectus
+		Laniarius_atrococcineus
+		Laniarius_poensis
+		Laniarius_fuelleborni
+		Laniarius_bicolor
+		Laniarius_aethiopicus
+		Laniarius_ferrugineus
+		Laniarius_turatii
+		Laniarius_funebris
+		Laniarius_ruficeps
+		Laniarius_luehderi
+		Laniarius_atroflavus
+		Laniarius_barbarus
+		Laniarius_erythrogaster
+		Laniarius_mufumbiri
+		Laniarius_leucorhynchus
+		Nilaus_afer
+		Tchagra_senegalus
+		Tchagra_australis
+		Tchagra_minutus
+		Dryoscopus_gambensis
+		Dryoscopus_cubla
+		Malaconotus_alius
+		Malaconotus_blanchoti
+		Philentoma_pyrhoptera
+		Philentoma_velata
+		Cyanolanius_madagascarinus
+		Vanga_curvirostris
+		Pseudobias_wardi
+		Mystacornis_crossleyi
+		Xenopirostris_xenopirostris
+		Artamella_viridis
+		Prionops_scopifrons
+		Prionops_retzii
+		Tephrodornis_gularis
+		Hemipus_hirundinaceus
+		Tephrodornis_pondicerianus
+		Hemipus_picatus
+		Bias_musicus
+		Prionops_plumatus
+		Megabyas_flammulatus
+		Lanioturdus_torquatus
+		Platysteira_concreta
+		Platysteira_blissetti
+		Platysteira_jamesoni
+		Platysteira_chalybea
+		Platysteira_laticincta
+		Platysteira_peltata
+		Platysteira_cyanea
+		Platysteira_albifrons
+		Batis_molitor
+		Batis_soror
+		Batis_pririt
+		Batis_poensis
+		Batis_minor
+		Batis_capensis
+		Batis_diops
+		Batis_mixta
+		Platysteira_tonsa
+		Platysteira_castanea
+		Peltops_blainvillii
+		Artamus_personatus
+		Artamus_superciliosus
+		Artamus_cyanopterus
+		Artamus_leucorynchus
+		Artamus_minor
+		Artamus_cinereus
+		Strepera_graculina
+		Cracticus_nigrogularis
+		Gymnorhina_tibicen
+		Cracticus_quoyi
+		Machaerirhynchus_flaviventer
+		Pityriasis_gymnocephala
+		Rhagologus_leucostigma
+		Aegithina_tiphia
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Telophorus_dohertyi,
+		2	Telophorus_zeylonus,
+		3	Rhodophoneus_cruentus,
+		4	Telophorus_nigrifrons,
+		5	Telophorus_bocagei,
+		6	Telophorus_sulfureopectus,
+		7	Laniarius_atrococcineus,
+		8	Laniarius_poensis,
+		9	Laniarius_fuelleborni,
+		10	Laniarius_bicolor,
+		11	Laniarius_aethiopicus,
+		12	Laniarius_ferrugineus,
+		13	Laniarius_turatii,
+		14	Laniarius_funebris,
+		15	Laniarius_ruficeps,
+		16	Laniarius_luehderi,
+		17	Laniarius_atroflavus,
+		18	Laniarius_barbarus,
+		19	Laniarius_erythrogaster,
+		20	Laniarius_mufumbiri,
+		21	Laniarius_leucorhynchus,
+		22	Nilaus_afer,
+		23	Tchagra_senegalus,
+		24	Tchagra_australis,
+		25	Tchagra_minutus,
+		26	Dryoscopus_gambensis,
+		27	Dryoscopus_cubla,
+		28	Malaconotus_alius,
+		29	Malaconotus_blanchoti,
+		30	Philentoma_pyrhoptera,
+		31	Philentoma_velata,
+		32	Cyanolanius_madagascarinus,
+		33	Vanga_curvirostris,
+		34	Pseudobias_wardi,
+		35	Mystacornis_crossleyi,
+		36	Xenopirostris_xenopirostris,
+		37	Artamella_viridis,
+		38	Prionops_scopifrons,
+		39	Prionops_retzii,
+		40	Tephrodornis_gularis,
+		41	Hemipus_hirundinaceus,
+		42	Tephrodornis_pondicerianus,
+		43	Hemipus_picatus,
+		44	Bias_musicus,
+		45	Prionops_plumatus,
+		46	Megabyas_flammulatus,
+		47	Lanioturdus_torquatus,
+		48	Platysteira_concreta,
+		49	Platysteira_blissetti,
+		50	Platysteira_jamesoni,
+		51	Platysteira_chalybea,
+		52	Platysteira_laticincta,
+		53	Platysteira_peltata,
+		54	Platysteira_cyanea,
+		55	Platysteira_albifrons,
+		56	Batis_molitor,
+		57	Batis_soror,
+		58	Batis_pririt,
+		59	Batis_poensis,
+		60	Batis_minor,
+		61	Batis_capensis,
+		62	Batis_diops,
+		63	Batis_mixta,
+		64	Platysteira_tonsa,
+		65	Platysteira_castanea,
+		66	Peltops_blainvillii,
+		67	Artamus_personatus,
+		68	Artamus_superciliosus,
+		69	Artamus_cyanopterus,
+		70	Artamus_leucorynchus,
+		71	Artamus_minor,
+		72	Artamus_cinereus,
+		73	Strepera_graculina,
+		74	Cracticus_nigrogularis,
+		75	Gymnorhina_tibicen,
+		76	Cracticus_quoyi,
+		77	Machaerirhynchus_flaviventer,
+		78	Pityriasis_gymnocephala,
+		79	Rhagologus_leucostigma,
+		80	Aegithina_tiphia
+	;
+	TREE * UNTITLED = [&R] ((((((((1:13.67446907,2:13.67446907):2.891833799,3:16.56630287):3.329212117,(4:12.91555122,(5:6.717957071,6:6.717957071):6.197594151):6.979963764):1.267111943,(7:13.00558876,((8:5.494439767,9:5.494439767):5.927585045,((((10:5.55322225,((11:0.07251200923,12:0.07251200923):4.403008521,13:4.47552053):1.07770172):1.952804955,14:7.506027205):2.003547982,(15:8.431494695,(16:8.065911426,(17:5.889437963,((18:0.2762294304,19:0.2762294304):4.208339082,20:4.484568513):1.40486945):2.176473463):0.365583269):1.078080492):0.8710835491,21:10.38065874):1.041366075):1.583563949):8.157038169):3.419021694,22:24.58164862):1.579719425,((((23:8.56398348,24:8.56398348):5.653516058,25:14.21749954):6.029687321,(26:7.592284513,27:7.592284513):12.65490235):3.069273865,(28:11.31867567,29:11.31867567):11.99778505):2.844907324):3.415785102,((((30:9.506296068,31:9.506296068):15.01976293,(((32:17.84569453,33:17.84569453):2.512612993,(34:18.37804931,(35:6.452603612,36:6.452603612):11.9254457):1.980258216):1.440131833,37:21.79843936):2.727619642):1.436971379,((38:8.917536571,39:8.917536571):15.92690718,((((40:8.068316196,(41:3.234084303,42:3.234084303):4.834231894):3.920554921,43:11.98887112):10.03087929,44:22.0197504):1.803233589,(45:7.23759178,46:7.23759178):16.58539221):1.021459756):1.118586631):2.511050425,(47:20.69319931,((((48:7.62327427,(49:4.459601848,(50:2.469249483,51:2.469249483):1.990352365):3.163672422):5.404637436,((52:4.931450101,53:4.931450101):5.533387071,(54:5.439236209,55:5.439236209):5.025600963):2.563074534):3.041354183,(((56:7.51271798,(57:3.519977189,58:3.519977189):3.992740791):2.286544107,(59:4.918643725,60:4.918643725):4.880618362):4.444754805,(61:10.62678194,(62:7.110512584,63:7.110512584):3.516269359):3.617234949):1.825248997):0.6815670138,(64:8.085527202,65:8.085527202):8.665305701):3.942366405):7.780881497):1.103072346):1.794250603,((((66:22.11673622,((67:0.8315520192,68:0.8315520192):9.814917411,(((69:5.779583044,70:5.779583044):1.355591086,71:7.13517413):0.7349707257,72:7.870144856):2.776324575):11.47026679):1.880643609,(73:15.46434036,(74:9.723860208,(75:6.298048241,76:6.298048241):3.425811967):5.740480147):8.53303947):3.876464997,77:27.87384482):1.965177751,(78:27.49268669,(79:25.68797234,80:25.68797234):1.804714341):2.346335887):1.532381181);
+END;

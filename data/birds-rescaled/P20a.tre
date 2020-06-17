@@ -1,0 +1,235 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 111;
+	TAXLABELS
+		Spindalis_dominicensis
+		Spindalis_zena
+		Zeledonia_coronata
+		Microligea_palustris
+		Xenoligea_montana
+		Seiurus_motacilla
+		Seiurus_noveboracensis
+		Mniotilta_varia
+		Vermivora_crissalis
+		Vermivora_ruficapilla
+		Vermivora_luciae
+		Vermivora_virginiae
+		Vermivora_celata
+		Vermivora_peregrina
+		Parula_superciliosa
+		Parula_gutturalis
+		Vermivora_chrysoptera
+		Vermivora_pinus
+		Vermivora_bachmanii
+		Leucopeza_semperi
+		Geothlypis_aequinoctialis
+		Geothlypis_poliocephala
+		Oporornis_formosus
+		Geothlypis_semiflava
+		Geothlypis_beldingi
+		Geothlypis_trichas
+		Geothlypis_flavovelata
+		Geothlypis_nelsoni
+		Geothlypis_rostrata
+		Geothlypis_speciosa
+		Oporornis_tolmiei
+		Oporornis_philadelphia
+		Oporornis_agilis
+		Limnothlypis_swainsonii
+		Protonotaria_citrea
+		Basileuterus_belli
+		Basileuterus_melanogenys
+		Basileuterus_rufifrons
+		Euthlypis_lachrymosa
+		Basileuterus_trifasciatus
+		Basileuterus_tristriatus
+		Basileuterus_culicivorus
+		Basileuterus_hypoleucus
+		Cardellina_rubrifrons
+		Ergaticus_ruber
+		Ergaticus_versicolor
+		Wilsonia_pusilla
+		Wilsonia_canadensis
+		Myioborus_torquatus
+		Myioborus_pariae
+		Myioborus_cardonai
+		Myioborus_castaneocapilla
+		Myioborus_brunniceps
+		Myioborus_albifacies
+		Myioborus_melanocephalus
+		Myioborus_ornatus
+		Myioborus_albifrons
+		Myioborus_flavivertex
+		Myioborus_miniatus
+		Myioborus_pictus
+		Basileuterus_nigrocristatus
+		Phaeothlypis_rivularis
+		Phaeothlypis_fulvicauda
+		Basileuterus_signatus
+		Basileuterus_basilicus
+		Basileuterus_luteoviridis
+		Basileuterus_flaveolus
+		Basileuterus_leucoblepharus
+		Basileuterus_leucophrys
+		Basileuterus_fraseri
+		Basileuterus_bivittatus
+		Basileuterus_cinereicollis
+		Basileuterus_conspicillatus
+		Basileuterus_chrysogaster
+		Basileuterus_coronatus
+		Catharopeza_bishopi
+		Wilsonia_citrina
+		Dendroica_cerulea
+		Dendroica_tigrina
+		Dendroica_castanea
+		Dendroica_striata
+		Dendroica_pensylvanica
+		Dendroica_petechia
+		Dendroica_fusca
+		Dendroica_kirtlandii
+		Parula_pitiayumi
+		Parula_americana
+		Dendroica_graciae
+		Dendroica_nigrescens
+		Dendroica_occidentalis
+		Dendroica_townsendi
+		Dendroica_virens
+		Dendroica_chrysoparia
+		Dendroica_adelaidae
+		Dendroica_vitellina
+		Dendroica_discolor
+		Dendroica_palmarum
+		Dendroica_pinus
+		Dendroica_pityophila
+		Dendroica_dominica
+		Dendroica_coronata
+		Dendroica_caerulescens
+		Setophaga_ruticilla
+		Dendroica_magnolia
+		Dendroica_angelae
+		Dendroica_pharetra
+		Dendroica_plumbea
+		Helmitheros_vermivorum
+		Seiurus_aurocapilla
+		Icteria_virens
+		Teretistris_fernandinae
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Spindalis_dominicensis,
+		2	Spindalis_zena,
+		3	Zeledonia_coronata,
+		4	Microligea_palustris,
+		5	Xenoligea_montana,
+		6	Seiurus_motacilla,
+		7	Seiurus_noveboracensis,
+		8	Mniotilta_varia,
+		9	Vermivora_crissalis,
+		10	Vermivora_ruficapilla,
+		11	Vermivora_luciae,
+		12	Vermivora_virginiae,
+		13	Vermivora_celata,
+		14	Vermivora_peregrina,
+		15	Parula_superciliosa,
+		16	Parula_gutturalis,
+		17	Vermivora_chrysoptera,
+		18	Vermivora_pinus,
+		19	Vermivora_bachmanii,
+		20	Leucopeza_semperi,
+		21	Geothlypis_aequinoctialis,
+		22	Geothlypis_poliocephala,
+		23	Oporornis_formosus,
+		24	Geothlypis_semiflava,
+		25	Geothlypis_beldingi,
+		26	Geothlypis_trichas,
+		27	Geothlypis_flavovelata,
+		28	Geothlypis_nelsoni,
+		29	Geothlypis_rostrata,
+		30	Geothlypis_speciosa,
+		31	Oporornis_tolmiei,
+		32	Oporornis_philadelphia,
+		33	Oporornis_agilis,
+		34	Limnothlypis_swainsonii,
+		35	Protonotaria_citrea,
+		36	Basileuterus_belli,
+		37	Basileuterus_melanogenys,
+		38	Basileuterus_rufifrons,
+		39	Euthlypis_lachrymosa,
+		40	Basileuterus_trifasciatus,
+		41	Basileuterus_tristriatus,
+		42	Basileuterus_culicivorus,
+		43	Basileuterus_hypoleucus,
+		44	Cardellina_rubrifrons,
+		45	Ergaticus_ruber,
+		46	Ergaticus_versicolor,
+		47	Wilsonia_pusilla,
+		48	Wilsonia_canadensis,
+		49	Myioborus_torquatus,
+		50	Myioborus_pariae,
+		51	Myioborus_cardonai,
+		52	Myioborus_castaneocapilla,
+		53	Myioborus_brunniceps,
+		54	Myioborus_albifacies,
+		55	Myioborus_melanocephalus,
+		56	Myioborus_ornatus,
+		57	Myioborus_albifrons,
+		58	Myioborus_flavivertex,
+		59	Myioborus_miniatus,
+		60	Myioborus_pictus,
+		61	Basileuterus_nigrocristatus,
+		62	Phaeothlypis_rivularis,
+		63	Phaeothlypis_fulvicauda,
+		64	Basileuterus_signatus,
+		65	Basileuterus_basilicus,
+		66	Basileuterus_luteoviridis,
+		67	Basileuterus_flaveolus,
+		68	Basileuterus_leucoblepharus,
+		69	Basileuterus_leucophrys,
+		70	Basileuterus_fraseri,
+		71	Basileuterus_bivittatus,
+		72	Basileuterus_cinereicollis,
+		73	Basileuterus_conspicillatus,
+		74	Basileuterus_chrysogaster,
+		75	Basileuterus_coronatus,
+		76	Catharopeza_bishopi,
+		77	Wilsonia_citrina,
+		78	Dendroica_cerulea,
+		79	Dendroica_tigrina,
+		80	Dendroica_castanea,
+		81	Dendroica_striata,
+		82	Dendroica_pensylvanica,
+		83	Dendroica_petechia,
+		84	Dendroica_fusca,
+		85	Dendroica_kirtlandii,
+		86	Parula_pitiayumi,
+		87	Parula_americana,
+		88	Dendroica_graciae,
+		89	Dendroica_nigrescens,
+		90	Dendroica_occidentalis,
+		91	Dendroica_townsendi,
+		92	Dendroica_virens,
+		93	Dendroica_chrysoparia,
+		94	Dendroica_adelaidae,
+		95	Dendroica_vitellina,
+		96	Dendroica_discolor,
+		97	Dendroica_palmarum,
+		98	Dendroica_pinus,
+		99	Dendroica_pityophila,
+		100	Dendroica_dominica,
+		101	Dendroica_coronata,
+		102	Dendroica_caerulescens,
+		103	Setophaga_ruticilla,
+		104	Dendroica_magnolia,
+		105	Dendroica_angelae,
+		106	Dendroica_pharetra,
+		107	Dendroica_plumbea,
+		108	Helmitheros_vermivorum,
+		109	Seiurus_aurocapilla,
+		110	Icteria_virens,
+		111	Teretistris_fernandinae
+	;
+	TREE * UNTITLED = [&R] ((((1:4.551097896,2:4.551097896):9.797023271,3:14.34812117):1.922196613,(4:9.826220476,5:9.826220476):6.444097304):0.9596271842,((((((((6:3.588876798,7:3.588876798):3.657369261,8:7.246246059):0.9944040202,((((9:1.092418509,(10:0.912746176,(11:0.6848168805,12:0.6848168805):0.2279292955):0.1796723326):0.3890425097,13:1.481461018):3.080562137,14:4.562023155):0.4956687884,(15:0.4246536141,16:0.4246536141):4.63303833):3.182958136):0.5258567248,(((17:1.402507743,18:1.402507743):3.738331915,19:5.140839658):3.295837935,((20:5.657539185,((((21:4.059602764,22:4.059602764):0.4574794464,23:4.517082211):0.3949081557,((24:2.495873439,(25:0.8950984297,((26:0.3171357079,(27:0.2491308862,28:0.2491308862):0.06800482175):0.2342880327,29:0.5514237406):0.3436746891):1.60077501):0.7240825169,30:3.219955956):1.69203441):0.3569961868,((31:1.247378334,32:1.247378334):2.033102197,33:3.28048053):1.988506023):0.3885526315):2.55858591,(34:7.144238563,35:7.144238563):1.071886532):0.2205524976):0.3298292117):0.2232573893,(((((((36:3.124661695,37:3.124661695):1.732685085,38:4.85734678):1.282179291,39:6.139526071):0.3933599565,((40:2.654212628,41:2.654212628):2.440732169,(42:0.8395927434,43:0.8395927434):4.255352054):1.43794123):0.4238023503,((((44:3.356346536,(45:0.8112534198,46:0.8112534198):2.545093116):1.119833686,47:4.476180222):0.5260510118,48:5.002231234):0.9517144445,((((49:2.94026837,((50:2.476686941,((51:1.134929836,52:1.134929836):0.8193203994,53:1.954250235):0.5224367053):0.2023509894,54:2.67903793):0.2612304402):0.2275241179,(((55:0.3067126682,56:0.3067126682):1.662147502,57:1.96886017):0.9276740204,58:2.89653419):0.2712582979):0.7552271119,59:3.9230196):1.168453465,60:5.091473065):0.862472613):1.0027427):0.7231596833,(((61:5.30324044,(62:2.719597632,63:2.719597632):2.583642807):0.9112983055,(((64:3.09485042,65:3.09485042):1.474335636,66:4.569186056):1.182556729,((67:3.031946595,68:3.031946595):2.330457413,69:5.362404008):0.389338777):0.4627959604):0.8084662346,((70:4.380593312,(71:3.933951115,((72:1.241287535,73:1.241287535):2.324349264,74:3.565636799):0.3683143166):0.4466421967):0.7271257797,75:5.107719092):1.915285888):0.6568430813):0.8061926016,(76:6.914647727,((77:5.615842996,((((78:4.789480747,(79:4.663723915,((((80:2.011126296,81:2.011126296):1.303928503,(82:2.143435508,83:2.143435508):1.171619291):0.3534048189,84:3.668459618):0.7126176384,85:4.381077256):0.2826466586):0.125756832):0.1305725412,(86:0.7596966866,87:0.7596966866):4.160356601):0.1400109873,((((((88:0.6556991355,89:0.6556991355):1.455236196,((90:0.4724646114,91:0.4724646114):0.4385388657,(92:0.4539926442,93:0.4539926442):0.457010833):1.199931855):0.4307530606,94:2.541688392):0.2741127734,(95:1.218585568,96:1.218585568):1.597215598):1.697574807,(97:4.158501604,(((98:2.582577272,99:2.582577272):0.9833134277,100:3.5658907):0.2833985842,101:3.849289284):0.3092123205):0.3548743682):0.2854038748,(102:4.498471916,103:4.498471916):0.3003079316):0.2612844276):0.2609759649,104:5.32104024):0.2948027557):0.428154212,((105:5.212684726,106:5.212684726):0.5030315144,107:5.71571624):0.3282809673):0.8706505191):1.571392936):0.5037235306):0.8449252073,108:9.834689401):0.9378221352,109:10.77251154):5.594100051,(110:15.16774826,111:15.16774826):1.198863327):0.863333377);
+END;

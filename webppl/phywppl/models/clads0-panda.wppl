@@ -1,0 +1,156 @@
+
+/** 
+ * ClaDS0 model from Maliet et al. (2019) with
+ *    random sampling of tips accommodated.
+ *    (panda version)
+ * 
+ * The panda version of the PPL instead of resampling λ₁ and λ₂ from a
+ * log-normal distribution at the end of each branch, reuses the λ
+ * value form the beginning of the branch.
+ * 
+ * Implementation details:
+ *  - assuming unstalked tree
+ *  - no correction for survivorship bias
+ *  - density on unoriented labeled trees
+ *  - aligned inference
+ *  - accommodating random sampling of leaves
+ *
+ * @param tree          The reconstructed phylogenetic tree
+ * @param lambda0       Initial birth (speciation) rate
+ * @param alpha         Direction of change in lambda (λ multiplier) at speciation events
+ * @param sigma         Standard deviation of lambda (in log space)
+ * @param rho           Sampling probability
+ * 
+ * @return [lambda0, alpha, sigma, tree] where tree contains sampled diversification rate parameters
+ *                                       in extended newick format
+ *
+ */
+var simClaDS0_panda = function( tree, lambda0, alpha, sigma, rho )
+{
+    // Simulate process along a branch
+    var simBranch = function( startTime, stopTime, lambda, alpha, sigma, rho )
+    {
+	var t1 = startTime - stopTime
+	// extreme values patch 2/2
+	if ( lambda  > phyjs.MAX_LAMBDA )
+	    return [ 0.0, 0.0, -Infinity ]
+	
+	if ( lambda == 0.0 )
+	{
+	    var t1 = startTime - stopTime
+            return [ lambda, lambda*t1, 0.0 ]
+	}
+	// extreme values patch 2/2
+	
+	// Draw a waiting time until next speciation
+	var t = exponential ( {a: lambda} )
+
+	// Compute current time
+	var currentTime = startTime - t;
+
+	// This is the terminating condition, return ending lambda,
+	// and effective lambda and probability contributions
+	if ( currentTime <= stopTime )
+            return [ lambda, lambda*t1, 0.0 ]
+
+	// We have a speciation event; handle this case
+	// We arbitrarily assume that lambda1 applies to the surviving lineage
+	// that is sampled, and that lambda2 applies to the undetected side lineage.
+	var lambda1 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+	var lambda2 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+	var sideUndetected = clads0GoesUndetected( currentTime, lambda2, alpha, sigma, rho )
+	if ( sideUndetected == false )
+            return [ 0.0, 0.0, -Infinity ]
+
+	// Return probability from recursion plus factor 2 * lambda; factor 2 because we
+	// do not care whether the undetected tree is on the left or right side branch
+	var ret = simBranch( currentTime, stopTime, lambda1, alpha, sigma, rho )
+	return [ ret[0], ret[1] + lambda*t, ret[2] + Math.log( 2.0 ) ]
+    }
+
+
+    // Simulate process along a tree
+    var simTree = function( tree, parent, lambda, alpha, sigma, rho )
+    {
+	if ( parent == null )
+	{
+	    // PANDA
+	    //var lambda1 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+	    //var lambda2 = Math.exp( gaussian( {mu: Math.log( alpha * lambda ), sigma: sigma} ) )
+	    var lambda1 = lambda
+	    var lambda2 = lambda
+
+	    factor( lognormal_logpdf( lambda1, sigma, Math.log( alpha * lambda ) ) )
+	    factor( lognormal_logpdf( lambda2, sigma, Math.log( alpha * lambda ) ) )
+	    // PANDA
+	    
+            // Recursive call under diversification rates
+            var subtree1 = simTree( tree.left,  tree, lambda1, alpha, sigma, rho )
+            var subtree2 = simTree( tree.right, tree, lambda2, alpha, sigma, rho )
+
+            // Return total subtree with diversification info attached as an 'extended newick' character string
+            var nodeInfo = '[&lambda=' + lambda + ']'
+            return '(' + subtree1 + ',' + subtree2 + ')' + nodeInfo
+	}
+
+	// Simulate process along branch leading to node
+	var ret = simBranch( parent.age, tree.age, lambda, alpha, sigma, rho )
+	var lambdaEnd = ret[0]
+
+	// Factor in the accumulated probability weight, plus speciation weight at end of branch if
+	// it is an internal node. For a leaf, we need to consider the sampling probability.
+	var lnEndProb = ( tree.type == 'node' ? Math.log( lambdaEnd ) : Math.log( rho ) )
+	factor( ret[2] + lnEndProb )
+
+	// Collect node info
+	var nodeInfo = '[&lambda=' + ret[0] + ']'
+
+	// Collect branch info
+	var length = parent.age - tree.age
+	var branchInfo = '[&effectiveLambda=' + (ret[1]/length) + ']'
+
+	if ( tree.type == 'node' )
+	{
+	    // PANDA
+            // Get daughter rates and then recurse
+            //var lambda1 = Math.exp( gaussian( {mu: Math.log( alpha * lambdaEnd ), sigma: sigma} ) )
+            //var lambda2 = Math.exp( gaussian( {mu: Math.log( alpha * lambdaEnd ), sigma: sigma} ) )
+	    var lambda1 = lambda
+	    var lambda2 = lambda
+	    
+	    factor( lognormal_logpdf( lambda1, sigma, Math.log( alpha * lambdaEnd ) ) )
+	    factor( lognormal_logpdf( lambda2, sigma, Math.log( alpha * lambdaEnd ) ) )
+	    // PANDA
+
+	    
+            var subtree1 = simTree( tree.left,  tree, lambda1, alpha, sigma, rho )
+            var subtree2 = simTree( tree.right,  tree, lambda2, alpha, sigma, rho )
+
+            // Return total subtree with diversification info attached as an 'extended newick' character string
+            return '(' + subtree1 + ',' + subtree2 + ')' + nodeInfo + ':' + length + branchInfo
+	}
+	else
+	{
+            // Return leaf with diversification info attached as an 'extended newick' character string
+            return tree.index + nodeInfo +  ':' + length + branchInfo
+	}
+    }
+
+
+    // Convert to density on unoriented labeled trees up front
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+    factor( corrFactor )
+    
+    // Simulate conditionally on the tree
+    var tree = simTree( tree, null, lambda0, alpha, sigma, rho )
+    
+    // Return model parameters and tree that contains the lineage-specific parameters of interest
+    return [ lambda0, alpha, sigma, tree ]
+}
+
+
+
+
+
+

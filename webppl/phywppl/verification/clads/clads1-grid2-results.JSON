@@ -1,0 +1,522 @@
+[
+  {
+    "label": "clads1-grid2-1",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-1.wppl 10",
+    "output": "-145.63862562654472\n-145.81986737652636\n-145.81645461402078\n-145.64329737490678\n-145.42780689215923\n-145.85826723003652\n-145.92599802275384\n-145.78118159946462\n-145.53852013056414\n-145.5579531188919\n"
+  },
+  {
+    "label": "clads1-grid2-2",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-2.wppl 10",
+    "output": "-142.93389780155698\n-143.021799178607\n-143.1713847124003\n-142.83257842042389\n-143.04476506340268\n-143.17533789346783\n-142.85514780434076\n-143.1079834402082\n-143.6546459604285\n-143.2572524289697\n"
+  },
+  {
+    "label": "clads1-grid2-3",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-3.wppl 10",
+    "output": "-141.46864165782725\n-141.6180926622401\n-141.5861408290608\n-141.8392341752366\n-141.4978579647181\n-142.06724162174714\n-141.37716611963103\n-142.48748782161564\n-141.78352033821594\n-141.908078908258\n"
+  },
+  {
+    "label": "clads1-grid2-4",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-4.wppl 10",
+    "output": "-141.18809573823933\n-140.88140507773204\n-140.8278947359297\n-141.82831134783848\n-141.67454472133113\n-141.32799223784195\n-141.25712666308004\n-141.25767823283846\n-141.18194780255166\n-141.57779866558243\n"
+  },
+  {
+    "label": "clads1-grid2-5",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-5.wppl 10",
+    "output": "-140.41026057299672\n-140.75386208469612\n-140.90350179962658\n-140.4771183754113\n-140.87972192040192\n-140.77172404102214\n-140.99207167610155\n-140.94107769965746\n-140.8392418236786\n-141.04732113124967\n"
+  },
+  {
+    "label": "clads1-grid2-6",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-6.wppl 10",
+    "output": "-140.87407981619086\n-140.46581623958735\n-140.67784781188817\n-140.41082975861715\n-141.3569935534028\n-141.1044765596368\n-140.74550398137922\n-140.1316188311986\n-140.63667478970547\n-140.98147343249403\n"
+  },
+  {
+    "label": "clads1-grid2-7",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-7.wppl 10",
+    "output": "-140.9925414651971\n-140.5675770265852\n-140.44300270140383\n-140.60673013278972\n-140.82908084155127\n-140.83247916258844\n-141.03890548629627\n-140.31083215601285\n-139.90729255397244\n-140.1603960120647\n"
+  },
+  {
+    "label": "clads1-grid2-8",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-8.wppl 10",
+    "output": "-140.64148345857646\n-140.03622150236066\n-139.6044352371015\n-140.72912136019437\n-140.5314705616914\n-140.42689061603613\n-140.47911840198103\n-140.53724975809973\n-140.55834137222675\n-140.18739622294484\n"
+  },
+  {
+    "label": "clads1-grid2-9",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-9.wppl 10",
+    "output": "-139.60190549935587\n-139.77749768009764\n-139.76427023546395\n-140.74111782142472\n-140.41475434403307\n-140.24468862594637\n-141.01705422864478\n-140.31645720705689\n-140.5155681264494\n-140.7213687278853\n"
+  },
+  {
+    "label": "clads1-grid2-10",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-10.wppl 10",
+    "output": "-140.62075453597345\n-140.46477591112344\n-139.9163746917042\n-140.6298090306152\n-140.31216381386108\n-140.04905753355771\n-140.03504306056772\n-140.44468378672545\n-139.64209673129415\n-141.00612902727823\n"
+  },
+  {
+    "label": "clads1-grid2-11",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-11.wppl 10",
+    "output": "-140.66310949868628\n-139.77672153230384\n-140.62304573088025\n-140.50870535411835\n-141.22474219437686\n-140.48485891578667\n-140.41437529859326\n-140.9593639236409\n-140.85641030140732\n-140.90689904751952\n"
+  },
+  {
+    "label": "clads1-grid2-12",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-12.wppl 10",
+    "output": "-140.17317839756203\n-140.37475276615345\n-140.3661554180752\n-139.98658730006275\n-140.84192407441964\n-140.59353074062437\n-140.91391680291434\n-140.11660441562384\n-140.19339146136198\n-140.50888300328666\n"
+  },
+  {
+    "label": "clads1-grid2-13",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-13.wppl 10",
+    "output": "-140.49241541901594\n-140.27980100019653\n-140.682085284781\n-140.11680194127322\n-140.30499365310956\n-140.89868248241592\n-140.4476556776505\n-140.84438151202886\n-140.7273287159356\n-140.3045488535573\n"
+  },
+  {
+    "label": "clads1-grid2-14",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-14.wppl 10",
+    "output": "-141.0972965639692\n-140.39352329083192\n-141.05861774375776\n-140.5862403234973\n-140.75930786659046\n-140.9474375189826\n-140.99581987481938\n-140.93200381824315\n-140.95881725093025\n-139.9405309590614\n"
+  },
+  {
+    "label": "clads1-grid2-15",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-15.wppl 10",
+    "output": "-139.7357262957373\n-140.61117339604635\n-140.42760045670218\n-141.30607029743464\n-140.66254142190056\n-140.56685653447582\n-141.65092207335476\n-140.79882250712842\n-142.17081319012613\n-141.11416128777344\n"
+  },
+  {
+    "label": "clads1-grid2-16",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-16.wppl 10",
+    "output": "-139.31628014604044\n-140.4857593131819\n-140.8069388887945\n-140.7685160768193\n-141.2963824648078\n-140.61720455179497\n-141.03518328494917\n-141.08766694791336\n-141.55212513814587\n-140.61855158967518\n"
+  },
+  {
+    "label": "clads1-grid2-17",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-17.wppl 10",
+    "output": "-140.8389403016301\n-141.4051101347664\n-140.17947869816948\n-140.57266638307868\n-141.4224559466892\n-140.67780589353683\n-140.86204109609764\n-141.59911892425615\n-140.70598060431232\n-140.7859855631037\n"
+  },
+  {
+    "label": "clads1-grid2-18",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-18.wppl 10",
+    "output": "-140.49519034291046\n-141.56112489249296\n-141.23835623429105\n-141.0851443799838\n-141.54862836256868\n-141.6851023109461\n-141.11416571991765\n-141.37479142678745\n-142.3044625366755\n-141.48720402022826\n"
+  },
+  {
+    "label": "clads1-grid2-19",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-19.wppl 10",
+    "output": "-141.4496294532844\n-140.434730633871\n-140.66055487047785\n-140.3111703208211\n-141.20832530239792\n-140.5357993087035\n-141.65606167262584\n-140.1408527360269\n-140.52992832409996\n-140.99886913937772\n"
+  },
+  {
+    "label": "clads1-grid2-20",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. No survivorship bias correction. All parameters except for λ have been integrated out.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "epsilon": "uniform({a: 0, b: 1})",
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar epsilon = uniform({a: 0, b: 1})\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-grid2/clads1-grid2-20.wppl 10",
+    "output": "-141.77922095049692\n-140.75629547836255\n-141.14897518448765\n-141.03743491286167\n-141.66784616520752\n-141.7728255449718\n-141.31297989034596\n-141.31152236409264\n-140.6766749179508\n-141.14223486755222\n"
+  }
+]

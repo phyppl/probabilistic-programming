@@ -1,0 +1,192 @@
+/** 
+ * M Iterations to Survive
+ *  
+ * Computes M, the number of simulations needed to generate a lineage surviving
+ * to the present.
+ *
+ * @param startTime
+ * @param lambda
+ * @param mu
+ * @param rho
+ * @param max_M (integer) A guard against very deep recursions.
+ *
+ * @return M
+ */
+var M_crbdGoesUndetected = function( startTime, lambda, mu, rho, max_M )
+{
+    if ( max_M == 0 ) return NaN
+    // We need to survive twice
+    // !crbdGoesUndetected( startTime, lambda, mu, rho ) is the probability of being
+    // detected/surviving to present
+    if (!crbdGoesUndetected( startTime, lambda, mu, rho ) &&
+	!crbdGoesUndetected( startTime, lambda, mu, rho )) return 1
+    else return(1 + M_crbdGoesUndetected( startTime, lambda, mu, rho, max_M - 1 ))
+}
+
+
+/**
+ * Forward simulation from startTime to the present under CRBD
+ *
+ * Computes whether, under the CRBD model, an evolutionary lineage
+ * goes undetected, i.e. goes extinct or does not go extinct, but it 
+ * is not sampled under the random sampling procedure with probability ρ. 
+ * 
+ * @param startTime
+ * @param lambda
+ * @param mu
+ * @param rho
+ * 
+ * @return It returns probabilities of [extinction or not being detected (true)]
+ * or [survival and being detected (false)]
+ */
+var crbdGoesUndetected = function( startTime, lambda, mu, rho )
+{
+    // extreme values patch 1/2
+    if ( lambda - mu > MAX_DIV ) {
+	//console.log( "div: ", (lambda - mu) )
+	return false
+    }
+
+    if ( lambda == 0.0 )
+    {
+	if ( flip( rho ) )
+	    return false
+        else
+            return true
+    }
+    // end extreme values patch 1/2
+    
+    var t = exponential( {a: lambda + mu} );
+    
+    var currentTime = startTime - t;
+
+    if ( currentTime < 0 ) {
+	if ( flip(rho) ) return false
+        else return true
+    }
+    
+    var speciation = flip( lambda/(lambda+mu) )
+    if ( !speciation )
+        return true;
+    
+    return( crbdGoesUndetected( currentTime, lambda, mu, rho ) && crbdGoesUndetected( currentTime, lambda, mu, rho ) );
+}
+
+
+/**
+ * Simulate constant rate birth-death (CRBD) model
+ * 
+ * Simulates a particle under the CRBD model and weighs the simulation according
+ * to the probability endorsed by the input parameters. Since this is a probabil-
+ * istic simulation, even with the same input parameters the weight may vary.
+ *
+ * @param tree
+ * @param lambda
+ * @param mu
+ * @param rho
+ *
+ * @return Returns [lambda, mu] but technically no need to do so.
+ */
+var simCRBD = function( tree, lambda, mu, rho )
+{
+    
+    // Simulate process along a branch
+    // This function simulates speciation events on a branch
+    // that is known to survive through the timeperiod and
+    // computes the ln probability of the simulation.
+    var simBranch = function( startTime, stopTime, lambda, mu, rho )
+    {
+	// extreme values patch 2/2
+	if ( lambda  > MAX_LAMBDA )
+	{
+	    //console.log( "lambda: ", lambda )
+	    return -Infinity
+	}
+	
+	if ( lambda == 0.0 )
+	{
+	    var t1 = startTime - stopTime
+            return 0.0
+	}
+	// extreme values patch 2/2
+	// Draw a waiting time until next speciation
+	var t = exponential ( {a: lambda} );
+
+	// Compute current time
+	var currentTime = startTime - t;
+
+	// If we pass the tip, we return
+	// This is the terminating condition, no probability accumulated yet
+	if ( currentTime <= stopTime )
+            return 0.0;
+	
+	// We need a speciation followed by one extinction and
+	// one survival (the branch we are on). We account for
+	// this with one simulation that is conditioned on
+	// extinction, for the side branch, and a factor of 2
+	// to account for the two possible rotations of lineages
+	// after the speciation event, that is, we do not care
+	// whether we survive on the left or the right branch,
+	// as long as the other branch dies out.
+	var sideDetection = crbdGoesUndetected( currentTime, lambda, mu, rho )
+	if ( sideDetection == false )
+            return ( -Infinity )
+
+	return simBranch( currentTime, stopTime, lambda, mu, rho ) + Math.log( 2.0 );
+    }
+    
+
+    
+    // Simulate process along tree
+    var simTree = function( tree, parent, lambda, mu, rho)
+    {
+	// Factor in the probability of no extinction
+	// along the branch leading to the node
+	var lnProb1 = - mu * ( parent.age - tree.age );
+
+	// If this is an interior node, we also need to weight
+	// according to the speciation probability
+	// at the end of the branch because we need to
+	// draw exactly the waiting time until the end
+	// of the branch. Note that this effect does
+	// not occur if the branch is terminal
+	var lnProb2 = ( tree.type == 'node' ? Math.log( lambda ) : Math.log(rho) );
+
+	// Now simulate the hidden speciation events along
+	// the branch using a recursive function, accumulating ln probs
+	var lnProb3 = simBranch( parent.age, tree.age, lambda, mu, rho);
+
+	// Now is the time to reweight
+	factor( lnProb1 + lnProb2 + lnProb3 )
+
+	// Finally, if this is an interior node, recurse over
+	// the two descendant subtrees
+	if ( tree.type == 'node')
+	{
+            // Now recurse over the left and right descendants
+            simTree( tree.left,  tree, lambda, mu, rho)
+            simTree( tree.right, tree, lambda, mu, rho)
+	}
+    }
+
+
+    // Convert to density on labelled unoriented trees up front
+    // to make sure the normalization constant is correct
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+    factor( corrFactor )
+
+    // Simulate conditionally on the tree
+    // If clause is needed to exclude stalked tree
+    simTree( tree.left,  tree, lambda, mu, rho )
+    simTree( tree.right, tree, lambda, mu, rho )
+
+    // Technically we don't need to return anything as only the weight has been changed.
+    return [ lambda, mu ];
+}
+
+
+
+
+
+

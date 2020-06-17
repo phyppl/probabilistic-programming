@@ -1,0 +1,29 @@
+{
+    "label" : "crbd-analytical",
+    
+    "description" : "Alignment test. Three trees of different sizes. Fixed priors. Compute the normalizing constant analytically.",
+    
+    "hyper_parameters" : {
+	"particles" : 1000,
+	
+	"tree"     : [
+	    "phyjs.read_phyjson('../../data/bisse_32.phyjson')",
+	    "phyjs.read_phyjson('../../data/cetaceans_87.phyjson')",
+	    "phyjs.read_phyjson('../../data/primates_233.phyjson')"
+	]
+    },
+    
+    "parameters" : {
+	"lambda"   : 0.2,
+	"epsilon"  : 0.5,
+	"rho"      : 1  
+    },
+    
+    "model" : "\n\tvar mu = epsilon*lambda\n\treturn(exactCRBDLikelihood( tree, lambda, mu, rho ))",
+    
+    "inference" : {
+	"method" : false,
+	"likelihood": true
+    }
+}
+

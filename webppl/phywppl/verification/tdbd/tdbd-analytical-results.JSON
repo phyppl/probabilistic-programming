@@ -1,0 +1,947 @@
+[
+  {
+    "label": "tdbd-analytical-1",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-1.wppl 1",
+    "output": "-162.70973663244263\n"
+  },
+  {
+    "label": "tdbd-analytical-2",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-2.wppl 1",
+    "output": "-163.10592911256518\n"
+  },
+  {
+    "label": "tdbd-analytical-3",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-3.wppl 1",
+    "output": "-164.73981258639193\n"
+  },
+  {
+    "label": "tdbd-analytical-4",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-4.wppl 1",
+    "output": "-141.93954194012844\n"
+  },
+  {
+    "label": "tdbd-analytical-5",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-5.wppl 1",
+    "output": "-142.32570921971853\n"
+  },
+  {
+    "label": "tdbd-analytical-6",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-6.wppl 1",
+    "output": "-144.4092353081599\n"
+  },
+  {
+    "label": "tdbd-analytical-7",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-7.wppl 1",
+    "output": "-148.47896669740214\n"
+  },
+  {
+    "label": "tdbd-analytical-8",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-8.wppl 1",
+    "output": "-146.156795925379\n"
+  },
+  {
+    "label": "tdbd-analytical-9",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-9.wppl 1",
+    "output": "-139.67537911563818\n"
+  },
+  {
+    "label": "tdbd-analytical-10",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-10.wppl 1",
+    "output": "-152.05745102582003\n"
+  },
+  {
+    "label": "tdbd-analytical-11",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-11.wppl 1",
+    "output": "-152.55894557763298\n"
+  },
+  {
+    "label": "tdbd-analytical-12",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-12.wppl 1",
+    "output": "-154.67887930423802\n"
+  },
+  {
+    "label": "tdbd-analytical-13",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-13.wppl 1",
+    "output": "-137.45038512026053\n"
+  },
+  {
+    "label": "tdbd-analytical-14",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-14.wppl 1",
+    "output": "-137.571474684502\n"
+  },
+  {
+    "label": "tdbd-analytical-15",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-15.wppl 1",
+    "output": "-139.0928850758728\n"
+  },
+  {
+    "label": "tdbd-analytical-16",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-16.wppl 1",
+    "output": "-165.56076063117575\n"
+  },
+  {
+    "label": "tdbd-analytical-17",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-17.wppl 1",
+    "output": "-160.79740932328212\n"
+  },
+  {
+    "label": "tdbd-analytical-18",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-18.wppl 1",
+    "output": "-145.73326834791868\n"
+  },
+  {
+    "label": "tdbd-analytical-19",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-19.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-20",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-20.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-21",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-21.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-22",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-22.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-23",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-23.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-24",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-24.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-25",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-25.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-26",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-26.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-27",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-27.wppl 1",
+    "output": "NaN\n"
+  },
+  {
+    "label": "tdbd-analytical-28",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-28.wppl 1",
+    "output": "-137.86738852268934\n"
+  },
+  {
+    "label": "tdbd-analytical-29",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-29.wppl 1",
+    "output": "-138.34869571064436\n"
+  },
+  {
+    "label": "tdbd-analytical-30",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-30.wppl 1",
+    "output": "-140.93344237837434\n"
+  },
+  {
+    "label": "tdbd-analytical-31",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-31.wppl 1",
+    "output": "-149.81559761086848\n"
+  },
+  {
+    "label": "tdbd-analytical-32",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-32.wppl 1",
+    "output": "-147.44946986635532\n"
+  },
+  {
+    "label": "tdbd-analytical-33",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-33.wppl 1",
+    "output": "-141.2643366836403\n"
+  },
+  {
+    "label": "tdbd-analytical-34",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-34.wppl 1",
+    "output": "-270.86943559986884\n"
+  },
+  {
+    "label": "tdbd-analytical-35",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-35.wppl 1",
+    "output": "-253.99385579792613\n"
+  },
+  {
+    "label": "tdbd-analytical-36",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-36.wppl 1",
+    "output": "-193.01030306806754\n"
+  },
+  {
+    "label": "tdbd-analytical-37",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-37.wppl 1",
+    "output": "-137.98700387493972\n"
+  },
+  {
+    "label": "tdbd-analytical-38",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-38.wppl 1",
+    "output": "-137.9389981354463\n"
+  },
+  {
+    "label": "tdbd-analytical-39",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-39.wppl 1",
+    "output": "-139.2266507928685\n"
+  },
+  {
+    "label": "tdbd-analytical-40",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-40.wppl 1",
+    "output": "-177.6421436676196\n"
+  },
+  {
+    "label": "tdbd-analytical-41",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-41.wppl 1",
+    "output": "-171.80547948827\n"
+  },
+  {
+    "label": "tdbd-analytical-42",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-42.wppl 1",
+    "output": "-153.36238765211357\n"
+  },
+  {
+    "label": "tdbd-analytical-43",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-43.wppl 1",
+    "output": "-395.67023912237266\n"
+  },
+  {
+    "label": "tdbd-analytical-44",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-44.wppl 1",
+    "output": "-365.3443979081733\n"
+  },
+  {
+    "label": "tdbd-analytical-45",
+    "description": "Grid 1 (birch). TDBD model with decaying λ and μ (analytical solution).",
+    "hyper_parameters": {
+      "particles": 5000
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)",
+    "inference": {
+      "method": false
+    },
+    "ppl": "var particles = 5000\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu_0 = lambda_0 * epsilon\n\tvar ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )\n\treturn (ret)\n}\nmodel()",
+    "command": "npm run wppl verification/tdbd/tdbd-analytical/tdbd-analytical-45.wppl 1",
+    "output": "-251.81254605772997\n"
+  }
+]

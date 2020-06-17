@@ -1,0 +1,1217 @@
+[
+  {
+    "label": "tdbd-1",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-1.wppl 10",
+    "output": "-162.70672358314317\n-162.68467780133943\n-162.6867658020201\n-162.74516118936424\n-162.7234709347259\n-162.64172251457433\n-162.69307753826715\n-162.72509182387913\n-162.7629769948751\n-162.7460581830685\n"
+  },
+  {
+    "label": "tdbd-2",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-2.wppl 10",
+    "output": "-163.12428047170505\n-163.14582366777117\n-163.12524796287116\n-163.1362532042444\n-163.1116202421202\n-163.0819653155983\n-163.08035745904127\n-163.12539713932475\n-163.13941335733503\n-163.14187586388806\n"
+  },
+  {
+    "label": "tdbd-3",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-3.wppl 10",
+    "output": "-164.7021510271056\n-164.68619579725447\n-164.67560705908355\n-164.735927122656\n-164.76582410277007\n-164.72714070183935\n-164.73580819303493\n-164.74442854298894\n-164.7492390950434\n-164.83028173190607\n"
+  },
+  {
+    "label": "tdbd-4",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-4.wppl 10",
+    "output": "-141.7268358412015\n-141.78910249327777\n-141.97600789236674\n-141.83953858572912\n-141.90594456255383\n-142.0009644123769\n-141.92113462287253\n-142.0007426046037\n-141.98420803616838\n-141.88483449090123\n"
+  },
+  {
+    "label": "tdbd-5",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-5.wppl 10",
+    "output": "-142.2919291081209\n-142.33921131432498\n-142.35454405788153\n-142.35512151912317\n-142.3930360075114\n-142.33492548698578\n-142.35630625073338\n-142.46294943575154\n-142.34822155217245\n-142.32807773732148\n"
+  },
+  {
+    "label": "tdbd-6",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-6.wppl 10",
+    "output": "-144.40687437767062\n-144.38713774750076\n-144.48395034674022\n-144.22244338739011\n-144.50810341813235\n-144.4816779683872\n-144.4919713824726\n-144.49898618066973\n-144.278105098731\n-144.35238351432875\n"
+  },
+  {
+    "label": "tdbd-7",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-7.wppl 10",
+    "output": "-148.4236496282114\n-148.7493240911238\n-148.44061432123408\n-148.2611599469201\n-148.4216702999594\n-148.5749394452117\n-148.3876515774497\n-148.90982110818075\n-148.91573224542344\n-148.34730418410078\n"
+  },
+  {
+    "label": "tdbd-8",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-8.wppl 10",
+    "output": "-145.95865769776768\n-146.31975859174378\n-145.444780223642\n-146.27265246327806\n-146.5258545922523\n-145.85055162385325\n-146.2651040014222\n-146.44235349211087\n-146.0450438071956\n-146.1880091977954\n"
+  },
+  {
+    "label": "tdbd-9",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-9.wppl 10",
+    "output": "-139.769715843724\n-139.5140127097074\n-140.2935565160332\n-139.5005213368794\n-139.77888035569052\n-139.4527263491372\n-140.16746870763805\n-139.52535196257298\n-139.67438896470972\n-139.77405735346122\n"
+  },
+  {
+    "label": "tdbd-10",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-10.wppl 10",
+    "output": "-152.07104349846747\n-152.04008103239042\n-152.03691643972255\n-152.00916978481322\n-152.02937110565014\n-152.0955134704972\n-152.03348907471383\n-152.09301373821955\n-152.0339402374251\n-152.08844249370657\n"
+  },
+  {
+    "label": "tdbd-11",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-11.wppl 10",
+    "output": "-152.60541245479158\n-152.56714300834102\n-152.51237991660668\n-152.49189253766298\n-152.5268762938258\n-152.5674650781825\n-152.594175075688\n-152.6527650663916\n-152.6105827118807\n-152.53376897682153\n"
+  },
+  {
+    "label": "tdbd-12",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-12.wppl 10",
+    "output": "-154.6919108398093\n-154.6843316014932\n-154.66649519200215\n-154.6681337683987\n-154.68197474450568\n-154.70348032635644\n-154.6766489192237\n-154.60351912562513\n-154.63273071715255\n-154.729835472981\n"
+  },
+  {
+    "label": "tdbd-13",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-13.wppl 10",
+    "output": "-137.67630730207313\n-137.4895754709485\n-137.50443747521825\n-137.38778126329998\n-137.4316145638218\n-137.45948609461502\n-137.46998943889764\n-137.35805647282095\n-137.54520050677883\n-137.28263460053083\n"
+  },
+  {
+    "label": "tdbd-14",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-14.wppl 10",
+    "output": "-137.61327520845094\n-137.52414002237748\n-137.5496270876108\n-137.55527007247616\n-137.50884382129144\n-137.5955904385961\n-137.60382588555464\n-137.52192406336425\n-137.6460243477328\n-137.6641607819768\n"
+  },
+  {
+    "label": "tdbd-15",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-15.wppl 10",
+    "output": "-139.02868817651458\n-139.24166106474027\n-139.13595397422475\n-139.2971524705503\n-139.15731130805952\n-139.1319414658987\n-139.04404659856752\n-139.12578483419398\n-139.0293215864237\n-139.07772676487545\n"
+  },
+  {
+    "label": "tdbd-16",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-16.wppl 10",
+    "output": "-165.5604389365936\n-165.7726142377053\n-166.38247838650764\n-165.58090547340444\n-166.6552807438734\n-165.01877933912328\n-166.4540728259987\n-166.3962244079409\n-165.9077654997707\n-165.65337514914083\n"
+  },
+  {
+    "label": "tdbd-17",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-17.wppl 10",
+    "output": "-160.39612818920546\n-160.3465454115242\n-161.1796875978323\n-161.20453721918062\n-160.66275394107032\n-162.07647922256632\n-161.06099939292662\n-160.99838016019046\n-160.93117036666038\n-160.69814186477598\n"
+  },
+  {
+    "label": "tdbd-18",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.05,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-18.wppl 10",
+    "output": "-145.1105249218392\n-145.2792526264496\n-145.6842413538642\n-146.51633237391417\n-146.92040090446224\n-146.47064581881898\n-145.72143033859015\n-145.75752019854448\n-146.20900954842378\n-145.80363030844535\n"
+  },
+  {
+    "label": "tdbd-19",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-19.wppl 10",
+    "output": "-143.36749189533427\n-143.30373873726765\n-143.30631327494874\n-143.40680724951127\n-143.37419140159824\n-143.30635087015702\n-143.43552375040647\n-143.31953429640689\n-143.33597108134276\n-143.3049968064184\n"
+  },
+  {
+    "label": "tdbd-20",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-20.wppl 10",
+    "output": "-143.9114159761474\n-143.94542819862812\n-143.89144361529026\n-143.90996264814413\n-143.92406482252073\n-143.95061640444985\n-143.92217173070355\n-143.92660165202875\n-143.91390681981065\n-143.82279835406834\n"
+  },
+  {
+    "label": "tdbd-21",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-21.wppl 10",
+    "output": "-146.42550466066245\n-146.44317378098174\n-146.46163080901292\n-146.5184633426692\n-146.47239960058585\n-146.42408144252212\n-146.48305889732092\n-146.48777203286772\n-146.55666591173122\n-146.52228309474665\n"
+  },
+  {
+    "label": "tdbd-22",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-22.wppl 10",
+    "output": "-138.51996880372596\n-138.7363529877025\n-138.8398017398592\n-138.66923000653387\n-138.39665637024152\n-138.7712799382808\n-138.77626057262094\n-138.6158646819515\n-139.0192179551448\n-138.6753792905913\n"
+  },
+  {
+    "label": "tdbd-23",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-23.wppl 10",
+    "output": "-137.97294943188365\n-138.10526732437475\n-138.14229807513834\n-138.11074882274613\n-138.40755018139805\n-138.04395887218297\n-138.05926131485018\n-138.38101879372124\n-138.05276529014435\n-137.91719053962146\n"
+  },
+  {
+    "label": "tdbd-24",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-24.wppl 10",
+    "output": "-137.61850921707193\n-137.30860356836925\n-137.30068064022632\n-137.68373301451\n-137.42948057766878\n-137.72983191539478\n-137.38596151543007\n-137.55135181338326\n-137.61024296608915\n-137.2161862783303\n"
+  },
+  {
+    "label": "tdbd-25",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-25.wppl 10",
+    "output": "-201.68080663481098\n-199.29383434787565\n"
+  },
+  {
+    "label": "tdbd-26",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-26.wppl 10",
+    "output": "-195.06281923546757\n-191.93608271515345\n-195.44851685222588\n-192.35714836711693\n-194.87510181968915\n-195.16749692633576\n-191.0511566216625\n-191.964814562946\n-191.77275654370027\n"
+  },
+  {
+    "label": "tdbd-27",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-27.wppl 10",
+    "output": "-162.55517242578784\n-162.49047061286606\n-161.71910472084446\n-162.38488898064156\n-162.40371478090364\n-160.79595855225628\n-161.49183306923985\n-161.29066450214825\n-162.34785971687887\n-163.63663647545425\n"
+  },
+  {
+    "label": "tdbd-28",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-28.wppl 10",
+    "output": "-137.75360893442488\n-137.77270262254928\n-137.91478775892818\n-137.9511919990933\n-137.84244856852715\n-137.8771076728716\n-137.91162018976007\n-137.80597514165092\n-137.79575365166482\n-137.9064862877391\n"
+  },
+  {
+    "label": "tdbd-29",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-29.wppl 10",
+    "output": "-138.25960190149388\n-138.17765566199787\n-138.28196460841286\n-138.29494160842708\n-138.3385708815988\n-138.51140407197124\n-138.33264228969776\n-138.37167463970937\n-138.39154921606988\n-138.1730126085562\n"
+  },
+  {
+    "label": "tdbd-30",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-30.wppl 10",
+    "output": "-140.83672703582974\n-140.8316715681076\n-140.99130900744967\n-140.983018349734\n-140.91663480911132\n-140.91063636272045\n-141.01889012934095\n-141.00577544228872\n-141.00950287405166\n-140.9135789496063\n"
+  },
+  {
+    "label": "tdbd-31",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-31.wppl 10",
+    "output": "-150.35621448321402\n-149.94939304416164\n-149.53620373615914\n-149.4880899185603\n-150.23129845052293\n-149.7202298823277\n-149.6404136742607\n-149.99930961762547\n-150.21306932927345\n-149.83554748542062\n"
+  },
+  {
+    "label": "tdbd-32",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-32.wppl 10",
+    "output": "-147.57849244846224\n-147.43811676035233\n-147.46141614556979\n-147.4647756382331\n-148.0925099430172\n-147.75343409978842\n-147.4098120146044\n-147.6258029814794\n-147.3224781587155\n-147.62417246275277\n"
+  },
+  {
+    "label": "tdbd-33",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-33.wppl 10",
+    "output": "-141.0553486614511\n-141.6771320393515\n-141.42255096590307\n-141.0576320815695\n-141.1387077169093\n-141.27592427129136\n-141.0422646183278\n-140.91675246518082\n-141.55077014033162\n-141.3700095766665\n"
+  },
+  {
+    "label": "tdbd-34",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-34.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-35",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-35.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-36",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.05,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.05\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-36.wppl 10",
+    "output": "-201.19202755740676\n-194.230569525068\n-194.76652302840608\n-198.54913551957756\n-196.49230648179832\n-203.7134363551169\n-190.52424367474276\n-195.99152767358444\n-193.32110779664546\n"
+  },
+  {
+    "label": "tdbd-37",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-37.wppl 10",
+    "output": "-137.96170576124803\n-137.95450725723154\n-138.046908966862\n-138.10885633168783\n-137.832036415629\n-137.9632031288622\n-137.96008415949345\n-138.18518878952761\n-137.90957694990922\n-138.05790073031912\n"
+  },
+  {
+    "label": "tdbd-38",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-38.wppl 10",
+    "output": "-137.92931707988117\n-138.15295951352815\n-138.1077919792627\n-138.12134633589426\n-137.93807225393658\n-137.90634249310534\n-137.86406625168277\n-138.09243237716876\n-137.9009000085636\n-138.0802736843614\n"
+  },
+  {
+    "label": "tdbd-39",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-39.wppl 10",
+    "output": "-139.26263255652532\n-139.05161048132896\n-139.13329468566081\n-139.13354318683974\n-139.31054492232445\n-139.1949595046992\n-139.35685422922572\n-139.25509103763207\n-139.21981857458604\n-139.22950947570908\n"
+  },
+  {
+    "label": "tdbd-40",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-40.wppl 10",
+    "output": "-178.6409599534768\n-177.65550644679604\n-177.70813126061844\n-177.26176614296108\n-178.33208687881694\n-177.6207620715534\n-177.91908601343334\n-177.41259262939536\n-177.8058935508624\n-178.82313820092435\n"
+  },
+  {
+    "label": "tdbd-41",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-41.wppl 10",
+    "output": "-171.7034745194964\n-172.24208398277244\n-171.80152169411818\n-171.0589518064065\n-171.2615899958606\n-172.28489917146405\n-171.38354460268874\n-172.3431297286843\n-171.09108057821555\n-172.5052854488472\n"
+  },
+  {
+    "label": "tdbd-42",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-42.wppl 10",
+    "output": "-153.03113868094604\n-153.21320900864765\n-154.01090274162425\n-154.4319355991322\n-153.05111360582592\n-153.97262405404808\n-153.19194139409268\n-153.0099138547085\n-155.2376181537428\n-153.65389601240437\n"
+  },
+  {
+    "label": "tdbd-43",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-43.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-44",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-44.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-45",
+    "description": "TDBD Model with Decaying λ and μ.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 5,
+      "MAX_LAMBDA": 5,
+      "MIN_LAMBDA": 0.000001
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 1
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 5\n\tvar MAX_LAMBDA = 5\n\tvar MIN_LAMBDA = 0.000001\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 1\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd/tdbd-45.wppl 10",
+    "output": ""
+  }
+]

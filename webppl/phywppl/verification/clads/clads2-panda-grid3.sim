@@ -1,0 +1,29 @@
+{
+    "label" : "clads2-panda-grid3",
+
+    "description" : "To get a better resolution between 0 and 1 for comparisons with CRBD",
+    
+     "hyper_parameters" : {
+    	"tree"     : "phyjs.bisse_32" ,
+	"particles" : 1000,
+	"MAX_LAMBDA" : 5,
+	"MAX_DIV" : 5,
+	"MIN_LAMBDA" : 1e-5,
+	"PANDA" : true
+    },
+
+    "parameters" : {
+	"sigma"    :  0.05,	
+	"alpha"    :  1,
+	"epsilon"  :  [ 0, 0.1, 0.5, 0.9 ],
+	"lambda"   :  [0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.09,0.10 ],
+	"rho"      :    1 
+    },
+    
+    "model" : "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS2( tree, lambda, alpha, sigma, epsilon, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 + 10/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}

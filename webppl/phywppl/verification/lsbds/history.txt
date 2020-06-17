@@ -1,0 +1,99 @@
+#speciation := seq(1/NUM_RATE_CATEGORIES, 1, by = 1/NUM_RATE_CATEGORIES)
+#extinction := seq(1/NUM_RATE_CATEGORIES, 1, by = 1/NUM_RATE_CATEGORIES)
+
+### Create a exponential distributed variable for the rate of rate-shift events
+#event_rate ~ dnExponential(tree_length)
+event_rate <- EXPECTED_NUM_EVENTS/tree_length
+
+rate_cat_probs <- simplex( rep(1, NUM_RATE_CATEGORIES) )
+
+#### construct a variable for the tree drawn from a birth death process
+timetree ~ dnCDBDP( rootAge           = root,
+                    speciationRates   = speciation,
+                    extinctionRates   = extinction, 
+                    Q                 = fnJC(NUM_RATE_CATEGORIES),
+                    delta             = event_rate, 
+                    pi                = rate_cat_probs,
+                    rho               = rho,
+                    condition         = "time" )
+                    
+### clamp the model with the "observed" tree
+timetree.clamp(observed_phylogeny)
+
+timetree.lnProbability()
+NUM_RATE_CATEGORIES = 10
+
+rho <- 1
+
+### Create a deterministic variable for the speciation rate categories
+### using a discretized lognormal distribution (the N-quantiles of it)
+speciation := fnDiscretizeDistribution( dnExponential( lambda = 0.1 ), NUM_RATE_CATEGORIES )
+
+# Use the same extinction rates as speciation rates
+extinction := fnDiscretizeDistribution( dnExponential( lambda = 0.1 ), NUM_RATE_CATEGORIES )
+
+#speciation := seq(1/NUM_RATE_CATEGORIES, 1, by = 1/NUM_RATE_CATEGORIES)
+#extinction := seq(1/NUM_RATE_CATEGORIES, 1, by = 1/NUM_RATE_CATEGORIES)
+
+### Create a exponential distributed variable for the rate of rate-shift events
+#event_rate ~ dnExponential(tree_length)
+event_rate <- EXPECTED_NUM_EVENTS/tree_length
+
+rate_cat_probs <- simplex( rep(1, NUM_RATE_CATEGORIES) )
+
+#### construct a variable for the tree drawn from a birth death process
+timetree ~ dnCDBDP( rootAge           = root,
+                    speciationRates   = speciation,
+                    extinctionRates   = extinction, 
+                    Q                 = fnJC(NUM_RATE_CATEGORIES),
+                    delta             = event_rate, 
+                    pi                = rate_cat_probs,
+                    rho               = rho,
+                    condition         = "time" )
+                    
+### clamp the model with the "observed" tree
+timetree.clamp(observed_phylogeny)
+
+timetree.lnProbability()
+EXPECTED_NUM_EVENTS = 1
+NUM_TOTAL_SPECIES = taxa.size()
+
+####################
+# Create the rates #
+####################
+
+NUM_RATE_CATEGORIES = 10
+
+rho <- 1
+
+### Create a deterministic variable for the speciation rate categories
+### using a discretized lognormal distribution (the N-quantiles of it)
+speciation := fnDiscretizeDistribution( dnExponential( lambda = 0.1 ), NUM_RATE_CATEGORIES )
+
+# Use the same extinction rates as speciation rates
+extinction := fnDiscretizeDistribution( dnExponential( lambda = 0.1 ), NUM_RATE_CATEGORIES )
+
+#speciation := seq(1/NUM_RATE_CATEGORIES, 1, by = 1/NUM_RATE_CATEGORIES)
+#extinction := seq(1/NUM_RATE_CATEGORIES, 1, by = 1/NUM_RATE_CATEGORIES)
+
+### Create a exponential distributed variable for the rate of rate-shift events
+#event_rate ~ dnExponential(tree_length)
+event_rate <- EXPECTED_NUM_EVENTS/tree_length
+
+rate_cat_probs <- simplex( rep(1, NUM_RATE_CATEGORIES) )
+
+#### construct a variable for the tree drawn from a birth death process
+timetree ~ dnCDBDP( rootAge           = root,
+                    speciationRates   = speciation,
+                    extinctionRates   = extinction, 
+                    Q                 = fnJC(NUM_RATE_CATEGORIES),
+                    delta             = event_rate, 
+                    pi                = rate_cat_probs,
+                    rho               = rho,
+                    condition         = "time" )
+                    
+### clamp the model with the "observed" tree
+timetree.clamp(observed_phylogeny)
+
+timetree.lnProbability()
+q()

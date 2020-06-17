@@ -1,0 +1,100 @@
+################################################################################
+#
+# RevBayes Example: Check LSBDS log Z for BiSSE 32 Tree
+#                  
+#
+#
+# authors: Viktor Senderov
+#
+################################################################################
+
+clear()
+
+setOption("useScaling","TRUE")
+
+DATASETS = [ "bisse_32" ]
+
+NUM_RATE_CATEGORIES = 10
+
+write(file = "verification/crbd/lsbds-results.csv", "lambda", "epsilon", "analytical", "DA", "SCM\n", append=FALSE)
+
+for(DATASET in DATASETS) {
+    
+    DATASET
+    
+    #######################
+    # Reading in the Data #
+    #######################
+
+    # Read in the observed phylogeny
+    observed_phylogeny <- readTrees("../../data/" + DATASET + ".nex")[1]
+    
+    # Get the names of the taxa in the tree and the age of the tree. We need these later on.
+    taxa <- observed_phylogeny.taxa()
+    root <- observed_phylogeny.rootAge()
+    tree_length <- observed_phylogeny.treeLength()
+    
+    ####################
+    # Create the rates #
+    ####################
+
+    ### Specify a prior on the speciation and extinction rates
+
+    lambdas <-  [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1]
+    epsilons <- [0.0, 0.1, 0.5, 0.9]
+    
+    for (lambda in lambdas) {
+        
+        for (epsilon in epsilons) {
+
+    	    mu <- lambda*epsilon
+    	    speciation := rep(lambda, NUM_RATE_CATEGORIES)
+    	    extinction := rep(mu, NUM_RATE_CATEGORIES)
+            
+    	    ### We need to specify the root category
+    	    ### However, all categories are the same, so it doesn't matter
+    	    root_category <- 1
+
+    	    ### Create uniform probabilities for the category at the root
+    	    rate_cat_probs <- simplex( rep(1, NUM_RATE_CATEGORIES) )
+
+    	    ### Set the rate of rate-shift events to 0.0
+    	    event_rate <- 0.0
+
+    	    ### rho is the probability of sampling species at the present
+    	    ### fix this to 367/367, since there are ~367 described species of primates
+	    ### and we have sampled 367
+	    rho <- 1
+
+	    #### construct a variable for the tree drawn from a birth death process
+	    timetree_BDP ~ dnBDP(lambda=lambda, mu=mu, rootAge=root, rho=rho, taxa=taxa, condition="time" )
+
+	    timetree_FRCBDSP_DA ~ dnHBDP(lambda=speciation, mu=extinction, rootAge=root, rho=rho, 	  rootState=root_category, delta=event_rate, taxa=taxa, condition="time", allowSameCategory=FALSE )
+
+	    timetree_FRCBDSP_SCM ~ dnCDBDP( rootAge           = root,
+	    			 speciationRates   = speciation,
+	 			 extinctionRates   = extinction,
+	    			 Q                 = fnJC(NUM_RATE_CATEGORIES),
+	    			 delta             = event_rate,
+	    			 pi                = rate_cat_probs,
+	    			 rho               = rho,
+	    			 condition         = "survival")
+
+	    ### clamp the model with the "observed" tree
+	    timetree_BDP.clamp(observed_phylogeny)
+	    timetree_FRCBDSP_DA.clamp(observed_phylogeny)
+	    timetree_FRCBDSP_SCM.clamp(observed_phylogeny)
+
+
+	    a = timetree_BDP.lnProbability()
+	    b = timetree_FRCBDSP_DA.lnProbability()
+	    c = timetree_FRCBDSP_SCM.lnProbability()
+
+	    write(file = "verification/crbd/lsbds-results.csv", lambda, epsilon, a, b, c, append = TRUE)
+	    write(file = "verification/crbd/lsbds-results.csv", "\n", append = TRUE)
+	}
+     }
+}
+
+## quit ##
+q()

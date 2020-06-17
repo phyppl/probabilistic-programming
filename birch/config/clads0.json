@@ -1,0 +1,12 @@
+{
+  "model": {
+    "class": "ClaDS0Model"
+  },
+  "filter": {
+    "class": "AliveParticleFilter",
+    "nparticles": 5000
+  },
+  "sampler": {
+    "nsamples": 50
+  }
+}

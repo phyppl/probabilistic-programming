@@ -1,0 +1,40 @@
+{
+  "name": "PhyloBirch",
+  "version": "1.0.0",
+  "description": "Phylogenetic models in Birch",
+  "manifest": {
+    "source": [
+      "bi/sampler/PhySampler.bi",
+      "bi/shared/PhyModel.bi",
+      "bi/shared/PhyNode.bi",
+      "bi/shared/PhyParameter.bi",
+      "bi/shared/PhyTree.bi",
+      "bi/shared/utils.bi",
+      "bi/BAMMModel.bi",
+      "bi/BAMMParameter.bi",
+      "bi/CRBAModel.bi",
+      "bi/CRBDAModel.bi",
+      "bi/CRBDModel.bi",
+      "bi/CRBModel.bi",
+      "bi/ClaDS0Model.bi",
+      "bi/ClaDS0Parameter.bi",
+      "bi/ClaDS1Model.bi",
+      "bi/ClaDS1Parameter.bi",
+      "bi/ClaDS2Model.bi",
+      "bi/ClaDS2Parameter.bi",
+      "bi/LSBDSModel.bi",
+      "bi/LSBDSParameter.bi",
+      "bi/TDBAModel.bi",
+      "bi/TDBDAModel.bi",
+      "bi/TDBDModel.bi",
+      "bi/TDBDParameter.bi",
+      "bi/sampler.bi"
+    ],
+    "data": [
+    ],
+    "other": [
+      "META.json",
+      "README.md"
+    ]
+  }
+}

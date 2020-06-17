@@ -1,0 +1,71 @@
+[
+  {
+    "label": "crbd-naive-1",
+    "description": "Alignment test. Three trees of different sizes. Fixed priors. Compute the normalizing constant with a naive (unaligned) CRBD simulation.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')"
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = epsilon*lambda\n\tvar nsamples = 100\n\tvar ret = simCRBDNaive( tree, lambda, mu, rho )\n\tvar dist = Infer ( { model: function() { crbdGoesUndetected( tree.age, lambda, mu, rho ) }, method: 'forward', samples: nsamples } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu = epsilon*lambda\n\tvar nsamples = 100\n\tvar ret = simCRBDNaive( tree, lambda, mu, rho )\n\tvar dist = Infer ( { model: function() { crbdGoesUndetected( tree.age, lambda, mu, rho ) }, method: 'forward', samples: nsamples } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/alignment/crbd-naive/crbd-naive-1.wppl 12",
+    "output": "-135.77724100184733\n-137.93156099663614\n-135.05273539194368\n-137.6560882087912\n-140.83020885781394\n-136.08217320514754\n-138.1746632295668\n-139.78239001219404\n-139.34646860345114\n-139.47762792969613\n-139.66790088750648\n-140.213711948532\n"
+  },
+  {
+    "label": "crbd-naive-2",
+    "description": "Alignment test. Three trees of different sizes. Fixed priors. Compute the normalizing constant with a naive (unaligned) CRBD simulation.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "tree": "phyjs.read_phyjson('../../data/cetaceans_87.phyjson')"
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = epsilon*lambda\n\tvar nsamples = 100\n\tvar ret = simCRBDNaive( tree, lambda, mu, rho )\n\tvar dist = Infer ( { model: function() { crbdGoesUndetected( tree.age, lambda, mu, rho ) }, method: 'forward', samples: nsamples } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar tree = phyjs.read_phyjson('../../data/cetaceans_87.phyjson')\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu = epsilon*lambda\n\tvar nsamples = 100\n\tvar ret = simCRBDNaive( tree, lambda, mu, rho )\n\tvar dist = Infer ( { model: function() { crbdGoesUndetected( tree.age, lambda, mu, rho ) }, method: 'forward', samples: nsamples } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/alignment/crbd-naive/crbd-naive-2.wppl 12",
+    "output": "-576.8424542152342\n-587.4714497182835\n-586.7271362733618\n-577.9694009863555\n-586.0014061882215\n-590.5966231310579\n-579.6052309204771\n-590.6662607672155\n-593.5645202500554\n-592.0416439543942\n-598.8859153990472\n-600.1652899021118\n"
+  },
+  {
+    "label": "crbd-naive-3",
+    "description": "Alignment test. Three trees of different sizes. Fixed priors. Compute the normalizing constant with a naive (unaligned) CRBD simulation.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "tree": "phyjs.read_phyjson('../../data/primates_233.phyjson')"
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = epsilon*lambda\n\tvar nsamples = 100\n\tvar ret = simCRBDNaive( tree, lambda, mu, rho )\n\tvar dist = Infer ( { model: function() { crbdGoesUndetected( tree.age, lambda, mu, rho ) }, method: 'forward', samples: nsamples } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar tree = phyjs.read_phyjson('../../data/primates_233.phyjson')\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu = epsilon*lambda\n\tvar nsamples = 100\n\tvar ret = simCRBDNaive( tree, lambda, mu, rho )\n\tvar dist = Infer ( { model: function() { crbdGoesUndetected( tree.age, lambda, mu, rho ) }, method: 'forward', samples: nsamples } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/alignment/crbd-naive/crbd-naive-3.wppl 12",
+    "output": "-1677.567882313218\n-1688.4379490645247\n-1695.5548410673916\n-1686.1038423522639\n-1687.7012107782766\n-1694.200261867759\n-1696.1286317751653\n-1699.1402799420348\n-1694.2246360282468\n-1694.4922698204393\n-1706.8463738143987\n-1696.4431125735546\n"
+  }
+]

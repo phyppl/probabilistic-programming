@@ -1,0 +1,33 @@
+/** 
+ * @file 
+ * Example: Constant-rate birth-death analytical solution
+ * 
+ * To run the example use:
+ * 
+ * npm run wppl examples/crbd-analytical-complete-sampling.wppl [N]
+ * 
+ * where [N] is the number of iterations, for example 3
+ *
+ */
+
+
+/** 
+ * Tree selection
+ * uncomment the observed tree that you would like 
+ * or use the read_phyjson function to read in a tree in the PhyJSON format 
+ */
+//var tree   = phyjs.example_2;
+var tree = phyjs.bisse_32;
+
+//var tree =  phyjs.read_phyjson("../../data/bisse_32.phyjson")
+//var tree = phylodata.primates_61;
+//var tree = phylodata.cetacean_87;
+//var tree = phylodata.read_phyjson("example.json")
+
+// Set lambda and mu
+var lambda = 0.2
+var mu     = 0.0
+
+// Compute the likelihood
+exactCRBDLikelihoodComplete( tree, lambda, mu ) 
+

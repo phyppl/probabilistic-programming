@@ -1,0 +1,302 @@
+[
+  {
+    "label": "bamm-lsbds-1",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 1,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 1\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-1.wppl 10",
+    "output": "-144.2791066562965\n-145.49567121402387\n-144.98526149976374\n-142.75320326947534\n-145.49718174417265\n-144.21807020120627\n-145.2746802566486\n-146.08443748804953\n-146.52862377189572\n-144.62614566113382\n"
+  },
+  {
+    "label": "bamm-lsbds-2",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 2,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 2\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-2.wppl 10",
+    "output": "-145.16244966489919\n-148.75754636207705\n-147.0905013259236\n-147.97063992166548\n-146.91128901823012\n-148.31220696101167\n-146.41142968018397\n-148.05146692521973\n-149.13523377815915\n-147.18954137318232\n"
+  },
+  {
+    "label": "bamm-lsbds-3",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 3,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 3\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-3.wppl 10",
+    "output": "-150.83573034574644\n-149.20586645114258\n-150.6237589965867\n-150.05417489229498\n-150.94867516155006\n-150.91528576140706\n-148.9929989060644\n-150.81372860828677\n-150.1092821731322\n-154.38745869785524\n"
+  },
+  {
+    "label": "bamm-lsbds-4",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 4,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 4\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-4.wppl 10",
+    "output": "-151.38352853394431\n-153.72631873512117\n-151.87963861016553\n-153.4180875336837\n-156.66658474194745\n-151.9431144883334\n-152.4753472478418\n-153.82911237427243\n-154.48581461102495\n-154.00782456573657\n"
+  },
+  {
+    "label": "bamm-lsbds-5",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 5,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 5\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-5.wppl 10",
+    "output": "-158.09826038516428\n-155.26689920708844\n-158.13933473106056\n-158.84469932724508\n-156.48080623920035\n-156.50551187059378\n-157.08231643516208\n-157.46257791239483\n-156.34211895665223\n-158.81248754243745\n"
+  },
+  {
+    "label": "bamm-lsbds-6",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 6,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 6\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-6.wppl 10",
+    "output": "-159.61478337998545\n-158.75841756113937\n-160.92367219512522\n-160.6552819415284\n-159.65661812098517\n-159.64045783525233\n-160.94279051380843\n-160.0369780390117\n-161.6854303207206\n-161.3098117899405\n"
+  },
+  {
+    "label": "bamm-lsbds-7",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 7,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 7\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-7.wppl 10",
+    "output": "-160.6312171895135\n-161.615724894455\n-162.76857113982976\n-162.306466502902\n-162.55140319380894\n-163.156192459358\n-161.7922037472797\n-163.332401486531\n-162.26129685907682\n-162.11458544558906\n"
+  },
+  {
+    "label": "bamm-lsbds-8",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 8,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 8\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-8.wppl 10",
+    "output": "-164.76769547385103\n-163.5118976436932\n-165.23494698838553\n-166.1106441085332\n-163.83741820559024\n-163.96206741106843\n-164.70658815528037\n-161.0550615538707\n-162.7524878553233\n-165.97068654593707\n"
+  },
+  {
+    "label": "bamm-lsbds-9",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 9,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 9\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-9.wppl 10",
+    "output": "-165.21383091333215\n-164.40626575097974\n-164.4611842398925\n-165.13065388159328\n-165.75059119555854\n-166.93144016569332\n-167.2125475468631\n-165.8606811936207\n-165.694827619564\n-165.974303000102\n"
+  },
+  {
+    "label": "bamm-lsbds-10",
+    "description": "BAMM model for z = 0 should degrade to LSBDS.",
+    "hyper_parameters": {
+      "particles": 10000,
+      "MAX_DIV": 10,
+      "MAX_LAMBDA": 10
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "EXPECTED_NUM_EVENTS": 10,
+      "DistLambda": "function() { return ( exponential( { a: 1 } ) )  }",
+      "DistMu": "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+      "DistZ": "function() { return 0 }",
+      "lambda_0": "DistLambda()",
+      "z_0": "DistZ()",
+      "lambdaFun_0": "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+      "mu_0": "DistMu(lambda_0)",
+      "eta": "EXPECTED_NUM_EVENTS / tree.age ",
+      "rho": 1
+    },
+    "model": "\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 10000\n\tvar MAX_DIV = 10\n\tvar MAX_LAMBDA = 10\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar EXPECTED_NUM_EVENTS = 10\n\tvar DistLambda = function() { return ( exponential( { a: 1 } ) )  }\n\tvar DistMu = function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}\n\tvar DistZ = function() { return 0 }\n\tvar lambda_0 = DistLambda()\n\tvar z_0 = DistZ()\n\tvar lambdaFun_0 = function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }\n\tvar mu_0 = DistMu(lambda_0)\n\tvar eta = EXPECTED_NUM_EVENTS / tree.age \n\tvar rho = 1\n\t\n\tvar ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/bamm/bamm-lsbds/bamm-lsbds-10.wppl 10",
+    "output": "-166.81689160634903\n-165.81207468270648\n-166.3449998137319\n-165.3877075385678\n-166.9287925304916\n-167.2038330449299\n-165.9300146375622\n-167.424442925104\n-168.97844613909277\n-168.91680732487177\n"
+  }
+]

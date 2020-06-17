@@ -1,0 +1,40 @@
+{
+   "name": "phywppl",
+   "config": {
+      "stacksize": "1200",
+      "loglevel": "silent",
+      "nreps": "12"
+   },
+   "webppl": {
+      "wppl": [
+         "models/bamm.wppl",
+         "models/clads0.wppl",
+         "models/clads0-panda.wppl",
+         "models/clads1.wppl",
+         "models/clads2.wppl",
+         "models/clads2-panda.wppl",
+         "models/crbd.wppl",
+         "models/crbd-naive.wppl",
+         "models/crbd-analytical.wppl",
+         "models/crbd-analytical-complete-sampling.wppl",
+         "models/lsbds.wppl",
+          "models/tdbd.wppl",
+	  "models/tdbd-analytical.wppl"
+      ]
+   },
+   "scripts": {
+      "wppl": "node src/webppl-runner.js  $npm_package_config_stacksize",
+      "sim": "node src/simulations-builder.js $npm_package_config_stacksize",
+      "clean": "rm js/*.js",
+      "clads2": "rm -rf paper_analyses/clads/clads2 && rm -f paper_analyses/clads/clads2-results.JSON && npm run sim paper_analyses/clads/clads2.sim 12 > paper_analyses/clads/clads2.sim.protocol 2>&1",
+      "clads2-panda": "rm -rf paper_analyses/clads/clads2-panda && rm -f paper_analyses/clads/clads2-panda-results.JSON && npm run sim paper_analyses/clads/clads2-panda.sim $npm_package_config_nreps > paper_analyses/clads/clads2-panda.sim.protocol 2>&1",
+      "crbd": "rm -rf paper_analyses/crbd/crbd && rm -f paper_analyses/crbd/crbd-results.JSON && npm run sim paper_analyses/crbd/crbd.sim && rm -rf paper_analyses/crbd/crbd-analytical && rm -f paper_analyses/crbd/crbd-analytical-results.JSON && npm run sim paper_analyses/crbd/crbd-analytical.sim && rm -rf paper_analyses/crbd/crbd-clads2 && rm -f paper_analyses/crbd/crbd-clads2-results.JSON && npm run sim paper_analyses/crbd/crbd-clads2.sim && rm -rf paper_analyses/crbd/crbd-naive && rm -f paper_analyses/crbd/crbd-naive-results.JSON && npm run sim paper_analyses/crbd/crbd-naive.sim",
+      "plots": "Rscript plots/plot.R",
+      "test": "echo 'this is a test'"
+   },
+   "dependencies": {
+      "phyjs": "file:../phyjs",
+      "shelljs": "^0.8.3"
+   },
+   "devDependencies": {}
+}

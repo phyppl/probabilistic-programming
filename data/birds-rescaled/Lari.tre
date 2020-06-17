@@ -1,0 +1,267 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 127;
+	TAXLABELS
+		Synthliboramphus_hypoleucus
+		Synthliboramphus_craveri
+		Synthliboramphus_wumizusume
+		Synthliboramphus_antiquus
+		Cepphus_grylle
+		Cepphus_carbo
+		Cepphus_columba
+		Brachyramphus_perdix
+		Brachyramphus_marmoratus
+		Brachyramphus_brevirostris
+		Uria_lomvia
+		Uria_aalge
+		Alca_torda
+		Alle_alle
+		Ptychoramphus_aleuticus
+		Aethia_pusilla
+		Aethia_psittacula
+		Aethia_pygmaea
+		Aethia_cristatella
+		Fratercula_arctica
+		Fratercula_corniculata
+		Fratercula_cirrhata
+		Cerorhinca_monocerata
+		Stercorarius_pomarinus
+		Catharacta_skua
+		Catharacta_chilensis
+		Catharacta_antarctica
+		Catharacta_maccormicki
+		Stercorarius_longicaudus
+		Stercorarius_parasiticus
+		Sterna_aleutica
+		Sterna_fuscata
+		Sterna_anaethetus
+		Sterna_lunata
+		Sterna_antillarum
+		Sterna_superciliaris
+		Sterna_albifrons
+		Sterna_nereis
+		Larosterna_inca
+		Sterna_sandvicensis
+		Sterna_elegans
+		Sterna_bergii
+		Sterna_bengalensis
+		Sterna_maxima
+		Sterna_trudeaui
+		Sterna_forsteri
+		Sterna_hirundo
+		Sterna_dougallii
+		Sterna_striata
+		Sterna_sumatrana
+		Sterna_hirundinacea
+		Sterna_vittata
+		Sterna_paradisaea
+		Chlidonias_hybrida
+		Sterna_albostriata
+		Chlidonias_niger
+		Chlidonias_leucopterus
+		Sterna_caspia
+		Sterna_nilotica
+		Phaetusa_simplex
+		Gygis_microrhyncha
+		Gygis_alba
+		Anous_tenuirostris
+		Anous_minutus
+		Anous_stolidus
+		Larus_minutus
+		Xema_sabini
+		Pagophila_eburnea
+		Rissa_brevirostris
+		Rissa_tridactyla
+		Larus_crassirostris
+		Larus_atlanticus
+		Larus_belcheri
+		Larus_pacificus
+		Larus_delawarensis
+		Larus_heermanni
+		Larus_livens
+		Larus_marinus
+		Larus_armenicus
+		Larus_michahellis
+		Larus_argentatus
+		Larus_hyperboreus
+		Larus_dominicanus
+		Larus_fuscus
+		Larus_schistisagus
+		Larus_californicus
+		Larus_cachinnans
+		Larus_glaucescens
+		Larus_thayeri
+		Larus_glaucoides
+		Larus_occidentalis
+		Larus_canus
+		Larus_audouinii
+		Larus_hemprichii
+		Larus_melanocephalus
+		Larus_leucophthalmus
+		Larus_ichthyaetus
+		Larus_relictus
+		Larus_pipixcan
+		Larus_atricilla
+		Larus_fuliginosus
+		Leucophaeus_scoresbii
+		Larus_modestus
+		Larus_philadelphia
+		Larus_genei
+		Larus_serranus
+		Larus_bulleri
+		Larus_novaehollandiae
+		Larus_maculipennis
+		Larus_brunnicephalus
+		Larus_ridibundus
+		Larus_hartlaubii
+		Larus_scopulinus
+		Larus_cirrocephalus
+		Larus_saundersi
+		Creagrus_furcatus
+		Rhodostethia_rosea
+		Rynchops_niger
+		Dromas_ardeola
+		Cursorius_temminckii
+		Glareola_nuchalis
+		Stiltia_isabella
+		Glareola_nordmanni
+		Glareola_pratincola
+		Glareola_maldivarum
+		Rhinoptilus_africanus
+		Rhinoptilus_chalcopterus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Synthliboramphus_hypoleucus,
+		2	Synthliboramphus_craveri,
+		3	Synthliboramphus_wumizusume,
+		4	Synthliboramphus_antiquus,
+		5	Cepphus_grylle,
+		6	Cepphus_carbo,
+		7	Cepphus_columba,
+		8	Brachyramphus_perdix,
+		9	Brachyramphus_marmoratus,
+		10	Brachyramphus_brevirostris,
+		11	Uria_lomvia,
+		12	Uria_aalge,
+		13	Alca_torda,
+		14	Alle_alle,
+		15	Ptychoramphus_aleuticus,
+		16	Aethia_pusilla,
+		17	Aethia_psittacula,
+		18	Aethia_pygmaea,
+		19	Aethia_cristatella,
+		20	Fratercula_arctica,
+		21	Fratercula_corniculata,
+		22	Fratercula_cirrhata,
+		23	Cerorhinca_monocerata,
+		24	Stercorarius_pomarinus,
+		25	Catharacta_skua,
+		26	Catharacta_chilensis,
+		27	Catharacta_antarctica,
+		28	Catharacta_maccormicki,
+		29	Stercorarius_longicaudus,
+		30	Stercorarius_parasiticus,
+		31	Sterna_aleutica,
+		32	Sterna_fuscata,
+		33	Sterna_anaethetus,
+		34	Sterna_lunata,
+		35	Sterna_antillarum,
+		36	Sterna_superciliaris,
+		37	Sterna_albifrons,
+		38	Sterna_nereis,
+		39	Larosterna_inca,
+		40	Sterna_sandvicensis,
+		41	Sterna_elegans,
+		42	Sterna_bergii,
+		43	Sterna_bengalensis,
+		44	Sterna_maxima,
+		45	Sterna_trudeaui,
+		46	Sterna_forsteri,
+		47	Sterna_hirundo,
+		48	Sterna_dougallii,
+		49	Sterna_striata,
+		50	Sterna_sumatrana,
+		51	Sterna_hirundinacea,
+		52	Sterna_vittata,
+		53	Sterna_paradisaea,
+		54	Chlidonias_hybrida,
+		55	Sterna_albostriata,
+		56	Chlidonias_niger,
+		57	Chlidonias_leucopterus,
+		58	Sterna_caspia,
+		59	Sterna_nilotica,
+		60	Phaetusa_simplex,
+		61	Gygis_microrhyncha,
+		62	Gygis_alba,
+		63	Anous_tenuirostris,
+		64	Anous_minutus,
+		65	Anous_stolidus,
+		66	Larus_minutus,
+		67	Xema_sabini,
+		68	Pagophila_eburnea,
+		69	Rissa_brevirostris,
+		70	Rissa_tridactyla,
+		71	Larus_crassirostris,
+		72	Larus_atlanticus,
+		73	Larus_belcheri,
+		74	Larus_pacificus,
+		75	Larus_delawarensis,
+		76	Larus_heermanni,
+		77	Larus_livens,
+		78	Larus_marinus,
+		79	Larus_armenicus,
+		80	Larus_michahellis,
+		81	Larus_argentatus,
+		82	Larus_hyperboreus,
+		83	Larus_dominicanus,
+		84	Larus_fuscus,
+		85	Larus_schistisagus,
+		86	Larus_californicus,
+		87	Larus_cachinnans,
+		88	Larus_glaucescens,
+		89	Larus_thayeri,
+		90	Larus_glaucoides,
+		91	Larus_occidentalis,
+		92	Larus_canus,
+		93	Larus_audouinii,
+		94	Larus_hemprichii,
+		95	Larus_melanocephalus,
+		96	Larus_leucophthalmus,
+		97	Larus_ichthyaetus,
+		98	Larus_relictus,
+		99	Larus_pipixcan,
+		100	Larus_atricilla,
+		101	Larus_fuliginosus,
+		102	Leucophaeus_scoresbii,
+		103	Larus_modestus,
+		104	Larus_philadelphia,
+		105	Larus_genei,
+		106	Larus_serranus,
+		107	Larus_bulleri,
+		108	Larus_novaehollandiae,
+		109	Larus_maculipennis,
+		110	Larus_brunnicephalus,
+		111	Larus_ridibundus,
+		112	Larus_hartlaubii,
+		113	Larus_scopulinus,
+		114	Larus_cirrocephalus,
+		115	Larus_saundersi,
+		116	Creagrus_furcatus,
+		117	Rhodostethia_rosea,
+		118	Rynchops_niger,
+		119	Dromas_ardeola,
+		120	Cursorius_temminckii,
+		121	Glareola_nuchalis,
+		122	Stiltia_isabella,
+		123	Glareola_nordmanni,
+		124	Glareola_pratincola,
+		125	Glareola_maldivarum,
+		126	Rhinoptilus_africanus,
+		127	Rhinoptilus_chalcopterus
+	;
+	TREE * UNTITLED = [&R] ((((((((1:0.8727619498,2:0.8727619498):4.342305731,(3:2.99933291,4:2.99933291):2.215734771):8.528574892,((5:5.469328678,(6:2.814896565,7:2.814896565):2.654432113):7.803751305,((8:8.983256628,(9:4.803119279,10:4.803119279):4.180137349):3.938562065,((11:3.952122869,12:3.952122869):6.005421873,(13:9.06158183,14:9.06158183):0.8959629121):2.964273951):0.3512612897):0.4705625906):1.919876392,((15:6.077407205,(((16:3.504900206,17:3.504900206):0.5364805422,18:4.041380748):0.5646331639,19:4.606013912):1.471393293):8.105074632,(((20:1.677222607,21:1.677222607):2.275221803,22:3.95244441):3.630744114,23:7.583188524):6.599293313):1.481037128):3.241782102,(((24:0.423031895,25:0.423031895):0.8201241107,((26:0.2168191123,27:0.2168191123):0.147506022,28:0.3643251343):0.8788308714):6.034195518,(29:4.132682734,30:4.132682734):3.14466879):11.62794954):1.795600007,((((31:7.084175547,(32:5.107860128,(33:2.471984356,34:2.471984356):2.635875772):1.976315419):5.073297147,(((35:2.299790094,36:2.299790094):1.32688584,(37:2.16913188,38:2.16913188):1.457544055):7.740090986,((((39:7.006270437,(((40:0.7862640229,41:0.7862640229):1.320231114,(42:1.367185429,(43:0.8135017587,44:0.8135017587):0.5536836704):0.7393097081):3.488004228,((45:2.786221676,46:2.786221676):2.411567092,((47:3.077061991,((48:1.885896708,49:1.885896708):0.4609958244,50:2.346892532):0.7301694587):0.3991876616,((51:0.7768792455,52:0.7768792455):0.4240004494,53:1.200879695):2.275369958):1.721539115):0.3967105981):1.411771071):0.6591060466,(54:3.575519347,(55:3.156329877,(56:1.387693137,57:1.387693137):1.76863674):0.41918947):4.089857136):1.040584094,(58:6.444962607,59:6.444962607):2.260997971):1.225245302,60:9.93120588):1.43556104):0.7907057733):3.712381775,(61:0.3297709166,62:0.3297709166):15.54008355):2.423949429,((63:14.4079911,(64:6.787508368,65:6.787508368):7.620482731):3.256645828,(((66:6.934675353,(((67:3.655422162,68:3.655422162):1.282804176,(69:3.78235133,70:3.78235133):1.155875009):1.149196513,(((((((71:0.4944990051,72:0.4944990051):0.757517547,73:1.252016552):1.21701603,(74:1.695962869,((((75:0.9726440394,76:0.9726440394):0.02719315951,77:0.9998371989):0.2578501297,((((78:0.3414023792,(79:0.1854109397,80:0.1854109397):0.1559914395):0.2710527878,(81:0.2022265277,82:0.2022265277):0.4102286392):0.1516215825,((83:0.4194545236,84:0.4194545236):0.1360220642,((85:0.1683443825,86:0.1683443825):0.2262699561,(87:0.2677971058,((88:0.06823365856,89:0.06823365856):0.1363164406,90:0.2045500992):0.0632470066):0.1268172329):0.1608622492):0.2086001616):0.1921507069,91:0.9562274563):0.3014598723):0.1544855092,92:1.412172838):0.2837900316):0.7730697132):0.4097782565,(((93:1.203909362,((94:0.8345853652,95:0.8345853652):0.1277678238,96:0.962353189):0.2415561733):0.2490313482,97:1.452940711):0.4683549299,98:1.92129564):0.9575151986):0.8584199274,((99:0.9964464588,(100:0.6999431409,101:0.6999431409):0.2965033179):1.385797304,(102:1.664274465,103:1.664274465):0.7179692979):1.354987003):0.7228532462,((104:2.443833195,105:2.443833195):0.6815584824,((106:0.764383134,(107:0.5485026378,108:0.5485026378):0.2158804962):0.547966022,((109:0.6785156356,110:0.6785156356):0.4276365072,(111:0.8840443737,(112:0.4646390397,(113:0.1416375589,114:0.1416375589):0.3230014809):0.419405334):0.2221077691):0.2061970132):1.813042522):1.334692335):0.8683754725,115:5.328459485):0.758963367):0.8472525007):1.15177804,(116:5.034296564,117:5.034296564):3.052156829):8.507551743,118:16.59400514):1.070631792):0.6291669697):2.407097177):2.243628833,119:22.94452991):1.692530699,((120:19.59472029,(((121:5.396891307,122:5.396891307):3.424042765,((123:0.915821386,124:0.915821386):1.715478872,125:2.631300258):6.189633814):7.977604912,126:16.79853898):2.796181302):2.953699573,127:22.54841986):2.088640748);
+END;

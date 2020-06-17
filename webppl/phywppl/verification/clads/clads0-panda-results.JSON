@@ -1,0 +1,704 @@
+[
+  {
+    "label": "clads0-panda-1",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 0.4,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 0.4\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-1.wppl 10",
+    "output": "-1048.2327000551109\n-1048.2502500214723\n-1048.245559990964\n-1048.228164805195\n-1048.2249386390652\n-1048.2002847231702\n-1048.2484531235598\n-1048.2317715247707\n-1048.2629130050657\n-1048.2252038622742\n"
+  },
+  {
+    "label": "clads0-panda-2",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 0.4,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 0.4\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-2.wppl 10",
+    "output": "-1105.3400998940472\n-1105.431635009563\n-1105.3957587814918\n-1105.3481851385538\n-1105.404217514697\n-1105.3606876919753\n-1105.309472303545\n-1105.4092504959792\n-1105.3555896879209\n-1105.3910600685222\n"
+  },
+  {
+    "label": "clads0-panda-3",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 0.4,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 0.4\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-3.wppl 10",
+    "output": "-1298.558973106962\n-1298.729480123469\n-1296.0060564598348\n-1299.7852637230849\n-1297.4392049227738\n-1298.275685483735\n-1297.4970952877798\n-1298.1673514238041\n-1297.5885150602408\n"
+  },
+  {
+    "label": "clads0-panda-4",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 0.65,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 0.65\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-4.wppl 10",
+    "output": "-147.15360226551823\n-147.12310365230664\n-147.15000335802512\n-147.16753198829073\n-147.16701740195364\n-147.15642242582328\n-147.1346172579571\n-147.15557824917445\n-147.17488796636678\n-147.17518585928613\n"
+  },
+  {
+    "label": "clads0-panda-5",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 0.65,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 0.65\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-5.wppl 10",
+    "output": "-204.22261217942525\n-204.3359032901995\n-204.33207657359856\n-204.27175353668935\n-204.2837903433939\n-204.3728383248565\n-204.32594486820201\n-204.35858511961158\n-204.24657344751418\n-204.26822279691385\n"
+  },
+  {
+    "label": "clads0-panda-6",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 0.65,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 0.65\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-6.wppl 10",
+    "output": "-396.85563660906746\n-398.35393752844607\n-397.7199696014173\n-398.8303492210704\n-397.30865713816587\n-396.995725077155\n"
+  },
+  {
+    "label": "clads0-panda-7",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 1,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 1\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-7.wppl 10",
+    "output": "108.55677582283374\n108.54822138618269\n108.5353024051356\n108.50026564769828\n108.54723260390631\n108.55361427527374\n108.58004943973991\n108.50404720396622\n108.53746958321965\n108.54300915672458\n"
+  },
+  {
+    "label": "clads0-panda-8",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 1,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 1\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-8.wppl 10",
+    "output": "51.358206085213595\n51.43899750275473\n51.424665856066824\n51.48055903677367\n51.28070859696892\n51.38542371009221\n51.36862938738814\n51.396408941685394\n51.47946809558648\n51.470675216122146\n"
+  },
+  {
+    "label": "clads0-panda-9",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.15,
+      "alpha": 1,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.15\n\tvar alpha = 1\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-9.wppl 10",
+    "output": "-141.9233999253594\n-141.68905904392247\n-142.0273293663316\n-144.0425907438837\n-141.39682746479596\n-140.51769131929174\n"
+  },
+  {
+    "label": "clads0-panda-10",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 0.4,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 0.4\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-10.wppl 10",
+    "output": "-49.702031910167065\n-49.67096865697877\n-49.682474915905615\n-49.67813902309496\n-49.69666519467698\n-49.68231165486905\n-49.70866077650568\n-49.74637681938371\n-49.72946753897652\n-49.73690382377717\n"
+  },
+  {
+    "label": "clads0-panda-11",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 0.4,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 0.4\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-11.wppl 10",
+    "output": "-106.8520242130093\n-106.8430936676354\n-106.8422854202564\n-106.89106437871955\n-106.7632963586749\n-106.90525898327495\n-106.868096707893\n-106.8667432028699\n-106.93345973970914\n-106.91477872104738\n"
+  },
+  {
+    "label": "clads0-panda-12",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 0.4,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 0.4\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-12.wppl 10",
+    "output": "-300.711080543367\n-299.5735526265334\n-300.70750155212403\n-298.80330466382406\n-297.83296767110767\n-299.95561960747926\n-300.0833948059302\n-298.44008178948815\n-298.0409997252131\n-301.0722487377649\n"
+  },
+  {
+    "label": "clads0-panda-13",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 0.65,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 0.65\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-13.wppl 10",
+    "output": "6.604120741610725\n6.5853635171934375\n6.586635226678306\n6.596743485528146\n6.601562524183054\n6.572339724729176\n6.594938898544674\n6.5973223379694215\n6.587978131174642\n6.603581873527091\n"
+  },
+  {
+    "label": "clads0-panda-14",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 0.65,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 0.65\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-14.wppl 10",
+    "output": "-50.553350266655556\n-50.448901262115584\n-50.47503523248719\n-50.54040021313172\n-50.545888800681894\n-50.551808967268556\n-50.51812618205858\n-50.541262884030104\n-50.508011355787886\n-50.60099169428503\n"
+  },
+  {
+    "label": "clads0-panda-15",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 0.65,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 0.65\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-15.wppl 10",
+    "output": "-242.28483766009816\n-243.61059518390806\n-241.62070016548645\n-245.57439769156053\n-245.8307800811018\n-245.1472526838365\n-243.57014007441538\n-243.7149965749367\n-242.80684753897089\n"
+  },
+  {
+    "label": "clads0-panda-16",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 1,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 1\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-16.wppl 10",
+    "output": "22.604030716244573\n22.602085554338597\n22.58617229467718\n22.570611498659137\n22.55657167800936\n22.57907539906698\n22.568921254457845\n22.570166582209726\n22.597414243879665\n22.566129264780194\n"
+  },
+  {
+    "label": "clads0-panda-17",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 1,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 1\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-17.wppl 10",
+    "output": "-34.527690190033155\n-34.53323740199727\n-34.5477016414457\n-34.532134060778404\n-34.529094009077085\n-34.59647009855135\n-34.60706146574174\n-34.65486635333231\n-34.58655640734341\n-34.49487204998779\n"
+  },
+  {
+    "label": "clads0-panda-18",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.6,
+      "alpha": 1,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.6\n\tvar alpha = 1\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-18.wppl 10",
+    "output": "-226.9487606519853\n-230.4093450891093\n-227.5045794508783\n-226.54053544928917\n-228.32177291603816\n-226.36486902397698\n-226.85691040678458\n-228.55664652304338\n"
+  },
+  {
+    "label": "clads0-panda-19",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 0.4,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 0.4\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-19.wppl 10",
+    "output": "-35.10727440933309\n-35.10955472518914\n-35.12349304172327\n-35.11487594651385\n-35.111558502408045\n-35.1339203428544\n-35.126251987071555\n-35.09011881478716\n-35.10649144426439\n-35.14872261267722\n"
+  },
+  {
+    "label": "clads0-panda-20",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 0.4,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 0.4\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-20.wppl 10",
+    "output": "-92.28787565154185\n-92.16498822352052\n-92.26292713007821\n-92.24195494009876\n-92.26012467540762\n-92.23715634012977\n-92.24904433390117\n-92.22893921418161\n-92.29021790258119\n-92.13439824202602\n"
+  },
+  {
+    "label": "clads0-panda-21",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 0.4,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 0.4\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-21.wppl 10",
+    "output": "-286.99433455906905\n-283.90977859219805\n-285.5804594037059\n-283.69981391247234\n-286.1974992299901\n-285.53654129577643\n-287.61653461625696\n-284.1366914327303\n"
+  },
+  {
+    "label": "clads0-panda-22",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 0.65,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 0.65\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-22.wppl 10",
+    "output": "-14.834223231916798\n-14.854574241356135\n-14.833170913816284\n-14.789879718552932\n-14.844518907469629\n-14.832601233177511\n-14.859035309813512\n-14.833393772429696\n-14.837408062575117\n-14.808946260447197\n"
+  },
+  {
+    "label": "clads0-panda-23",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 0.65,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 0.65\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-23.wppl 10",
+    "output": "-71.99940275288115\n-71.9546768156707\n-72.01004540645592\n-71.94458243978244\n-71.9961430519014\n-71.9732866721509\n-71.97281626426239\n-71.91871316763348\n-71.9197340491622\n-71.94320305094753\n"
+  },
+  {
+    "label": "clads0-panda-24",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 0.65,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 0.65\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-24.wppl 10",
+    "output": "-266.20382207632423\n-265.8821947203708\n-267.21224067666543\n-263.64406752088325\n-266.42163937695545\n-262.98844554329816\n-266.1820421157959\n-264.12209175436794\n-264.69373379332944\n"
+  },
+  {
+    "label": "clads0-panda-25",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 1,
+      "lambda": 0.03,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 1\n\tvar lambda = 0.03\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-25.wppl 10",
+    "output": "-9.089216921785525\n-9.083795338095104\n-9.085718385925041\n-9.114604796974566\n-9.098021048047157\n-9.081777139998879\n-9.11897099023567\n-9.06700093655643\n-9.110601876114831\n-9.089970057891064\n"
+  },
+  {
+    "label": "clads0-panda-26",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 1,
+      "lambda": 0.12,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 1\n\tvar lambda = 0.12\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-26.wppl 10",
+    "output": "-66.0718714685452\n-66.24824181169603\n-66.2481119077649\n-66.20340430421318\n-66.19373732676938\n-66.18597018297613\n-66.21004329913883\n-66.2669329684501\n-66.18755855063765\n-66.2270050660513\n"
+  },
+  {
+    "label": "clads0-panda-27",
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 1,
+      "alpha": 1,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 1\n\tvar alpha = 1\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-panda/clads0-panda-27.wppl 10",
+    "output": "-260.3006266954126\n-257.2502536112069\n-259.9237019887938\n-260.88858821362055\n-259.0213730522069\n-262.18789774218226\n-260.80331992554216\n"
+  }
+]

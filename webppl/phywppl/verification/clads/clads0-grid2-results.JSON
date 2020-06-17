@@ -1,0 +1,502 @@
+[
+  {
+    "label": "clads0-grid2-1",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-1.wppl 10",
+    "output": "-145.33889089136375\n-144.37083978350435\n-145.28700106892907\n-144.87071225469936\n-144.3686048494379\n-145.13656974331093\n-145.02338274289463\n-144.63283307408076\n-145.0860382416789\n-144.64022227479916\n"
+  },
+  {
+    "label": "clads0-grid2-2",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-2.wppl 10",
+    "output": "-141.78059241183396\n-141.55118748691524\n-142.16457272942014\n-141.84818160946725\n-141.8158698060042\n-141.99798350228718\n-141.96729082253162\n-142.0117283929471\n-141.7257201117994\n-142.3450626576511\n"
+  },
+  {
+    "label": "clads0-grid2-3",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-3.wppl 10",
+    "output": "-140.46214332892947\n-140.19944228091813\n-140.63850701478762\n-140.22405141924364\n-140.2745148613889\n-140.0728225040984\n-140.45940826137175\n-140.40800851154708\n-140.32448465759876\n-140.50181420402464\n"
+  },
+  {
+    "label": "clads0-grid2-4",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-4.wppl 10",
+    "output": "-139.68138718233092\n-139.50345256763612\n-139.797774758052\n-139.53466698731225\n-140.0157879702456\n-139.61951507822627\n-139.65159432078593\n-139.90579916886276\n-139.70297329611313\n-139.90580375163876\n"
+  },
+  {
+    "label": "clads0-grid2-5",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-5.wppl 10",
+    "output": "-139.68627756909936\n-139.15122036808714\n-139.05807455969847\n-139.56804635131263\n-139.23833956830777\n-139.0690474858576\n-139.37772145901133\n-139.55237389784588\n-139.83780497201977\n"
+  },
+  {
+    "label": "clads0-grid2-6",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-6.wppl 10",
+    "output": "-139.36492366779277\n-139.00556925623067\n-138.98221440085567\n-139.0622191049187\n-139.2500125570667\n-139.00618775115103\n-138.80376587853024\n-139.1683603682637\n-138.858625953924\n-139.1262703454576\n"
+  },
+  {
+    "label": "clads0-grid2-7",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-7.wppl 10",
+    "output": "-138.8140501727261\n-139.0143409144757\n-138.7975226942572\n-138.39744575356778\n-138.92466489567178\n-139.06001657157475\n-138.84342468537557\n-138.73303932051977\n-138.67498221708288\n-138.68570973848938\n"
+  },
+  {
+    "label": "clads0-grid2-8",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-8.wppl 10",
+    "output": "-138.85410012197195\n-139.01429151049575\n-138.69273255030478\n-138.886130093014\n-138.8780673631366\n-138.6646334871384\n-138.59980657935105\n-138.77947179890225\n-138.72394458745836\n-138.76849230619115\n"
+  },
+  {
+    "label": "clads0-grid2-9",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-9.wppl 10",
+    "output": "-138.65788490645264\n-138.69311912327868\n-138.94650913024233\n-138.68948469671213\n-138.56459932833664\n-138.8179411583581\n-138.68148561851496\n-138.4573860576972\n-138.7662557038652\n-138.21723899475137\n"
+  },
+  {
+    "label": "clads0-grid2-10",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-10.wppl 10",
+    "output": "-138.88292311179578\n-138.88111750049052\n-138.66988179991776\n-138.54548786472188\n-138.67644558865894\n-138.5446495075679\n-138.83051908839838\n-138.74976179566704\n-138.48859412041523\n-138.93007550092608\n"
+  },
+  {
+    "label": "clads0-grid2-11",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-11.wppl 10",
+    "output": "-138.97702350744896\n-138.81928302701124\n-139.21569625515116\n-139.05358939208656\n-138.64393632202245\n-138.8737049250859\n-139.0419717039032\n-138.95293278997065\n-138.83653336988814\n-138.84738261694332\n"
+  },
+  {
+    "label": "clads0-grid2-12",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-12.wppl 10",
+    "output": "-138.7965746130689\n-138.89708146824466\n-138.66100616252618\n-139.29305207435573\n-138.49053080289553\n-139.17250244848813\n-138.88429648296375\n-139.0549085203835\n-138.997548873865\n-139.01548200521682\n"
+  },
+  {
+    "label": "clads0-grid2-13",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-13.wppl 10",
+    "output": "-139.25939577364292\n-138.97750138640043\n-139.04506761917654\n-139.0738606367396\n-139.05077573513103\n-139.05301282860378\n-138.85373706595442\n-138.88215437060052\n-139.0230013207633\n-138.91241568615783\n"
+  },
+  {
+    "label": "clads0-grid2-14",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-14.wppl 10",
+    "output": "-139.3175571971647\n-139.0957567329675\n-139.0069306959098\n-138.8431419924745\n-138.9413227599269\n-139.22065407684755\n-139.12689666788367\n-138.86168889698902\n-138.58507569491266\n-139.13951367755888\n"
+  },
+  {
+    "label": "clads0-grid2-15",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-15.wppl 10",
+    "output": "-139.09417728844974\n-139.217134227099\n-138.72584663947356\n-139.29090732798093\n-139.225866609574\n-138.70989998506562\n-139.42070773564754\n-139.47991250193115\n-139.1137530047738\n-139.53683292330328\n"
+  },
+  {
+    "label": "clads0-grid2-16",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-16.wppl 10",
+    "output": "-139.55931162327664\n-138.90355229115966\n-139.18229668768768\n-139.11009184809367\n-138.9807848641258\n-139.87219706146317\n-139.1003572728105\n-139.2071444986515\n-139.2606399840018\n-138.97508170572652\n"
+  },
+  {
+    "label": "clads0-grid2-17",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-17.wppl 10",
+    "output": "-139.5168653370301\n-139.15166525905764\n-139.26075151960217\n-139.93889747900698\n-139.00004034292607\n-139.61478976597166\n-139.61195912250625\n-139.31606433780578\n-138.88375482711956\n-139.2976449177952\n"
+  },
+  {
+    "label": "clads0-grid2-18",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-18.wppl 10",
+    "output": "-140.12788242163057\n-140.08161627404027\n-138.96040476273157\n-140.1524266302856\n-139.7453187790202\n-139.36803652489817\n-139.6486901926183\n-139.09162031218872\n-138.90397508080284\n-139.82958992426265\n"
+  },
+  {
+    "label": "clads0-grid2-19",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-19.wppl 10",
+    "output": "-139.50507598235484\n-139.3856519680489\n-139.01466536288953\n-140.3965437065942\n-139.60806192143897\n-139.3454812113517\n-139.7201445460529\n-139.7492313863476\n-139.59627022425556\n-139.71842265795976\n"
+  },
+  {
+    "label": "clads0-grid2-20",
+    "description": "ClaDS0 simulations. No survivorship bias correction.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 10000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": false
+    },
+    "parameters": {
+      "inv_sigma_2": "gamma({shape: 1, scale: 1/0.2})",
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 10000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = false\nvar model = function()\n{\n\tvar inv_sigma_2 = gamma({shape: 1, scale: 1/0.2})\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tvar sigma = Math.sqrt(1/inv_sigma_2)\n\t\n\tvar log_alpha = gaussian( { mu: 0, sigma: sigma } )\n\tvar alpha = Math.exp(log_alpha)\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads0-grid2/clads0-grid2-20.wppl 10",
+    "output": "-139.76657338264292\n-139.47698864799722\n-139.85542988416776\n-139.73885541361548\n-139.746591243452\n-140.30499769496157\n-140.37418069038785\n-139.79589088982436\n-139.64219274094313\n-139.74699068841403\n"
+  }
+]

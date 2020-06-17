@@ -1,0 +1,30 @@
+{
+    "label" : "lsbds",
+    
+    "description" : "vary eta and rho",
+
+    "hyper_parameters" : {
+       	"particles" : 10000,
+	"MAX_DIV" : 10,
+	"MAX_LAMBDA" : 10
+    },
+    
+    "parameters" : {
+	"tree" :  "phyjs.bisse_32",
+	"EXPECTED_NUM_EVENTS" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+	
+	"DistLambda" : "function() { return ( exponential( { a: 1 } ) )  }",
+	"DistMu"     : "function(lambda_0) {\n\t\treturn ( exponential( { a: 1 } ) )\n\t}",
+	"eta"      : "EXPECTED_NUM_EVENTS / tree.age ",
+	"rho"      : [1, 0.1, 0.01]  
+    },
+    
+    "model" : "\n\tvar lambda_0 = DistLambda()\n\tvar mu_0 = DistMu(lambda_0)\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\treturn (ret)",
+    
+    "inference" : {
+
+	"method" : "SMC",
+	"likelihood": true
+    }
+}
+

@@ -1,0 +1,195 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 91;
+	TAXLABELS
+		Odontorchilus_cinereus
+		Campylorhynchus_nuchalis
+		Campylorhynchus_fasciatus
+		Campylorhynchus_albobrunneus
+		Campylorhynchus_zonatus
+		Campylorhynchus_megalopterus
+		Campylorhynchus_turdinus
+		Campylorhynchus_jocosus
+		Campylorhynchus_gularis
+		Campylorhynchus_rufinucha
+		Campylorhynchus_chiapensis
+		Campylorhynchus_griseus
+		Campylorhynchus_yucatanicus
+		Campylorhynchus_brunneicapillus
+		Thryomanes_bewickii
+		Henicorhina_leucosticta
+		Thryothorus_ludovicianus
+		Cistothorus_platensis
+		Cistothorus_palustris
+		Troglodytes_troglodytes
+		Troglodytes_solstitialis
+		Troglodytes_rufulus
+		Troglodytes_ochraceus
+		Thryorchilus_browni
+		Troglodytes_rufociliatus
+		Troglodytes_sissonii
+		Troglodytes_aedon
+		Cinnycerthia_peruana
+		Henicorhina_leucoptera
+		Henicorhina_leucophrys
+		Thryothorus_modestus
+		Thryothorus_superciliaris
+		Thryothorus_longirostris
+		Thryothorus_guarayanus
+		Thryothorus_leucotis
+		Thryothorus_nigricapillus
+		Thryothorus_semibadius
+		Thryothorus_leucopogon
+		Thryothorus_thoracicus
+		Thryothorus_pleurostictus
+		Thryothorus_sinaloa
+		Thryothorus_rufalbus
+		Cyphorhinus_arada
+		Uropsila_leucogastra
+		Thryothorus_fasciatoventris
+		Thryothorus_atrogularis
+		Thryothorus_sclateri
+		Thryothorus_felix
+		Thryothorus_rutilus
+		Thryothorus_maculipectus
+		Thryothorus_genibarbis
+		Thryothorus_coraya
+		Thryothorus_euophrys
+		Thryothorus_mystacalis
+		Microcerculus_marginatus
+		Salpinctes_obsoletus
+		Hylorchilus_sumichrasti
+		Catherpes_mexicanus
+		Polioptila_dumicola
+		Polioptila_caerulea
+		Polioptila_nigriceps
+		Polioptila_albiloris
+		Polioptila_californica
+		Polioptila_melanura
+		Polioptila_plumbea
+		Ramphocaenus_melanurus
+		Microbates_cinereiventris
+		Certhia_americana
+		Certhia_familiaris
+		Certhia_hodgsoni
+		Certhia_brachydactyla
+		Certhia_himalayana
+		Certhia_tianquanensis
+		Certhia_nipalensis
+		Certhia_manipurensis
+		Certhia_discolor
+		Salpornis_spilonotus
+		Tichodroma_muraria
+		Sitta_europaea
+		Sitta_himalayensis
+		Sitta_frontalis
+		Sitta_pusilla
+		Sitta_pygmaea
+		Sitta_ledanti
+		Sitta_krueperi
+		Sitta_canadensis
+		Sitta_whiteheadi
+		Sitta_villosa
+		Sitta_carolinensis
+		Sitta_neumayer
+		Sitta_tephronota
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Odontorchilus_cinereus,
+		2	Campylorhynchus_nuchalis,
+		3	Campylorhynchus_fasciatus,
+		4	Campylorhynchus_albobrunneus,
+		5	Campylorhynchus_zonatus,
+		6	Campylorhynchus_megalopterus,
+		7	Campylorhynchus_turdinus,
+		8	Campylorhynchus_jocosus,
+		9	Campylorhynchus_gularis,
+		10	Campylorhynchus_rufinucha,
+		11	Campylorhynchus_chiapensis,
+		12	Campylorhynchus_griseus,
+		13	Campylorhynchus_yucatanicus,
+		14	Campylorhynchus_brunneicapillus,
+		15	Thryomanes_bewickii,
+		16	Henicorhina_leucosticta,
+		17	Thryothorus_ludovicianus,
+		18	Cistothorus_platensis,
+		19	Cistothorus_palustris,
+		20	Troglodytes_troglodytes,
+		21	Troglodytes_solstitialis,
+		22	Troglodytes_rufulus,
+		23	Troglodytes_ochraceus,
+		24	Thryorchilus_browni,
+		25	Troglodytes_rufociliatus,
+		26	Troglodytes_sissonii,
+		27	Troglodytes_aedon,
+		28	Cinnycerthia_peruana,
+		29	Henicorhina_leucoptera,
+		30	Henicorhina_leucophrys,
+		31	Thryothorus_modestus,
+		32	Thryothorus_superciliaris,
+		33	Thryothorus_longirostris,
+		34	Thryothorus_guarayanus,
+		35	Thryothorus_leucotis,
+		36	Thryothorus_nigricapillus,
+		37	Thryothorus_semibadius,
+		38	Thryothorus_leucopogon,
+		39	Thryothorus_thoracicus,
+		40	Thryothorus_pleurostictus,
+		41	Thryothorus_sinaloa,
+		42	Thryothorus_rufalbus,
+		43	Cyphorhinus_arada,
+		44	Uropsila_leucogastra,
+		45	Thryothorus_fasciatoventris,
+		46	Thryothorus_atrogularis,
+		47	Thryothorus_sclateri,
+		48	Thryothorus_felix,
+		49	Thryothorus_rutilus,
+		50	Thryothorus_maculipectus,
+		51	Thryothorus_genibarbis,
+		52	Thryothorus_coraya,
+		53	Thryothorus_euophrys,
+		54	Thryothorus_mystacalis,
+		55	Microcerculus_marginatus,
+		56	Salpinctes_obsoletus,
+		57	Hylorchilus_sumichrasti,
+		58	Catherpes_mexicanus,
+		59	Polioptila_dumicola,
+		60	Polioptila_caerulea,
+		61	Polioptila_nigriceps,
+		62	Polioptila_albiloris,
+		63	Polioptila_californica,
+		64	Polioptila_melanura,
+		65	Polioptila_plumbea,
+		66	Ramphocaenus_melanurus,
+		67	Microbates_cinereiventris,
+		68	Certhia_americana,
+		69	Certhia_familiaris,
+		70	Certhia_hodgsoni,
+		71	Certhia_brachydactyla,
+		72	Certhia_himalayana,
+		73	Certhia_tianquanensis,
+		74	Certhia_nipalensis,
+		75	Certhia_manipurensis,
+		76	Certhia_discolor,
+		77	Salpornis_spilonotus,
+		78	Tichodroma_muraria,
+		79	Sitta_europaea,
+		80	Sitta_himalayensis,
+		81	Sitta_frontalis,
+		82	Sitta_pusilla,
+		83	Sitta_pygmaea,
+		84	Sitta_ledanti,
+		85	Sitta_krueperi,
+		86	Sitta_canadensis,
+		87	Sitta_whiteheadi,
+		88	Sitta_villosa,
+		89	Sitta_carolinensis,
+		90	Sitta_neumayer,
+		91	Sitta_tephronota
+	;
+	TREE * UNTITLED = [&R] ((((((((1:11.96956522,(((2:5.294923672,((3:3.311461623,(4:1.724032682,5:1.724032682):1.587428941):1.186107366,6:4.497568989):0.7973546835):0.7075577623,7:6.002481435):2.459030301,(((((8:3.40433871,9:3.40433871):0.5495106627,10:3.953849372):0.7263932984,(11:3.228821214,12:3.228821214):1.451421457):1.297153917,13:5.977396588):1.671592873,14:7.648989462):0.8125222743):3.508053487):1.96492395,(15:9.968598126,(16:6.109916131,17:6.109916131):3.858681995):3.965891046):0.9576062273,(((18:7.310963335,19:7.310963335):3.391617199,20:10.70258053):0.7328011726,((21:5.71349409,((22:3.27425924,23:3.27425924):1.592475298,(24:4.060458224,25:4.060458224):0.806276314):0.8467595514):1.376592157,(26:2.511843488,27:2.511843488):4.578242759):4.34529546):3.456713692):1.650399406,(((((28:3.771771628,29:3.771771628):6.981307027,30:10.75307865):2.141026539,((31:8.211802915,((32:6.02844923,(33:4.512523425,(34:3.789446222,35:3.789446222):0.7230772034):1.515925805):0.7245038659,(36:5.062445654,37:5.062445654):1.690507442):1.458849819):1.309756569,(38:3.388505594,39:3.388505594):6.133053891):3.372545709):0.5674817273,((40:6.530502423,41:6.530502423):3.892218055,42:10.42272048):3.038866443):0.6292092688,((43:10.02906326,44:10.02906326):2.566465089,(45:9.318381854,((46:5.627301412,((47:3.903083367,48:3.903083367):0.7593391002,(49:3.044923143,50:3.044923143):1.617499324):0.9648789447):3.405808846,(51:8.273414187,((52:6.500037477,53:6.500037477):1.178460661,54:7.678498138):0.5949160487):0.7596960702):0.2852715963):3.277146492):1.495267845):2.451698616):1.97253309,(55:15.60458326,(56:14.39445439,(57:9.517527516,58:9.517527516):4.876926879):1.21012887):2.910444632):6.069064732,((59:6.821536442,(60:5.306660603,(((61:2.493518059,62:2.493518059):0.6206891065,(63:2.256856422,64:2.256856422):0.8573507437):1.436997759,65:4.551204925):0.7554556787):1.514875838):9.698223785,(66:5.154093062,67:5.154093062):11.36566717):8.064332401):4.519202255,((((68:1.525796919,69:1.525796919):5.703922055,(70:5.949037978,71:5.949037978):1.280680996):5.350022058,(72:10.96420341,((73:3.553867448,74:3.553867448):4.923912438,(75:4.004949796,76:4.004949796):4.47283009):2.48642352):1.615537626):13.39855601,(77:7.274599415,78:7.274599415):18.70369763):3.124997836):3.593098281,((((79:9.909441273,80:9.909441273):4.19788682,((81:9.905758315,(82:7.509200255,83:7.509200255):2.39655806):1.398495375,((84:1.59571781,85:1.59571781):5.548480963,(86:5.076753966,(87:1.191153873,88:1.191153873):3.885600093):2.067444808):4.160054917):2.803074402):1.821755882,89:15.92908397):4.03139082,(90:0.5912747908,91:0.5912747908):19.3692):12.73591837);
+END;

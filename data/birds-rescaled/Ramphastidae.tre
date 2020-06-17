@@ -1,0 +1,175 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 81;
+	TAXLABELS
+		Capito_quinticolor
+		Capito_niger
+		Capito_auratus
+		Capito_maculicoronatus
+		Capito_squamatus
+		Capito_wallacei
+		Capito_aurovirens
+		Capito_dayi
+		Eubucco_bourcierii
+		Eubucco_richardsoni
+		Semnornis_frantzii
+		Semnornis_ramphastinus
+		Aulacorhynchus_derbianus
+		Aulacorhynchus_sulcatus
+		Aulacorhynchus_haematopygus
+		Aulacorhynchus_coeruleicinctis
+		Aulacorhynchus_prasinus
+		Andigena_laminirostris
+		Andigena_hypoglauca
+		Andigena_cucullata
+		Selenidera_spectabilis
+		Selenidera_gouldii
+		Selenidera_maculirostris
+		Selenidera_reinwardtii
+		Selenidera_piperivora
+		Pteroglossus_beauharnaesii
+		Pteroglossus_bitorquatus
+		Pteroglossus_bailloni
+		Pteroglossus_inscriptus
+		Pteroglossus_viridis
+		Pteroglossus_aracari
+		Pteroglossus_pluricinctus
+		Pteroglossus_castanotis
+		Pteroglossus_azara
+		Pteroglossus_torquatus
+		Pteroglossus_frantzii
+		Ramphastos_swainsonii
+		Ramphastos_ambiguus
+		Ramphastos_tucanus
+		Ramphastos_sulfuratus
+		Ramphastos_dicolorus
+		Ramphastos_vitellinus
+		Ramphastos_brevis
+		Ramphastos_toco
+		Pogoniulus_coryphaeus
+		Pogoniulus_atroflavus
+		Pogoniulus_chrysoconus
+		Pogoniulus_pusillus
+		Pogoniulus_scolopaceus
+		Pogoniulus_bilineatus
+		Tricholaema_hirsuta
+		Tricholaema_diademata
+		Tricholaema_leucomelas
+		Lybius_dubius
+		Lybius_bidentatus
+		Lybius_melanopterus
+		Tricholaema_lacrymosa
+		Lybius_vieilloti
+		Lybius_torquatus
+		Buccanodon_duchaillui
+		Stactolaema_whytii
+		Stactolaema_leucotis
+		Gymnobucco_calvus
+		Stactolaema_olivacea
+		Trachyphonus_purpuratus
+		Trachyphonus_usambiro
+		Trachyphonus_darnaudii
+		Trachyphonus_erythrocephalus
+		Calorhamphus_fuliginosus
+		Megalaima_haemacephala
+		Megalaima_virens
+		Psilopogon_pyrolophus
+		Megalaima_mystacophanos
+		Megalaima_asiatica
+		Megalaima_faber
+		Megalaima_oorti
+		Megalaima_nuchalis
+		Megalaima_franklinii
+		Megalaima_monticola
+		Megalaima_chrysopogon
+		Megalaima_lineata
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Capito_quinticolor,
+		2	Capito_niger,
+		3	Capito_auratus,
+		4	Capito_maculicoronatus,
+		5	Capito_squamatus,
+		6	Capito_wallacei,
+		7	Capito_aurovirens,
+		8	Capito_dayi,
+		9	Eubucco_bourcierii,
+		10	Eubucco_richardsoni,
+		11	Semnornis_frantzii,
+		12	Semnornis_ramphastinus,
+		13	Aulacorhynchus_derbianus,
+		14	Aulacorhynchus_sulcatus,
+		15	Aulacorhynchus_haematopygus,
+		16	Aulacorhynchus_coeruleicinctis,
+		17	Aulacorhynchus_prasinus,
+		18	Andigena_laminirostris,
+		19	Andigena_hypoglauca,
+		20	Andigena_cucullata,
+		21	Selenidera_spectabilis,
+		22	Selenidera_gouldii,
+		23	Selenidera_maculirostris,
+		24	Selenidera_reinwardtii,
+		25	Selenidera_piperivora,
+		26	Pteroglossus_beauharnaesii,
+		27	Pteroglossus_bitorquatus,
+		28	Pteroglossus_bailloni,
+		29	Pteroglossus_inscriptus,
+		30	Pteroglossus_viridis,
+		31	Pteroglossus_aracari,
+		32	Pteroglossus_pluricinctus,
+		33	Pteroglossus_castanotis,
+		34	Pteroglossus_azara,
+		35	Pteroglossus_torquatus,
+		36	Pteroglossus_frantzii,
+		37	Ramphastos_swainsonii,
+		38	Ramphastos_ambiguus,
+		39	Ramphastos_tucanus,
+		40	Ramphastos_sulfuratus,
+		41	Ramphastos_dicolorus,
+		42	Ramphastos_vitellinus,
+		43	Ramphastos_brevis,
+		44	Ramphastos_toco,
+		45	Pogoniulus_coryphaeus,
+		46	Pogoniulus_atroflavus,
+		47	Pogoniulus_chrysoconus,
+		48	Pogoniulus_pusillus,
+		49	Pogoniulus_scolopaceus,
+		50	Pogoniulus_bilineatus,
+		51	Tricholaema_hirsuta,
+		52	Tricholaema_diademata,
+		53	Tricholaema_leucomelas,
+		54	Lybius_dubius,
+		55	Lybius_bidentatus,
+		56	Lybius_melanopterus,
+		57	Tricholaema_lacrymosa,
+		58	Lybius_vieilloti,
+		59	Lybius_torquatus,
+		60	Buccanodon_duchaillui,
+		61	Stactolaema_whytii,
+		62	Stactolaema_leucotis,
+		63	Gymnobucco_calvus,
+		64	Stactolaema_olivacea,
+		65	Trachyphonus_purpuratus,
+		66	Trachyphonus_usambiro,
+		67	Trachyphonus_darnaudii,
+		68	Trachyphonus_erythrocephalus,
+		69	Calorhamphus_fuliginosus,
+		70	Megalaima_haemacephala,
+		71	Megalaima_virens,
+		72	Psilopogon_pyrolophus,
+		73	Megalaima_mystacophanos,
+		74	Megalaima_asiatica,
+		75	Megalaima_faber,
+		76	Megalaima_oorti,
+		77	Megalaima_nuchalis,
+		78	Megalaima_franklinii,
+		79	Megalaima_monticola,
+		80	Megalaima_chrysopogon,
+		81	Megalaima_lineata
+	;
+	TREE * UNTITLED = [&R] (((((1:12.23970266,((((2:2.405559208,3:2.405559208):0.8440702799,(4:0.8987786429,5:0.8987786429):2.350850845):1.711719278,6:4.961348766):3.416717569,(7:7.066633637,8:7.066633637):1.311432698):3.861636327):5.484676681,(9:6.743224669,10:6.743224669):10.98115467):4.55442859,((11:6.640013531,12:6.640013531):13.54684397,(((((((13:3.365773627,14:3.365773627):1.106771401,15:4.472545028):1.904264041,16:6.376809069):1.156216638,17:7.533025707):4.588576022,((((18:2.783799037,(19:1.923040782,20:1.923040782):0.8607582551):3.388078909,21:6.171877946):1.109908001,((22:1.091158677,23:1.091158677):2.00665131,24:3.097809988):4.183975959):1.206865241,25:8.488651188):3.632950541):1.984997469,(((26:1.993383013,27:1.993383013):1.711118884,(28:2.873718301,(29:1.350026973,30:1.350026973):1.523691328):0.8307835961):0.6318886067,(31:3.322145624,(((32:1.134667946,33:1.134667946):0.808561191,34:1.943229137):0.733875356,(35:0.7799222127,36:0.7799222127):1.89718228):0.6450411311):1.01424488):9.770208694):2.031183428,((((37:0.6199632491,38:0.6199632491):1.675338114,39:2.295301363):1.980221388,(40:3.676362942,(41:3.075214312,(42:1.38838316,43:1.38838316):1.686831152):0.6011486302):0.5991598093):1.533583218,44:5.809105969):10.32867666):4.049074875):2.091950433):8.089486043,((((45:14.40697109,((46:8.039706843,((47:4.414579857,48:4.414579857):1.276171897,49:5.690751754):2.348955089):2.715741812,50:10.75544865):3.651522433):3.621781392,(51:11.59371629,((52:2.680096696,53:2.680096696):7.729858278,(((54:2.92806891,55:2.92806891):1.049734722,56:3.977803632):2.25365522,(57:4.798860617,(58:2.119468912,59:2.119468912):2.679391704):1.432598235):4.178496122):1.183761318):6.435036187):2.33709246,((60:15.46107715,((61:3.014922649,62:3.014922649):3.700273519,63:6.715196168):8.745880987):1.970924876,64:17.43200203):2.933842908):7.314812592,(65:15.22735607,((66:1.014130608,67:1.014130608):7.508457672,68:8.522588281):6.704767793):12.45330146):2.687636445):1.801596543,(69:27.88707021,(70:18.72875263,(((71:6.848008073,72:6.848008073):4.413001368,73:11.26100944):1.062379959,(((74:3.489785828,(75:1.569608083,(76:0.06593477756,77:0.06593477756):1.503673306):1.920177744):2.797890047,(78:5.930324125,(79:4.717463922,80:4.717463922):1.212860203):0.3573517499):1.741095918,81:8.028771792):4.294617608):6.405363227):9.158317579):4.282820312);
+END;

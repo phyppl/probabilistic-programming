@@ -1,0 +1,37 @@
+{
+    "label" : "bamm-tdbd",
+    
+    "description" : "BAMM model as it degrades into TDBD. λ and μ should not ever be resampled here as η is 0.",
+
+    "hyper_parameters" : {
+       	"particles" : 10000,
+	"MAX_DIV" : 5,
+	"MAX_LAMBDA" : 5,
+	"MIN_LAMBDA" : 0.000001
+    },
+    
+    "parameters" : {
+	"tree" :  "phyjs.bisse_32",
+	"z" : [-0.1, -0.05, 0, 0.05, 0.1],	
+	"lambda_0"   :   [0.1, 0.3, 1],
+	"epsilon"   : [0.0, 0.1, 0.5],
+	
+	"DistLambda" : "function() { return ( exponential( { a: 1 } ) )  }",
+	"DistMu"     : "function(lambda_0) {\n\t\tvar epsilon = uniform( { a:0.0, b:1.0 } )\n\t\t return ( epsilon * lambda_0) \n\t}",
+	"DistZ"      : "function() { return z }",
+	
+	"z_0"        : "DistZ()",
+	"lambdaFun_0" : "function(t) { return ( lambda_0*Math.exp(z_0*(tree.age - t) ) ) }",
+
+	"eta"      : 0,
+	"rho"      : 1
+    },
+    
+    "model" : "\n\t var mu_0 = epsilon * lambda_0 \n\t var ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )\n\treturn (ret)",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}
+

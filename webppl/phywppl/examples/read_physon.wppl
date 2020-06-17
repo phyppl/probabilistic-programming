@@ -1,0 +1,4 @@
+var parsed_tree = phyjs.read_phyjson("../../data/bisse_32.phyjson")
+console.log(parsed_tree.age)
+console.log("parsed tree: ")
+phyjs.print_tree(parsed_tree)

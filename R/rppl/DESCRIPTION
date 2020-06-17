@@ -1,0 +1,11 @@
+Package: rppl
+Type: Package
+Title: Companion package to phywppl
+Version: 1.0.0
+Author: Viktor Senderov
+Maintainer: Viktor Senderov <vsenderov@gmail.com>
+Description: This an auxilliary package used in the verification experiments of phywppl.
+License: Apache
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0

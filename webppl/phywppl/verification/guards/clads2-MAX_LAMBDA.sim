@@ -1,0 +1,28 @@
+{
+    "label" : "clads2-MAX_LAMBDA",
+    "description" : "Testing the effect of maximum admissable lambda on the normalization constant of the ClaDS2 model",
+    "hyper_parameters": {
+    	"MAX_DIV"  :  5,
+	"MIN_LAMBDA": 1e-5,
+	"MAX_LAMBDA" : [0.11, 0.121, 0.1331, 0.14641, 0.161051, 0.1771561, 0.1948717, 0.2143589, 0.2357948, 0.2593742, 0.2853117, 0.3138428, 0.3452271, 0.3797498, 0.4177248, 0.4594973, 0.505447, 0.5559917, 0.6115909, 0.67275, 0.740025, 0.8140275, 0.8954302, 0.9849733, 1.083471, 1.191818, 1.310999, 1.442099, 1.586309, 1.74494, 1.919434, 2.111378, 2.322515, 2.554767, 2.810244, 3.091268, 3.400395, 3.740434, 4.114478, 4.525926, 4.978518, 5.47637, 6.024007, 6.626408, 7.289048, 8.017953, 8.819749, 9.701723, 10.6719, 11.73909],
+	"PANDA" : false
+    },
+    "parameters" : {
+	"tree"     : [
+	    "phyjs.read_phyjson('../../data/bisse_32.phyjson')"
+	],
+
+	"lambda_0" : "exponential( { a: 1 } )",
+	"epsilon"  : "uniform( { a:0.0, b:1.0 } )",
+	"alpha"    : "Math.exp( gaussian( { mu: 0, sigma: 0.3 } ) )",	
+	"sigma"    : "Math.sqrt( 1.0/( gamma( { shape:1.0, scale: 1/0.01 } ) ) )",	
+	"rho"      : 1  
+    },
+    "model" : "var ret = simClaDS2(tree, lambda_0, alpha, sigma, epsilon, rho)\n\tvar dist = Infer( { model: function() { clads2GoesUndetected(tree.age, lambda_0, alpha, sigma, epsilon, rho) }, method: 'forward', samples: 100 } )\n\tfactor(-2.0*dist.score(false))\n\treturn ret",
+    "inference" : {
+    	"particles" : 10000,
+	"method" : "SMC",
+	"likelihood": true
+    }
+}
+

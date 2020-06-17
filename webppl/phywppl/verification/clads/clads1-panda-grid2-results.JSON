@@ -1,0 +1,2162 @@
+[
+  {
+    "label": "clads1-panda-grid2-1",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-1.wppl 10",
+    "output": "-28.261827111360468\n-28.272694854345772\n-28.28249735199948\n-28.208157691481986\n-28.264910628404678\n-28.23018293816957\n-28.24445104765684\n-28.289731537438264\n-28.27137733266654\n-28.324722436870324\n"
+  },
+  {
+    "label": "clads1-panda-grid2-2",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-2.wppl 10",
+    "output": "-14.591896917042835\n-14.565435679527392\n-14.508300229773162\n-14.69065624720177\n-14.549746575634032\n-14.646871092918738\n-14.681095833418295\n-14.638687640450218\n-14.44616693268129\n-14.646212136874347\n"
+  },
+  {
+    "label": "clads1-panda-grid2-3",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-3.wppl 10",
+    "output": "-9.335582105158228\n-9.50214641649825\n-9.55424486828864\n-9.45355848403059\n-9.362699902108652\n-9.310943931857478\n-9.62219871069888\n-9.652075939342394\n-9.62724501190817\n-9.382768840005989\n"
+  },
+  {
+    "label": "clads1-panda-grid2-4",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-4.wppl 10",
+    "output": "-8.168766888921354\n-8.076290767907706\n-7.931599055394376\n-7.8185811432985926\n-8.00216582509436\n-7.883947551481283\n-7.97865228123335\n-8.032539826837361\n-7.958531554982885\n-8.020189563249435\n"
+  },
+  {
+    "label": "clads1-panda-grid2-5",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-5.wppl 10",
+    "output": "-8.120970561862286\n-8.466907534198413\n-8.22952822172936\n-8.449822614489724\n-8.81172893671631\n-8.569032599443808\n-8.097538277437007\n-8.613130253676964\n-8.422086249533166\n-8.399144172459376\n"
+  },
+  {
+    "label": "clads1-panda-grid2-6",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-6.wppl 10",
+    "output": "-9.998508119151088\n-9.674398579022464\n-9.942664639380766\n-9.846209562163121\n-10.121848254643236\n-9.866927137074622\n-9.971553504699525\n-10.092838983531625\n-10.03256227702114\n-10.130500077027897\n"
+  },
+  {
+    "label": "clads1-panda-grid2-7",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-7.wppl 10",
+    "output": "-12.762861736002577\n-12.451154947920902\n-12.582259617133023\n-12.732945694387524\n-12.20276281007521\n-12.155782713158374\n-12.353711694783842\n-12.437229128242429\n-12.351012874184928\n-12.45789995676152\n"
+  },
+  {
+    "label": "clads1-panda-grid2-8",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-8.wppl 10",
+    "output": "-15.37997199302706\n-15.730988162927668\n-15.63877613221969\n-15.819412477291461\n-15.348813642080135\n-15.687217994804396\n-15.561196975957113\n-15.572614388827354\n-15.079581343755999\n-15.842032096569117\n"
+  },
+  {
+    "label": "clads1-panda-grid2-9",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-9.wppl 10",
+    "output": "-18.967502145523596\n-19.040070570040257\n-19.33708475684238\n-18.987670808140894\n-19.294619512463623\n-18.76502974114168\n-18.720160557947672\n-19.680731440821532\n-19.1307548294784\n-18.806112092090174\n"
+  },
+  {
+    "label": "clads1-panda-grid2-10",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-10.wppl 10",
+    "output": "-22.80717999810728\n-22.808042271688787\n-23.14478214115789\n-23.617850426745534\n-23.18592714555505\n-23.063003760481898\n-22.974332696122403\n-22.790175877593875\n-23.530358175495547\n-22.968173659155838\n"
+  },
+  {
+    "label": "clads1-panda-grid2-11",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-11.wppl 10",
+    "output": "-27.787738697596104\n-27.022718048113255\n-26.786509371688503\n-27.246403627964206\n-28.274920585496275\n-27.630168861172365\n-27.408644862007165\n-27.4758435195171\n-27.45062669656442\n-27.17122225719489\n"
+  },
+  {
+    "label": "clads1-panda-grid2-12",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-12.wppl 10",
+    "output": "-31.734714768731614\n-31.68658336722975\n-31.581841842088778\n-31.370756135811384\n-31.687460222115476\n-31.592703841315817\n-31.843465225640635\n-31.614466798631383\n-32.02595694532653\n-31.408673842240333\n"
+  },
+  {
+    "label": "clads1-panda-grid2-13",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-13.wppl 10",
+    "output": "-36.97098784847303\n-36.25701463815987\n-36.62038405801006\n-36.885241227549734\n-37.34736629812836\n-36.60290113441808\n-36.80719373475827\n-36.47619142655605\n-36.438642356626374\n-36.26913550765202\n"
+  },
+  {
+    "label": "clads1-panda-grid2-14",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-14.wppl 10",
+    "output": "-42.15645267457239\n-41.12670114866041\n-40.874511439151775\n-41.90227780154832\n-41.86078075016518\n-41.5332781088989\n-42.334801817436286\n-41.03665972711454\n-42.399176999930425\n-40.964555113337276\n"
+  },
+  {
+    "label": "clads1-panda-grid2-15",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-15.wppl 10",
+    "output": "-46.626762518129034\n-46.10233053532953\n-46.894897116965886\n-46.70891426048024\n-46.47527229914627\n-46.6336942844833\n-47.67183482511286\n-46.45921352030232\n-45.613392045436285\n-46.00884258082691\n"
+  },
+  {
+    "label": "clads1-panda-grid2-16",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-16.wppl 10",
+    "output": "-52.56102940808158\n-50.9361539451955\n-51.30315273648965\n-51.526849589896045\n-52.98299194506264\n-52.28627595879839\n-52.31350063380868\n-51.75674789774044\n-51.0701588179839\n-52.86075912203514\n"
+  },
+  {
+    "label": "clads1-panda-grid2-17",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-17.wppl 10",
+    "output": "-57.01899984258292\n-57.091249478789514\n-58.86253972555261\n-57.01523295896365\n-56.12726531068912\n-58.460517423165896\n-56.532790731329094\n-57.048179082996555\n-57.66525817750476\n-55.86452441778235\n"
+  },
+  {
+    "label": "clads1-panda-grid2-18",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-18.wppl 10",
+    "output": "-63.49823951260709\n-64.2395654124432\n-62.59755754822873\n-61.85411894597679\n-64.07898855410164\n-62.39215806069986\n-63.516722189848636\n-61.721280093709886\n-62.701098000126194\n-62.83884238950907\n"
+  },
+  {
+    "label": "clads1-panda-grid2-19",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-19.wppl 10",
+    "output": "-68.35512983781675\n-65.81265708810912\n-69.98731409856704\n-68.53906413902243\n"
+  },
+  {
+    "label": "clads1-panda-grid2-20",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-20.wppl 10",
+    "output": "-74.52624077635546\n-71.7734173964991\n-72.52117936629139\n-73.37997796308542\n-73.1759963869527\n-71.91388528956801\n"
+  },
+  {
+    "label": "clads1-panda-grid2-21",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-21.wppl 10",
+    "output": "-28.675870553873438\n-28.73726463784162\n-28.758431297400236\n-28.63790989004358\n-28.746634790681178\n-28.65038315969204\n-28.762420513041093\n-28.672423299231546\n-28.704223996459667\n-28.71545573948292\n"
+  },
+  {
+    "label": "clads1-panda-grid2-22",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-22.wppl 10",
+    "output": "-15.217407454088962\n-15.22296302779446\n-15.208393822803146\n-15.192406259411747\n-15.294782319476553\n-15.157698895228753\n-15.14389728145873\n-15.271472193332881\n-15.236481662107783\n-15.288036996986966\n"
+  },
+  {
+    "label": "clads1-panda-grid2-23",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-23.wppl 10",
+    "output": "-10.273374577010145\n-10.365526020742466\n-10.266554339928025\n-10.239044741275741\n-10.346362949946252\n-10.153947824795184\n-10.272243333504672\n-10.161223762226884\n-10.345640487592355\n-10.287032855668105\n"
+  },
+  {
+    "label": "clads1-panda-grid2-24",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-24.wppl 10",
+    "output": "-8.684363487312517\n-8.596159827107964\n-8.773090040156413\n-8.693786453734958\n-8.714527549394521\n-8.539059610352378\n-8.724342883230497\n-8.817688340085057\n-8.7408010312558\n-8.618199067600182\n"
+  },
+  {
+    "label": "clads1-panda-grid2-25",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-25.wppl 10",
+    "output": "-9.219401319891197\n-9.167478721053893\n-9.026038683166412\n-9.159490670505116\n-9.251440479493546\n-8.980198404188751\n-9.176173868573246\n-9.067605569768505\n-9.12092945406357\n-8.984119361316843\n"
+  },
+  {
+    "label": "clads1-panda-grid2-26",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-26.wppl 10",
+    "output": "-10.679159761501664\n-10.497802555466315\n-10.551935965888532\n-10.461502085965966\n-10.622545191981256\n-10.48125427474804\n-10.553062949169075\n-10.647014978226597\n-10.705847631946899\n-10.398807374971229\n"
+  },
+  {
+    "label": "clads1-panda-grid2-27",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-27.wppl 10",
+    "output": "-12.841150393034562\n-12.489743908757383\n-12.701995945182983\n-12.846310437945771\n-12.87416496588734\n-12.485287428425243\n-12.55827960256479\n-12.933840918908718\n-12.82017312216136\n-13.021291472738959\n"
+  },
+  {
+    "label": "clads1-panda-grid2-28",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-28.wppl 10",
+    "output": "-16.119030107919393\n-15.600515287529406\n-15.688185356537996\n-15.991426056923038\n-15.979346152394251\n-15.931283349160639\n-15.597974704524644\n-15.758805940094852\n-16.073965519162748\n-15.592370365588613\n"
+  },
+  {
+    "label": "clads1-panda-grid2-29",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-29.wppl 10",
+    "output": "-19.256672361230432\n-18.97341537431521\n-18.727449022540046\n-19.015503514604106\n-18.743119436918455\n-19.00067620368978\n-18.74100914440448\n-19.00512310073261\n-18.931340465505354\n-19.291945721184895\n"
+  },
+  {
+    "label": "clads1-panda-grid2-30",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-30.wppl 10",
+    "output": "-22.953297555603044\n-23.10082942513566\n-22.722433265127982\n-22.614558896777588\n-22.567775644158054\n-23.030937914394432\n-23.06228461568405\n-22.58543950474617\n-22.83657285590659\n-22.923464391375223\n"
+  },
+  {
+    "label": "clads1-panda-grid2-31",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-31.wppl 10",
+    "output": "-26.593280104201135\n-26.688061327181323\n-26.27298018086144\n-26.55221618800058\n-26.720862352381943\n-26.772771941753177\n-26.130220568394563\n-26.173708738318666\n-26.957257843050677\n-26.28902951481875\n"
+  },
+  {
+    "label": "clads1-panda-grid2-32",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-32.wppl 10",
+    "output": "-29.95376131017278\n-30.975744746720984\n-31.273819484444005\n-30.935277537883294\n-30.686970493606644\n-30.864886616596948\n-30.714601890046673\n-31.15067625962991\n-30.654616894208402\n-30.625532652142695\n"
+  },
+  {
+    "label": "clads1-panda-grid2-33",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-33.wppl 10",
+    "output": "-34.91470626078004\n-34.741159520860116\n-35.47980599121553\n-34.661556415410224\n-35.132490069795324\n-35.703325307299004\n-35.015662870423384\n-34.7680970747348\n-35.79796572264816\n-35.64604337901563\n"
+  },
+  {
+    "label": "clads1-panda-grid2-34",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-34.wppl 10",
+    "output": "-39.75584460751576\n-39.33245617011056\n-39.55442733998664\n-39.14810732339556\n-39.8988078093228\n-39.81656703292622\n-39.18920831680844\n-39.56654297039279\n-40.307376848396\n-39.40041418813434\n"
+  },
+  {
+    "label": "clads1-panda-grid2-35",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-35.wppl 10",
+    "output": "-44.492722209291856\n-44.6437185678397\n-45.19449989015446\n-44.18229896441609\n-43.81359775597178\n-43.790298786754\n-43.404751587186084\n-44.79363434579463\n-43.88748848775849\n-43.893256312195035\n"
+  },
+  {
+    "label": "clads1-panda-grid2-36",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-36.wppl 10",
+    "output": "-50.11816902818413\n-50.32116992086283\n-51.128476528571\n-48.7066923659074\n-50.39659263205977\n-49.30115327509371\n-50.17474491110933\n-48.24824885559039\n-49.40058489603145\n-47.56568355565118\n"
+  },
+  {
+    "label": "clads1-panda-grid2-37",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-37.wppl 10",
+    "output": "-54.76413870490367\n-56.87136439591479\n-53.89989290355704\n-55.94599314767113\n-54.79430121110669\n-53.1990843971803\n-55.30565864379344\n-55.6557098279093\n-53.98971434814884\n-55.11043031662888\n"
+  },
+  {
+    "label": "clads1-panda-grid2-38",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-38.wppl 10",
+    "output": "-59.27850195317363\n-60.87856622397539\n-58.731340769408554\n-58.44837040101682\n-61.39249215093567\n-60.58658931848608\n-58.91528557375996\n-59.93183804745021\n-58.797994840130016\n-59.930985589975435\n"
+  },
+  {
+    "label": "clads1-panda-grid2-39",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-39.wppl 10",
+    "output": "-63.59488119733782\n-64.63205375575306\n-64.46912435693763\n-67.25435618934698\n-63.788685999865905\n-65.74595765860091\n-66.62489638568681\n-67.1420352289496\n-64.58355618025016\n-65.98862917638486\n"
+  },
+  {
+    "label": "clads1-panda-grid2-40",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.1,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.1\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-40.wppl 10",
+    "output": "-68.06626512261086\n-70.7816517779286\n-71.8276225501574\n-70.94800752841972\n-68.31669838634765\n-70.82584366220436\n-69.64518388084703\n-68.41646051915424\n-72.0629668545752\n"
+  },
+  {
+    "label": "clads1-panda-grid2-41",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-41.wppl 10",
+    "output": "-30.472184350152034\n-30.511117142655607\n-30.51770824078386\n-30.54047239545538\n-30.476678910717318\n-30.469608487507465\n-30.523748032122064\n-30.559846280588765\n-30.489819252672724\n-30.505230609049818\n"
+  },
+  {
+    "label": "clads1-panda-grid2-42",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-42.wppl 10",
+    "output": "-18.142229469509253\n-18.039033765400944\n-18.152739109695098\n-18.07675446436739\n-18.214969646773856\n-18.164874110481804\n-18.100310730239805\n-18.12051651128246\n-18.09411167773279\n-18.140214280874993\n"
+  },
+  {
+    "label": "clads1-panda-grid2-43",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-43.wppl 10",
+    "output": "-13.489510979905173\n-13.694701477515707\n-13.657034236197823\n-13.578380013176034\n-13.637305538216253\n-13.671469413935206\n-13.602039664287068\n-13.637148120392517\n-13.702570616234741\n-13.633783096074417\n"
+  },
+  {
+    "label": "clads1-panda-grid2-44",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-44.wppl 10",
+    "output": "-12.262227872742312\n-12.250467892224702\n-12.230938314789118\n-12.065742378858832\n-12.14301445950773\n-12.331758751640082\n-12.131426188264104\n-12.228121476905475\n-12.158992845666674\n-12.175141094033027\n"
+  },
+  {
+    "label": "clads1-panda-grid2-45",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-45.wppl 10",
+    "output": "-12.354464730570793\n-12.346211734907302\n-12.290646061778167\n-12.460523460859374\n-12.266681700410544\n-12.325625780468894\n-12.33414524402848\n-12.1583991803865\n-12.117102308470724\n-12.356412772057539\n"
+  },
+  {
+    "label": "clads1-panda-grid2-46",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-46.wppl 10",
+    "output": "-13.346398106033568\n-13.317644774696156\n-12.974578436476172\n-13.06071427894716\n-13.448351966477851\n-13.119267668609472\n-13.353777232400091\n-12.949450898180768\n-13.175170764213252\n-13.267517432670918\n"
+  },
+  {
+    "label": "clads1-panda-grid2-47",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-47.wppl 10",
+    "output": "-14.643933109826708\n-15.079189793455487\n-14.976183992104337\n-14.6735728257682\n-14.858853555666105\n-14.91139537691745\n-14.848772792017826\n-14.945334972711901\n-14.864631679409129\n-14.703277723455543\n"
+  },
+  {
+    "label": "clads1-panda-grid2-48",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-48.wppl 10",
+    "output": "-16.987537975528966\n-16.7259115111938\n-16.777246403163367\n-16.34673421206072\n-16.59470651264708\n-16.75051314617503\n-16.43376565125008\n-16.935837097038394\n-16.68315632633481\n-17.019010937409725\n"
+  },
+  {
+    "label": "clads1-panda-grid2-49",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-49.wppl 10",
+    "output": "-18.72836074711227\n-19.01198370811217\n-18.967273382021254\n-19.196535499701753\n-18.767254001731942\n-19.126727530427665\n-18.90561091974478\n-19.164247568017217\n-18.853096691205167\n-18.972713442034376\n"
+  },
+  {
+    "label": "clads1-panda-grid2-50",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-50.wppl 10",
+    "output": "-21.204826523670008\n-21.4511587419929\n-21.656062783560685\n-20.98115308796956\n-21.477922846564113\n-21.223753540348937\n-21.606904184946593\n-20.967997173816286\n-20.81235821609168\n-21.651926604965787\n"
+  },
+  {
+    "label": "clads1-panda-grid2-51",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-51.wppl 10",
+    "output": "-24.01839676859327\n-23.927184690811746\n-23.85560124340017\n-24.335934485763296\n-23.923052580077048\n-23.77616525094645\n-23.636976607552377\n-24.235422707366283\n-24.690582387935322\n-24.284095109583795\n"
+  },
+  {
+    "label": "clads1-panda-grid2-52",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-52.wppl 10",
+    "output": "-26.382995744199164\n-26.54932785687916\n-26.437062607010496\n-26.299479214321565\n-25.97683448575257\n-26.901194014508825\n-26.93440886136228\n-25.99131414714904\n-26.553814201910058\n-27.050318409287826\n"
+  },
+  {
+    "label": "clads1-panda-grid2-53",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-53.wppl 10",
+    "output": "-29.666666943489943\n-28.71132381608072\n-28.743482866645778\n-29.03142515886976\n-28.88083204052647\n-29.512649600273\n-29.6942422706734\n-28.93754030304499\n-29.269409953491518\n-29.22242931711699\n"
+  },
+  {
+    "label": "clads1-panda-grid2-54",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-54.wppl 10",
+    "output": "-32.162796130851156\n-32.102590490429435\n-31.935394527940524\n-32.34246139442825\n-32.91226133641108\n-33.091531286994616\n-31.899354163567757\n-32.31839674353353\n-30.789806249193887\n-31.692471429444048\n"
+  },
+  {
+    "label": "clads1-panda-grid2-55",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-55.wppl 10",
+    "output": "-33.804396990671776\n-35.62820101240729\n-35.202860509414506\n-35.94025532619426\n-34.71364455520386\n-34.554775176328555\n-33.85810362672093\n-34.91850231535844\n-34.33730064883937\n-33.92879269666112\n"
+  },
+  {
+    "label": "clads1-panda-grid2-56",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-56.wppl 10",
+    "output": "-38.26325346000171\n-38.53199505507387\n-38.834220131730504\n-37.93111358985194\n-37.525990580213204\n-37.56173007891384\n-38.29043357519239\n-37.77850837309175\n-36.55899578606591\n-38.00351027632018\n"
+  },
+  {
+    "label": "clads1-panda-grid2-57",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-57.wppl 10",
+    "output": "-42.50981342135523\n-42.13402906105732\n-41.028839773636285\n-41.69294010107544\n-39.89747369417416\n-41.116469045403974\n-40.56818745090498\n-40.09124256966788\n-40.76549677331672\n-40.955298839956804\n"
+  },
+  {
+    "label": "clads1-panda-grid2-58",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-58.wppl 10",
+    "output": "-43.29593969733989\n-44.43040764139049\n-43.503738691368206\n-42.13533615576714\n-43.38410355936145\n-43.71951567414443\n-43.2194993711309\n-44.59064223106335\n-43.984062387288766\n-44.546019359875864\n"
+  },
+  {
+    "label": "clads1-panda-grid2-59",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-59.wppl 10",
+    "output": "-47.78811465971099\n-47.1962196291044\n-47.24995322487194\n-47.02268669142729\n-47.23888376456402\n-46.45039196257552\n-47.7432845038204\n-45.9629020796987\n-44.85102954484502\n-47.33725838520504\n"
+  },
+  {
+    "label": "clads1-panda-grid2-60",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.5,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.5\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-60.wppl 10",
+    "output": "-49.71574776059441\n-48.974589028489746\n-50.0160920944334\n-49.59437760898608\n-47.868073088608\n-49.480774859838206\n-51.74712267048662\n-49.87696012292711\n-49.8717528971916\n-50.493598736925186\n"
+  },
+  {
+    "label": "clads1-panda-grid2-61",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.05,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.05\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-61.wppl 10",
+    "output": "-32.31235911963185\n-32.2608951445183\n-32.30820749462341\n-32.339707484467006\n-32.35448249473269\n-32.28440347162806\n-32.3415654978861\n-32.380626365048236\n-32.32757061819413\n-32.36871860811409\n"
+  },
+  {
+    "label": "clads1-panda-grid2-62",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.1\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-62.wppl 10",
+    "output": "-21.1132994200328\n-21.167901881615187\n-21.129882758099345\n-21.039645311258923\n-21.00389406950869\n-21.062538332339365\n-21.15939246307473\n-21.08108289474736\n-21.162534617952844\n-21.151737100917014\n"
+  },
+  {
+    "label": "clads1-panda-grid2-63",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.15,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.15\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-63.wppl 10",
+    "output": "-17.459979609535985\n-17.319949612335368\n-17.374795012906738\n-17.42244013376059\n-17.44144418980703\n-17.429366367796767\n-17.470037143717967\n-17.413655709293465\n-17.334306825220622\n-17.397709270280117\n"
+  },
+  {
+    "label": "clads1-panda-grid2-64",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.2,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.2\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-64.wppl 10",
+    "output": "-16.346097030033654\n-16.488562156465836\n-16.420934763479995\n-16.461151100476478\n-16.43247879596366\n-16.307319142982422\n-16.477828601821706\n-16.513927701893248\n-16.444587089506452\n-16.377387218594667\n"
+  },
+  {
+    "label": "clads1-panda-grid2-65",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.25,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.25\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-65.wppl 10",
+    "output": "-16.51656833908272\n-16.555200977868566\n-16.59366656926619\n-16.760668224950226\n-16.301147247826826\n-16.78754969487943\n-16.508586791710094\n-16.612051791099162\n-16.73500695294903\n-16.690318828254668\n"
+  },
+  {
+    "label": "clads1-panda-grid2-66",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.3,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.3\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-66.wppl 10",
+    "output": "-17.59879210046502\n-17.70341250008985\n-17.284730827627648\n-17.51011326652978\n-17.427584118435796\n-17.56181125687324\n-17.421171271256192\n-17.809168025587258\n-17.73141210002714\n-17.48868926389461\n"
+  },
+  {
+    "label": "clads1-panda-grid2-67",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.35,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.35\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-67.wppl 10",
+    "output": "-18.77381382741892\n-19.115835180401817\n-18.733483120460466\n-18.904767350370378\n-18.604695696988877\n-18.825880034377246\n-18.925453967557484\n-18.984307248699928\n-18.870861386577452\n-18.56135512073426\n"
+  },
+  {
+    "label": "clads1-panda-grid2-68",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.4,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.4\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-68.wppl 10",
+    "output": "-20.216389534487462\n-20.625847320183496\n-20.09682124987198\n-19.666279735952013\n-20.340787818951803\n-20.37503083544536\n-19.872765792600596\n-20.572328243478815\n-20.23072573923607\n-20.095850804830896\n"
+  },
+  {
+    "label": "clads1-panda-grid2-69",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.45,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.45\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-69.wppl 10",
+    "output": "-21.831243774777107\n-21.845932564093502\n-21.282219334397084\n-21.916455572444832\n-21.58593947473561\n-21.758462192569322\n-21.906864595584572\n-21.66404469227691\n-21.69741954023724\n-21.807150202340935\n"
+  },
+  {
+    "label": "clads1-panda-grid2-70",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.5\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-70.wppl 10",
+    "output": "-23.702179312472033\n-23.77724374261649\n-23.741420978587374\n-23.533548516806896\n-23.58205074728788\n-23.33729831919203\n-22.791356322870215\n-23.19681540292992\n-23.596889507865086\n-23.277910109308834\n"
+  },
+  {
+    "label": "clads1-panda-grid2-71",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.55,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.55\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-71.wppl 10",
+    "output": "-25.229569098093087\n-25.30056504083963\n-26.18355586682585\n-25.10934410010151\n-24.685122615973924\n-25.452427042440647\n-25.122878936511924\n-25.088604669055385\n-24.9360379048791\n-25.028382226870136\n"
+  },
+  {
+    "label": "clads1-panda-grid2-72",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.6,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.6\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-72.wppl 10",
+    "output": "-26.801399173241464\n-27.16151598689484\n-26.89893638411793\n-27.00356694568803\n-26.476037991027923\n-27.193125673615164\n-26.484664257588243\n-26.25094349856127\n-27.019721834091186\n-26.718259097694812\n"
+  },
+  {
+    "label": "clads1-panda-grid2-73",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.65,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.65\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-73.wppl 10",
+    "output": "-28.569524262801735\n-28.1454187727928\n-28.947992093598856\n-28.06730694312526\n-28.249020786584552\n-27.447012838156425\n-27.924012730063296\n-28.146063827710478\n-28.961892215339688\n-27.65042159468944\n"
+  },
+  {
+    "label": "clads1-panda-grid2-74",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.7,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.7\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-74.wppl 10",
+    "output": "-30.26216381481491\n-30.307661105179285\n-29.206463849565452\n-29.6468468221138\n-30.619915482052214\n-29.675347882020176\n-30.51780197593755\n-30.210898981194184\n-30.738895101913805\n-29.193783572838115\n"
+  },
+  {
+    "label": "clads1-panda-grid2-75",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.75,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.75\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-75.wppl 10",
+    "output": "-31.67938841328897\n-32.164641891581695\n-31.342020926259494\n-32.19441373952193\n-32.680652642193785\n-32.83289163672799\n-32.377738021196755\n-30.975175606122377\n-31.430665333292374\n-32.0212489285578\n"
+  },
+  {
+    "label": "clads1-panda-grid2-76",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.8,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.8\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-76.wppl 10",
+    "output": "-32.884486551717664\n-33.16794465818455\n-33.13773190765009\n-31.346662770055246\n-34.183223080552025\n-33.5467691030046\n-32.4091927353783\n-33.270384075757995\n-32.765570924947\n-33.52258878411752\n"
+  },
+  {
+    "label": "clads1-panda-grid2-77",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.85,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.85\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-77.wppl 10",
+    "output": "-35.14129429351492\n-34.792308007028666\n-34.597475571926374\n-34.059006201775134\n-33.39753874125112\n-34.399102480353584\n-36.03779468460276\n-35.05188013205802\n-35.91340612840469\n-35.550177434827745\n"
+  },
+  {
+    "label": "clads1-panda-grid2-78",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.9,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.9\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-78.wppl 10",
+    "output": "-37.360987665349874\n-36.404902845828424\n-34.962614524784314\n-36.71574352185041\n-35.817574690374414\n-36.50446158825021\n-37.26843965548224\n-36.305597999138506\n-36.58761351549968\n-35.21856272557563\n"
+  },
+  {
+    "label": "clads1-panda-grid2-79",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 0.95,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 0.95\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-79.wppl 10",
+    "output": "-37.94911493718315\n-37.316266554872904\n-38.18227445066121\n-39.073127037382235\n-37.686125117106485\n-37.863269010106954\n-38.75005992857274\n-37.508410517192964\n-37.7375366218876\n-38.385002575488464\n"
+  },
+  {
+    "label": "clads1-panda-grid2-80",
+    "description": "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    "hyper_parameters": {
+      "tree": "phyjs.bisse_32",
+      "particles": 5000,
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5,
+      "MIN_LAMBDA": 0.00001,
+      "PANDA": true
+    },
+    "parameters": {
+      "sigma": 0.05,
+      "alpha": 1,
+      "epsilon": 0.9,
+      "lambda": 1,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var tree = phyjs.bisse_32\n\tvar particles = 5000\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\n\tvar MIN_LAMBDA = 0.00001\n\tvar PANDA = true\nvar model = function()\n{\n\tvar sigma = 0.05\n\tvar alpha = 1\n\tvar epsilon = 0.9\n\tvar lambda = 1\n\tvar rho = 1\n\t\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/clads/clads1-panda-grid2/clads1-panda-grid2-80.wppl 10",
+    "output": "-39.606596642507604\n-39.89289189283305\n-38.966497382392\n-38.99558801698019\n-37.7500500393723\n-39.91186237128679\n-39.93867412807451\n-39.30910371155038\n-39.115806175007855\n-39.17615081746193\n"
+  }
+]

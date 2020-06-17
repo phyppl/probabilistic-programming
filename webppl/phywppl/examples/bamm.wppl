@@ -1,0 +1,108 @@
+/** 
+ * @file 
+ * Example: Bayesian Analysis of Macroevolutionary Mixtures
+ * 
+ * To run the example use:
+ * 
+ * npm run wppl examples/bamm.wppl [N]
+ * 
+ * where [N] is the number of iterations, for example 3
+ *
+ */
+
+
+/** 
+ * Tree selection
+ * uncomment the observed tree that you would like 
+ * or use the read_phyjson function to read in a tree in the PhyJSON format 
+ */
+//var tree   = phyjs.example_2;
+var tree = phyjs.bisse_32;
+//var tree =  phyjs.read_phyjson("../../data/bisse_32.phyjson")
+//var tree = phylodata.primates_61;
+//var tree = phylodata.cetacean_87;
+//var tree = phylodata.read_phyjson("example.json")
+
+var MAX_LAMBDA = 5
+var MAX_DIV = 5
+var MIN_LAMBDA = 0.000001
+
+/**
+ * Model specification
+ */
+var model = function()
+{
+    // Define priors for model parameters
+    // We define lambdaFun_0 and mu_0 here, as the survivorship
+    // bias is dependent on these parameters, and it is not obvious
+    // that they should be drawn in the same way as in the process
+    // generating the tree after the time of origin
+
+    //var DistLambda  = Gamma( {shape:1, scale:1} )
+    //var DistZ       = Gaussian( {mu:0.0, eta:0.001} )
+    //var DistMu      = Gamma( {shape:1, scale:1} )
+
+    var DistLambda = function()
+    {
+	return ( Math.exp( uniform( { a:Math.log(1e-2), b:Math.log(1e1) } ) ) )
+    }
+
+    var DistZ = function()
+    {
+	return ( gaussian( { mu: 0, sigma: 0.001 } ) )
+    }
+
+    var DistMu = function(lambda_0)
+    {
+	var epsilon = uniform( { a:0.0, b:1.0 } )
+	return (epsilon*lambda_0)
+    }
+    
+    var lambda_0    = DistLambda()
+    var z_0         = DistZ()
+    var lambdaFun_0 = function(t)
+    {
+	return ( lambda_0*Math.exp(z_0*(tree.age - t)) )
+    }
+    var mu_0        = DistMu(lambda_0)
+    var eta       = gamma( {shape:1, scale:1} )
+
+    // not very good prior
+    //var eta = exponential( { a: 1/tree.age } )
+
+    // Test settings
+    //var lambda_0    = 0.2
+    //var z_0         = 0.0
+    //var lambdaFun_0 = function( t ) { lambda_0 * Math.exp( z_0 * (tree.age - t ) ) }
+    //var mu_0        = 0.1
+    //var eta       = 0.000001
+    var rho         = 1
+    
+    // Simulate conditionally on the tree
+    // It returns all variables of interest
+    var ret = simBAMM( tree, lambdaFun_0, z_0, mu_0, eta, DistLambda, DistZ, DistMu, rho )
+
+    var max_M = 10000 // abort survivorship bias if recursion is too deep
+    var M = M_bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho, max_M )
+    factor(Math.log(M))
+    
+    // Condition on survival
+   // var dist = Infer ( { model: function() { bammGoesUndetected( tree.age, lambdaFun_0, mu_0, eta, DistLambda, DistZ, DistMu, rho ) }, method: 'forward', samples: 100 } )
+   // factor( - 2.0 * dist.score( false ) )
+    
+    return ret 
+}
+
+
+/**
+ * Inference
+ * tweak the number of particles if you want to */
+var particles = 1000
+var dist = Infer( {method: 'SMC', particles: particles, model: model} );
+
+
+/** 
+ *Print the distribution or the normalization constant
+ */
+// dist;
+dist.normalizationConstant;

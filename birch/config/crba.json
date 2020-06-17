@@ -1,0 +1,13 @@
+{
+  "model": {
+    "class": "CRBAModel"
+  },
+  "filter": {
+    "class": "ParticleFilter",
+    "nparticles": 10000,
+    "trigger": 0.0
+  },
+  "sampler": {
+    "nsamples": 50
+  }
+}

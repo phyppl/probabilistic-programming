@@ -1,0 +1,56 @@
+#!/bin/bash
+
+TREES="
+accipitridae
+alcedinidae
+anatinae
+bc7
+caprimulgidae
+cc4
+cc7
+cc8
+charadrii
+columbidae
+cuculidae
+furnaridae
+lari
+m1
+m4
+m5
+m6
+p10
+p13p14p16
+p17p18
+p20a
+p20b
+p21
+p7
+phasianidae
+picidae
+procellariidae
+psittacidae1
+psittacidae2
+ramphastidae
+s11
+s13
+s2
+s6
+s7s8
+s9
+strigidae
+thamnophilidae
+tittyranrest
+trochilidae
+"
+
+MODELS="bamm clads0 clads1 clads2 crba crbda lsbds tdba tdbda"
+
+
+for TREE in $TREES
+do
+    for MODEL in $MODELS
+    do
+        echo "${TREE} / ${MODEL}"
+        birch sampler --config config/${MODEL}.json --input input/${TREE}.json --output output/${TREE}/${MODEL}/output.json
+    done
+done

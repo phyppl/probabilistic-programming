@@ -1,0 +1,199 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 93;
+	TAXLABELS
+		Erythrocercus_mccallii
+		Pholidornis_rushiae
+		Hylia_prasina
+		Leptopoecile_sophiae
+		Leptopoecile_elegans
+		Aegithalos_concinnus
+		Aegithalos_leucogenys
+		Aegithalos_caudatus
+		Aegithalos_niveogularis
+		Aegithalos_iouschistos
+		Aegithalos_fuliginosus
+		Psaltriparus_minimus
+		Abroscopus_superciliaris
+		Abroscopus_schisticeps
+		Cettia_annae
+		Cettia_seebohmi
+		Cettia_ruficapilla
+		Cettia_parens
+		Cettia_diphone
+		Cettia_fortipes
+		Cettia_acanthizoides
+		Cettia_brunnescens
+		Cettia_flavolivacea
+		Cettia_vulcania
+		Tickellia_hodgsoni
+		Orthotomus_cuculatus
+		Cettia_cetti
+		Tesia_olivea
+		Urosphena_squameiceps
+		Phylloscopus_coronatus
+		Phylloscopus_ijimae
+		Phylloscopus_cebuensis
+		Phylloscopus_olivaceus
+		Phylloscopus_laetus
+		Phylloscopus_ruficapilla
+		Phylloscopus_umbrovirens
+		Seicercus_poliogenys
+		Seicercus_affinis
+		Seicercus_burkii
+		Seicercus_tephrocephalus
+		Seicercus_omeiensis
+		Seicercus_soror
+		Seicercus_valentini
+		Seicercus_whistleri
+		Phylloscopus_trochiloides
+		Phylloscopus_nitidus
+		Phylloscopus_magnirostris
+		Phylloscopus_borealoides
+		Phylloscopus_tenellipes
+		Phylloscopus_borealis
+		Phylloscopus_emeiensis
+		Phylloscopus_claudiae
+		Phylloscopus_reguloides
+		Phylloscopus_goodsoni
+		Phylloscopus_occipitalis
+		Phylloscopus_trivirgatus
+		Phylloscopus_amoenus
+		Phylloscopus_poliocephalus
+		Phylloscopus_sarasinorum
+		Phylloscopus_presbytes
+		Phylloscopus_xanthoschistos
+		Phylloscopus_ogilviegranti
+		Phylloscopus_hainanus
+		Phylloscopus_davisoni
+		Phylloscopus_cantator
+		Phylloscopus_ricketti
+		Seicercus_montis
+		Seicercus_grammiceps
+		Seicercus_castaniceps
+		Phylloscopus_maculipennis
+		Phylloscopus_pulcher
+		Phylloscopus_inornatus
+		Phylloscopus_humei
+		Phylloscopus_yunnanensis
+		Phylloscopus_chloronotus
+		Phylloscopus_proregulus
+		Phylloscopus_kansuensis
+		Phylloscopus_forresti
+		Phylloscopus_fuscatus
+		Phylloscopus_fuligiventer
+		Phylloscopus_subaffinis
+		Phylloscopus_trochilus
+		Phylloscopus_sindianus
+		Phylloscopus_canariensis
+		Phylloscopus_collybita
+		Phylloscopus_affinis
+		Phylloscopus_griseolus
+		Phylloscopus_armandii
+		Phylloscopus_schwarzi
+		Phylloscopus_tytleri
+		Phylloscopus_sibilatrix
+		Phylloscopus_orientalis
+		Phylloscopus_bonelli
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Erythrocercus_mccallii,
+		2	Pholidornis_rushiae,
+		3	Hylia_prasina,
+		4	Leptopoecile_sophiae,
+		5	Leptopoecile_elegans,
+		6	Aegithalos_concinnus,
+		7	Aegithalos_leucogenys,
+		8	Aegithalos_caudatus,
+		9	Aegithalos_niveogularis,
+		10	Aegithalos_iouschistos,
+		11	Aegithalos_fuliginosus,
+		12	Psaltriparus_minimus,
+		13	Abroscopus_superciliaris,
+		14	Abroscopus_schisticeps,
+		15	Cettia_annae,
+		16	Cettia_seebohmi,
+		17	Cettia_ruficapilla,
+		18	Cettia_parens,
+		19	Cettia_diphone,
+		20	Cettia_fortipes,
+		21	Cettia_acanthizoides,
+		22	Cettia_brunnescens,
+		23	Cettia_flavolivacea,
+		24	Cettia_vulcania,
+		25	Tickellia_hodgsoni,
+		26	Orthotomus_cuculatus,
+		27	Cettia_cetti,
+		28	Tesia_olivea,
+		29	Urosphena_squameiceps,
+		30	Phylloscopus_coronatus,
+		31	Phylloscopus_ijimae,
+		32	Phylloscopus_cebuensis,
+		33	Phylloscopus_olivaceus,
+		34	Phylloscopus_laetus,
+		35	Phylloscopus_ruficapilla,
+		36	Phylloscopus_umbrovirens,
+		37	Seicercus_poliogenys,
+		38	Seicercus_affinis,
+		39	Seicercus_burkii,
+		40	Seicercus_tephrocephalus,
+		41	Seicercus_omeiensis,
+		42	Seicercus_soror,
+		43	Seicercus_valentini,
+		44	Seicercus_whistleri,
+		45	Phylloscopus_trochiloides,
+		46	Phylloscopus_nitidus,
+		47	Phylloscopus_magnirostris,
+		48	Phylloscopus_borealoides,
+		49	Phylloscopus_tenellipes,
+		50	Phylloscopus_borealis,
+		51	Phylloscopus_emeiensis,
+		52	Phylloscopus_claudiae,
+		53	Phylloscopus_reguloides,
+		54	Phylloscopus_goodsoni,
+		55	Phylloscopus_occipitalis,
+		56	Phylloscopus_trivirgatus,
+		57	Phylloscopus_amoenus,
+		58	Phylloscopus_poliocephalus,
+		59	Phylloscopus_sarasinorum,
+		60	Phylloscopus_presbytes,
+		61	Phylloscopus_xanthoschistos,
+		62	Phylloscopus_ogilviegranti,
+		63	Phylloscopus_hainanus,
+		64	Phylloscopus_davisoni,
+		65	Phylloscopus_cantator,
+		66	Phylloscopus_ricketti,
+		67	Seicercus_montis,
+		68	Seicercus_grammiceps,
+		69	Seicercus_castaniceps,
+		70	Phylloscopus_maculipennis,
+		71	Phylloscopus_pulcher,
+		72	Phylloscopus_inornatus,
+		73	Phylloscopus_humei,
+		74	Phylloscopus_yunnanensis,
+		75	Phylloscopus_chloronotus,
+		76	Phylloscopus_proregulus,
+		77	Phylloscopus_kansuensis,
+		78	Phylloscopus_forresti,
+		79	Phylloscopus_fuscatus,
+		80	Phylloscopus_fuligiventer,
+		81	Phylloscopus_subaffinis,
+		82	Phylloscopus_trochilus,
+		83	Phylloscopus_sindianus,
+		84	Phylloscopus_canariensis,
+		85	Phylloscopus_collybita,
+		86	Phylloscopus_affinis,
+		87	Phylloscopus_griseolus,
+		88	Phylloscopus_armandii,
+		89	Phylloscopus_schwarzi,
+		90	Phylloscopus_tytleri,
+		91	Phylloscopus_sibilatrix,
+		92	Phylloscopus_orientalis,
+		93	Phylloscopus_bonelli
+	;
+	TREE * UNTITLED = [&R] ((1:22.84220843,(2:16.1108024,3:16.1108024):6.731406036):1.432078405,(((4:8.605162389,5:8.605162389):11.37595446,(((6:5.605962591,7:5.605962591):3.64878391,(8:5.127447184,(9:1.608882663,(10:0.176236897,11:0.176236897):1.432645766):3.518564521):4.127299317):5.197007144,12:14.45175364):5.529363207):3.351237764,((((13:11.05213827,14:11.05213827):2.582241822,(((((15:1.975057535,(16:1.764309942,(17:1.316011705,18:1.316011705):0.448298237):0.2107475928):0.5741408714,19:2.549198406):5.030590471,((20:6.050762628,(21:1.68150491,22:1.68150491):4.369257719):0.8826923014,(23:1.409842299,24:1.409842299):5.523612631):0.6463339475):2.028738432,25:9.608527309):0.778946547,26:10.38747386):3.246906239):0.92613439,(27:12.68725446,(28:11.75139122,29:11.75139122):0.9358632357):1.873260027):6.489668732,((((30:4.093368714,31:4.093368714):3.533132274,(32:3.367307578,33:3.367307578):4.25919341):3.890923751,(((34:4.687012182,(35:3.840329602,36:3.840329602):0.8466825793):4.354083996,(((37:3.900312652,38:3.900312652):0.9061648023,(39:1.752392016,40:1.752392016):3.054085438):1.427092119,(41:3.92483011,(42:3.417318074,(43:2.627983951,44:2.627983951):0.7893341235):0.5075120355):2.308739463):2.807526604):1.7102366,(((45:2.208502469,46:2.208502469):7.271827062,(((47:4.354094551,(48:1.438737794,49:1.438737794):2.915356757):0.9167189206,50:5.270813472):3.132182929,51:8.402996401):1.07733313):0.7715120775,(((((52:3.41444126,53:3.41444126):0.6453355358,(54:2.694429384,55:2.694429384):1.365347411):3.314646722,((56:2.17964341,((57:1.192176946,58:1.192176946):0.509919604,59:1.70209655):0.4775468603):0.397952982,(60:1.923483168,(61:1.899203596,((62:0.7603559285,63:0.7603559285):0.9336301831,64:1.693986112):0.2052174846):0.0242795721):0.6541132238):4.796827125):0.4550807918,(65:1.616625539,66:1.616625539):6.21287877):2.064579429,(67:1.178546393,(68:0.2629869928,69:0.2629869928):0.9155594):8.715537345):0.357757871):0.4994911688):0.7660919618):4.933680509,((((70:7.134108465,71:7.134108465):2.369520393,((72:4.815032354,73:4.815032354):2.936266617,(74:5.959342916,((75:2.206541811,(76:1.495717147,77:1.495717147):0.7108246639):0.6044956916,78:2.811037503):3.148305413):1.791956056):1.752329886):4.148029645,(((79:4.15569549,80:4.15569549):5.408675065,(81:7.451204128,(82:5.411769297,((83:1.178065077,84:1.178065077):1.116745033,85:2.29481011):3.116959187):2.039434831):2.113166428):2.067612839,(((86:4.99849536,87:4.99849536):4.904368185,(88:5.957073553,89:5.957073553):3.945789992):0.7718870336,90:10.67475058):0.9572328159):2.019675108):0.7330872079,(91:4.803276178,(92:0.2177643191,93:0.2177643191):4.585511859):9.581469532):2.066359537):4.59907797):2.282171399):0.9419322217);
+END;

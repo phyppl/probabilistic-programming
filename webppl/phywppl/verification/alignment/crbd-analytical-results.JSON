@@ -1,0 +1,65 @@
+[
+  {
+    "label": "crbd-analytical-1",
+    "description": "Alignment test. Three trees of different sizes. Fixed priors. Compute the normalizing constant analytically.",
+    "hyper_parameters": {
+      "particles": 1000,
+      "tree": "phyjs.read_phyjson('../../data/bisse_32.phyjson')"
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = epsilon*lambda\n\treturn(exactCRBDLikelihood( tree, lambda, mu, rho ))",
+    "inference": {
+      "method": false,
+      "likelihood": true
+    },
+    "ppl": "var particles = 1000\n\tvar tree = phyjs.read_phyjson('../../data/bisse_32.phyjson')\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu = epsilon*lambda\n\treturn(exactCRBDLikelihood( tree, lambda, mu, rho ))\n}\nmodel()",
+    "command": "npm run wppl verification/alignment/crbd-analytical/crbd-analytical-1.wppl 1",
+    "output": "-137.57297672657728\n"
+  },
+  {
+    "label": "crbd-analytical-2",
+    "description": "Alignment test. Three trees of different sizes. Fixed priors. Compute the normalizing constant analytically.",
+    "hyper_parameters": {
+      "particles": 1000,
+      "tree": "phyjs.read_phyjson('../../data/cetaceans_87.phyjson')"
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = epsilon*lambda\n\treturn(exactCRBDLikelihood( tree, lambda, mu, rho ))",
+    "inference": {
+      "method": false,
+      "likelihood": true
+    },
+    "ppl": "var particles = 1000\n\tvar tree = phyjs.read_phyjson('../../data/cetaceans_87.phyjson')\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu = epsilon*lambda\n\treturn(exactCRBDLikelihood( tree, lambda, mu, rho ))\n}\nmodel()",
+    "command": "npm run wppl verification/alignment/crbd-analytical/crbd-analytical-2.wppl 1",
+    "output": "-530.1968335348256\n"
+  },
+  {
+    "label": "crbd-analytical-3",
+    "description": "Alignment test. Three trees of different sizes. Fixed priors. Compute the normalizing constant analytically.",
+    "hyper_parameters": {
+      "particles": 1000,
+      "tree": "phyjs.read_phyjson('../../data/primates_233.phyjson')"
+    },
+    "parameters": {
+      "lambda": 0.2,
+      "epsilon": 0.5,
+      "rho": 1
+    },
+    "model": "\n\tvar mu = epsilon*lambda\n\treturn(exactCRBDLikelihood( tree, lambda, mu, rho ))",
+    "inference": {
+      "method": false,
+      "likelihood": true
+    },
+    "ppl": "var particles = 1000\n\tvar tree = phyjs.read_phyjson('../../data/primates_233.phyjson')\nvar model = function()\n{\n\tvar lambda = 0.2\n\tvar epsilon = 0.5\n\tvar rho = 1\n\t\n\tvar mu = epsilon*lambda\n\treturn(exactCRBDLikelihood( tree, lambda, mu, rho ))\n}\nmodel()",
+    "command": "npm run wppl verification/alignment/crbd-analytical/crbd-analytical-3.wppl 1",
+    "output": "-1573.0486604878424\n"
+  }
+]

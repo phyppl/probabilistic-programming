@@ -1,0 +1,30 @@
+{
+    "label" : "clads2-panda",
+
+    "description": "Under these values, ClaDS2 (PANDA) degenerates into CRBD.",
+    
+    "hyper_parameters" : {
+    	"tree"     : "phyjs.bisse_32" ,
+	"particles" : 1000,
+	"MAX_LAMBDA" : 5,
+	"MAX_DIV" : 5,
+	"MIN_LAMBDA" : 1e-5,
+	"PANDA" : true
+    },
+    
+    "parameters" : {
+	
+	"sigma"    : 0.0000001,
+	"alpha"    : 1.0,
+	"epsilon"  : [ 0.0, 0.1,   0.5,   0.9 ],
+	"lambda_0" :  [0.1,  0.3,  0.5,  0.7,  0.9],
+	"rho"      : 1
+    },
+    
+    "model" : "var ret = simClaDS2( tree, lambda_0, alpha, sigma, epsilon, rho )\n\t var dist = Infer ( { model: function() { clads2GoesUndetected( tree.age, lambda_0, alpha, sigma, epsilon, rho ) }, method: 'forward', samples: 100 } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    
+    "inference" : {
+    	"method" : "SMC",
+	"likelihood": true
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "label" : "clads0-panda-grid2",
+
+    "description": "PANDA version in WebPPL of the ClaDS0 algorithm. Lambda are reset at each branch begin. Survivorship bias correction but only rho = 1 considered.",
+
+    "hyper_parameters" : {
+    	"tree"     : "phyjs.bisse_32" ,
+	"particles" : 5000,
+	"MAX_LAMBDA" : 5,
+	"MAX_DIV" : 5,
+	"MIN_LAMBDA" : 1e-5,
+	"PANDA" : true
+    },
+    
+    "parameters" : {
+
+	"sigma"     :  0.05,	
+	"alpha"    :  1,
+	"lambda"   :  [ 0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1 ],
+	"rho"      : 1
+    },
+    "model" : "\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS0( tree, lambda, alpha, sigma, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads0GoesUndetected( tree.age, lambda, alpha, sigma, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}

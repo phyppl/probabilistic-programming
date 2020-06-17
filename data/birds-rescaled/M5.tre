@@ -1,0 +1,281 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 134;
+	TAXLABELS
+		Turdus_lherminieri
+		Turdus_iliacus
+		Turdus_ludoviciae
+		Turdus_olivaceus
+		Turdus_helleri
+		Turdus_plebejus
+		Turdus_nigriceps
+		Turdus_serranus
+		Turdus_fuscater
+		Turdus_olivater
+		Turdus_chiguanco
+		Turdus_fulviventris
+		Turdus_amaurochalinus
+		Turdus_ignobilis
+		Turdus_maranonicus
+		Nesocichla_eremita
+		Turdus_rufopalliatus
+		Turdus_assimilis
+		Turdus_albicollis
+		Turdus_maculirostris
+		Turdus_nudigenis
+		Turdus_haplochrous
+		Turdus_grayi
+		Turdus_rufiventris
+		Turdus_fumigatus
+		Turdus_hauxwelli
+		Turdus_leucomelas
+		Turdus_obsoletus
+		Turdus_flavipes
+		Turdus_lawrencii
+		Turdus_reevei
+		Turdus_falcklandii
+		Turdus_pelios
+		Turdus_leucops
+		Turdus_olivaceofuscus
+		Turdus_jamaicensis
+		Turdus_swalesi
+		Turdus_rufitorques
+		Turdus_migratorius
+		Turdus_infuscatus
+		Turdus_nigrescens
+		Turdus_aurantius
+		Turdus_plumbeus
+		Turdus_bewsheri
+		Turdus_libonyanus
+		Turdus_poliocephalus
+		Turdus_chrysolaus
+		Turdus_celaenops
+		Turdus_feae
+		Turdus_obscurus
+		Turdus_pallidus
+		Turdus_rubrocanus
+		Turdus_albocinctus
+		Turdus_kessleri
+		Turdus_naumanni
+		Turdus_ruficollis
+		Turdus_torquatus
+		Turdus_pilaris
+		Turdus_hortulorum
+		Turdus_cardis
+		Turdus_dissimilis
+		Turdus_unicolor
+		Turdus_boulboul
+		Turdus_tephronotus
+		Turdus_merula
+		Turdus_menachensis
+		Turdus_viscivorus
+		Turdus_philomelos
+		Psophocichla_litsitsirupa
+		Turdus_mupinensis
+		Zoothera_guttata
+		Zoothera_gurneyi
+		Zoothera_tanganjicae
+		Zoothera_piaggiae
+		Zoothera_crossleyi
+		Zoothera_oberlaenderi
+		Zoothera_princei
+		Zoothera_camaronensis
+		Zoothera_spiloptera
+		Zoothera_citrina
+		Zoothera_interpres
+		Zoothera_dohertyi
+		Zoothera_peronii
+		Zoothera_cinerea
+		Zoothera_erythronota
+		Zoothera_mendeni
+		Zoothera_schistacea
+		Zoothera_sibirica
+		Zoothera_wardii
+		Zoothera_mollissima
+		Zoothera_dixoni
+		Zoothera_marginata
+		Zoothera_monticola
+		Zoothera_talaseae
+		Zoothera_heinei
+		Zoothera_lunulata
+		Zoothera_dauma
+		Zoothera_andromedae
+		Cochoa_viridis
+		Chlamydochaera_jefferyi
+		Zoothera_naevia
+		Entomodestes_leucotis
+		Entomodestes_coracinus
+		Cichlopsis_leucogenys
+		Hylocichla_mustelina
+		Zoothera_pinicola
+		Catharus_guttatus
+		Catharus_occidentalis
+		Catharus_gracilirostris
+		Catharus_fuscescens
+		Catharus_minimus
+		Catharus_bicknelli
+		Catharus_frantzii
+		Catharus_ustulatus
+		Catharus_aurantiirostris
+		Catharus_mexicanus
+		Catharus_dryas
+		Catharus_fuscater
+		Sialia_currucoides
+		Sialia_mexicana
+		Sialia_sialis
+		Myadestes_elisabeth
+		Myadestes_ralloides
+		Myadestes_melanops
+		Myadestes_coloratus
+		Myadestes_genibarbis
+		Myadestes_unicolor
+		Myadestes_occidentalis
+		Myadestes_townsendi
+		Myadestes_obscurus
+		Stizorhina_finschi
+		Neocossyphus_rufus
+		Stizorhina_fraseri
+		Neocossyphus_poensis
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Turdus_lherminieri,
+		2	Turdus_iliacus,
+		3	Turdus_ludoviciae,
+		4	Turdus_olivaceus,
+		5	Turdus_helleri,
+		6	Turdus_plebejus,
+		7	Turdus_nigriceps,
+		8	Turdus_serranus,
+		9	Turdus_fuscater,
+		10	Turdus_olivater,
+		11	Turdus_chiguanco,
+		12	Turdus_fulviventris,
+		13	Turdus_amaurochalinus,
+		14	Turdus_ignobilis,
+		15	Turdus_maranonicus,
+		16	Nesocichla_eremita,
+		17	Turdus_rufopalliatus,
+		18	Turdus_assimilis,
+		19	Turdus_albicollis,
+		20	Turdus_maculirostris,
+		21	Turdus_nudigenis,
+		22	Turdus_haplochrous,
+		23	Turdus_grayi,
+		24	Turdus_rufiventris,
+		25	Turdus_fumigatus,
+		26	Turdus_hauxwelli,
+		27	Turdus_leucomelas,
+		28	Turdus_obsoletus,
+		29	Turdus_flavipes,
+		30	Turdus_lawrencii,
+		31	Turdus_reevei,
+		32	Turdus_falcklandii,
+		33	Turdus_pelios,
+		34	Turdus_leucops,
+		35	Turdus_olivaceofuscus,
+		36	Turdus_jamaicensis,
+		37	Turdus_swalesi,
+		38	Turdus_rufitorques,
+		39	Turdus_migratorius,
+		40	Turdus_infuscatus,
+		41	Turdus_nigrescens,
+		42	Turdus_aurantius,
+		43	Turdus_plumbeus,
+		44	Turdus_bewsheri,
+		45	Turdus_libonyanus,
+		46	Turdus_poliocephalus,
+		47	Turdus_chrysolaus,
+		48	Turdus_celaenops,
+		49	Turdus_feae,
+		50	Turdus_obscurus,
+		51	Turdus_pallidus,
+		52	Turdus_rubrocanus,
+		53	Turdus_albocinctus,
+		54	Turdus_kessleri,
+		55	Turdus_naumanni,
+		56	Turdus_ruficollis,
+		57	Turdus_torquatus,
+		58	Turdus_pilaris,
+		59	Turdus_hortulorum,
+		60	Turdus_cardis,
+		61	Turdus_dissimilis,
+		62	Turdus_unicolor,
+		63	Turdus_boulboul,
+		64	Turdus_tephronotus,
+		65	Turdus_merula,
+		66	Turdus_menachensis,
+		67	Turdus_viscivorus,
+		68	Turdus_philomelos,
+		69	Psophocichla_litsitsirupa,
+		70	Turdus_mupinensis,
+		71	Zoothera_guttata,
+		72	Zoothera_gurneyi,
+		73	Zoothera_tanganjicae,
+		74	Zoothera_piaggiae,
+		75	Zoothera_crossleyi,
+		76	Zoothera_oberlaenderi,
+		77	Zoothera_princei,
+		78	Zoothera_camaronensis,
+		79	Zoothera_spiloptera,
+		80	Zoothera_citrina,
+		81	Zoothera_interpres,
+		82	Zoothera_dohertyi,
+		83	Zoothera_peronii,
+		84	Zoothera_cinerea,
+		85	Zoothera_erythronota,
+		86	Zoothera_mendeni,
+		87	Zoothera_schistacea,
+		88	Zoothera_sibirica,
+		89	Zoothera_wardii,
+		90	Zoothera_mollissima,
+		91	Zoothera_dixoni,
+		92	Zoothera_marginata,
+		93	Zoothera_monticola,
+		94	Zoothera_talaseae,
+		95	Zoothera_heinei,
+		96	Zoothera_lunulata,
+		97	Zoothera_dauma,
+		98	Zoothera_andromedae,
+		99	Cochoa_viridis,
+		100	Chlamydochaera_jefferyi,
+		101	Zoothera_naevia,
+		102	Entomodestes_leucotis,
+		103	Entomodestes_coracinus,
+		104	Cichlopsis_leucogenys,
+		105	Hylocichla_mustelina,
+		106	Zoothera_pinicola,
+		107	Catharus_guttatus,
+		108	Catharus_occidentalis,
+		109	Catharus_gracilirostris,
+		110	Catharus_fuscescens,
+		111	Catharus_minimus,
+		112	Catharus_bicknelli,
+		113	Catharus_frantzii,
+		114	Catharus_ustulatus,
+		115	Catharus_aurantiirostris,
+		116	Catharus_mexicanus,
+		117	Catharus_dryas,
+		118	Catharus_fuscater,
+		119	Sialia_currucoides,
+		120	Sialia_mexicana,
+		121	Sialia_sialis,
+		122	Myadestes_elisabeth,
+		123	Myadestes_ralloides,
+		124	Myadestes_melanops,
+		125	Myadestes_coloratus,
+		126	Myadestes_genibarbis,
+		127	Myadestes_unicolor,
+		128	Myadestes_occidentalis,
+		129	Myadestes_townsendi,
+		130	Myadestes_obscurus,
+		131	Stizorhina_finschi,
+		132	Neocossyphus_rufus,
+		133	Stizorhina_fraseri,
+		134	Neocossyphus_poensis
+	;
+	TREE * UNTITLED = [&R] (((((((((1:8.477714515,(2:7.774717563,(3:7.351269261,((4:5.236062657,5:5.236062657):1.769017768,6:7.005080425):0.3461888358):0.4234483023):0.7029969513):1.30179526,((((((((((((7:2.889578099,(8:2.10067031,9:2.10067031):0.7889077889):0.6024716301,10:3.492049729):0.9430914646,11:4.435141194):0.9524336692,12:5.387574863):0.926474416,((13:2.067336463,(14:0.725218839,15:0.725218839):1.342117624):1.653700744,16:3.721037206):2.593012073):0.7602854461,(17:6.538362861,((18:4.539189662,19:4.539189662):1.80668607,((((20:2.456129255,((21:1.763452755,22:1.763452755):0.3511727445,23:2.1146255):0.341503755):0.8226050348,24:3.27873429):2.394561323,((25:2.71479265,26:2.71479265):2.236389889,27:4.95118254):0.722113073):0.4471214094,(28:5.501565996,(29:5.102726351,30:5.102726351):0.3988396449):0.618851026):0.2254587102):0.1924871283):0.5359718643):0.4749641612,31:7.549298886):0.5371046683,32:8.086403554):0.4239789754,(33:7.355620604,34:7.355620604):1.154761926):0.4981861407,35:9.00856867):0.03214882107,(((36:6.167545379,37:6.167545379):1.353945106,(((38:0.6407562179,39:0.6407562179):3.824415383,(40:3.799315395,41:3.799315395):0.6658562061):2.393608469,(42:4.28926291,43:4.28926291):2.56951716):0.6627104144):0.5619626534,(44:4.909512235,45:4.909512235):3.173940903):0.9572643538):0.3381959111,(((46:4.198046382,((47:1.033843535,48:1.033843535):1.738554451,((49:1.357633844,50:1.357633844):0.4763085504,51:1.833942394):0.938455592):1.425648396):2.75493789,(((52:3.667599627,53:3.667599627):1.136597927,54:4.804197554):1.099068075,(((55:2.201680207,56:2.201680207):1.342629166,57:3.544309373):2.033198878,58:5.577508251):0.325757378):1.049718643):0.7601264475,(((59:1.494711862,60:1.494711862):2.439881581,(61:2.396380134,62:2.396380134):1.538213308):1.857673585,63:5.792267027):1.920843692):1.665802683):0.4005963716):0.4177484099,(64:8.756992691,(65:7.201418074,66:7.201418074):1.555574617):1.440265493):3.708272458,(67:12.35600453,68:12.35600453):1.549526117):2.011675454,(69:9.278985267,70:9.278985267):6.63822083):1.49213578,((71:12.97751665,(((72:7.583191032,((73:5.05558644,74:5.05558644):1.660909658,(75:5.965790416,76:5.965790416):0.7507056815):0.866694934):1.955523932,(77:7.004921521,78:7.004921521):2.533793443):1.481641875,(79:10.42955665,(80:9.027825315,((((81:4.359332771,82:4.359332771):0.6377641118,83:4.997096882):0.9356921437,(84:4.572962912,(85:0.1779353862,86:0.1779353862):4.395027526):1.359826114):0.6088768551,87:6.541665881):2.486159433):1.401731337):0.5908001863):1.957159815):3.768245895,(88:13.48931614,89:13.48931614):3.256446408):0.6635793274):0.5596417761,(((90:8.771010122,91:8.771010122):4.799426936,((92:9.773285505,93:9.773285505):2.523598211,((((94:2.794342021,95:2.794342021):0.8379511471,96:3.632293168):3.218714866,97:6.851008034):1.131869639,98:7.982877673):4.314006042):1.273553342):3.574183505,(99:10.11606989,100:10.11606989):7.028550671):0.8243630891):0.4167803898,(101:15.99944437,(((102:1.687413459,103:1.687413459):7.063781237,104:8.751194696):5.697922764,((105:12.62487399,106:12.62487399):0.9077249549,(((((107:3.52959461,108:3.52959461):1.538371682,109:5.067966292):0.8228110547,(((110:1.142545012,111:1.142545012):0.4129468149,112:1.555491827):2.77224535,113:4.327737177):1.56304017):2.003549119,114:7.894326466):1.645953898,((115:6.711614212,116:6.711614212):0.8526203197,(117:6.126945717,118:6.126945717):1.437288815):1.976045832):3.992318586):0.9165185102):1.550326909):2.386319673):3.34263279,(((119:4.456773891,120:4.456773891):1.26906516,121:5.725839051):14.48598217,((((122:7.717426107,((123:3.063589086,(124:1.052626707,125:1.052626707):2.01096238):4.041274526,126:7.104863613):0.6125624947):0.848074023,(127:6.155398397,128:6.155398397):2.410101733):0.811252392,(129:8.270131308,130:8.270131308):1.106621215):7.994318161,((131:6.737179808,(132:4.77314593,133:4.77314593):1.964033878):6.184479253,134:12.92165906):4.449411622):2.840750541):1.516575607);
+END;

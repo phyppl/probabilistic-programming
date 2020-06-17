@@ -1,0 +1,229 @@
+#NEXUS
+[R-package APE, Fri Jan 31 15:04:46 2020]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 108;
+	TAXLABELS
+		Anas_strepera
+		Anas_falcata
+		Anas_americana
+		Anas_sibilatrix
+		Anas_penelope
+		Anas_sparsa
+		Anas_fulvigula
+		Anas_rubripes
+		Anas_poecilorhyncha
+		Anas_platyrhynchos
+		Anas_luzonica
+		Anas_laysanensis
+		Anas_melleri
+		Anas_undulata
+		Anas_superciliosa
+		Anas_gracilis
+		Anas_castanea
+		Anas_bernieri
+		Anas_aucklandica
+		Anas_chlorotis
+		Anas_nesiotis
+		Anas_bahamensis
+		Anas_georgica
+		Anas_acuta
+		Anas_erythrorhyncha
+		Anas_capensis
+		Anas_flavirostris
+		Anas_crecca
+		Tachyeres_leucocephalus
+		Tachyeres_patachonicus
+		Tachyeres_brachypterus
+		Tachyeres_pteneres
+		Lophonetta_specularioides
+		Speculanas_specularis
+		Amazonetta_brasiliensis
+		Anas_puna
+		Anas_versicolor
+		Anas_clypeata
+		Anas_rhynchotis
+		Anas_smithii
+		Anas_cyanoptera
+		Anas_discors
+		Anas_platalea
+		Anas_querquedula
+		Anas_hottentota
+		Anas_formosa
+		Aythya_nyroca
+		Aythya_australis
+		Aythya_fuligula
+		Aythya_affinis
+		Aythya_marila
+		Aythya_ferina
+		Aythya_valisineria
+		Aythya_americana
+		Aythya_collaris
+		Netta_peposaca
+		Netta_rufina
+		Cairina_scutulata
+		Marmaronetta_angustirostris
+		Pteronetta_hartlaubii
+		Cyanochen_cyanoptera
+		Hymenolaimus_malacorhynchos
+		Sarkidiornis_melanotos
+		Chenonetta_jubata
+		Callonetta_leucophrys
+		Merganetta_armata
+		Bucephala_islandica
+		Bucephala_clangula
+		Bucephala_albeola
+		Mergellus_albellus
+		Lophodytes_cucullatus
+		Mergus_squamatus
+		Mergus_merganser
+		Mergus_serrator
+		Melanitta_perspicillata
+		Melanitta_fusca
+		Melanitta_nigra
+		Histrionicus_histrionicus
+		Somateria_spectabilis
+		Somateria_mollissima
+		Somateria_fischeri
+		Polysticta_stelleri
+		Clangula_hyemalis
+		Alopochen_aegyptiaca
+		Tadorna_variegata
+		Tadorna_tadornoides
+		Tadorna_ferruginea
+		Tadorna_cana
+		Tadorna_tadorna
+		Tadorna_radjah
+		Chloephaga_melanoptera
+		Neochen_jubata
+		Chloephaga_picta
+		Chloephaga_poliocephala
+		Cairina_moschata
+		Aix_galericulata
+		Aix_sponsa
+		Stictonetta_naevosa
+		Biziura_lobata
+		Nettapus_coromandelianus
+		Heteronetta_atricapilla
+		Nettapus_pulchellus
+		Oxyura_australis
+		Oxyura_maccoa
+		Oxyura_leucocephala
+		Oxyura_jamaicensis
+		Oxyura_vittata
+		Nomonyx_dominicus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Anas_strepera,
+		2	Anas_falcata,
+		3	Anas_americana,
+		4	Anas_sibilatrix,
+		5	Anas_penelope,
+		6	Anas_sparsa,
+		7	Anas_fulvigula,
+		8	Anas_rubripes,
+		9	Anas_poecilorhyncha,
+		10	Anas_platyrhynchos,
+		11	Anas_luzonica,
+		12	Anas_laysanensis,
+		13	Anas_melleri,
+		14	Anas_undulata,
+		15	Anas_superciliosa,
+		16	Anas_gracilis,
+		17	Anas_castanea,
+		18	Anas_bernieri,
+		19	Anas_aucklandica,
+		20	Anas_chlorotis,
+		21	Anas_nesiotis,
+		22	Anas_bahamensis,
+		23	Anas_georgica,
+		24	Anas_acuta,
+		25	Anas_erythrorhyncha,
+		26	Anas_capensis,
+		27	Anas_flavirostris,
+		28	Anas_crecca,
+		29	Tachyeres_leucocephalus,
+		30	Tachyeres_patachonicus,
+		31	Tachyeres_brachypterus,
+		32	Tachyeres_pteneres,
+		33	Lophonetta_specularioides,
+		34	Speculanas_specularis,
+		35	Amazonetta_brasiliensis,
+		36	Anas_puna,
+		37	Anas_versicolor,
+		38	Anas_clypeata,
+		39	Anas_rhynchotis,
+		40	Anas_smithii,
+		41	Anas_cyanoptera,
+		42	Anas_discors,
+		43	Anas_platalea,
+		44	Anas_querquedula,
+		45	Anas_hottentota,
+		46	Anas_formosa,
+		47	Aythya_nyroca,
+		48	Aythya_australis,
+		49	Aythya_fuligula,
+		50	Aythya_affinis,
+		51	Aythya_marila,
+		52	Aythya_ferina,
+		53	Aythya_valisineria,
+		54	Aythya_americana,
+		55	Aythya_collaris,
+		56	Netta_peposaca,
+		57	Netta_rufina,
+		58	Cairina_scutulata,
+		59	Marmaronetta_angustirostris,
+		60	Pteronetta_hartlaubii,
+		61	Cyanochen_cyanoptera,
+		62	Hymenolaimus_malacorhynchos,
+		63	Sarkidiornis_melanotos,
+		64	Chenonetta_jubata,
+		65	Callonetta_leucophrys,
+		66	Merganetta_armata,
+		67	Bucephala_islandica,
+		68	Bucephala_clangula,
+		69	Bucephala_albeola,
+		70	Mergellus_albellus,
+		71	Lophodytes_cucullatus,
+		72	Mergus_squamatus,
+		73	Mergus_merganser,
+		74	Mergus_serrator,
+		75	Melanitta_perspicillata,
+		76	Melanitta_fusca,
+		77	Melanitta_nigra,
+		78	Histrionicus_histrionicus,
+		79	Somateria_spectabilis,
+		80	Somateria_mollissima,
+		81	Somateria_fischeri,
+		82	Polysticta_stelleri,
+		83	Clangula_hyemalis,
+		84	Alopochen_aegyptiaca,
+		85	Tadorna_variegata,
+		86	Tadorna_tadornoides,
+		87	Tadorna_ferruginea,
+		88	Tadorna_cana,
+		89	Tadorna_tadorna,
+		90	Tadorna_radjah,
+		91	Chloephaga_melanoptera,
+		92	Neochen_jubata,
+		93	Chloephaga_picta,
+		94	Chloephaga_poliocephala,
+		95	Cairina_moschata,
+		96	Aix_galericulata,
+		97	Aix_sponsa,
+		98	Stictonetta_naevosa,
+		99	Biziura_lobata,
+		100	Nettapus_coromandelianus,
+		101	Heteronetta_atricapilla,
+		102	Nettapus_pulchellus,
+		103	Oxyura_australis,
+		104	Oxyura_maccoa,
+		105	Oxyura_leucocephala,
+		106	Oxyura_jamaicensis,
+		107	Oxyura_vittata,
+		108	Nomonyx_dominicus
+	;
+	TREE * UNTITLED = [&R] (((((((((1:0.7536428129,2:0.7536428129):1.834208227,((3:0.2700393511,4:0.2700393511):1.059315135,5:1.329354486):1.258496554):2.395082144,((6:1.314332899,((((((7:0.1239779213,8:0.1239779213):0.2675958351,((9:0.04366420785,10:0.04366420785):0.2721410642,11:0.315805272):0.07576848442):0.05920985408,12:0.4507836106):0.1041910685,13:0.5549746791):0.04972639068,14:0.6047010698):0.1114338147,15:0.7161348845):0.5981980143):2.427903262,((((16:0.02357580587,17:0.02357580587):2.978029302,(18:1.415539331,((19:0.3034700973,20:0.3034700973):0.1345343095,21:0.4380044068):0.9775349244):1.586065776):0.3349456557,(((22:1.324661007,(23:0.9635645818,24:0.9635645818):0.3610964256):0.1659500019,25:1.490611009):1.51398609,26:3.004597099):0.3319536645):0.193686179,(27:1.966829767,28:1.966829767):1.563407175):0.211999218):1.240697024):1.347453573,(((29:0.02864385757,30:0.02864385757):0.5891963649,(31:0.02239450863,32:0.02239450863):0.5954457139):3.487106249,(33:3.736265197,(34:2.626420022,35:2.626420022):1.109845175):0.3686812744):2.225440286):0.5233444806,((((36:0.3500003222,37:0.3500003222):3.233969253,(((((38:0.1213399775,39:0.1213399775):0.1702195445,40:0.291559522):0.7441294362,(41:0.157108728,42:0.157108728):0.8785802301):0.1639215767,43:1.199610535):2.068733877,44:3.268344412):0.3156251635):0.3582759091,45:3.942245485):1.968966973,46:5.911212458):0.9425187801):4.111346248,(((((((((47:0.7025654356,48:0.7025654356):1.432305333,((49:1.176061261,(50:0.4222396626,51:0.4222396626):0.7538215988):0.5797393904,((52:0.416612891,53:0.416612891):0.957146502,(54:0.4610087484,55:0.4610087484):0.9127506447):0.3820412587):0.3790701166):0.4302284541,56:2.565099222):0.4768643779,57:3.0419636):2.810095617,58:5.852059218):0.7799439045,59:6.632003122):0.50297915,(60:4.374013018,61:4.374013018):2.760969255):1.78774547,((62:7.635853016,63:7.635853016):0.7756300126,64:8.411483028):0.5112447143):1.093457796,(((65:8.594161452,66:8.594161452):0.8982198071,(((((67:1.116369018,68:1.116369018):3.402533783,69:4.5189028):2.413207074,(70:5.644379283,(71:5.081501264,(72:1.506555136,(73:0.9485791165,74:0.9485791165):0.5579760192):3.574946128):0.5628780193):1.287730591):0.7031072265,((75:2.447154091,76:2.447154091):3.65609901,77:6.103253101):1.531963999):1.297930043,((78:7.239367469,(((79:0.295661237,80:0.295661237):0.5313732164,81:0.8270344534):4.153743821,82:4.980778275):2.258589194):0.8939134365,83:8.133280905):0.7998662385):0.5592341154):0.2209803392,((((84:5.015420912,((85:1.222093014,(86:0.9120750035,(87:0.5017595875,88:0.5017595875):0.410315416):0.3100180103):1.264674396,89:2.48676741):2.528653502):0.4568016425,90:5.472222555):2.378442917,((91:1.155067216,92:1.155067216):3.868929046,(93:2.327961407,94:2.327961407):2.696034855):2.82666921):0.7789909503,(95:6.669563165,(96:4.487254025,97:4.487254025):2.18230914):1.960093256):1.083705176):0.3028239404):0.9488919478):4.303436651,98:15.26851414):3.405673275,99:18.67418741):1.593879778,(((100:2.313880798,101:2.313880798):4.513811891,102:6.827692688):10.97071263,((((103:2.673781025,(104:2.380799706,105:2.380799706):0.2929813195):0.210818386,106:2.884599411):0.4349411097,107:3.319540521):6.564780409,108:9.88432093):7.914084389):2.469661871);
+END;

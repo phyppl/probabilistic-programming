@@ -1,0 +1,29 @@
+{
+    "label" : "clads1-panda-grid2",
+
+    "description" : "Grid computation for the full ClaDS1 model. Part of verification. PANDA version. Survivorship bias correction, but only for rho = 1.",
+    
+     "hyper_parameters" : {
+    	"tree"     : "phyjs.bisse_32" ,
+	"particles" : 5000,
+	"MAX_LAMBDA" : 5,
+	"MAX_DIV" : 5,
+	"MIN_LAMBDA" : 1e-5,
+	"PANDA" : true
+    },
+
+    "parameters" : {
+	"sigma"    :  0.05,	
+	"alpha"    :  1,	
+	"epsilon"  :  [ 0, 0.1, 0.5, 0.9 ],
+	"lambda"   :  [ 0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1 ],
+	"rho"      :    1 
+    },
+    
+    "model" : "\n\tvar mu = lambda * epsilon\n\tif (sigma == 0.000001 && alpha != 1.0) return NaN\n\tvar ret = simClaDS1( tree, lambda, alpha, sigma, mu, rho )\n\t\n\tvar dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100/rho } )\n\tfactor( - 2.0 * dist.score( false ) )\n\treturn ret",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}
