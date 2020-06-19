@@ -4,8 +4,8 @@ Fredrik Ronquist, [Jan Kudlicka](https://jan.kudlicka.eu), [Viktor Senderov](htt
 
 This is the source code repository accompanying the paper.
 
-  * TODO link to paper
-  * TODO email of corresponding author
+  * Preprint available at [bioRxiv](https://www.biorxiv.org/content/10.1101/2020.06.16.154443v1)
+  * Corresponding author: Fredrik Ronquist, fredrik.ronquist (at) nrm.se
 
 ## Contents
 
