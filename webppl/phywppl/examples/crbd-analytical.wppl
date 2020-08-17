@@ -27,8 +27,8 @@ var tree = phyjs.bisse_32;
 // Set lambda and mu
 var lambda = 0.2
 var mu     = 0.1
-var rho    = 1.0
+var rho    = 0.5
 
 // Compute the likelihood
-exactCRBDLikelihood( tree, lambda, mu, rho ) 
+exactCRBDLikelihood( tree, lambda, mu, rho ) + CRBD_survivorshipBias(tree, lambda, mu, rho)
 
