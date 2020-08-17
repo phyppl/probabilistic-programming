@@ -50,7 +50,7 @@ var exactTDBDLikelihood = function( tree, lambda_0, mu_0, z, rho )
  *
  * @param tree
  * @param lambda_0
- * @param mu_9
+ * @param mu_0
  * @param z
  * @param rho
  *
@@ -157,7 +157,8 @@ var TDBD_lnLike = function(tree, lambda_0, mu_0, z, rho)
     var lnLikeRight = TDBD_lnLike( tree.right, lambda_0, mu_0, z, rho )
 
     return lnLikeLeft + lnLikeRight + TDBD_lnGhat(tree.age, lambda_0, mu_0, z, rho) - z*tree.age
-bu}
+    
+    }
 
 
 

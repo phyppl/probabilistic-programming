@@ -19,16 +19,15 @@ var tree = phyjs.bisse_32;
 var model = function()
 {
     /* Define priors on lambda_0, mu_0, z, rho, as well as the decay functions
-       lambdaFun and muFun. z = 0 leads to CRBD*/
-    var lambda_0 = 0.1
-    var epsilon  = 0.1
+       lambdaFun and muFun. z = 0 leads to CRBD */
+    var lambda_0 = 0.2
+    var epsilon  = 0.5
     var mu_0     = lambda_0 * epsilon
-    var z        = 0.0
+    var z        = 0.000001
     var rho      = 1.0
       
     /* Simulate conditionally on the tree */
-    var ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )
-
+    var ret = exactTDBDLikelihood(tree, lambda_0, mu_0, z, rho )  + TDBD_survivorshipBias(tree, lambda_0, mu_0, z, rho) 
     return ret
 }
 
