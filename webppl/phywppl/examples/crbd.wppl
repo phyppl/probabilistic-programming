@@ -32,16 +32,19 @@ var MAX_DIV = 5
 var model = function()
 {
     // Define priors on lambda and mu
-    var lambda = 0.2
-    var mu     = 0.1
+    //var lambda = 0.2
+    //var mu     = 0.1
     // var mu = 0
 
-    var rho    = 1.0
-    // var lambda = gamma( {shape:20, scale:0.01} )
+    var rho    = 0.1
+    //var lambda = gamma( {shape:1, scale:1} )
+    //var lambda = exponential( {a: 1} )
+    var lambda = 0.2
     // var mu     = gamma( {shape:10, scale:0.01} )
-    //var lambda = Math.exp(uniform( { a:Math.log(1e-2), b:Math.log(1e1) } ))
+    // var lambda = Math.exp(uniform( { a:Math.log(1e-2), b:Math.log(1e1) } ))
     //var epsilon = uniform( { a:0.0, b:1.0 } )
-    //var mu = epsilon*lambda
+    var epsilon = 0.5
+    var mu = epsilon*lambda
 
     // Simulate conditionally on the tree
     // It returns all variables of interest
@@ -62,7 +65,7 @@ var model = function()
 /**
  * Inference
  * tweak the number of particles if you want to */
-var particles = 4000
+var particles = 5000
 var dist = Infer( {method: 'SMC', particles: particles, model: model} );
 
 

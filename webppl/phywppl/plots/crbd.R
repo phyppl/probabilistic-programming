@@ -11,11 +11,71 @@ cat("\n")
 cat("Please, run from the phywppl package directory.\n")
 cat("Directory is now", getwd(), "\n")
 
+# ----
+
 cairo_pdf("plots/crbd.pdf", onefile = TRUE, width = 7, height = 7, pointsize = 8, fallback_resolution = 600)
 #par(mfrow = c(4,3))
 
 
 
+library(dplyr)
+library(readr)
+library(rppl)
+
+
+# Settings --------------------------------------------------------------------
+
+
+## Settings
+## number of edges in the tree
+nedges = 62
+
+## directories and files
+
+tdbd_f              = "verification/tdbd/tdbd-results.JSON"
+tdbd_analytical_f   = "verification/tdbd/tdbd-analytical-results.JSON"
+tdbd_birch_f        = "verification/tdbd/tdbd-birch.csv"
+
+tdbd_grid2_f            = "verification/tdbd/tdbd-grid2-results.JSON"
+tdbd_grid2_rho_f            = "verification/tdbd/tdbd-grid2-rho-results.JSON"
+tdbd_grid2_analytical_f = "verification/tdbd/tdbd-grid2-analytical-results.JSON"
+tdbd_grid2_analytical_rho_f = "verification/tdbd/tdbd-grid2-analytical-rho-results.JSON"
+
+bamm_tdbd_grid2_f       = "verification/tdbd/bamm-tdbd-grid2-results.JSON"
+
+plot_f              = "verification/tdbd/tdbd-plot.pdf"
+
+
+# Input -------------------------------------------------------------------
+
+
+#setwd(workdir)
+tdbd = read_model(model = "tdbd", modelf = tdbd_f, reps = 12 )
+tdbd$experiment = 1:nrow(tdbd)
+tdbd = tdbd[, -sapply(c("tree", "lambdaFun", "muFun", "rho", "MAX_DIV", "MAX_LAMBDA", "MIN_LAMBDA" ), grep, colnames(tdbd) )]
+tdbd_birch =  read_delim(tdbd_birch_f, "|", escape_double = FALSE, trim_ws = TRUE)
+# order of the parameters in the filename: lambda, epsilon, z (edited)
+tdbd_birch$z   = as.numeric( sub(pattern = ".json", replacement = "", x = sapply(strsplit(x = tdbd_birch$File, split = "_"), function(l) { l[5] } ) ) )
+tdbd_birch$z[tdbd_birch$z == 0.00001] = 0
+tdbd_birch$epsilon   = as.numeric(  sapply(strsplit(x = tdbd_birch$File, split = "_"), function(l) { l[4] } ) )
+tdbd_birch$lambda_0   = as.numeric(  sapply(strsplit(x = tdbd_birch$File, split = "_"), function(l) { l[3] } ) )
+
+tdbd_grid2 = read_model(model = "tdbd", modelf = tdbd_grid2_f, reps = 12 )
+tdbd_grid2$experiment = 1:nrow(tdbd_grid2)
+
+tdbd_grid2_rho = read_model(model = "tdbd", modelf = tdbd_grid2_rho_f, reps = 12 )
+tdbd_grid2_rho$experiment = 1:nrow(tdbd_grid2_rho)
+
+tdbd_grid2_analytical = read_model(model = "tdbd_analytical", modelf = tdbd_grid2_analytical_f, reps = 1 )
+tdbd_grid2_analytical$experiment = 1:nrow(tdbd_grid2_analytical)
+
+tdbd_grid2_analytical_rho = read_model(model = "tdbd_analytical", modelf = tdbd_grid2_analytical_rho_f, reps = 1 )
+tdbd_grid2_analytical_rho$experiment = 1:nrow(tdbd_grid2_analytical_rho)
+
+
+
+
+bamm_tdbd_grid2 = read_model(model = "bamm", modelf = bamm_tdbd_grid2_f, reps = 10)
 
 
 # A1 ----------------------------------------------------------------------
@@ -27,10 +87,22 @@ A1 = do.call(plot_vs_crbd, list (main = "WebPPL CRBD vs CRBD (analytical)",
   ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
   xlab = latex2exp::TeX("$\\lambda$"),
   ylim = c(-240, -130),
-  datafr = crbd, datafr_mean = "crbd_means", datafr_var = "crbd_var"))
+  datafr = crbd, datafr_mean = "crbd_means", datafr_var = "crbd_var", crbd_analytical = crbd_analytical))
 cat("=========================================\n\n")
 
 
+# ------ 
+cat("A1b: ")
+source("plots/crbd-input.R")
+A1b = do.call(plot_vs_crbd, list (main = "WebPPL CRBD vs CRBD (analytical), ρ = 0.5",
+                                 mtext = "A1b",
+                                 mtextcex = 1,
+                                 ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                                 xlab = latex2exp::TeX("$\\lambda$"),
+                                 ylim = c(-240, -130),
+                                 datafr = crbd_rho, datafr_mean = "crbd_means", datafr_var = "crbd_var",
+                                 crbd_analytical = crbd_analytical_rho))
+cat("=========================================\n\n")
 
 
 
@@ -42,10 +114,11 @@ A2 = do.call(plot_vs_crbd, list(main = "Birch CRBD vs CRBD (analytical)",
         mtextcex = 0.8,
         ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
         xlab = latex2exp::TeX("$\\lambda$"),
-        datafr = crbd_birch, datafr_mean = "birch_mean", datafr_var = "birch_var")
+        datafr = crbd_birch_rho, datafr_mean = "birch_mean", datafr_var = "birch_var",
+        crbd_analytical = crbd_analytical)
 )
 cat("=========================================\n\n")
-
+  
 #plot.new()
 
 
@@ -62,10 +135,31 @@ A3 = do.call(plot_vs_crbd, list(main = "WebPPL ClaDS0 vs CRBD (analytical)",
                            xvar = "lambda_0",
                            xlab = latex2exp::TeX("$\\lambda^o$"),
                            mtextcex = 0.8,
-                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$")
+                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                           crbd_analytical = crbd_analytical
                            )
 )
 cat("=========================================\n\n")
+
+# ----
+
+cat("A3b: ")
+source("plots/crbd-input.R")
+A3b = do.call(plot_vs_crbd, list(main = "WebPPL ClaDS0 vs CRBD (analytical), ρ = 0.5",
+                                mtext = "A3b",
+                                datafr = clads0_rho,
+                                datafr_mean = "clads0_means",
+                                datafr_var = "clads0_var",
+                                epsvals = c(0.0),
+                                xvar = "lambda_0",
+                                xlab = latex2exp::TeX("$\\lambda^o$"),
+                                mtextcex = 0.8,
+                                ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                                crbd_analytical = crbd_analytical_rho
+)
+)
+cat("=========================================\n\n")
+
 
 # plot(NULL, xlim = c(0,1), ylim = c(-200, -95), ylab = "log Z", xlab = "λ", main = "WebPPL ClaDS0 vs CRBD")
 # #mtext("Dotted line: CRBD. Circles: ClaDS0 simulation values. Bisse32")
@@ -87,10 +181,30 @@ A4 = do.call(plot_vs_crbd, list(main = "WebPPL ClaDS1 vs CRBD (analytical)",
                            xvar = "lambda_0",
                            xlab = latex2exp::TeX("$\\lambda^o$"),
                            mtextcex = 0.8,
-                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"))
+                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                           crbd_analytical = crbd_analytical)
 
              )
 cat("=========================================\n\n")
+
+# ----------
+
+cat("A4b: ")
+source("plots/crbd-input.R")
+A4b = do.call(plot_vs_crbd, list(main = "WebPPL ClaDS1 vs CRBD (analytical), ρ = 0.5",
+                                mtext = "A4b",
+                                datafr = clads1_rho,
+                                datafr_mean = "clads1_means",
+                                datafr_var = "clads1_var",
+                                xvar = "lambda_0",
+                                xlab = latex2exp::TeX("$\\lambda^o$"),
+                                mtextcex = 0.8,
+                                ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                                crbd_analytical = crbd_analytical_rho)
+             
+)
+cat("=========================================\n\n")
+
 
 # plot(NULL, xlim = c(0,1), ylim = c(-200, -95), ylab = "log Z", xlab = "λ", main = "WebPPL ClaDS1 vs CRBD")
 # #mtext("Dotted line: CRBD. Circles: ClaDS1 simulation values. Bisse32")
@@ -124,7 +238,24 @@ A5 = do.call(plot_vs_crbd, list(main = "WebPPL ClaDS2 vs CRBD (analytical)",
                            xvar = "lambda_0",
                            xlab = latex2exp::TeX("$\\lambda^o$"),
                            mtextcex = 0.8,
-                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$")))
+                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                           crbd_analytical = crbd_analytical))
+cat("=========================================\n\n")
+
+# ------------------
+
+cat("A5b: ")
+source("plots/crbd-input.R")
+A5b = do.call(plot_vs_crbd, list(main = "WebPPL ClaDS2 vs CRBD (analytical), ρ = 0.5",
+                                mtext = "A5b",
+                                datafr = clads2_rho,
+                                datafr_mean = "clads2_means",
+                                datafr_var = "clads2_var",
+                                xvar = "lambda_0",
+                                xlab = latex2exp::TeX("$\\lambda^o$"),
+                                mtextcex = 0.8,
+                                ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                                crbd_analytical = crbd_analytical_rho))
 cat("=========================================\n\n")
 
 # plot(NULL, xlim = c(0,1), ylim = c(-200, -95), ylab = "log Z", xlab = "λ", main = "WebPPL ClaDS2 vs CRBD")
@@ -259,8 +390,26 @@ A6   = do.call(plot_vs_crbd, list(main = "WebPPL LSBDS vs CRBD (analytical)",
                            xvar = "lambda_0",
                            xlab = latex2exp::TeX("$\\lambda^o$"),
                            mtextcex = 0.8,
-                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$")))
+                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                           crbd_analytical = crbd_analytical))
 cat("=========================================\n\n")
+
+# --------
+
+source("plots/crbd-input.R")
+cat("A6b: ")
+A6b = do.call(plot_vs_crbd, list(main = "WebPPL LSBDS vs CRBD (analytical), ρ = 0.5",
+                                  mtext = "A6b",
+                                  datafr = lsbds_rho,
+                                  datafr_mean = "lsbds_means",
+                                  datafr_var = "lsbds_var",
+                                  xvar = "lambda_0",
+                                  xlab = latex2exp::TeX("$\\lambda^o$"),
+                                  mtextcex = 0.8,
+                                  ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                                  crbd_analytical = crbd_analytical_rho))
+cat("=========================================\n\n")
+
 
 # plot(NULL, xlim = c(0,1), ylim = c(-200,-100), ylab = "log Z", xlab = "λ", main = "WebPPL LSBDS vs WebPPL CRBD")
 # #mtext("Dotted line: CRBD. Circles: LSBDS simulation values. Bisse32")
@@ -307,7 +456,7 @@ cat("=========================================\n\n")
 # }
 #
 # legend(0.05, -100, legend=c(paste("ε = ", epsvals), "RevBayes, Data Augmentation", "RevBayes, Stochastic Character Mapping"),
-#        col=c(1:length(epsvals), 1, 1), lty=c("dotted", "dotted", "dotted", "dotted", NA, NA), pch = c(NA, NA, NA, NA, 1, 2), cex = 0.7)
+#        col=c(1:length(epsvals), 1, 1), lty=c("dotted", "dotted", "dotted", "dotted", NA, NA), pch = c(NA, Npar(mfrow = c(2,2))A, NA, NA, 1, 2), cex = 0.7)
 
 
 
@@ -324,8 +473,26 @@ A9 = do.call(plot_vs_crbd, list(main = "WebPPL BAMM vs CRBD (analytical)",
                            datafr_mean = "bamm_means",
                            datafr_var = "bamm_var",
                            mtextcex = 0.8,
-                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$")             ))
+                           ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$")        ,
+                           crbd_analytical = crbd_analytical))
 cat("=========================================\n\n")
+
+# -------
+
+source("plots/crbd-input.R")
+cat("A9b: ")
+A9b = do.call(plot_vs_crbd, list(main = "WebPPL BAMM vs CRBD (analytical), ρ = 0.5",
+                                mtext = "A9b",
+                                xlab = latex2exp::TeX("$\\lambda^o$"),
+                                xvar = "lambda_0",
+                                datafr = bamm_rho,
+                                datafr_mean = "bamm_means",
+                                datafr_var = "bamm_var",
+                                mtextcex = 0.8,
+                                ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                                crbd_analytical = crbd_analytical_rho))
+cat("=========================================\n\n")
+
 
 # plot(NULL, xlim = c(0,1), ylim = c(-200,-120), ylab = "log Z", xlab = "λ_0", main = "WebPPL BAMM vs CRBD")
 # #mtext("Dotted line: CRBD. Circles: BAMM simulation values. Bisse32")
@@ -348,14 +515,32 @@ cat("=========================================\n\n")
 
 # TDBD --------------------------------------------------------------------
 cat("A10: ")
+source("plots/crbd-input.R")
 A10 = do.call(plot_vs_crbd, list(main = "WebPPL TDBD vs CRBD",
                            mtext = "A10",
                            xlab = "λ_0",
                            xvar = "lambda_0",
                            datafr = tdbd,
                            datafr_mean = "tdbd_means",
-                           datafr_var = "tdbd_var"))
+                           source("plots/crbd-input.R")      datafr_var = "tdbd_var",
+                           crbd_analytical  = crbd_analytical))
 cat("=========================================\n\n")
+
+# ------
+
+cat("A10b: ")
+source("plots/crbd-input.R")
+A10b = do.call(plot_vs_crbd, list(main = "WebPPL TDBD vs CRBD",
+                                 mtext = "A10b",
+                                 xlab = "λ_0",
+                                 xvar = "lambda_0",
+                                 datafr = tdbd_rho,
+                                 datafr_mean = "tdbd_means",
+                                 datafr_var = "tdbd_var",
+                                 crbd_analytical  = crbd_analytical_rho))
+cat("=========================================\n\n")
+
+
 
 # plot(NULL, xlim = c(0,1), ylim = c(-200,-120), ylab = "log Z", xlab = "λ_0", main = "WebPPL TDBD vs CRBD")
 #

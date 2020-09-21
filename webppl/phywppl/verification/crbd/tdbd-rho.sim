@@ -1,0 +1,30 @@
+{
+   "label" : "tdbd-rho",
+
+   "description" : "Conditions, under which TDBD degenerates into CRBD.",
+
+    "hyper_parameters" : {
+	"particles"  : 5000,			
+	"tree"       : "phyjs.bisse_32",
+	"MAX_LAMBDA" : 5,
+	"MAX_DIV"    : 5,
+	"MIN_LAMBDA" : 0.0000001
+    },
+    
+    "parameters"  : {
+	
+	"lambda_0" : [0.05, 0.5, 1],
+	"epsilon"  : [ 0.0, 0.1,   0.5,   0.9 ],
+	"rho"      : 0.5,
+	"z"        : 0,
+	"lambdaFun" : "function(t) {\n\treturn ( lambda_0*Math.exp(z*(tree.age - t))) \n\t }",
+	"muFun"     : "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }"
+    },
+    
+    "model" : "\n\tvar mu_0 = muFun(tree.age)\n\tvar nsamples = 100\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, false )\n\t var max_M = 10000\n\t var M =  M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, mu_0, false, max_M)\n\tfactor(Math.log(M))\n\treturn ret",
+    
+    "inference" : {
+	"method" : "SMC",
+	"likelihood": true
+    }
+}

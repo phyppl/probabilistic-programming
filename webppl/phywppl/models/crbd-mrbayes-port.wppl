@@ -1,0 +1,135 @@
+/**
+ * @file
+ * Compute analytical probability of a tree of certain age 
+ *
+ *   f_rs(T | t)
+ * 
+ * under the CRBD model.
+ *
+ * Carefull:
+ * This is a port from MrBayes. It does not rho-sampling.
+ * Use the regular CRBD functions implemented in the package
+ * instead.
+ * 
+ * Take into account random sampling.
+ * Take into account survivorship bias.
+ * 
+ * The formula is (from MrBayes)
+ * 
+ *                   m-2       2                                   n-2 
+ * m - 1  / λ p0(t) \^    p1(t)^  / λ + (λ - λρ -μ) exp[(μ - λ)t] \^
+ * -----  |-------- |   --------- |------------------------------ |  *
+ * n - 1  \   μ     /   1 - p0(t) \   ρ(1 - exp[(μ - λ)t]         /
+ *
+ *    n-1   
+ *     Π log(p1subsample(t_i, λ, μ, ρ)
+ *    i=2   <---- (!) important
+ * 
+ * where t is  the time of MRCA (origin)
+ *       m     the total number of extant species
+ *       n     the number of sampled species, 2 <= n <= m (i.e. number of leaves)
+ *       ρ     the sampling fraction, ρ = n/m
+ *       p1(t) the probability that a lineage leaves exactly one descendant
+ *       p0(t) the probability that a lineage leaves exactly 0 descendants
+ *      
+ */   
+
+/**
+ * exactCRBDLikelihood
+ * Compute the log likelihood of a tree (wrapper function),
+ * dealing correctly with both stalked and non-stalked trees, using the
+ * recursive function lnLike to do the brunt of the work. Correct for
+ * the condition that the observed tree is drawn from surviving trees,
+ * in the case of a non-stalked tree from surviving trees with a speciation
+ * event at the root (most recent common ancestor). Also convert the
+ * density to a density on labelled unoriented trees.
+ *
+ * @param tree
+ * @param lambda
+ * @param mu
+ * @param rho
+ *
+ * @return likelihood of tree
+*/
+var exactCRBDLikelihood = function( tree, lambda, mu, rho )
+{
+    /** 
+     * The probability that a lineage at time t has 1 sampled descendants at time 0.
+     *
+     * @param t
+     * @param b
+     * @param d
+     * @param f      - sampling fraction
+     *
+     * @return the log value
+     **/ 
+    var lnP1Subsample = function( t, b, d, f  )
+    {
+	var p1t =  (b-d) / (f*b + (b*(1.0-f)-d)*Math.exp((d-b)*t));
+	return (2.0*Math.log(p1t) + Math.log(f) - (b-d)*t);
+    }
+
+    
+    /** 
+     * Help function (recursive) to compute likelihood of oriented tree for specific 
+     * λ, μ, ρ.
+     * 
+     * This function takes care of the terms in the product in the formula in the beginning.
+     * 
+     * @param tree
+     * @param lambda
+     * @param mu
+     * @param rho
+     * 
+     * @return likelihood term
+     */
+    var lnLike = function( tree, lambda, mu, rho )
+    {
+	if ( tree.type == 'leaf' ) {
+            return 0
+	}
+
+	var lnLikeLeft  = lnLike( tree.left,  lambda, mu , rho)
+	var lnLikeRight = lnLike( tree.right, lambda, mu , rho)
+
+	return lnLikeLeft + lnLikeRight + lnP1Subsample(tree.age, lambda, mu, rho)
+    }
+
+    
+    // Compute correction factor from oriented to labelled unoriented trees
+    var numLeaves = phyjs.countLeaves( tree )
+    var corrFactor = ( numLeaves - 1 ) * Math.log( 2.0 ) - phyjs.lnFactorial( numLeaves )
+    
+    // precomputation of certain quantities
+    var   r = lambda - mu
+    var eRT = Math.exp( - r * tree.age )
+    var n = numLeaves
+    var m = Math.floor(n/rho + 0.5) 
+
+    var lnp0 = Math.log( mu*(1.0-eRT) / (lambda -mu*eRT) )
+    var lnp1 = 2.0 * Math.log( r )- r*tree.age -  2.0 * Math.log( lambda -mu*eRT ) 
+
+    // Stalked tree
+    if ( !tree.right )
+    {
+	// Stalked tree, unconditional likelihood
+	console.log("Stalked tree case is not implemented.")	
+    }
+    else
+    {
+	// The following quantities correspond to terms from the formula
+	var term1 = Math.log(m - 1) - Math.log(n - 1)
+	var term2 = (m - 2.0)*(lnp0 + Math.log(lambda) - Math.log(mu))
+	var term3 = 2.0*(lnp1 - Math.log(1.0 - Math.exp(lnp0)))
+	var term4 = (n - 2.0)*(Math.log(lambda*rho + (lambda - lambda*rho - mu)*eRT) - Math.log(rho*(1 - eRT)))
+	
+        // Non-stalked tree, unconditional likelihood
+        var lnL = term1 + term2 + term3 + term4 + lnLike(tree, lambda, mu, rho)
+
+	// Condition on mrca speciation and detection from time of mrca speciation (tree.age)
+	// This is needed because i goes from 2 (not from 1)
+        var lnLCondOriented = lnL - lnP1Subsample(tree.age, lambda, mu, rho)
+
+        return lnLCondOriented + corrFactor
+    }
+}

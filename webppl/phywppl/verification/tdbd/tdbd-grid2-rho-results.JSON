@@ -1,0 +1,2162 @@
+[
+  {
+    "label": "tdbd-grid2-rho-1",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.05,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-1.wppl 10",
+    "output": "-198.9524455887202\n-198.94243755293206\n-198.92064178491285\n-198.90187986918335\n-198.87918094227842\n-198.8795057258337\n-198.89862340714572\n-198.9032202132421\n-198.8735603563468\n-198.91655563601236\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-2",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.05,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-2.wppl 10",
+    "output": "-199.7152153833261\n-199.76792178628614\n-199.74910257316856\n-199.7331740000252\n-199.72244588915603\n-199.7189662605112\n-199.7360150576524\n-199.7233824930283\n-199.70214158356902\n-199.70375705662858\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-3",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-3.wppl 10",
+    "output": "-179.02073842474545\n-178.93696261307315\n-179.02319728002846\n-178.95477001684858\n-179.01838362428037\n-179.04495029507734\n-178.90789284381964\n-179.02256108875542\n-178.9778241612965\n-178.948093427065\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-4",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-4.wppl 10",
+    "output": "-180.47300938568486\n-180.47474650130695\n-180.50643254503623\n-180.4410995968576\n-180.4444430905042\n-180.47527392596353\n-180.49122802487756\n-180.50003895942166\n-180.36764111171584\n-180.45859913673343\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-5",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.15,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-5.wppl 10",
+    "output": "-167.92751218190668\n-167.9118923935495\n-167.8928033901587\n-167.99299643815624\n-167.91290979532977\n-167.96989809228234\n-167.86576081760438\n-167.93339147440426\n-167.82392370725753\n-167.8831309040669\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-6",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.15,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-6.wppl 10",
+    "output": "-169.92466004203393\n-169.90395656975733\n-169.84419706465627\n-169.80263949984945\n-169.8445731260006\n-169.87395051440035\n-169.8129670701332\n-169.81380872566356\n-169.784293507386\n-169.82750191213094\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-7",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.2,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-7.wppl 10",
+    "output": "-160.5558799548593\n-160.58797940164482\n-160.57773230805498\n-160.5287389036279\n-160.53133763088005\n-160.66548398189641\n-160.55303239935614\n-160.52804952004888\n-160.54389619947594\n-160.4519576030785\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-8",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.2,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-8.wppl 10",
+    "output": "-162.85467628805762\n-162.80238397147386\n-162.71774267635325\n-162.72088905704075\n-162.73339193127617\n-162.787493233483\n-162.71006356720432\n-162.666652529219\n-162.68380260986888\n-162.56455440522407\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-9",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.25,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-9.wppl 10",
+    "output": "-155.23350647965262\n-155.17662269094623\n-155.1380720633721\n-155.08866967264268\n-155.23578731654655\n-155.19399679374345\n-155.16320957798533\n-155.22663069655403\n-155.19465469374634\n-155.1469312492377\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-10",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.25,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-10.wppl 10",
+    "output": "-157.55878718072836\n-157.54117207907004\n-157.53957549709912\n-157.54018134820802\n-157.5401732278516\n-157.58200862507255\n-157.52191051284854\n-157.51077406656205\n-157.57315031296028\n-157.5867683885439\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-11",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-11.wppl 10",
+    "output": "-151.2856264893193\n-151.37265710099558\n-151.21699885211385\n-151.23326808411028\n-151.3098930767761\n-151.17338976161452\n-151.23520691974602\n-151.32478913604388\n-151.26777923176985\n-151.2466113174764\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-12",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-12.wppl 10",
+    "output": "-153.66077107029486\n-153.61227519641344\n-153.67982938697398\n-153.6441861393847\n-153.60517479257948\n-153.6585192894037\n-153.47523605473444\n-153.58714911622454\n-153.44251629997294\n-153.52191195066462\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-13",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.35,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-13.wppl 10",
+    "output": "-148.38969347430844\n-148.3188451414535\n-148.332182338387\n-148.23881989866425\n-148.3870372525432\n-148.3550126370706\n-148.3048545974236\n-148.207079124109\n-148.37223228479408\n-148.30462078012124\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-14",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.35,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-14.wppl 10",
+    "output": "-150.55063427585014\n-150.5510523451675\n-150.57130743033034\n-150.54204401789988\n-150.47597736735727\n-150.5180640565896\n-150.52816536149015\n-150.31268021916276\n-150.35980900771125\n-150.46277471135127\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-15",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.4,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-15.wppl 10",
+    "output": "-145.95254744553273\n-145.97676628482157\n-146.05058674354675\n-146.20381338456687\n-146.21871507924598\n-146.11049934991544\n-146.14689498400938\n-146.02462596331569\n-146.03901194975387\n-146.0473357383824\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-16",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.4,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-16.wppl 10",
+    "output": "-148.11714483250324\n-148.04193779671064\n-148.0735413342575\n-147.98383329190128\n-148.03111785895953\n-147.96562975812478\n-148.031604373366\n-148.0855893869532\n-148.05301651083792\n-147.9400138460209\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-17",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.45,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-17.wppl 10",
+    "output": "-144.45436886456346\n-144.3412848067157\n-144.35929304311225\n-144.53265842178882\n-144.342675270179\n-144.38510783006691\n-144.3851755987176\n-144.4529703274082\n-144.3671260306135\n-144.4386143882099\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-18",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.45,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-18.wppl 10",
+    "output": "-146.23034777624252\n-146.03178525838646\n-146.2131115121086\n-146.01887219242056\n-146.09356282338211\n-146.04924907731984\n-146.02160429184295\n-146.05400715177575\n-146.0317607835404\n-145.9306746281155\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-19",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.5,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-19.wppl 10",
+    "output": "-143.26371267670334\n-143.20376314394872\n-143.2632807064805\n-143.09187187104976\n-142.97534883650914\n-143.35702255004094\n-143.1553514811298\n-143.02772349073973\n-143.12825883894348\n-143.27717629820685\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-20",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.5,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-20.wppl 10",
+    "output": "-144.45928850368375\n-144.53996837445268\n-144.31577915480264\n-144.4807944450465\n-144.27919148562745\n-144.53361025477577\n-144.31990186376188\n-144.40052315968356\n-144.2792659496562\n-144.33542479521662\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-21",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.55,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-21.wppl 10",
+    "output": "-142.1827907535525\n-142.16508831702052\n-142.32138044115126\n-142.41286442877194\n-142.37782427335853\n-142.28959192980986\n-142.45091884685996\n-142.42625453145837\n-142.55188147547315\n-142.41056120158194\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-22",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.55,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-22.wppl 10",
+    "output": "-143.27790305055427\n-143.1164844363197\n-142.95093260097363\n-143.05147680925995\n-142.98514566707837\n-142.94440162392343\n-142.92802449571232\n-142.87523268909013\n-143.15146191316023\n-143.01346238846543\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-23",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.6,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-23.wppl 10",
+    "output": "-141.81535477544693\n-141.7259582597812\n-142.0617964442467\n-141.9224398814391\n-142.04664905018873\n-141.84223962742783\n-141.8938894865263\n-141.5884125796607\n-141.8503609051233\n-141.77648624013324\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-24",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.6,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-24.wppl 10",
+    "output": "-142.17586237559402\n-141.90678564581046\n-141.8243477043261\n-142.0381455336895\n-142.05723323298204\n-142.05211791846577\n-141.69575939595134\n-141.9794037566785\n-141.67207753163663\n-141.67049689451753\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-25",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.65,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-25.wppl 10",
+    "output": "-141.49294040567534\n-141.55634453417468\n-141.4982835562252\n-141.3811462564796\n-141.5996881248568\n-141.70715710204678\n-141.63650337054315\n-141.61394167866345\n-141.64786346842425\n-141.59884923109527\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-26",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.65,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-26.wppl 10",
+    "output": "-141.3518664404429\n-141.16743150549527\n-141.14450696135833\n-140.9691164493435\n-141.20316947769192\n-141.18524761072925\n-140.8426890374154\n-141.10117075612567\n-141.3827699260211\n-141.23679059901053\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-27",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.7,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-27.wppl 10",
+    "output": "-141.56389816308703\n-141.68145522044378\n-141.3379148451571\n-141.62966419216895\n-141.46719196902978\n-141.71073210944857\n-141.45674923807297\n-141.54400096343386\n-141.7370172900547\n-141.4447661570595\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-28",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.7,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-28.wppl 10",
+    "output": "-140.35838359361668\n-140.18826550236795\n-140.36564124104893\n-140.39763874229436\n-140.2402552186652\n-140.40115886359374\n-140.44032033878867\n-140.26275054149104\n-140.39937664501593\n-140.35127126403992\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-29",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.75,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-29.wppl 10",
+    "output": "-141.76835692687249\n-141.7821402678562\n-141.55221981672145\n-141.74619792119836\n-141.86309962573296\n-141.52445460527122\n-141.68401778671674\n-141.8173250474666\n-141.47930682477465\n-141.5882027671916\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-30",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.75,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-30.wppl 10",
+    "output": "-139.7123213840833\n-139.77966960662238\n-139.9692870614159\n-139.99242358091684\n-139.9280713572091\n-140.00965695847356\n-139.94124937588114\n-139.79530547148264\n-139.49292242425958\n-139.56364494878392\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-31",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.8,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-31.wppl 10",
+    "output": "-142.09217047977586\n-142.47989762444104\n-141.89489526727175\n-142.28779863197042\n-142.50885312832742\n-142.28908032604997\n-141.9093519427862\n-142.02545081166784\n-142.2163162063035\n-142.37951037686307\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-32",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.8,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-32.wppl 10",
+    "output": "-139.4701165646944\n-139.18066803798624\n-139.4299287750197\n-139.39676388745013\n-139.46009852614975\n-139.48926518461562\n-139.3618728543995\n-139.72157110620083\n-139.50725927529254\n-139.5836803277419\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-33",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.85,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-33.wppl 10",
+    "output": "-142.20664531777868\n-142.62833751303515\n-142.37788125972853\n-142.4345488542769\n-142.49529198781931\n-142.37604609097173\n-142.53486690628895\n-142.64137872250848\n-142.46309023181692\n-142.44433742763778\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-34",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.85,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-34.wppl 10",
+    "output": "-139.04562269726463\n-139.11659958998877\n-139.20915641205193\n-139.19818101576382\n-138.85666049311527\n-139.02856587631499\n-139.37804425544616\n-139.09573314159806\n-138.80400588504324\n-139.38147409121942\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-35",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.9,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-35.wppl 10",
+    "output": "-143.1065640174952\n-143.17615158544635\n-143.27179418798673\n-143.14670150958094\n-143.0160766881826\n-142.95978383224474\n-143.2681575076852\n-143.20989365454724\n-143.41130816055053\n-143.3079912047217\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-36",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.9,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-36.wppl 10",
+    "output": "-139.10957834444199\n-138.49799046319083\n-138.86515008237419\n-139.157896035734\n-139.3609443897952\n-139.0978299696489\n-138.69378351151903\n-138.59731043438688\n-138.91219698028604\n-139.25376146827765\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-37",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.95,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-37.wppl 10",
+    "output": "-144.13037283981316\n-143.8485295451869\n-143.53780793957782\n-143.90039706731923\n-143.7136218035952\n-143.9624233442016\n-143.5983675426479\n-144.02957253607872\n-144.0037128548108\n-144.2982391069644\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-38",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 0.95,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-38.wppl 10",
+    "output": "-139.05900281953538\n-138.86194024402943\n-138.92748753265232\n-138.76371912064508\n-138.71612259958545\n-138.8104185576352\n-138.63052870694125\n-138.7121084253726\n-138.8860489699395\n-138.45009686360902\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-39",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-39.wppl 10",
+    "output": "-144.64122962986565\n-144.3046854673407\n-144.773275065579\n-144.82421890557697\n-145.08041984436318\n-144.42726707347947\n-145.24541387137646\n-144.84102750619658\n-144.75964284352398\n-144.7954827424385\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-40",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": -0.1,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = -0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-40.wppl 10",
+    "output": "-138.96271511844267\n-138.73960177628862\n-138.55927700055645\n-138.9170233748229\n-138.4746287584996\n-138.93976727178625\n-138.71413503686682\n-138.68263582480907\n-138.67488116709643\n-138.36940387511098\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-41",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.05,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-41.wppl 10",
+    "output": "-148.97837639828063\n-148.96126993998007\n-148.88826575782335\n-148.7939496452557\n-148.96553436986184\n-148.97680682722995\n-148.931219119513\n-148.8401232281554\n-148.8392849754613\n-148.99182371563853\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-42",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.05,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-42.wppl 10",
+    "output": "-152.44232925030977\n-152.38903995488994\n-152.3411046859711\n-152.36451551467812\n-152.26675375986204\n-152.43705751312498\n-152.3390999638873\n-152.30082743927082\n-152.2346945934695\n-152.3754140876337\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-43",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-43.wppl 10",
+    "output": "-138.1738947398961\n-138.02824140101515\n-137.99008708662444\n-138.08495206195795\n-138.20203928774112\n-138.220511776717\n-138.24085376293291\n-137.9438597049046\n-138.08925204336975\n-138.27486501176855\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-44",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-44.wppl 10",
+    "output": "-140.98723114985268\n-140.69158142647018\n-140.70082316270847\n-140.7529691618086\n-140.73042183080778\n-140.57968492681186\n-140.5292830769296\n-140.68431463577653\n-140.47771353196813\n-140.38487090577422\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-45",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.15,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-45.wppl 10",
+    "output": "-138.70767757399997\n-138.9119413358421\n-138.9879442203594\n-138.73061131238796\n-139.27599609923544\n-138.43851169172044\n-138.69533273812715\n-138.8127682476685\n-138.89513595052517\n-138.9001875908217\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-46",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.15,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-46.wppl 10",
+    "output": "-137.646295876966\n-137.60565023244337\n-137.69928884092622\n-137.5048103743864\n-137.57064701935278\n-137.74175570868925\n-137.49630683647445\n-137.47719316231365\n-137.32812564194867\n-137.23409111332754\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-47",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.2,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-47.wppl 10",
+    "output": "-144.60522852430717\n-144.37591796490912\n-144.14075291066678\n-144.35480697368232\n-143.58856664671407\n-144.0678832946711\n-144.09286730327068\n-144.30074534787386\n-143.93718373714842\n-144.09588817332812\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-48",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.2,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-48.wppl 10",
+    "output": "-138.35431807456163\n-137.43139047991596\n-138.33771598024305\n-137.85609641374833\n-138.02324288701863\n-138.11366512109933\n-137.99986149516957\n-137.74772777296437\n-137.82683094422066\n-137.92986772712018\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-49",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.25,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-49.wppl 10",
+    "output": "-152.21484806890325\n-151.93668075408843\n-152.36660331669384\n-152.49542064788903\n-151.6644468684618\n-152.63299404879155\n-152.05503675073962\n-151.81712093658393\n-152.66130037792416\n-152.58633529038164\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-50",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.25,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-50.wppl 10",
+    "output": "-140.87885871204466\n-140.88634237820224\n-141.26088599431702\n-140.52055848612795\n-140.52752656571147\n-139.85627890612517\n-140.89460033139815\n-140.83073739212136\n-140.2856871455111\n-139.81495373036537\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-51",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-51.wppl 10",
+    "output": "-160.8909036493926\n-161.42908118077165\n-161.90176280177064\n-163.01190565867992\n-161.12297277310878\n-162.733344280694\n-161.87905921484654\n-162.60788744662776\n-161.93456125742912\n-161.75021163980261\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-52",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-52.wppl 10",
+    "output": "-145.21654395076374\n-145.24398123545907\n-144.75386306948175\n-144.66987766427235\n-143.91435215339786\n-144.81050592431018\n-143.93195835641373\n-143.9156126814417\n-143.95476260243555\n-144.27046719632295\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-53",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.35,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-53.wppl 10",
+    "output": "-171.67510267692893\n-172.52351097129707\n-174.96433783195687\n-173.0546487813611\n-172.1133135022482\n-174.3708834703548\n-172.9661875195988\n-172.84174263469384\n-174.0645183161073\n-172.71011774584073\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-54",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.35,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-54.wppl 10",
+    "output": "-147.07179076098342\n-148.7548915846974\n-148.42881419740618\n-148.90548812870256\n-148.3122229981302\n-147.9539765428316\n-147.99982487800753\n-148.57556351831363\n-148.4669747821027\n-148.85316025776373\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-55",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.4,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-55.wppl 10",
+    "output": "-184.2537858183268\n-183.3835132117377\n-183.88549557848347\n-185.12460716953098\n-186.428195678124\n-184.79862758223516\n-185.12952750244472\n-185.06395589396712\n-186.194730969376\n-184.2233175870062\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-56",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.4,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-56.wppl 10",
+    "output": "-153.77889185965478\n-153.53667263184187\n-155.27782552535635\n-152.9116701342231\n-154.65282250261987\n-154.70732735460365\n-153.9438416763411\n-155.93467881315578\n-155.49267504537326\n-153.14781816836233\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-57",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.45,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-57.wppl 10",
+    "output": "-198.22751718812475\n-195.81954419790998\n-196.88673284470863\n-196.5429683962998\n-199.951197247774\n-199.4216479201285\n-200.53230760559268\n-200.44155740578694\n-199.6030208531998\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-58",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.45,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-58.wppl 10",
+    "output": "-161.80175207249022\n-159.81616782854493\n-162.41474846112692\n-159.55108961128238\n-158.01847982015926\n-161.10121615258075\n-159.6535066892078\n-160.99069984627775\n-158.09081920525756\n-155.98511193335256\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-59",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.5,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-59.wppl 10",
+    "output": "-211.85260935744077\n-207.86941101711818\n-215.16132883037542\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-60",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.5,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-60.wppl 10",
+    "output": "-166.4503155627918\n-166.15515758549463\n-163.8685835671144\n-167.1855596887835\n-166.96347384142788\n-169.03656947657117\n-166.95132754169964\n-168.18266273474484\n-162.3954886298382\n-167.03402690341937\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-61",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.55,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-61.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-62",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.55,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-62.wppl 10",
+    "output": "-171.84665611796765\n-170.76653573533102\n-171.9774508205766\n-173.29335647529345\n-172.42148593749323\n-174.33435442431983\n-173.53423462656858\n-175.5181521781374\n-174.0838775039076\n-173.50528670215\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-63",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.6,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-63.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-64",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.6,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-64.wppl 10",
+    "output": "-184.1932272886247\n-181.80784491171713\n-183.8568150199455\n-176.66285576917784\n-182.9424422626444\n-185.48411665425922\n-183.8732286652231\n-176.7006600190176\n-180.32161907039097\n-179.01397762429545\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-65",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.65,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-65.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-66",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.65,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-66.wppl 10",
+    "output": "-186.69259796326907\n-192.45637470929964\n-189.00215456333396\n-191.03023401584213\n-188.71037687037435\n-193.56262387336113\n-185.3797741303653\n-188.70246065134702\n-190.10267488839716\n-192.55342743712526\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-67",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.7,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-67.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-68",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.7,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-68.wppl 10",
+    "output": "-193.94163223878243\n-193.00677793521555\n-198.58747982054953\n-194.6079811869354\n-201.70207781911395\n-198.0847687903121\n-199.68140159676253\n-198.86903005856544\n-197.88031684831557\n-199.65385520999823\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-69",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.75,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-69.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-70",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.75,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-70.wppl 10",
+    "output": "-209.19952324996433\n-200.4023706072761\n-212.84169312337187\n-217.65324705072027\n-204.5803113418362\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-71",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.8,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-71.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-72",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.8,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-72.wppl 10",
+    "output": "-219.88911511445892\n-223.73461226416038\n-221.08899850294554\n-203.88136603665814\n-218.60052093831766\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-73",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.85,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-73.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-74",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.85,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-74.wppl 10",
+    "output": "-228.35517859620487\n-223.34948018904493\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-75",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.9,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-75.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-76",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.9,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-76.wppl 10",
+    "output": "-233.9619196386167\n-246.483292974986\n"
+  },
+  {
+    "label": "tdbd-grid2-rho-77",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.95,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-77.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-78",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 0.95,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-78.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-79",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-79.wppl 10",
+    "output": ""
+  },
+  {
+    "label": "tdbd-grid2-rho-80",
+    "description": "TDBD Model with Decaying λ and μ. Simulation. Grid2: vs analytical solution. With survivorship bias correction (S).",
+    "hyper_parameters": {
+      "particles": 5000,
+      "MAX_DIV": 20,
+      "MAX_LAMBDA": 20,
+      "MIN_LAMBDA": 1e-7
+    },
+    "parameters": {
+      "tree": "phyjs.bisse_32",
+      "z": 0.1,
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "lambdaFun": "function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }",
+      "muFun": "function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }",
+      "rho": 0.5
+    },
+    "model": "\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar MAX_DIV = 20\n\tvar MAX_LAMBDA = 20\n\tvar MIN_LAMBDA = 1e-7\nvar model = function()\n{\n\tvar tree = phyjs.bisse_32\n\tvar z = 0.1\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar lambdaFun = function(t) { return ( lambda_0 * Math.exp(z * (tree.age - t) ) ) }\n\tvar muFun = function(t) { return ( lambda_0 * epsilon * Math.exp(z * (tree.age - t) ) ) }\n\tvar rho = 0.5\n\t\n\tvar mu_0 = muFun(tree.age)\n\tvar ret = simTDBD( tree, lambdaFun, muFun, rho, lambda_0, mu_0, z, true )\n\tvar max_M = 10000\n\tvar M = M_tdbdGoesUndetected( tree.age, lambdaFun, muFun, rho, tree, true, max_M)\n\tfactor(Math.log(M))\n\treturn (ret)\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/tdbd/tdbd-grid2-rho/tdbd-grid2-rho-80.wppl 10",
+    "output": ""
+  }
+]

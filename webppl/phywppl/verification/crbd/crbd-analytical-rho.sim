@@ -1,5 +1,5 @@
 {
-    "label" : "crbd-analytical",
+    "label" : "crbd-analytical-rho",
     
    "hyper_parameters": {
    	"tree"    :  	    "phyjs.bisse_32"
@@ -11,7 +11,7 @@
 	
 	"epsilon"  : [0.0, 0.1, 0.5, 0.9],
 	
-	"rho"     :  1.0
+	"rho"     :  0.5
     },
     
     "model": "\n\tvar mu = epsilon * lambda\n\treturn exactCRBDLikelihood( tree, lambda, mu, rho ) +   CRBD_survivorshipBias(tree, lambda, mu, rho)",

@@ -11,13 +11,15 @@ library(rppl)
 nedges = 62
 
 ## directories and files
-workdir             = "~/Work/ppl-phylogenetics/webppl/phywppl"
+
 tdbd_f              = "verification/tdbd/tdbd-results.JSON"
 tdbd_analytical_f   = "verification/tdbd/tdbd-analytical-results.JSON"
 tdbd_birch_f        = "verification/tdbd/tdbd-birch.csv"
 
 tdbd_grid2_f            = "verification/tdbd/tdbd-grid2-results.JSON"
+tdbd_grid2_rho_f            = "verification/tdbd/tdbd-grid2-rho-results.JSON"
 tdbd_grid2_analytical_f = "verification/tdbd/tdbd-grid2-analytical-results.JSON"
+tdbd_grid2_analytical_rho_f = "verification/tdbd/tdbd-grid2-analytical-rho-results.JSON"
 
 bamm_tdbd_grid2_f       = "verification/tdbd/bamm-tdbd-grid2-results.JSON"
 
@@ -27,7 +29,7 @@ plot_f              = "verification/tdbd/tdbd-plot.pdf"
 # Input -------------------------------------------------------------------
 
 
-setwd(workdir)
+#setwd(workdir)
 tdbd = read_model(model = "tdbd", modelf = tdbd_f, reps = 12 )
 tdbd$experiment = 1:nrow(tdbd)
 tdbd = tdbd[, -sapply(c("tree", "lambdaFun", "muFun", "rho", "MAX_DIV", "MAX_LAMBDA", "MIN_LAMBDA" ), grep, colnames(tdbd) )]
@@ -40,8 +42,18 @@ tdbd_birch$lambda_0   = as.numeric(  sapply(strsplit(x = tdbd_birch$File, split 
 
 tdbd_grid2 = read_model(model = "tdbd", modelf = tdbd_grid2_f, reps = 12 )
 tdbd_grid2$experiment = 1:nrow(tdbd_grid2)
+
+tdbd_grid2_rho = read_model(model = "tdbd", modelf = tdbd_grid2_rho_f, reps = 12 )
+tdbd_grid2_rho$experiment = 1:nrow(tdbd_grid2_rho)
+
 tdbd_grid2_analytical = read_model(model = "tdbd_analytical", modelf = tdbd_grid2_analytical_f, reps = 1 )
 tdbd_grid2_analytical$experiment = 1:nrow(tdbd_grid2_analytical)
 
+tdbd_grid2_analytical_rho = read_model(model = "tdbd_analytical", modelf = tdbd_grid2_analytical_rho_f, reps = 1 )
+tdbd_grid2_analytical_rho$experiment = 1:nrow(tdbd_grid2_analytical_rho)
+
+
+
 
 bamm_tdbd_grid2 = read_model(model = "bamm", modelf = bamm_tdbd_grid2_f, reps = 10)
+

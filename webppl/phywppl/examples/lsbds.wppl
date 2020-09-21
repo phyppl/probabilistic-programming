@@ -60,9 +60,9 @@ var model = function()
     var epsilon = 0.5
     var mu_0 = lambda_0 * epsilon
     // var mu_    = 0.1
-    var eta       = 0.000001
-    var rho         = 1.0
-
+    //var eta       = 0.000001
+    var eta = exponential( {a: tree.age} )
+    var rho         = 0.1
 
     var DistLambda = function() {
 	return (lambda_0)
@@ -81,10 +81,11 @@ var model = function()
     // Simulate conditionally on the tree
     // It returns all variables of interest
     var ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )
-
+    
     // Condition on detection
-    var dist = Infer ( { model: function() { lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho ) }, method: 'forward', samples: 100 } )
-    factor( - 2.0 * dist.score( false ) )
+    var max_M = 10000
+    var M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )
+    factor(Math.log(M))
 
     return ret
 }
@@ -93,7 +94,7 @@ var model = function()
 /**
  * Inference
  * tweak the number of particles if you want to */
-var particles = 1000
+var particles = 5000
 var dist = Infer( {method: 'SMC', particles: particles, model: model} );
 
 

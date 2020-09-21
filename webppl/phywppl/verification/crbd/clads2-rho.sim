@@ -1,5 +1,5 @@
 {
-    "label" : "clads2",
+    "label" : "clads2-rho",
 
     "description": "Under these values, ClaDS2 degenerates into CRBD.",
     
@@ -18,7 +18,7 @@
 	"alpha"    : 1.0,
 	"epsilon"  : [ 0.0, 0.1,   0.5,   0.9 ],
 	"lambda_0" :  [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1],
-	"rho"      : 1
+	"rho"      : 0.5
     },
     
     "model" : "var ret = simClaDS2( tree, lambda_0, alpha, sigma, epsilon, rho )\n\tvar max_M = 10000\n\tvar M = M_clads2GoesUndetected( tree.age, lambda_0, alpha, sigma, epsilon, rho, max_M)\n\tfactor(Math.log(M))\n\treturn ret",

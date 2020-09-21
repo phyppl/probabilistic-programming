@@ -1,0 +1,2082 @@
+[
+  {
+    "label": "lsbds-rho-1",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.05,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-1.wppl 10",
+    "output": "-172.01909684139514\n-171.99860953582527\n-172.02511007672325\n-172.02088054096075\n-171.9889628875251\n-172.0219780231815\n-171.97872390907304\n-172.00507513140795\n-172.01498527032174\n-171.95728600919475\n"
+  },
+  {
+    "label": "lsbds-rho-2",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.05,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-2.wppl 10",
+    "output": "-172.50301568586713\n-172.42696776770686\n-172.4698754137356\n-172.4626322230013\n-172.37569270773952\n-172.4209730302706\n-172.36621389845308\n-172.46528317444879\n-172.42516687609347\n-172.34728849118093\n"
+  },
+  {
+    "label": "lsbds-rho-3",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.05,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-3.wppl 10",
+    "output": "-174.30758873545727\n-174.31503259017074\n-174.29523802547578\n-174.21653249429102\n-174.30268410062732\n-174.2236769876313\n-174.23976469345587\n-174.29946013164883\n-174.26555819425977\n-174.219361355924\n"
+  },
+  {
+    "label": "lsbds-rho-4",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.05,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.05\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-4.wppl 10",
+    "output": "-176.19381875575024\n-176.2113079058748\n-176.09991486253904\n-176.14664200315542\n-176.16198745125817\n-176.20215258568143\n-176.22266129772004\n-176.1891091893165\n-176.1497781127835\n-176.11873290784723\n"
+  },
+  {
+    "label": "lsbds-rho-5",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.1,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-5.wppl 10",
+    "output": "-153.5722660009931\n-153.56406635969506\n-153.65555047072587\n-153.71538177644732\n-153.5722038207566\n-153.66056946428324\n-153.62089115545817\n-153.66373588355447\n-153.54115250954158\n-153.63943263165646\n"
+  },
+  {
+    "label": "lsbds-rho-6",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.1,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-6.wppl 10",
+    "output": "-154.2802932808755\n-154.31789114856895\n-154.15087621654502\n-154.2486832477581\n-154.24094206081807\n-154.2328913259311\n-154.26855257484095\n-154.2522320637\n-154.22060767509927\n-154.26056680142025\n"
+  },
+  {
+    "label": "lsbds-rho-7",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.1,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-7.wppl 10",
+    "output": "-157.10533976317606\n-157.00785006241765\n-157.0694228465239\n-157.15702619959524\n-157.0887935558265\n-156.98808309374766\n-156.98713940292396\n-157.03547624277985\n-156.93759716726302\n-156.93994679807093\n"
+  },
+  {
+    "label": "lsbds-rho-8",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.1,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.1\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-8.wppl 10",
+    "output": "-160.12597227528187\n-160.0898541715867\n-160.12930679622067\n-160.07434139027393\n-160.1054519641826\n-160.13190766008958\n-160.11920184098676\n-159.9717632127448\n-160.0704714699309\n-160.14948184120365\n"
+  },
+  {
+    "label": "lsbds-rho-9",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.15,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-9.wppl 10",
+    "output": "-145.0153776221246\n-144.88290304150777\n-144.81517451936523\n-144.9471672320881\n-144.86851020895077\n-144.87495786789216\n-144.77388566473547\n-144.8695391881652\n-145.0005319442944\n-144.85233516076275\n"
+  },
+  {
+    "label": "lsbds-rho-10",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.15,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-10.wppl 10",
+    "output": "-145.4463954256312\n-145.4942880800493\n-145.51509841777934\n-145.43129271390362\n-145.5197135828982\n-145.49723649332108\n-145.41145527014842\n-145.55073447898604\n-145.4439696614592\n-145.48730969791654\n"
+  },
+  {
+    "label": "lsbds-rho-11",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.15,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-11.wppl 10",
+    "output": "-148.61843668464346\n-148.60818417785384\n-148.47249224806862\n-148.4279670357216\n-148.39580840709638\n-148.37452576568433\n-148.3484596796621\n-148.42275538059647\n-148.3002326253659\n-148.4304528435221\n"
+  },
+  {
+    "label": "lsbds-rho-12",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.15,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.15\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-12.wppl 10",
+    "output": "-152.2460069970191\n-152.15320243898603\n-152.12984703394517\n-152.09590487099524\n-152.07437566874148\n-152.2233410029798\n-152.27603804413786\n-152.21754949573491\n-152.1608464600531\n-152.17433402283896\n"
+  },
+  {
+    "label": "lsbds-rho-13",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.2,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-13.wppl 10",
+    "output": "-140.34937011887936\n-140.39226122469495\n-140.4848456523845\n-140.4499430327965\n-140.43244750216826\n-140.2207421587747\n-140.51999824576743\n-140.3160217452584\n-140.57295463329336\n-140.4745006784024\n"
+  },
+  {
+    "label": "lsbds-rho-14",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.2,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-14.wppl 10",
+    "output": "-140.82902118515628\n-140.8769111601318\n-140.87628940287837\n-140.78550937944436\n-140.6344160864022\n-140.92965191363808\n-140.7633566663637\n-140.85182952755386\n-140.89090743560166\n-140.67992180541714\n"
+  },
+  {
+    "label": "lsbds-rho-15",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.2,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-15.wppl 10",
+    "output": "-143.34514626053485\n-143.2494508399637\n-143.45301713778755\n-143.4027918929589\n-143.14730692444354\n-143.36217287321134\n-143.42234327240192\n-143.24820176404856\n-143.234640093884\n-143.24698495905082\n"
+  },
+  {
+    "label": "lsbds-rho-16",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.2,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.2\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-16.wppl 10",
+    "output": "-147.3979934750878\n-147.300374950204\n-147.36649830876857\n-147.39296944029846\n-147.2991986752498\n-147.37657135067903\n-147.47182641977201\n-147.41091788830252\n-147.26641529080493\n-147.41948256432633\n"
+  },
+  {
+    "label": "lsbds-rho-17",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.25,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-17.wppl 10",
+    "output": "-138.4873629225175\n-138.639032232553\n-138.63735475695069\n-138.6021518491744\n-138.4837752795327\n-138.6553604129593\n-138.5864919106779\n-138.40039784479092\n-138.60339012483243\n-138.51124665736447\n"
+  },
+  {
+    "label": "lsbds-rho-18",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.25,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-18.wppl 10",
+    "output": "-138.86249315747216\n-138.51425641769248\n-138.7388812018344\n-138.51843610223375\n-138.76960183561096\n-138.68223803719644\n-138.58225022010066\n-138.65093195081388\n-138.77239957840794\n-138.36418580568196\n"
+  },
+  {
+    "label": "lsbds-rho-19",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.25,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-19.wppl 10",
+    "output": "-140.21074030380612\n-140.2117449908317\n-140.27770934210227\n-140.30845834918287\n-140.17629060409365\n-140.16381002910106\n-140.2667620450227\n-140.07595041908237\n-140.1133089007955\n-139.9815300255869\n"
+  },
+  {
+    "label": "lsbds-rho-20",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.25,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.25\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-20.wppl 10",
+    "output": "-144.18767245192237\n-144.20978076221544\n-144.38129604119575\n-144.37499900806813\n-143.9186525011003\n-144.37215472733908\n-144.30543792479125\n-144.1572945711585\n-144.18359516456377\n-144.30457614084557\n"
+  },
+  {
+    "label": "lsbds-rho-21",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.3,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-21.wppl 10",
+    "output": "-138.21534269902358\n-138.35440904037625\n-138.37081670606779\n-138.34872801855627\n-138.38808356197683\n-138.48632887807184\n-138.40015816561356\n-138.4429212014994\n-138.3010300764739\n-138.47387786926484\n"
+  },
+  {
+    "label": "lsbds-rho-22",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.3,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-22.wppl 10",
+    "output": "-138.07462964485697\n-138.21073951403625\n-137.94492354881785\n-138.22871377350745\n-138.0975435667291\n-137.82544326943486\n-137.66370599715734\n-138.05867520996665\n-137.89161933557438\n-138.0302979784342\n"
+  },
+  {
+    "label": "lsbds-rho-23",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.3,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-23.wppl 10",
+    "output": "-138.55238078657376\n-138.24937371273828\n-138.31309180984192\n-138.26131486442304\n-138.2306238826426\n-138.19602284301112\n-138.1401393145372\n-138.23665552985915\n-138.29423249921692\n-138.04170901108805\n"
+  },
+  {
+    "label": "lsbds-rho-24",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.3,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.3\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-24.wppl 10",
+    "output": "-141.89058331855202\n-141.91687704812048\n-142.12367555986546\n-142.0995199970811\n-141.8902687470063\n-142.05044501009718\n-141.93897875274857\n-142.26174120429317\n-142.07431055547133\n-141.92041029972302\n"
+  },
+  {
+    "label": "lsbds-rho-25",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.35,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-25.wppl 10",
+    "output": "-139.1589575097908\n-139.48994786772144\n-139.1965164189099\n-139.259582177523\n-139.13185476661528\n-139.51803806536725\n-139.50467322685648\n-139.5461966438817\n-139.0745659920312\n-139.63305817853248\n"
+  },
+  {
+    "label": "lsbds-rho-26",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.35,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-26.wppl 10",
+    "output": "-138.38369263951\n-138.38899180096294\n-138.4377194644456\n-138.33912706779964\n-138.24732163747208\n-138.27316763587066\n-138.39913201940095\n-138.34931804497762\n-138.47278699372183\n-138.46428890510032\n"
+  },
+  {
+    "label": "lsbds-rho-27",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.35,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-27.wppl 10",
+    "output": "-137.19198997961982\n-137.24493405795144\n-137.1511926548519\n-137.09244063785863\n-137.08270305898742\n-137.09127669000284\n-137.15441757585464\n-136.96272093658348\n-136.94342298156081\n-137.18957879215222\n"
+  },
+  {
+    "label": "lsbds-rho-28",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.35,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.35\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-28.wppl 10",
+    "output": "-140.59972077428677\n-140.4784030138648\n-140.47385850894187\n-140.28426492874195\n-140.16451676781017\n-140.58441330308312\n-140.310090345546\n-140.42378054993083\n-140.3274155124869\n-140.2822156969431\n"
+  },
+  {
+    "label": "lsbds-rho-29",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.4,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-29.wppl 10",
+    "output": "-141.42072528932093\n-141.272612779977\n-141.27764090946758\n-141.1932446819269\n-141.1775780372199\n-141.01794583595606\n-141.33159705656655\n-141.43178210892756\n-141.50412041027417\n-141.2619488192953\n"
+  },
+  {
+    "label": "lsbds-rho-30",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.4,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-30.wppl 10",
+    "output": "-139.62045014340006\n-139.4739735689254\n-139.91554117696634\n-139.7048505270033\n-139.75837390056756\n-139.81893701315033\n-139.70529159063832\n-140.0391602398993\n-139.88923827930208\n-139.3233570209637\n"
+  },
+  {
+    "label": "lsbds-rho-31",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.4,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-31.wppl 10",
+    "output": "-136.9092600066183\n-136.60547005678495\n-136.93430594356974\n-137.13399514841618\n-136.6915205840578\n-136.84461257229742\n-136.42686523157826\n-137.00732364396964\n-137.07083395669068\n-136.7881557356717\n"
+  },
+  {
+    "label": "lsbds-rho-32",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.4,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.4\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-32.wppl 10",
+    "output": "-139.1883968913504\n-138.9638251257116\n-139.41539687716624\n-139.38625840954987\n-138.8947910819469\n-139.53333886875168\n-139.12230335264073\n-138.96674735784703\n-139.05442727335236\n-138.9760647795111\n"
+  },
+  {
+    "label": "lsbds-rho-33",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.45,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-33.wppl 10",
+    "output": "-144.17543621405736\n-143.97509131832297\n-143.3471231715523\n-143.58655964986323\n-143.78435793780113\n-143.7321399014142\n-143.6782938939702\n-143.70691752906833\n-143.6138914270717\n-143.9707201175616\n"
+  },
+  {
+    "label": "lsbds-rho-34",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.45,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-34.wppl 10",
+    "output": "-141.79176505173248\n-142.10443686908127\n-141.45778622790365\n-141.44944545016244\n-142.13242649693672\n-141.78492378221767\n-141.33161083403905\n-141.79119487308873\n-141.44038976293285\n-141.35380314032292\n"
+  },
+  {
+    "label": "lsbds-rho-35",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.45,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-35.wppl 10",
+    "output": "-136.8019801165374\n-136.73072406648498\n-136.7122681852155\n-136.92195202612237\n-136.24958927943123\n-136.8446731437233\n-136.95292797930892\n-136.42500458460466\n-136.80292997990776\n-136.61535714464145\n"
+  },
+  {
+    "label": "lsbds-rho-36",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.45,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.45\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-36.wppl 10",
+    "output": "-138.13663175382126\n-138.16333665832684\n-138.284722482762\n-138.33266409906443\n-138.54082348731552\n-138.32128523554422\n-138.1071314235014\n-138.6071543289603\n-138.43072035609063\n-138.1883882038065\n"
+  },
+  {
+    "label": "lsbds-rho-37",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.5,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-37.wppl 10",
+    "output": "-146.3358995798736\n-146.44464638660452\n-146.8791339640915\n-146.9063043003568\n-146.94838567063667\n-147.160737704767\n-146.99415540031902\n-147.32660036570041\n-146.74948203838204\n-146.87440699974945\n"
+  },
+  {
+    "label": "lsbds-rho-38",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.5,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-38.wppl 10",
+    "output": "-144.24366469442924\n-144.26822650731674\n-144.49696515049357\n-144.80022357147965\n-143.89279363987367\n-143.96586754840274\n-144.11621988464952\n-144.20361954454083\n-144.82444202324\n-144.6131435351498\n"
+  },
+  {
+    "label": "lsbds-rho-39",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.5,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-39.wppl 10",
+    "output": "-137.29876456367396\n-137.09239264200758\n-137.31261957026612\n-137.08018542140832\n-136.80507255040433\n-137.24180318019862\n-136.85411214927254\n-136.81650871159243\n-136.96198376072917\n-137.08578602044093\n"
+  },
+  {
+    "label": "lsbds-rho-40",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.5,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.5\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-40.wppl 10",
+    "output": "-137.87655968102615\n-137.76008485166767\n-137.76145217297838\n-137.41597927179464\n-138.0337242755039\n-137.58128312952246\n-138.38331023521795\n-137.6674181021695\n-138.0970663381082\n-137.52491066807895\n"
+  },
+  {
+    "label": "lsbds-rho-41",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.55,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-41.wppl 10",
+    "output": "-150.24510102414771\n-150.09985314221802\n-150.35233253441976\n-150.11357632921602\n-150.18189444655118\n-150.3291090637746\n-150.1525295043833\n-150.83122496594038\n-150.9571485440519\n-150.75993644586254\n"
+  },
+  {
+    "label": "lsbds-rho-42",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.55,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-42.wppl 10",
+    "output": "-146.93574136619353\n-146.34767963499388\n-146.76617720690126\n-147.17035305941536\n-146.7604941141405\n-146.95495377243626\n-146.9124970859591\n-146.9840987833167\n-146.9975557054159\n-147.18859247001228\n"
+  },
+  {
+    "label": "lsbds-rho-43",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.55,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-43.wppl 10",
+    "output": "-137.69595273953882\n-137.99514782727468\n-137.2576896976286\n-137.37354551129937\n-137.9038050730388\n-138.22501347190865\n-137.40877168663542\n-137.69277197755264\n-137.7824821893786\n-137.8965296550901\n"
+  },
+  {
+    "label": "lsbds-rho-44",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.55,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.55\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-44.wppl 10",
+    "output": "-137.26454879576255\n-137.26788778180142\n-137.80540187133712\n-137.66881014835718\n-137.62087833844376\n-137.259628690862\n-137.50100578876743\n-137.59937432530197\n-137.31663732483966\n-137.1823605972464\n"
+  },
+  {
+    "label": "lsbds-rho-45",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.6,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-45.wppl 10",
+    "output": "-154.42936956249358\n-154.33523430287758\n-154.36200037146915\n-154.71072386317618\n-153.79843438719575\n-155.0344710815205\n-154.17093791060122\n-154.4275181223042\n-154.4311709682951\n-154.4183366703669\n"
+  },
+  {
+    "label": "lsbds-rho-46",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.6,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-46.wppl 10",
+    "output": "-149.56608653925664\n-149.94501359938613\n-149.6979643569351\n-150.22963574804848\n-150.37372114595956\n-150.18255106696986\n-150.03064218107767\n-150.07607856693292\n-150.3251283272548\n-150.810202119433\n"
+  },
+  {
+    "label": "lsbds-rho-47",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.6,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-47.wppl 10",
+    "output": "-138.37878284065258\n-138.9753819612426\n-139.31626318897412\n-138.6377073199681\n-139.06061884810276\n-139.0620220960354\n-138.36455634993914\n-139.27124210470163\n-138.2459600761934\n-139.05300641620812\n"
+  },
+  {
+    "label": "lsbds-rho-48",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.6,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.6\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-48.wppl 10",
+    "output": "-136.78717297212617\n-136.28174647276583\n-137.0875689064964\n-137.42617256554135\n-137.11420310711657\n-137.11298392097663\n-137.58821758004433\n-137.00049350554022\n-137.30721815978066\n-137.53325157767358\n"
+  },
+  {
+    "label": "lsbds-rho-49",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.65,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-49.wppl 10",
+    "output": "-158.4760357701113\n-157.88402757233422\n-157.82850699173784\n-158.59280847660986\n-157.7590829329965\n-158.8865390800832\n-158.55533346158225\n-158.68185699038324\n-158.5676850811988\n-158.16299010317294\n"
+  },
+  {
+    "label": "lsbds-rho-50",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.65,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-50.wppl 10",
+    "output": "-153.8713547750148\n-153.76156993457028\n-153.45572494282527\n-154.13437561913625\n-154.0937223016016\n-153.72680217313197\n-153.8478483680676\n-154.1531769542995\n-154.50852942518983\n-153.82819593877667\n"
+  },
+  {
+    "label": "lsbds-rho-51",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.65,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-51.wppl 10",
+    "output": "-140.03727795992796\n-140.1048904737632\n-140.09824971384964\n-140.1483497432804\n-138.82437232863512\n-140.43362883431922\n-140.5345395024236\n-140.20658610922578\n-140.11647306164318\n-139.4830498229282\n"
+  },
+  {
+    "label": "lsbds-rho-52",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.65,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.65\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-52.wppl 10",
+    "output": "-136.9692870861661\n-137.03065351293833\n-136.7853465975572\n-136.56520759959207\n-137.28002831902722\n-136.85867271052695\n-137.49405251296093\n-137.07496082659085\n-137.14244191310937\n-137.07268818401246\n"
+  },
+  {
+    "label": "lsbds-rho-53",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.7,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-53.wppl 10",
+    "output": "-162.86512454495357\n-163.17592588315497\n-162.28559568305573\n-162.60650044781553\n-161.96299689048652\n-163.72225357539486\n-162.155886068973\n-162.31155715202956\n-162.39833631994287\n-163.28363919527325\n"
+  },
+  {
+    "label": "lsbds-rho-54",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.7,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-54.wppl 10",
+    "output": "-156.7927783121987\n-157.52913055297964\n-158.19232618921907\n-158.12660469719285\n-156.47947560360774\n-157.63662099040516\n-157.5346717897291\n-157.35956901138437\n-157.68101831723985\n-157.04516831694144\n"
+  },
+  {
+    "label": "lsbds-rho-55",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.7,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-55.wppl 10",
+    "output": "-141.42302281984578\n-141.46190452276974\n-141.98979530205915\n-141.16076549463872\n-141.18526291204773\n-141.21311472372003\n-142.12635050505762\n-141.402172690722\n-140.0731490260742\n-140.54595002285993\n"
+  },
+  {
+    "label": "lsbds-rho-56",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.7,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.7\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-56.wppl 10",
+    "output": "-137.26157660000447\n-136.145294312577\n-136.35577944243417\n-136.99825409256852\n-136.61399959512948\n-136.47822914498386\n-137.13825751290386\n-136.33139750948865\n-137.6055438076861\n-137.06616713336564\n"
+  },
+  {
+    "label": "lsbds-rho-57",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.75,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-57.wppl 10",
+    "output": "-166.94030889786075\n-167.6104154250743\n-168.13140253683653\n-166.7932945663094\n-167.23540069754006\n-167.75130713332817\n-167.13074032384642\n-168.11971719003589\n-167.78907806731365\n-167.35232888633328\n"
+  },
+  {
+    "label": "lsbds-rho-58",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.75,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-58.wppl 10",
+    "output": "-162.40132329660491\n-161.95893511287676\n-162.2472527670519\n-161.57883348133984\n-161.8475627258865\n-161.38353848903364\n-161.73585866882595\n-161.89822571774482\n-161.61718907015418\n-161.67741730013984\n"
+  },
+  {
+    "label": "lsbds-rho-59",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.75,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-59.wppl 10",
+    "output": "-143.50422854180536\n-142.77125873045998\n-143.43235796511914\n-142.36028463156697\n-143.7331402233048\n-142.59996288699318\n-142.77288796456736\n-142.45078119471435\n-143.64792236933772\n-142.97561794673882\n"
+  },
+  {
+    "label": "lsbds-rho-60",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.75,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.75\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-60.wppl 10",
+    "output": "-136.92439455897048\n-136.16013343430654\n-137.70739408343724\n-137.42826314389632\n-136.02556175109257\n-137.33630587566026\n-137.77076300069697\n-137.44635683021065\n-136.9205778719034\n-137.33719199019689\n"
+  },
+  {
+    "label": "lsbds-rho-61",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.8,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-61.wppl 10",
+    "output": "-170.83006825408035\n-171.89891485982304\n-171.41628922017964\n-173.2069643665334\n-173.17140331502398\n-171.87842014785886\n-172.77881755168622\n-171.2254521460499\n-170.55187904038192\n-170.7086229744726\n"
+  },
+  {
+    "label": "lsbds-rho-62",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.8,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-62.wppl 10",
+    "output": "-165.06503179467916\n-165.1950794746964\n-164.65805840708384\n-164.50222340242166\n-164.70351805136502\n-164.93138078065945\n-165.65082865995586\n-165.32993917746606\n-166.16803411617155\n-165.91538201734693\n"
+  },
+  {
+    "label": "lsbds-rho-63",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.8,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-63.wppl 10",
+    "output": "-144.38027081857186\n-142.92116492636092\n-144.5911524603887\n-143.36849700181799\n-144.1902928336451\n-144.34675036033346\n-143.34536136017536\n-144.82369703963985\n-143.2186108965332\n-145.0517700685208\n"
+  },
+  {
+    "label": "lsbds-rho-64",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.8,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.8\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-64.wppl 10",
+    "output": "-136.99592037063323\n-137.3231197125098\n-136.9133896503879\n-136.88835217044573\n-136.48232607093175\n-137.1646781821479\n-135.16511220870683\n-137.31469884818478\n-137.5051801861371\n-137.21960773481823\n"
+  },
+  {
+    "label": "lsbds-rho-65",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.85,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-65.wppl 10",
+    "output": "-176.71063393546711\n-176.5212979192583\n-177.33118810288474\n-179.0323524730621\n-177.7388407650481\n-175.46050112933975\n-177.40435569684826\n-178.41542765091737\n-177.32543499161923\n-176.6598487999896\n"
+  },
+  {
+    "label": "lsbds-rho-66",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.85,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-66.wppl 10",
+    "output": "-170.26948770472018\n-169.07328836950984\n-170.97162077213812\n-168.8765836362982\n-169.56904931666574\n-169.9469248905333\n-169.81438077575226\n-169.9361572832844\n-168.073750573747\n-169.04739814132236\n"
+  },
+  {
+    "label": "lsbds-rho-67",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.85,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-67.wppl 10",
+    "output": "-146.7160070590236\n-147.31859046822112\n-146.12032828899325\n-145.66892725336578\n-145.5903419313252\n-146.1343776870723\n-146.30331196336206\n-146.61351126395772\n-145.50181527046985\n-146.143914107373\n"
+  },
+  {
+    "label": "lsbds-rho-68",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.85,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.85\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-68.wppl 10",
+    "output": "-137.14237082488702\n-137.61227712671374\n-137.6469720090735\n-137.04630004485452\n-137.35349589618923\n-136.72926224655302\n-136.91430015351307\n-137.00609452517674\n-136.53104709815665\n-136.75861458741622\n"
+  },
+  {
+    "label": "lsbds-rho-69",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.9,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-69.wppl 10",
+    "output": "-181.85308595072866\n-180.5356334546164\n-181.2053569271212\n-181.96989140482745\n-181.92935420436726\n-181.70204216316625\n-182.5442591043019\n-183.26364684918835\n-181.63602405691316\n-184.2580016190133\n"
+  },
+  {
+    "label": "lsbds-rho-70",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.9,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-70.wppl 10",
+    "output": "-175.18521654940753\n-175.20881536067503\n-173.67403535943183\n-174.82351878138488\n-174.97269570170477\n-175.37111003120938\n-172.98246489405832\n-174.22426834298648\n-174.19187016207852\n-175.44072820137072\n"
+  },
+  {
+    "label": "lsbds-rho-71",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.9,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-71.wppl 10",
+    "output": "-146.78800763989057\n-148.85965887159546\n-149.65265003740964\n-146.099150629045\n-147.98877107622198\n-147.49087029182422\n-149.16505365106178\n-149.09032194945132\n-147.69057753804844\n-149.39151871136903\n"
+  },
+  {
+    "label": "lsbds-rho-72",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.9,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.9\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-72.wppl 10",
+    "output": "-136.49076758953106\n-137.25619314793985\n-136.8140318800475\n-136.68384979124764\n-137.6346481255308\n-137.91966254334295\n-137.3133115317854\n-137.1587378546244\n-136.56482917828225\n-138.08872695070386\n"
+  },
+  {
+    "label": "lsbds-rho-73",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.95,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-73.wppl 10",
+    "output": "-185.95118504995438\n-186.60885397224584\n-190.35414993006933\n-187.18613084685015\n-185.74451274999714\n-187.85582094155166\n-188.9773388070373\n-189.110942892231\n-188.84066416833315\n"
+  },
+  {
+    "label": "lsbds-rho-74",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.95,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-74.wppl 10",
+    "output": "-178.64638148364608\n-178.1122977802452\n-177.82370993951355\n-179.3233609097957\n-180.4822663298036\n-179.6692988458328\n-179.8207526582797\n-177.01185301362355\n-177.88852563821683\n-179.22399797889472\n"
+  },
+  {
+    "label": "lsbds-rho-75",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.95,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-75.wppl 10",
+    "output": "-149.45559243487904\n-151.16532918779163\n-151.32898319762742\n-151.95526342479042\n-150.3825338087299\n-151.24673737779383\n-149.9660200893281\n-149.04145136910162\n-146.61603093398205\n-150.8317838954038\n"
+  },
+  {
+    "label": "lsbds-rho-76",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 0.95,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 0.95\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-76.wppl 10",
+    "output": "-137.2752483619946\n-137.14587100024013\n-137.51324416108548\n-136.8655178957542\n-136.71477249906613\n-137.32550770053382\n-138.03904864896106\n-137.70784970176123\n-137.21007356791316\n-137.7698555695436\n"
+  },
+  {
+    "label": "lsbds-rho-77",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 1,
+      "epsilon": 0,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 1\n\tvar epsilon = 0\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-77.wppl 10",
+    "output": "-191.17867346883327\n-194.66827474259685\n-191.50995406213613\n-193.34179775356733\n-192.27665842058028\n-193.38127095593032\n-192.79902583855343\n-190.78769126458815\n"
+  },
+  {
+    "label": "lsbds-rho-78",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 1,
+      "epsilon": 0.1,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 1\n\tvar epsilon = 0.1\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-78.wppl 10",
+    "output": "-186.57600375543421\n-183.7657185689136\n-183.74037839145007\n-185.22551561766375\n-182.69885497608806\n-184.3098941233671\n-184.2681617117905\n-182.7818561288795\n-183.37052858599125\n"
+  },
+  {
+    "label": "lsbds-rho-79",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 1,
+      "epsilon": 0.5,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 1\n\tvar epsilon = 0.5\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-79.wppl 10",
+    "output": "-151.8903038820762\n-153.09942449363564\n-152.72247838457488\n-152.0992921298648\n-152.13796522874335\n-153.71486657775134\n-151.90165435713897\n-152.717106546866\n-152.58758235614192\n-152.73140338118577\n"
+  },
+  {
+    "label": "lsbds-rho-80",
+    "description": "Conditions, under which LSBDS degenerates into CRBD.",
+    "hyper_parameters": {
+      "particles": 5000,
+      "tree": "phyjs.bisse_32",
+      "MAX_LAMBDA": 5,
+      "MAX_DIV": 5
+    },
+    "parameters": {
+      "lambda_0": 1,
+      "epsilon": 0.9,
+      "eta": 1e-7,
+      "rho": 0.5,
+      "DistLambda": "function() { return lambda_0 }",
+      "DistMu": "function(lambda) { return (epsilon * lambda) }"
+    },
+    "model": "\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret",
+    "inference": {
+      "method": "SMC",
+      "likelihood": true
+    },
+    "ppl": "var particles = 5000\n\tvar tree = phyjs.bisse_32\n\tvar MAX_LAMBDA = 5\n\tvar MAX_DIV = 5\nvar model = function()\n{\n\tvar lambda_0 = 1\n\tvar epsilon = 0.9\n\tvar eta = 1e-7\n\tvar rho = 0.5\n\tvar DistLambda = function() { return lambda_0 }\n\tvar DistMu = function(lambda) { return (epsilon * lambda) }\n\t\n\tvar mu_0 = epsilon * lambda_0\n\tvar nsamples = 100\n\tvar ret = simLSBDS( tree, lambda_0, mu_0, eta, DistLambda, DistMu, rho )\n\tvar max_M = 10000\n\tvar M = M_lsbdsGoesUndetected( tree.age, lambda_0, mu_0, eta, DistLambda, DistMu, rho, max_M )\n\tfactor(Math.log(M))\n\treturn ret\n}\nvar dist = Infer({method: 'SMC', particles: particles, model: model})\ndist.normalizationConstant",
+    "command": "npm run wppl verification/crbd/lsbds-rho/lsbds-rho-80.wppl 10",
+    "output": "-138.07540849082818\n-137.60591375940825\n-138.24051944135198\n-137.81105568375892\n-136.9072777058328\n-137.66591436522307\n-138.38458208179824\n-136.7053008422241\n-136.96410734309273\n-136.78014300912608\n"
+  }
+]

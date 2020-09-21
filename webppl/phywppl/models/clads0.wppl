@@ -1,3 +1,26 @@
+/** 
+ * M Iterations to Survive
+ *  
+ * Computes M, the number of simulations needed to generate a lineage surviving
+ * to the present.
+ *
+ * @param startTime
+ * @param lambda
+ * @param mu
+ * @param rho
+ * @param max_M (integer) A guard against very deep recursions.
+ *
+ * @return M
+ */
+var M_clads0GoesUndetected = function( startTime, lambda, alpha, sigma, rho, max_M )
+{
+    if ( max_M == 0 ) return NaN
+    // We need to survive twice
+    if (!clads0GoesUndetected( startTime, lambda, alpha, sigma, rho ) &&
+	!clads0GoesUndetected( startTime, lambda, alpha, sigma, rho )) return 1
+    else return(1 + M_clads0GoesUndetected( startTime, lambda, alpha, sigma, rho, max_M - 1 ))
+}
+
 
 // Forward simulation from a starting time, returning whether the lineage goes
 // undetected (true) or is detected (false)

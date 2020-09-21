@@ -59,6 +59,22 @@ D2 = plot_vs_analytical(d1 = tdbd_grid2,
                    legengx = 0.75)
 
 
+# D2 ----------------------------------------------------------------------
+source("plots/tdbd-input.R")
+D2b = plot_vs_analytical(d1 = tdbd_grid2_rho,
+                        d2 = tdbd_grid2_analytical_rho,
+                        meanvar = "tdbd_means",
+                        mtext = "D2b",
+                        mtextcex = 1,
+                        variance_var = "tdbd_var",
+                        analytical_mean_var = "tdbd_analytical_means",
+                        xvar = "lambda_0", ylim = c(-240, -130),
+                        ylab = latex2exp::TeX("$\\log$ $\\hat{Z}$"),
+                        xlab = latex2exp::TeX("$\\lambda^o$"),
+                        main = "WebPPL TDBD vs TDBD (analytical), ρ = 0.5",
+                        legendy = -160,
+                        legengx = 0.75)
+
 
 # D2 ----------------------------------------------------------------------
 source("plots/tdbd-input.R")

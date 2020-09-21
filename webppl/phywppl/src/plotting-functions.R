@@ -67,7 +67,7 @@ clads_diagnostic_plot = function(data, means, title, colors = c("#000000B3", "#E
 #' @param datafr_mean (string) what is the column name that holds the means
 #' @param datafr_var (string) what is the column name holds the var
 #'
-plot_vs_crbd = function(main, mtext, ylab = "log Z", ylim = c(-200, -135), legengx = 0.1, legendy = -170, colors = c("#000000", "#E69F00", "#56B4E9", "#009E73"), datafr, datafr_mean, datafr_var, epsvals = unique(crbd_analytical$epsilon), novar = FALSE, xlab = "λ", xvar = "lambda", mtextcex = 0.9)
+plot_vs_crbd = function(main, mtext, ylab = "log Z", ylim = c(-200, -135), legengx = 0.1, legendy = -170, colors = c("#000000", "#E69F00", "#56B4E9", "#009E73"), datafr, datafr_mean, datafr_var, epsvals = unique(crbd_analytical$epsilon), novar = FALSE, xlab = "λ", xvar = "lambda", mtextcex = 0.9, crbd_analytical)
 {
   res = data.frame()
 

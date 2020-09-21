@@ -24,9 +24,9 @@ var tree = phyjs.bisse_32;
 //var tree = phylodata.read_phyjson("example.json")
 
 // Hyperparameters
-var MAX_DIV = 5
-var MAX_LAMBDA = 5
-var MIN_LAMBDA = 1e-5
+var MAX_DIV = 20 
+var MAX_LAMBDA = 20
+var MIN_LAMBDA = 1e-6
 var PANDA = false
 
 
@@ -49,20 +49,24 @@ var model = function()
     
     // Test settings to compare with analytical CRBD
     var lambda_0 = 0.2
-    var alpha    = 1.0
-    var sigma    = 0.0000001
+    //    var alpha    = 1.0
+    var sigma = Math.sqrt( 1/gamma( { shape: 1, scale: 1/0.2 } ) )
+    var alpha = Math.exp( gaussian( {mu: 0, sigma: sigma} ) )
+    //var sigma    = 0.0000001
+   
     var mu       = 0.1
-    var rho      = 1.0
-
+    var rho      = 0.5
+    
     
     // Simulate conditionally on the tree
     // It returns all variables of interest
     var ret = simClaDS1( tree, lambda_0, alpha, sigma, mu, rho )
-  
+    
     // Condition on detection
-    var dist = Infer ( { model: function() { clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho ) }, method: 'forward', samples: 100 } )
-    factor( - 2.0 * dist.score( false ) )
-
+    var max_M = 10000
+    var M = M_clads1GoesUndetected( tree.age, lambda_0, alpha, sigma, mu, rho, max_M)
+    factor(Math.log(M))
+    
     return ret
 }
 
@@ -70,7 +74,7 @@ var model = function()
 /**
  * Inference
  * tweak the number of particles if you want to */
-var particles = 1000
+var particles = 5000
 var dist = Infer( {method: 'SMC', particles: particles, model: model} );
 
 
