@@ -106,6 +106,7 @@ program sampler(
   /* sample */
   auto f <- sampler!.sample(m!);
   auto n <- 0;
+  tic();
   while f? {
     sample:Model[_];
     lweight:Real[_];
@@ -113,7 +114,6 @@ program sampler(
     ess:Real[_];
     npropagations:Integer[_];
     (sample, lweight, lnormalize, ess, npropagations) <- f!;
-
     if outputWriter? {
       buffer:MemoryBuffer;
       buffer.set("sample", sample);
@@ -121,6 +121,7 @@ program sampler(
       buffer.set("lnormalize", lnormalize);
       buffer.set("ess", ess);
       buffer.set("npropagations", npropagations);
+      buffer.set("time", toc());
       outputWriter!.write(buffer);
       outputWriter!.flush();
     }
@@ -129,6 +130,7 @@ program sampler(
     if !quiet {
       bar.update(Real(n)/sampler!.nsamples);
     }
+    tic();
   }
 
   /* finalize output */

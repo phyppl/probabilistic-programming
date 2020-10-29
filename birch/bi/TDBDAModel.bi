@@ -4,6 +4,7 @@ class TDBDAModel < PhyModel<PhyNode, TDBDParameter> {
   ε_min:Real;
   ε_max:Real;
   z_σ2:Real;
+  ρ:Real;
 
   fiber initial() -> Event {
     super.initial();
@@ -19,18 +20,22 @@ class TDBDAModel < PhyModel<PhyNode, TDBDParameter> {
 
     yield FactorEvent(
       - (1 - θ.ε) * (λ_end - λ_beg) / θ.z
-      - 2 * log(1 - θ.ε * exp((1 - θ.ε) * (λ_beg - λ_0) / θ.z))
-      + 2 * log(1 - θ.ε * exp((1 - θ.ε) * (λ_end - λ_0) / θ.z))
+      - 2 * log(ρ - (ρ - 1 + θ.ε) * exp((1 - θ.ε) * (λ_beg - λ_0) / θ.z))
+      + 2 * log(ρ - (ρ - 1 + θ.ε) * exp((1 - θ.ε) * (λ_end - λ_0) / θ.z))
     );
 
     if node.isSpeciation() {
       0.0 ~> Exponential(λ_end);
     }
+
+    if node.isLeaf() {
+      true ~> Bernoulli(ρ);
+    }
   }
 
   fiber finish() -> Event {
     yield FactorEvent(
-      - 2 * log((1 - θ.ε) / (1 - θ.ε * exp((1 - θ.ε) * (θ.λ - θ.λ * exp(θ.z * obs.age())) / θ.z)))
+      - 2 * log((1 - θ.ε) / (1 - (ρ - 1 + θ.ε) / ρ * exp((1 - θ.ε) * (θ.λ - θ.λ * exp(θ.z * obs.age())) / θ.z)))
     );
   }
 
@@ -41,5 +46,6 @@ class TDBDAModel < PhyModel<PhyNode, TDBDParameter> {
     ε_min <-? buffer.getReal("ε_min");
     ε_max <-? buffer.getReal("ε_max");
     z_σ2 <-? buffer.getReal("z_σ2");
+    ρ <-? buffer.getReal("ρ");
   }
 }

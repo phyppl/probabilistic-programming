@@ -14,8 +14,8 @@ class CRBDAModel < PhyModel<PhyNode, PhyParameter> {
   fiber step() -> Event {
     yield FactorEvent(
       - θ.λ * (1 - θ.ε) * (node.t_beg - node.t_end)
-      - 2 * log(θ.λ * (ρ - (ρ - 1 + θ.ε) * exp(-θ.λ * (1 - θ.ε) * node.t_beg)))
-      + 2 * log(θ.λ * (ρ - (ρ - 1 + θ.ε) * exp(-θ.λ * (1 - θ.ε) * node.t_end)))
+      - 2 * log(ρ - (ρ - 1 + θ.ε) * exp(-θ.λ * (1 - θ.ε) * node.t_beg))
+      + 2 * log(ρ - (ρ - 1 + θ.ε) * exp(-θ.λ * (1 - θ.ε) * node.t_end))
     );
 
     if node.isSpeciation() {
