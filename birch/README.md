@@ -4,6 +4,11 @@
 
 [Birch](https://birch-lang.org) is run from the command line. Complete installation instructions are available on this [web page](https://birch-lang.org/getting-started/installing/).
 
+We have used the following versions (referring to particular commits) in our experiments:
+
+Birch: 9fd55ad
+Birch.Standard: 0c4c453
+
 Once Birch is installed on a computer, our phylogenetics package can be built and installed in the standard manner for a Birch package:
 
 ```
