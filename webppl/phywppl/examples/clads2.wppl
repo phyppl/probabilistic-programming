@@ -16,9 +16,9 @@
 //var tree   = phyjs.example_2;
 var tree = phyjs.bisse_32;
 //var tree =  phyjs.read_phyjson("../../data/bisse_32.phyjson")
-//var tree = phylodata.primates_61;
-//var tree = phylodata.cetacean_87;
-//var tree = phylodata.read_phyjson("example.json")
+
+//var tree = phyjs.primates_233;
+//var tree = phyjs.primates_61;
 
 var MAX_DIV = 20
 var MAX_LAMBDA = 20
